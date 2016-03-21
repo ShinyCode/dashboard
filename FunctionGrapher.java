@@ -6,11 +6,16 @@
  * Then you can extend GraphicsProgram, ConsoleProgram, or DialogProgram as you like.
  */
 
+import acm.graphics.GCanvas;
+import acm.io.IOConsole;
 import acm.program.*;
 
-public class FunctionGrapher extends ConsoleProgram {
+public class FunctionGrapher extends Program {
 	public void run() {
-		/* You fill this in */
+		int width = getWidth();
+		int height = getHeight();
+		add(new GCanvas(), CENTER, null);
+		add(new IOConsole(), CENTER, null);
 	}
 }
 
