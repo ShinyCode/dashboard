@@ -15,7 +15,8 @@ public class FunctionGrapher extends Program {
 		int width = getWidth();
 		int height = getHeight();
 		add(new GCanvas(), CENTER, null);
-		add(new IOConsole(), CENTER, null);
+		createConsole();
+		
 	}
 }
 
