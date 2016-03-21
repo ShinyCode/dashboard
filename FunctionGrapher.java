@@ -8,7 +8,7 @@
 
 import acm.program.*;
 
-public class BlankClass extends ConsoleProgram {
+public class FunctionGrapher extends ConsoleProgram {
 	public void run() {
 		/* You fill this in */
 	}
