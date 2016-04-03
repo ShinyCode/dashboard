@@ -19,8 +19,8 @@ public class Dashboard extends GraphicsProgram
 	{
 		addMouseListeners();
 		rcl = new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "RCL");
-		dst = new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.GREEN, "DST");
-		src = new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.BLUE, "SRC");
+		dst = new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "DST");
+		src = new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "SRC");
 		add(rcl, BUTTON_SPACING, BUTTON_SPACING);
 		add(dst, BUTTON_SPACING, BUTTON_HEIGHT + 2 * BUTTON_SPACING);
 		add(src, BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING);
