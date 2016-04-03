@@ -49,6 +49,4 @@ public class ButtonGroup extends MouseWidget
 	private Map<String, GenericButton> buttons;
 	private Color baseColor;
 	private GRect base;
-	private GRect outline;
-	private Color lineColor;
 }
