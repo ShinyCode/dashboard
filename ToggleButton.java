@@ -30,12 +30,12 @@ public class ToggleButton extends GCompound
 		label.move(-label.getWidth() / 2, label.getAscent() / 2);
 	}
 	
-	public void mousePressed(MouseEvent e)
+	public void pressButton()
 	{
 		rect.setColor(baseColor.brighter());
 	}
 	
-	public void mouseReleased(MouseEvent e)
+	public void releaseButton()
 	{
 		rect.setColor(baseColor.darker());
 	}
