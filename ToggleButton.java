@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.event.MouseEvent;
 
 public class ToggleButton extends GenericButton
 {
@@ -7,7 +8,7 @@ public class ToggleButton extends GenericButton
 		super(width, height, baseColor, instr);
 	}
 	
-	public void toggleButton()
+	public void mousePressed(MouseEvent e)
 	{
 		if(on)
 		{
