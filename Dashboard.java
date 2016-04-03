@@ -22,10 +22,6 @@ public class Dashboard extends GraphicsProgram
 		dst = new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "DST");
 		src = new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "SRC");
 		pwr = new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.BLUE, "PWR");
-		add(rcl, BUTTON_SPACING, BUTTON_SPACING);
-		add(dst, BUTTON_SPACING, BUTTON_HEIGHT + 2 * BUTTON_SPACING);
-		add(src, BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING);
-		add(pwr, BUTTON_SPACING, 3 * BUTTON_HEIGHT + 4 * BUTTON_SPACING);
 		bg = new ButtonGroup(BUTTON_WIDTH + 2 * BUTTON_SPACING, 3 * BUTTON_HEIGHT + 4 * BUTTON_SPACING, Color.BLACK);
 		bg.add(new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.GREEN, "INC"), BUTTON_SPACING, BUTTON_SPACING);
 		bg.add(new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "DEC"), BUTTON_SPACING, 2 * BUTTON_SPACING + BUTTON_HEIGHT);
@@ -33,6 +29,12 @@ public class Dashboard extends GraphicsProgram
 		add(bg, 0, 4 * BUTTON_HEIGHT + 4 * BUTTON_SPACING);
 		inc = new Incrementer(2 * BUTTON_SPACING + BUTTON_WIDTH, 3 * BUTTON_SPACING + 2 * BUTTON_HEIGHT, BUTTON_SPACING, Color.BLACK);
 		add(inc, 200, 0);
+		bgr = new ButtonGrid(2 * BUTTON_WIDTH + 3 * BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING, 2, 2, BUTTON_SPACING, Color.BLACK);
+		bgr.addButton(rcl, 0, 0);
+		bgr.addButton(dst, 1, 0);
+		bgr.addButton(src, 2, 0);
+		bgr.addButton(pwr, 3, 0);
+		add(bgr, 0, 0);
 	}
 	
 	public void mousePressed(MouseEvent e)
@@ -55,6 +57,7 @@ public class Dashboard extends GraphicsProgram
 	private ToggleButton pwr;
 	private ButtonGroup bg;
 	private Incrementer inc;
+	private ButtonGrid bgr;
 	private static final int BUTTON_HEIGHT = 50;
 	private static final int BUTTON_WIDTH = 50;
 	private static final int BUTTON_SPACING = 10;
