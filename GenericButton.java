@@ -4,7 +4,7 @@ import acm.graphics.*;
 import java.awt.Color;
 import java.awt.event.*;
 
-public class GenericButton extends GCompound
+public abstract class GenericButton extends GCompound
 {
 	public GenericButton(double width, double height, Color baseColor, String instr)
 	{
