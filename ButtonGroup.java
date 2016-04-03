@@ -13,7 +13,7 @@ public class ButtonGroup extends GCompound
 		add(new ToggleButton(100, 50, Color.ORANGE, "SEND"), 10, 70);
 	}
 	
-	public void mousePressed(MouseEvent e)
+	public void mousePresseda(MouseEvent e)
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
 		if(o instanceof TouchButton)
