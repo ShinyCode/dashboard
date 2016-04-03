@@ -13,7 +13,6 @@ public class Incrementer extends ButtonGrid
 		addButton(incButton, 0, 0);
 		decButton = new TouchButton(width, height, baseColor, "DEC");
 		addButton(decButton, 1, 0);
-		System.out.println("Added stuff");
 	}
 	
 	public void mousePressed(MouseEvent e)
