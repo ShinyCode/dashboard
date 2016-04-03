@@ -24,7 +24,7 @@ public class ButtonGrid extends MouseWidget
 	
 	public boolean addButton(GenericButton gb, int row, int col)
 	{
-		
+		return addButton(gb, row, col, 1, 1);
 	}
 	
 	public boolean addButton(GenericButton gb, int row, int col, int rowSpan, int colSpan)
