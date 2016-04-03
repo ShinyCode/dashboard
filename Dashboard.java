@@ -33,32 +33,14 @@ public class Dashboard extends GraphicsProgram
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
 		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
-		if(o instanceof TouchButton)
-		{
-			((TouchButton) o).pressButton();
-		}
-		else if(o instanceof ToggleButton)
-		{
-			((ToggleButton) o).toggleButton();
-		}
-		else if(o instanceof ButtonGroup)
-		{
-			((ButtonGroup) o).mousePressed(e);
-		}
+		if(o instanceof MouseWidget) ((MouseWidget) o).mousePressed(e);
 	}
 	
 	public void mouseReleased(MouseEvent e)
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
 		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
-		if(o instanceof TouchButton)
-		{
-			((TouchButton) o).releaseButton();
-		}
-		else if(o instanceof ButtonGroup)
-		{
-			((ButtonGroup) o).mouseReleased(e);
-		}
+		if(o instanceof MouseWidget) ((MouseWidget) o).mouseReleased(e);
 	}
 	
 	private TouchButton rcl;
