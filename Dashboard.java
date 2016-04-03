@@ -42,7 +42,7 @@ public class Dashboard extends GraphicsProgram
 		}
 		else if(o instanceof ButtonGroup)
 		{
-			((ButtonGroup) o).mousePressed(e.getX() - o.getX(), e.getY() - o.getY());
+			((ButtonGroup) o).mousePressed(e);
 		}
 	}
 	
@@ -55,7 +55,7 @@ public class Dashboard extends GraphicsProgram
 		}
 		else if(o instanceof ButtonGroup)
 		{
-			((ButtonGroup) o).mouseReleased(e.getX() - o.getX(), e.getY() - o.getY());
+			((ButtonGroup) o).mouseReleased(e);
 		}
 	}
 	
