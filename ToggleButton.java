@@ -20,7 +20,7 @@ public class ToggleButton extends GCompound
 	public void setBaseColor(Color baseColor)
 	{
 		this.baseColor = baseColor;
-		rect.setColor(baseColor);
+		rect.setColor(baseColor.darker());
 	}
 	
 	public void setInstr(String instr)
@@ -32,12 +32,12 @@ public class ToggleButton extends GCompound
 	
 	public void pressButton()
 	{
-		rect.setColor(baseColor.darker());
+		rect.setColor(baseColor.brighter());
 	}
 	
 	public void releaseButton()
 	{
-		rect.setColor(baseColor);
+		rect.setColor(baseColor.darker());
 	}
 	
 	private GRect rect;
