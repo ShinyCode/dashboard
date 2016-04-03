@@ -40,6 +40,12 @@ public abstract class GenericButton extends MouseWidget
 		return label.getLabel();
 	}
 	
+	public void resize(double width, double height)
+	{
+		rect.setSize(width, height);
+		setInstr(label.getLabel());
+	}
+	
 	protected GRect rect;
 	protected GLabel label;
 	protected Color baseColor;
