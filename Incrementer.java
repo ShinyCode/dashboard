@@ -1,10 +1,35 @@
 import java.awt.Color;
+import java.awt.event.MouseEvent;
+
+import acm.graphics.GObject;
 
 
-public class Incrementer extends ButtonGroup
+public class Incrementer extends ButtonGrid
 {
-	public Incrementer(double width, double height, double buttonWidth, double buttonHeight, Color baseColor)
+	public Incrementer(double width, double height, double spacing, Color baseColor)
 	{
-		super(width, height, baseColor);
+		super(width, height, 2, 1, spacing, baseColor);
+		incButton = new TouchButton(width, height, baseColor, "INC");
+		addButton(incButton, 0, 0);
+		decButton = new TouchButton(width, height, baseColor, "DEC");
+		addButton(decButton, 1, 0);
 	}
+	
+	public void mousePressed(MouseEvent e)
+	{
+		GObject o = getElementAt(e.getX(), e.getY());
+		if(o instanceof MouseWidget) ((MouseWidget) o).mousePressed(e);
+		if(o == incButton)
+		{
+			if(inc != null) inc.increment();
+		}
+		else if(o == decButton)
+		{
+			if(inc != null) inc.decrement();
+		}
+	}
+	
+	private Incrementable inc;
+	private TouchButton incButton;
+	private TouchButton decButton;
 }
