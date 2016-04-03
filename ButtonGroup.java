@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import java.awt.event.MouseEvent;
 import java.util.List;
 
 import acm.graphics.*;
@@ -12,9 +13,9 @@ public class ButtonGroup extends GCompound
 		add(new ToggleButton(100, 50, Color.ORANGE, "SEND"), 10, 70);
 	}
 	
-	public void mousePressed(double x, double y)
+	public void mousePressed(MouseEvent e)
 	{
-		GObject o = getElementAt(x, y);
+		GObject o = getElementAt(e.getX(), e.getY());
 		if(o instanceof TouchButton)
 		{
 			((TouchButton) o).pressButton();
@@ -25,9 +26,9 @@ public class ButtonGroup extends GCompound
 		}
 	}
 	
-	public void mouseReleased(double x, double y)
+	public void mouseReleased(MouseEvent e)
 	{
-		GObject o = getElementAt(x, y);
+		GObject o = getElementAt(e.getX(), e.getY());
 		if(o instanceof TouchButton)
 		{
 			((TouchButton) o).releaseButton();
