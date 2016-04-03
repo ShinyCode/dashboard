@@ -10,7 +10,7 @@ public class ButtonGroup extends MouseWidget
 	public ButtonGroup(double width, double height)
 	{
 		add(new TouchButton(100, 50, Color.RED, "RCL"), 10, 10);
-		add(new ToggleButton(100, 50, Color.ORANGE, "SEND"), 10, 70);
+		add(new ToggleButton(100, 50, Color.PINK, "SEND"), 10, 70);
 	}
 	
 	public void mousePressed(MouseEvent e)
