@@ -23,14 +23,6 @@ public class Dashboard extends GraphicsProgram
 		add(rcl, BUTTON_SPACING, BUTTON_SPACING);
 		add(dst, BUTTON_SPACING, BUTTON_HEIGHT + 2 * BUTTON_SPACING);
 		add(src, BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING);
-		while(true)
-		{
-			rcl.pressButton();
-			pause(500);
-			rcl.releaseButton();
-			pause(500);
-		}
-		
 	}
 	
 	public void mousePressed(MouseEvent e)
