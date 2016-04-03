@@ -21,9 +21,11 @@ public class Dashboard extends GraphicsProgram
 		rcl = new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "RCL");
 		dst = new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "DST");
 		src = new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "SRC");
+		pwr = new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.BLUE, "PWR");
 		add(rcl, BUTTON_SPACING, BUTTON_SPACING);
 		add(dst, BUTTON_SPACING, BUTTON_HEIGHT + 2 * BUTTON_SPACING);
 		add(src, BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING);
+		add(pwr, BUTTON_SPACING, 3 * BUTTON_HEIGHT + 4 * BUTTON_SPACING);
 	}
 	
 	public void mousePressed(MouseEvent e)
@@ -47,6 +49,7 @@ public class Dashboard extends GraphicsProgram
 	private TouchButton rcl;
 	private TouchButton dst;
 	private TouchButton src;
+	private ToggleButton pwr;
 	private static final int BUTTON_HEIGHT = 50;
 	private static final int BUTTON_WIDTH = 100;
 	private static final int BUTTON_SPACING = 10;
