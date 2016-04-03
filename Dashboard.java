@@ -17,12 +17,11 @@ public class Dashboard extends GraphicsProgram
 	public void run()
 	{
 		rcl = new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "RCL");
-		dst = new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "RCL");
-		src = new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "RCL");
+		dst = new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.GREEN, "RCL");
+		src = new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.BLUE, "RCL");
 		add(rcl, BUTTON_SPACING, BUTTON_SPACING);
 		add(dst, BUTTON_SPACING, BUTTON_HEIGHT + 2 * BUTTON_SPACING);
 		add(src, BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING);
-		
 	}
 	
 	private ToggleButton rcl;
