@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.event.MouseEvent;
 
 public class TouchButton extends GenericButton
 {
@@ -7,12 +8,12 @@ public class TouchButton extends GenericButton
 		super(width, height, baseColor, instr);
 	}
 	
-	public void pressButton()
+	public void mousePressed(MouseEvent e)
 	{
 		rect.setColor(baseColor.brighter());
 	}
 	
-	public void releaseButton()
+	public void mouseReleased(MouseEvent e)
 	{
 		rect.setColor(baseColor.darker());
 	}
