@@ -10,11 +10,14 @@ import acm.graphics.GRect;
 
 public class ButtonGrid extends MouseWidget
 {
-	public ButtonGrid(double width, double height, int numRows, int numCols, Color baseColor)
+	public ButtonGrid(double width, double height, int numRows, int numCols, double spacing, Color baseColor)
 	{
 		buttons = new ArrayList<GenericButton>(numRows * numCols);
 		this.numRows = numRows;
 		this.numCols = numCols;
+		this.spacing = spacing;
+		buttonWidth = (width - (numCols + 1) * spacing) / numCols;
+		buttonHeight = (height - (numRows + 1) * spacing) / numRows;
 		this.baseColor = baseColor;
 		base = new GRect(width, height);
 		base.setFilled(true);
@@ -31,7 +34,9 @@ public class ButtonGrid extends MouseWidget
 	{
 		if(row < 0 || col < 0 || row >= numRows || col >= numCols) return false; //Invalid row, col dimension
 		if(rowSpan <= 0 || colSpan <= 0 || rowSpan > numRows - row || colSpan > numCols - col) return false; //Invalid row/column Span
-		
+		gb.resize(colSpan * buttonWidth + (colSpan - 1) * spacing, rowSpan * buttonHeight + (rowSpan - 1) * spacing);
+		add(gb, col * buttonWidth + (col + 1) * spacing, row * buttonHeight + (row + 1) * spacing);
+		return true;
 	}
 	
 	public GenericButton getButton(int row, int col)
@@ -62,4 +67,7 @@ public class ButtonGrid extends MouseWidget
 	private Color baseColor;
 	private int numRows;
 	private int numCols;
+	private double buttonWidth;
+	private double buttonHeight;
+	private double spacing;
 }
