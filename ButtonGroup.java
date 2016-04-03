@@ -1,7 +1,10 @@
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import acm.graphics.*;
 
@@ -9,8 +12,21 @@ public class ButtonGroup extends MouseWidget
 {
 	public ButtonGroup(double width, double height)
 	{
-		add(new TouchButton(100, 50, Color.RED, "RCL"), 10, 10);
-		add(new ToggleButton(100, 50, Color.GREEN, "X20"), 10, 70);
+		buttons = new HashMap<String, GenericButton>();
+	}
+	
+	public boolean addButton(GenericButton gb, double x, double y)
+	{
+		if(buttons.containsKey(gb.getInstr())) return false;
+		buttons.put(gb.getInstr(), gb);
+		add(gb, x, y);
+		return true;
+	}
+	
+	public GenericButton getButton(String instr)
+	{
+		if(!buttons.containsKey(instr.toUpperCase())) return null;
+		return buttons.get(instr);
 	}
 	
 	public void mousePressed(MouseEvent e)
@@ -25,5 +41,5 @@ public class ButtonGroup extends MouseWidget
 		if(o instanceof MouseWidget) ((MouseWidget) o).mouseReleased(e);
 	}
 	
-	private List<GenericButton> buttons;
+	private Map<String, GenericButton> buttons;
 }
