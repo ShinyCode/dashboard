@@ -16,23 +16,13 @@ public class ButtonGroup extends GCompound
 	public void mousePressed(MouseEvent e)
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
-		if(o instanceof TouchButton)
-		{
-			((TouchButton) o).pressButton();
-		}
-		else if(o instanceof ToggleButton)
-		{
-			((ToggleButton) o).toggleButton();
-		}
+		if(o instanceof MouseWidget) ((MouseWidget) o).mousePressed(e);
 	}
 	
 	public void mouseReleased(MouseEvent e)
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
-		if(o instanceof TouchButton)
-		{
-			((TouchButton) o).releaseButton();
-		}
+		if(o instanceof MouseWidget) ((MouseWidget) o).mouseReleased(e);
 	}
 	
 	private List<GenericButton> buttons;
