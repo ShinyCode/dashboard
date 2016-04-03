@@ -35,6 +35,10 @@ public class Dashboard extends GraphicsProgram
 		{
 			((TouchButton) o).pressButton();
 		}
+		else if(o instanceof ToggleButton)
+		{
+			((ToggleButton) o).toggleButton();
+		}
 	}
 	
 	public void mouseReleased(MouseEvent e)
