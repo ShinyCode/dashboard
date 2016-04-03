@@ -10,12 +10,9 @@ import acm.graphics.GCanvas;
 import acm.io.IOConsole;
 import acm.program.*;
 
-public class Dashboard extends Program {
+public class Dashboard extends GraphicsProgram {
 	public void run() {
-		int width = getWidth();
-		int height = getHeight();
-		add(new GCanvas(), CENTER, null);
-		createConsole();
+		
 		
 	}
 }
