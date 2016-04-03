@@ -32,8 +32,8 @@ public class Dashboard extends GraphicsProgram
 		bgr = new ButtonGrid(2 * BUTTON_WIDTH + 3 * BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING, 2, 2, BUTTON_SPACING, Color.BLACK);
 		bgr.addButton(rcl, 0, 0);
 		bgr.addButton(dst, 1, 0);
-		bgr.addButton(src, 2, 0);
-		bgr.addButton(pwr, 3, 0);
+		bgr.addButton(src, 0, 1);
+		bgr.addButton(pwr, 1, 1);
 		add(bgr, 0, 0);
 	}
 	
