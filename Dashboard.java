@@ -32,6 +32,7 @@ public class Dashboard extends GraphicsProgram
 	public void mousePressed(MouseEvent e)
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
+		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
 		if(o instanceof TouchButton)
 		{
 			((TouchButton) o).pressButton();
@@ -42,7 +43,6 @@ public class Dashboard extends GraphicsProgram
 		}
 		else if(o instanceof ButtonGroup)
 		{
-			e.translatePoint(-(int)o.getX(), -(int)o.getY());
 			((ButtonGroup) o).mousePressed(e);
 		}
 	}
@@ -50,6 +50,7 @@ public class Dashboard extends GraphicsProgram
 	public void mouseReleased(MouseEvent e)
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
+		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
 		if(o instanceof TouchButton)
 		{
 			((TouchButton) o).releaseButton();
