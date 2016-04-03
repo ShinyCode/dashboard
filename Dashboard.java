@@ -18,9 +18,9 @@ public class Dashboard extends GraphicsProgram
 	public void run()
 	{
 		addMouseListeners();
-		rcl = new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "RCL");
-		dst = new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "DST");
-		src = new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "SRC");
+		rcl = new GenericButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "RCL");
+		dst = new GenericButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "DST");
+		src = new GenericButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "SRC");
 		add(rcl, BUTTON_SPACING, BUTTON_SPACING);
 		add(dst, BUTTON_SPACING, BUTTON_HEIGHT + 2 * BUTTON_SPACING);
 		add(src, BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING);
@@ -29,24 +29,24 @@ public class Dashboard extends GraphicsProgram
 	public void mousePressed(MouseEvent e)
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
-		if(o instanceof TouchButton)
+		if(o instanceof GenericButton)
 		{
-			((TouchButton) o).pressButton();
+			((GenericButton) o).pressButton();
 		}
 	}
 	
 	public void mouseReleased(MouseEvent e)
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
-		if(o instanceof TouchButton)
+		if(o instanceof GenericButton)
 		{
-			((TouchButton) o).releaseButton();
+			((GenericButton) o).releaseButton();
 		}
 	}
 	
-	private TouchButton rcl;
-	private TouchButton dst;
-	private TouchButton src;
+	private GenericButton rcl;
+	private GenericButton dst;
+	private GenericButton src;
 	private static final int BUTTON_HEIGHT = 50;
 	private static final int BUTTON_WIDTH = 100;
 	private static final int BUTTON_SPACING = 10;
