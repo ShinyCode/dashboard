@@ -26,6 +26,7 @@ public class Dashboard extends GraphicsProgram
 		add(dst, BUTTON_SPACING, BUTTON_HEIGHT + 2 * BUTTON_SPACING);
 		add(src, BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING);
 		add(pwr, BUTTON_SPACING, 3 * BUTTON_HEIGHT + 4 * BUTTON_SPACING);
+		add(new ButtonGroup(0, 0), 0, 4 * BUTTON_HEIGHT + 5 * BUTTON_SPACING);
 	}
 	
 	public void mousePressed(MouseEvent e)
