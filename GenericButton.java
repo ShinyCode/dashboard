@@ -32,5 +32,5 @@ public abstract class GenericButton extends GCompound
 	
 	protected GRect rect;
 	protected GLabel label;
-	protcted Color baseColor;
+	protected Color baseColor;
 }
