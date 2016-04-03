@@ -5,7 +5,7 @@ import java.util.List;
 
 import acm.graphics.*;
 
-public class ButtonGroup extends GCompound
+public class ButtonGroup extends MouseWidget
 {
 	public ButtonGroup(double width, double height)
 	{
