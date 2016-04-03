@@ -57,7 +57,6 @@ public class Dashboard extends GraphicsProgram
 		}
 		else if(o instanceof ButtonGroup)
 		{
-			e.translatePoint(-(int)o.getX(), -(int)o.getY());
 			((ButtonGroup) o).mouseReleased(e);
 		}
 	}
