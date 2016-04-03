@@ -4,7 +4,7 @@ import acm.graphics.*;
 import java.awt.Color;
 import java.awt.event.*;
 
-public abstract class GenericButton extends GCompound
+public abstract class GenericButton extends MouseWidget
 {
 	public GenericButton(double width, double height, Color baseColor, String instr)
 	{
