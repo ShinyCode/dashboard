@@ -37,7 +37,7 @@ public class ToggleButton extends GCompound
 	
 	public void releaseButton()
 	{
-		rect.setColor(baseColor.darker());
+		rect.setColor(baseColor);
 	}
 	
 	private GRect rect;
