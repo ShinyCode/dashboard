@@ -4,9 +4,9 @@ import acm.graphics.*;
 import java.awt.Color;
 import java.awt.event.*;
 
-public class ToggleButton extends GCompound
+public class TouchButton extends GCompound
 {
-	public ToggleButton(double width, double height, Color baseColor, String instr)
+	public TouchButton(double width, double height, Color baseColor, String instr)
 	{
 		rect = new GRect(0, 0, width, height);
 		rect.setFilled(true);
