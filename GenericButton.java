@@ -30,6 +30,16 @@ public abstract class GenericButton extends MouseWidget
 		label.move(-label.getWidth() / 2, label.getAscent() / 2);
 	}
 	
+	public Color getBaseColor()
+	{
+		return baseColor;
+	}
+	
+	public String getInstr()
+	{
+		return label.getLabel();
+	}
+	
 	protected GRect rect;
 	protected GLabel label;
 	protected Color baseColor;
