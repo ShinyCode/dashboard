@@ -1,4 +1,7 @@
 
-public class TouchButton {
+
+
+public class TouchButton extends GenericButton
+{
 
 }
