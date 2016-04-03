@@ -30,17 +30,7 @@ public abstract class GenericButton extends GCompound
 		label.move(-label.getWidth() / 2, label.getAscent() / 2);
 	}
 	
-	public void pressButton()
-	{
-		rect.setColor(baseColor.brighter());
-	}
-	
-	public void releaseButton()
-	{
-		rect.setColor(baseColor.darker());
-	}
-	
-	private GRect rect;
-	private GLabel label;
-	private Color baseColor;
+	protected GRect rect;
+	protected GLabel label;
+	protcted Color baseColor;
 }
