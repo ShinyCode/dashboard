@@ -34,6 +34,20 @@ public class ButtonGroup extends MouseWidget
 		return buttons.get(instr);
 	}
 	
+	public void enableOutline(double width, Color lineColor)
+	{
+		if(outline != null) remove(outline);
+		outline = base;
+		outline.setFillColor(lineColor);
+		this.lineColor = lineColor;
+		base = new GRect(getWidth() - 2 * width, getHeight() - 2 * width);
+		base.setFilled(true);
+		base.setFillColor(baseColor);
+		add(base, width, width);
+		base.sendToBack();
+		outline.sendToBack();
+	}
+	
 	public void mousePressed(MouseEvent e)
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
@@ -49,4 +63,6 @@ public class ButtonGroup extends MouseWidget
 	private Map<String, GenericButton> buttons;
 	private Color baseColor;
 	private GRect base;
+	private GRect outline;
+	private Color lineColor;
 }
