@@ -10,9 +10,14 @@ import acm.graphics.*;
 
 public class ButtonGroup extends MouseWidget
 {
-	public ButtonGroup(double width, double height)
+	public ButtonGroup(double width, double height, Color baseColor)
 	{
 		buttons = new HashMap<String, GenericButton>();
+		this.baseColor = baseColor;
+		base = new GRect(width, height);
+		base.setFilled(true);
+		base.setFillColor(baseColor);
+		add(base);
 	}
 	
 	public boolean addButton(GenericButton gb, double x, double y)
@@ -42,4 +47,6 @@ public class ButtonGroup extends MouseWidget
 	}
 	
 	private Map<String, GenericButton> buttons;
+	private Color baseColor;
+	private GRect base;
 }
