@@ -8,7 +8,7 @@ public class ButtonGroup extends GCompound
 {
 	public ButtonGroup(double width, double height)
 	{
-		
+		add(new TouchButton(100, 50, Color.RED, "RCL"), 10, 10);
 	}
 	
 	public void mousePressed(double x, double y)
