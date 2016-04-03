@@ -17,6 +17,7 @@ public class Dashboard extends GraphicsProgram
 {
 	public void run()
 	{
+		addMouseListeners();
 		rcl = new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "RCL");
 		dst = new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.GREEN, "DST");
 		src = new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.BLUE, "SRC");
