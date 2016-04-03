@@ -32,7 +32,7 @@ public class ToggleButton extends GCompound
 	
 	public void pressButton()
 	{
-		rect.setColor(baseColor.brighter());
+		rect.setColor(baseColor.darker());
 	}
 	
 	public void releaseButton()
