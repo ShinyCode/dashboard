@@ -30,7 +30,8 @@ public class Dashboard extends GraphicsProgram
 		bg.add(new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.GREEN, "INC"), BUTTON_SPACING, BUTTON_SPACING);
 		bg.add(new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "DEC"), BUTTON_SPACING, 2 * BUTTON_SPACING + BUTTON_HEIGHT);
 		bg.add(new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.ORANGE, "SEL"), BUTTON_SPACING, 3 * BUTTON_SPACING + 2 * BUTTON_HEIGHT);
-		add(bg, 0, 4 * BUTTON_HEIGHT + 4 * BUTTON_SPACING);
+		//add(bg, 0, 4 * BUTTON_HEIGHT + 4 * BUTTON_SPACING);
+		add(bg, 0, 0);
 		bg.enableOutline(5, Color.CYAN);
 	}
 	
