@@ -9,9 +9,9 @@ public class Incrementer extends ButtonGrid
 	public Incrementer(double width, double height, double spacing, Color baseColor)
 	{
 		super(width, height, 2, 1, spacing, baseColor);
-		incButton = new TouchButton(width, height, baseColor, "INC");
+		incButton = new TouchButton(width, height, Color.GREEN, "INC");
 		addButton(incButton, 0, 0);
-		decButton = new TouchButton(width, height, baseColor, "DEC");
+		decButton = new TouchButton(width, height, Color.RED, "DEC");
 		addButton(decButton, 1, 0);
 	}
 	
