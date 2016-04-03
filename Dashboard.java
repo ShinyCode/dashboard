@@ -40,6 +40,10 @@ public class Dashboard extends GraphicsProgram
 		{
 			((ToggleButton) o).toggleButton();
 		}
+		else if(o instanceof ButtonGroup)
+		{
+			((ButtonGroup) o).mousePressed(e.getX() - o.getX(), e.getY() - o.getY());
+		}
 	}
 	
 	public void mouseReleased(MouseEvent e)
@@ -48,6 +52,10 @@ public class Dashboard extends GraphicsProgram
 		if(o instanceof TouchButton)
 		{
 			((TouchButton) o).releaseButton();
+		}
+		else if(o instanceof ButtonGroup)
+		{
+			((ButtonGroup) o).mouseReleased(e.getX() - o.getX(), e.getY() - o.getY());
 		}
 	}
 	
