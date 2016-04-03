@@ -13,11 +13,36 @@ public class ButtonGrid extends MouseWidget
 	public ButtonGrid(double width, double height, int numRows, int numCols, Color baseColor)
 	{
 		buttons = new ArrayList<GenericButton>(numRows * numCols);
+		this.numRows = numRows;
+		this.numCols = numCols;
 		this.baseColor = baseColor;
 		base = new GRect(width, height);
 		base.setFilled(true);
 		base.setFillColor(baseColor);
 		add(base);
+	}
+	
+	public boolean addButton(GenericButton gb, int row, int col)
+	{
+		
+	}
+	
+	public boolean addButton(GenericButton gb, int row, int col, int rowSpan, int colSpan)
+	{
+		if(row < 0 || col < 0 || row >= numRows || col >= numCols) return false; //Invalid row, col dimension
+		if(rowSpan <= 0 || colSpan <= 0 || rowSpan > numRows - row || colSpan > numCols - col) return false; //Invalid row/column Span
+		
+	}
+	
+	public GenericButton getButton(int row, int col)
+	{
+		if(row < 0 || col < 0 || row >= numRows || col >= numCols) return null;
+		return buttons.get(getIndex(row, col));
+	}
+	
+	private int getIndex(int row, int col)
+	{
+		return row * numRows + col;
 	}
 	
 	public void mousePressed(MouseEvent e)
@@ -35,4 +60,6 @@ public class ButtonGrid extends MouseWidget
 	private List<GenericButton> buttons;
 	private GRect base;
 	private Color baseColor;
+	private int numRows;
+	private int numCols;
 }
