@@ -24,7 +24,13 @@ public class LevelReadout extends GCompound implements Incrementable
 		
 	}
 	
+	public void setDiscrete(boolean flag)
+	{
+		isDiscrete = flag;
+	}
+	
 	int level;
 	int maxLevel;
 	int interval;
+	boolean isDiscrete = false;
 }
