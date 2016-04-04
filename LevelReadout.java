@@ -23,7 +23,8 @@ public class LevelReadout extends GCompound implements Incrementable
 		bar = new GRect(back.getWidth(), 0);
 		bar.setFilled(true);
 		bar.setFillColor(barColor);
-		add(bar, spacing, height - spacing);
+		bar.setColor(barColor)
+;		add(bar, spacing, height - spacing);
 		
 		setLevel(0);
 	}
