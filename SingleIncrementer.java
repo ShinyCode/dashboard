@@ -29,6 +29,13 @@ public class SingleIncrementer extends ButtonGrid
 		{
 			if(inc != null) inc.decrement();
 		}
+		else if(o == discButton)
+		{
+			if(inc != null)
+			{
+				
+			}
+		}
 	}
 	
 	public void setIncrementable(Incrementable inc)
