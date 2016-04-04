@@ -94,7 +94,7 @@ public class InstructionReadout extends GCompound implements Incrementable
 		GLabel testLabel = new GLabel("W");
 		testLabel.setFont("Consolas-*-*");
 		charWidth = testLabel.getWidth();
-		testLabel.setLabel("Wp");
+		testLabel.setLabel("W");
 		charHeight = testLabel.getHeight();
 	}
 	
