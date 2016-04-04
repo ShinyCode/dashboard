@@ -47,7 +47,7 @@ public class Dashboard extends GraphicsProgram
 		aap = new AuxArrowPad(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING, BUTTON_SPACING, Color.BLACK, Color.MAGENTA);
 		add(aap, 300, 250);
 		map = new MainArrowPad(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, BUTTON_SPACING, Color.BLACK, Color.MAGENTA);
-		add(map, 400, 400);
+		add(map, 400, 100);
 		map.addAuxArrowPad(aap);
 	}
 	
