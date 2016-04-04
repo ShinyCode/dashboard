@@ -33,6 +33,8 @@ public class InstructionReadout extends GCompound implements Incrementable
 		add(bar, spacing, spacing);
 		
 		initDisplay();
+		
+		refresh();
 	}
 	
 	public void increment()
@@ -49,7 +51,8 @@ public class InstructionReadout extends GCompound implements Incrementable
 	
 	public void setFrozen(boolean flag)
 	{
-		
+		frozen = flag;
+		if(!frozen) refresh();
 	}
 	
 	public void clear()
