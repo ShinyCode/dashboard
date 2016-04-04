@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 import acm.graphics.GObject;
 
@@ -27,6 +29,7 @@ public class MainArrowPad extends ButtonGrid
 		addButton(mimButton, 2, 1);
 		rudrButton = new TouchButton(width, height, buttonColor, "RUDR");
 		addButton(rudrButton, 2, 2);
+		auxArrowPads = new ArrayList<AuxArrowPad>();
 	}
 	
 	public void mousePressed(MouseEvent e)
@@ -51,4 +54,5 @@ public class MainArrowPad extends ButtonGrid
 	
 	private TouchButton aillButton, fwdButton, ailrButton, bnlButton, revButton, bnrButton, rudlButton, rudrButton;
 	private ToggleButton mimButton;
+	private List<AuxArrowPad> auxArrowPads;
 }
