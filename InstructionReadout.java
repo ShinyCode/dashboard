@@ -54,7 +54,8 @@ public class InstructionReadout extends GCompound implements Incrementable
 	
 	public void clear()
 	{
-		
+		messages.clear();
+		refresh();
 	}
 	
 	public void appendMessage(String msg)
