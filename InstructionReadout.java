@@ -80,6 +80,7 @@ public class InstructionReadout extends GCompound implements Incrementable
 		for(int i = 0; i < maxLines; ++i)
 		{
 			GLabel line = new GLabel(testString);
+			line.setFont("Consolas-*-*");
 			display.add(line);
 			add(line, back.getX() + LINE_SPACING, charHeight + back.getY() + LINE_SPACING + i * (LINE_SPACING + charHeight));
 		}
