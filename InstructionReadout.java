@@ -81,6 +81,7 @@ public class InstructionReadout extends GCompound implements Incrementable
 			if(numPrinted >= maxLines) break;
 			display.get(numPrinted).setLabel(messages.get(i));
 		}
+		System.out.println("HEY");
 	}
 	
 	private void testResolution()
