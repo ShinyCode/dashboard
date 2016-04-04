@@ -38,6 +38,8 @@ public class InstructionReadout extends GCompound implements Incrementable
 		refresh();
 		
 		appendMessage("DISP: " + maxLines + "X" + maxLineWidth);
+		appendMessage("DISP: " + maxLines + "X" + maxLineWidth);
+		appendMessage("DISP: " + maxLines + "X" + maxLineWidth);
 	}
 	
 	public void increment()
