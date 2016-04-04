@@ -52,9 +52,9 @@ public class Dashboard extends GraphicsProgram
 		ir = new InstructionReadout(80, 200, BUTTON_SPACING, Color.BLACK, Color.ORANGE, Color.ORANGE.brighter());
 		add(ir, 400, 100);
 		pause(200);
-		ir.increment();
-		pause(200);
 		ir.decrement();
+		pause(200);
+		ir.increment();
 	}
 	
 	public void mousePressed(MouseEvent e)
