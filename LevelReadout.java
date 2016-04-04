@@ -15,7 +15,7 @@ public class LevelReadout extends GCompound implements Incrementable
 		back = new GRect(width - 2 * spacing, height - 2 * spacing);
 		back.setFilled(true);
 		back.setFillColor(backColor);
-		add(back, width, width);
+		add(back, spacing, spacing);
 		
 		setLevel(0);
 		
