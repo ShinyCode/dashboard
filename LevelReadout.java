@@ -4,7 +4,7 @@ import acm.graphics.*;
 
 public class LevelReadout extends GCompound implements Incrementable
 {
-	public LevelReadout(double width, double height, double spacing, Color baseColor, Color backColor, Color barColor)
+	public LevelReadout(double width, double height, double spacing, int numDivisions, Color baseColor, Color backColor, Color barColor)
 	{
 		
 	}
@@ -19,18 +19,13 @@ public class LevelReadout extends GCompound implements Incrementable
 		
 	}
 	
-	public void setLevel(int level)
+	public boolean setLevel(int level)
 	{
-		
-	}
-	
-	public void setDiscrete(boolean flag)
-	{
-		isDiscrete = flag;
+		if(level < 0 || level >= numDivisions) return false;
+		this.level = level;
+		return true;
 	}
 	
 	int level;
-	int maxLevel;
-	int interval;
-	boolean isDiscrete = false;
+	int numDivisions;
 }
