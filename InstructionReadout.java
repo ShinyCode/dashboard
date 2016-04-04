@@ -25,7 +25,6 @@ public class InstructionReadout extends GCompound implements Incrementable
 		testResolution();
 		maxLineWidth = (int)((back.getWidth() - 2 * LINE_SPACING) / charWidth);
 		maxLines = (int)(back.getHeight() / (charHeight + LINE_SPACING));
-		appendMessage("DISP: " + maxLines + "X" + maxLineWidth);
 		
 		bar = new GRect(width - 2 * spacing, charHeight + 2 * LINE_SPACING);
 		bar.setFilled(true);
@@ -37,6 +36,8 @@ public class InstructionReadout extends GCompound implements Incrementable
 		
 		// Clear and update the display
 		refresh();
+		
+		appendMessage("DISP: " + maxLines + "X" + maxLineWidth);
 	}
 	
 	public void increment()
