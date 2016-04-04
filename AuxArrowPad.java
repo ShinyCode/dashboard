@@ -11,9 +11,9 @@ public class AuxArrowPad extends ButtonGrid
 		revButton = new TouchButton(width, height, buttonColor, "REV");
 		addButton(revButton, 1, 1);
 		bnlButton = new TouchButton(width, height, buttonColor, "BNL");
-		addButton(bnlButton, 0, 1);
+		addButton(bnlButton, 1, 0);
 		bnrButton = new TouchButton(width, height, buttonColor, "BNR");
-		addButton(bnrButton, 0, 2);
+		addButton(bnrButton, 1, 2);
 	}
 	
 	private TouchButton fwdButton, revButton, bnlButton, bnrButton;
