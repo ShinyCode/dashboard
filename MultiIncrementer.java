@@ -8,14 +8,14 @@ import acm.graphics.GObject;
 
 public class MultiIncrementer extends ButtonGrid
 {
-	public MultiIncrementer(double width, double height, double spacing, Color baseColor)
+	public MultiIncrementer(double width, double height, double spacing, Color baseColor, Color buttonColor)
 	{
 		super(width, height, 3, 1, spacing, baseColor);
-		incButton = new TouchButton(width, height, Color.GREEN, "INCD");
+		incButton = new TouchButton(width, height, buttonColor, "INCD");
 		addButton(incButton, 0, 0);
-		decButton = new TouchButton(width, height, Color.RED, "DECD");
+		decButton = new TouchButton(width, height, buttonColor, "DECD");
 		addButton(decButton, 1, 0);
-		selButton = new ToggleButton(width, height, Color.ORANGE, "SEL");
+		selButton = new ToggleButton(width, height, buttonColor, "SEL");
 		addButton(selButton, 2, 0);
 		incrementables = new ArrayList<Incrementable>();
 	}
