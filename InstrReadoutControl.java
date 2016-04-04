@@ -45,7 +45,7 @@ public class InstrReadoutControl extends ButtonGrid
 		}
 	}
 	
-	public void addInstructionReadout(InstrReadout ir)
+	public void addInstrReadout(InstrReadout ir)
 	{
 		this.ir = ir;
 	}
