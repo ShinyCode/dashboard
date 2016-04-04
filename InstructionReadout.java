@@ -37,10 +37,7 @@ public class InstructionReadout extends GCompound implements Incrementable
 		// Clear and update the display
 		refresh();
 		
-		appendMessage("1:DISP: " + maxLines + "X" + maxLineWidth);
-		appendMessage("2:DISP: " + maxLines + "X" + maxLineWidth);
-		appendMessage("3:DISP: " + maxLines + "X" + maxLineWidth);
-		appendMessage("4:DISP: " + maxLines + "X" + maxLineWidth);
+		appendMessage("DISP:" + maxLines + "X" + maxLineWidth);
 	}
 	
 	public void increment()
