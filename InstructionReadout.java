@@ -72,6 +72,10 @@ public class InstructionReadout extends GCompound implements Incrementable
 	private void refresh()
 	{
 		int numPrinted = 0;
+		for(GLabel l : display)
+		{
+			l.setLabel("");
+		}
 		for(int i = messages.size() - 1; i >= 0; --i)
 		{
 			if(numPrinted >= maxLines) break;
