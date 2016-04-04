@@ -13,6 +13,8 @@ public class MultiIncrementer extends ButtonGrid
 		addButton(incButton, 0, 0);
 		decButton = new TouchButton(width, height, Color.RED, "DECD");
 		addButton(decButton, 1, 0);
+		selButton = new TouchButton(width, height, Color.ORANGE, "SEL");
+		addButton(selButton, 2, 0);
 	}
 	
 	public void mousePressed(MouseEvent e)
