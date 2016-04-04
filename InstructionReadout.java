@@ -42,7 +42,7 @@ public class InstructionReadout extends GCompound implements Incrementable
 	public void increment()
 	{
 		if(currIndex < messages.size() - 1) ++currIndex;
-		refresh();
+		//refresh();
 	}
 	
 	public void decrement()
