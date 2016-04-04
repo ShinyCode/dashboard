@@ -45,7 +45,7 @@ public class Dashboard extends GraphicsProgram
 		inc.addIncrementable(lr1);
 		inc.addIncrementable(lr2);
 		aap = new AuxArrowPad(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING, BUTTON_SPACING, Color.BLACK, Color.MAGENTA);
-		add(aap, 200, 250)
+		add(aap, 200, 250);
 	}
 	
 	public void mousePressed(MouseEvent e)
