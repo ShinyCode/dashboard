@@ -37,6 +37,7 @@ public class Dashboard extends GraphicsProgram
 		add(bgr, 0, 0);
 		lr = new LevelReadout(50, 400, BUTTON_SPACING, 10, Color.BLACK, Color.GREEN, Color.RED);
 		add(lr, 300, 0);
+		inc.setIncrementable(lr);
 		
 	}
 	
