@@ -40,6 +40,7 @@ public class InstructionReadout extends GCompound implements Incrementable
 		appendMessage("DISP: " + maxLines + "X" + maxLineWidth);
 		appendMessage("DISP: " + maxLines + "X" + maxLineWidth);
 		appendMessage("DISP: " + maxLines + "X" + maxLineWidth);
+		display.get(5).setLabel("TEST MESSAGE");
 	}
 	
 	public void increment()
@@ -84,7 +85,6 @@ public class InstructionReadout extends GCompound implements Incrementable
 			for(int i = messages.size() - 1; i >= 0; --i)
 			{
 				if(numPrinted >= maxLines) break;
-				System.out.println("Printing " + messages.get(i));
 				display.get(numPrinted).setLabel(messages.get(i));
 			}
 		}
