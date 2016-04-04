@@ -52,7 +52,7 @@ public class Dashboard extends GraphicsProgram
 		ir = new InstrReadout(80, 200, BUTTON_SPACING, Color.BLACK, Color.ORANGE, Color.ORANGE.brighter());
 		add(ir, 400, 100);
 		irc = new InstrReadoutControl(BUTTON_WIDTH + 2 * BUTTON_SPACING, 4 * BUTTON_HEIGHT + 5 * BUTTON_SPACING, BUTTON_SPACING, Color.BLACK, Color.ORANGE);
-		add(irc, 400, 300);
+		add(irc, 200, 300);
 		irc.addInstrReadout(ir);
 	}
 	
