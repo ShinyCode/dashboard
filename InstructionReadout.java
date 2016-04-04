@@ -18,7 +18,7 @@ public class InstructionReadout extends GCompound implements Incrementable
 		
 	}
 	
-	public void setFrozen(bool flag)
+	public void setFrozen(boolean flag)
 	{
 		
 	}
