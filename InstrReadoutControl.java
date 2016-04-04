@@ -32,8 +32,15 @@ public class InstrReadoutControl extends ButtonGrid
 			}
 			else if(o == decButton)
 			{
-				if(selButton.isOn()) index = (index - 1 + incrementables.size()) % incrementables.size();
-				else incrementables.get(index).decrement();
+				ir.decrement();
+			}
+			else if(o == clsButton)
+			{
+				ir.clear();
+			}
+			else if(o == frzButton)
+			{
+				ir.setFrozen(frzButton.isOn());
 			}
 		}
 	}
