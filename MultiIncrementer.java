@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.List;
 
 import acm.graphics.GObject;
@@ -16,6 +17,7 @@ public class MultiIncrementer extends ButtonGrid
 		addButton(decButton, 1, 0);
 		selButton = new ToggleButton(width, height, Color.ORANGE, "SEL");
 		addButton(selButton, 2, 0);
+		incrementables = new ArrayList<Incrementable>();
 	}
 	
 	public void mousePressed(MouseEvent e)
