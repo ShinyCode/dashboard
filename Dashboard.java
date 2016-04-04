@@ -58,7 +58,7 @@ public class Dashboard extends GraphicsProgram
 	private ButtonGroup bg;
 	private SingleIncrementer inc;
 	private ButtonGrid bgr;
-	private static final int BUTTON_HEIGHT = 50;
+	private static final int BUTTON_HEIGHT = 25;
 	private static final int BUTTON_WIDTH = 50;
 	private static final int BUTTON_SPACING = 5;
 }
