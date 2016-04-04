@@ -27,17 +27,18 @@ public class Dashboard extends GraphicsProgram
 		bg.add(new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED, "DEC"), BUTTON_SPACING, 2 * BUTTON_SPACING + BUTTON_HEIGHT);
 		bg.add(new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.ORANGE, "SEL"), BUTTON_SPACING, 3 * BUTTON_SPACING + 2 * BUTTON_HEIGHT);
 		add(bg, 0, 4 * BUTTON_HEIGHT + 4 * BUTTON_SPACING);
-		inc = new SingleIncrementer(2 * BUTTON_SPACING + BUTTON_WIDTH, 3 * BUTTON_SPACING + 2 * BUTTON_HEIGHT, BUTTON_SPACING, Color.BLACK);
-		add(inc, 200, 0);
 		bgr = new ButtonGrid(2 * BUTTON_WIDTH + 3 * BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING, 2, 2, BUTTON_SPACING, Color.BLACK);
 		bgr.addButton(rcl, 0, 0);
 		bgr.addButton(dst, 1, 0);
 		bgr.addButton(src, 0, 1);
 		bgr.addButton(pwr, 1, 1);
 		add(bgr, 0, 0);
-		lr = new LevelReadout(30, 100, BUTTON_SPACING, 10, Color.BLACK, Color.GREEN, Color.RED);
-		add(lr, 300, 0);
-		inc.setIncrementable(lr);
+		lr0 = new LevelReadout(30, 100, BUTTON_SPACING, 10, Color.BLACK, Color.GREEN, Color.RED);
+		add(lr0, 300, 0);
+		lr1 = new LevelReadout(30, 100, BUTTON_SPACING, 10, Color.BLACK, Color.GREEN, Color.RED);
+		add(lr1, 330, 0);
+		lr2 = new LevelReadout(30, 100, BUTTON_SPACING, 10, Color.BLACK, Color.GREEN, Color.RED);
+		add(lr2, 360, 0);
 		
 	}
 	
@@ -60,9 +61,11 @@ public class Dashboard extends GraphicsProgram
 	private TouchButton src;
 	private ToggleButton pwr;
 	private ButtonGroup bg;
-	private SingleIncrementer inc;
+	private MultiIncrementer inc;
 	private ButtonGrid bgr;
-	private LevelReadout lr;
+	private LevelReadout lr0;
+	private LevelReadout lr1;
+	private LevelReadout lr2;
 	private static final int BUTTON_HEIGHT = 25;
 	private static final int BUTTON_WIDTH = 50;
 	private static final int BUTTON_SPACING = 5;
