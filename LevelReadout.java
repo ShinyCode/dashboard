@@ -55,5 +55,4 @@ public class LevelReadout extends GCompound implements Incrementable
 	GRect back;
 	GRect bar;
 	double spacing;
-	boolean active = false;
 }
