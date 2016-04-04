@@ -16,7 +16,7 @@ public class MainArrowPad extends ButtonGrid
 		fwdButton = new TouchButton(width, height, buttonColor, "FWD");
 		addButton(fwdButton, 0, 1);
 		ailrButton = new TouchButton(width, height, buttonColor, "AILR");
-		addButton(fwdButton, 0, 2);
+		addButton(ailrButton, 0, 2);
 		bnlButton = new TouchButton(width, height, buttonColor, "BNL");
 		addButton(bnlButton, 1, 0);
 		revButton = new TouchButton(width, height, buttonColor, "REV");
