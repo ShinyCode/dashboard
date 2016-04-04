@@ -83,7 +83,7 @@ public class InstructionReadout extends GCompound implements Incrementable
 			GLabel line = new GLabel(testString);
 			line.setFont("Consolas-*-*");
 			display.add(line);
-			add(line, back.getX() + LINE_SPACING, charHeight + back.getY() + i * (LINE_SPACING + charHeight));
+			add(line, back.getX() + LINE_SPACING, charHeight + back.getY() + LINE_SPACING + i * (LINE_SPACING + charHeight));
 		}
 	}
 	
@@ -94,5 +94,5 @@ public class InstructionReadout extends GCompound implements Incrementable
 	private double charWidth;
 	private int maxLines;
 	private int maxLineWidth;
-	private static final int LINE_SPACING = 10;
+	private static final int LINE_SPACING = 2;
 }
