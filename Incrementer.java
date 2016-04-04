@@ -29,6 +29,11 @@ public class Incrementer extends ButtonGrid
 		}
 	}
 	
+	public void setIncrementable(Incrementable inc)
+	{
+		this.inc = inc;
+	}
+	
 	private Incrementable inc;
 	private TouchButton incButton;
 	private TouchButton decButton;
