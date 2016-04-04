@@ -41,7 +41,7 @@ public class LevelReadout extends GCompound implements Incrementable
 	public boolean setLevel(int level)
 	{
 		if(level < 0 || level > numDivisions) return false;
-		if(bar == null) return 0;
+		if(bar == null) return false;
 		this.level = level;
 		double newHeight = ((double) level) * back.getHeight() / numDivisions;
 		bar.setLocation(spacing, base.getHeight() - spacing - newHeight);
