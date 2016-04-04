@@ -16,8 +16,8 @@ public class InstrReadoutControl extends ButtonGrid
 		add(frzButton, 1, 0);
 		incButton = new TouchButton(width, height, buttonColor, "INC");
 		add(incButton, 2, 0);
-		//decButton = new TouchButton(width, height, buttonColor, "DEC");
-		//add(decButton, 3, 0);
+		decButton = new TouchButton(width, height, buttonColor, "DEC");
+		add(decButton, 3, 0);
 	}
 	
 	public void mousePressed(MouseEvent e)
