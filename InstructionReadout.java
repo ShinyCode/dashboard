@@ -27,4 +27,6 @@ public class InstructionReadout extends GCompound implements Incrementable
 	{
 		
 	}
+	
+	private List<GLabel>
 }
