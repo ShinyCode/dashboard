@@ -1,4 +1,7 @@
 import java.awt.Color;
+import java.awt.event.MouseEvent;
+
+import acm.graphics.GObject;
 
 
 public class MainArrowPad extends ButtonGrid
@@ -24,6 +27,26 @@ public class MainArrowPad extends ButtonGrid
 		addButton(mimButton, 2, 1);
 		rudrButton = new TouchButton(width, height, buttonColor, "RUDR");
 		addButton(rudrButton, 2, 2);
+	}
+	
+	public void mousePressed(MouseEvent e)
+	{
+		GObject o = getElementAt(e.getX(), e.getY());
+		if(o instanceof MouseWidget) ((MouseWidget) o).mousePressed(e);
+		if(mimButton.isOn() && o != mimButton)
+		{
+			
+		}
+	}
+	
+	public void mouseReleased(MouseEvent e)
+	{
+		GObject o = getElementAt(e.getX(), e.getY());
+		if(o instanceof MouseWidget) ((MouseWidget) o).mouseReleased(e);
+		if(mimButton.isOn() && o != mimButton)
+		{
+			
+		}
 	}
 	
 	private TouchButton aillButton, fwdButton, ailrButton, bnlButton, revButton, bnrButton, rudlButton, rudrButton;
