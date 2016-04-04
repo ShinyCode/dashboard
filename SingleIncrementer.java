@@ -31,10 +31,7 @@ public class SingleIncrementer extends ButtonGrid
 		}
 		else if(o == discButton)
 		{
-			if(inc != null)
-			{
-				
-			}
+			if(inc != null) inc.setDiscrete(discButton.isOn());
 		}
 	}
 	
