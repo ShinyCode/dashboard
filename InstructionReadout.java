@@ -69,7 +69,7 @@ public class InstructionReadout extends GCompound implements Incrementable
 	{
 		GLabel testLabel = new GLabel("W");
 		charWidth = testLabel.getWidth();
-		testLabel.setLabel("Wq");
+		testLabel.setLabel("W");
 		charHeight = testLabel.getHeight();
 	}
 	
