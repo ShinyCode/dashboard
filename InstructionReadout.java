@@ -32,8 +32,10 @@ public class InstructionReadout extends GCompound implements Incrementable
 		bar.setFillColor(barColor);
 		add(bar, spacing, spacing);
 		
+		// Set up the display and set all chars to 0
 		initDisplay();
 		
+		// Clear the display
 		refresh();
 	}
 	
