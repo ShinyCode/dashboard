@@ -22,17 +22,18 @@ public class MultiIncrementer extends ButtonGrid
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
 		if(o instanceof MouseWidget) ((MouseWidget) o).mousePressed(e);
-		if(o == incButton)
+		if(!incrementables.isEmpty())
 		{
-			if(inc != null) inc.increment();
-		}
-		else if(o == decButton)
-		{
-			if(inc != null) inc.decrement();
-		}
-		else if(o == selButton)
-		{
-			
+			if(o == incButton)
+			{
+				if(selButton.isOn()) index = (index + 1) % incrementables.size();
+				else incrementables.get(index).increment();
+			}
+			else if(o == decButton)
+			{
+				if(selButton.isOn()) index = (index - 1 + incrementables.size()) % incrementables.size();
+				else incrementables.get(index).decrement();
+			}
 		}
 	}
 	
@@ -41,7 +42,7 @@ public class MultiIncrementer extends ButtonGrid
 		if(inc != null) incrementables.add(inc);
 	}
 	
-	private Incrementable inc;
+	private int index = 0;
 	private TouchButton incButton;
 	private TouchButton decButton;
 	private ToggleButton selButton;
