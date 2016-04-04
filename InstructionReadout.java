@@ -37,12 +37,14 @@ public class InstructionReadout extends GCompound implements Incrementable
 	
 	public void increment()
 	{
-		
+		if(currIndex < messages.size() - 1) ++currIndex;
+		refresh();
 	}
 	
 	public void decrement()
 	{
-		
+		if(currIndex > 0) --currIndex;
+		refresh();
 	}
 	
 	public void setFrozen(boolean flag)
@@ -57,7 +59,8 @@ public class InstructionReadout extends GCompound implements Incrementable
 	
 	public void appendMessage(String msg)
 	{
-		
+		messages.add(msg.substring(0, maxLineWidth));
+		increment();
 	}
 	
 	private void refresh()
