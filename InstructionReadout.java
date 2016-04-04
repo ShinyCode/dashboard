@@ -67,7 +67,8 @@ public class InstructionReadout extends GCompound implements Incrementable
 		charHeight = testLabel.getHeight();
 	}
 	
-	private List<GLabel> messages;
+	private List<String> messages;
+	private List<GLabel> display;
 	private GRect base, back, bar;
 	private double charHeight;
 	private double charWidth;
