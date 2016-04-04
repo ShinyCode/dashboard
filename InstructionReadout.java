@@ -28,9 +28,11 @@ public class InstructionReadout extends GCompound implements Incrementable
 		appendMessage("DISP: " + maxLines + "X" + maxLineWidth);
 		
 		bar = new GRect(width - 2 * spacing, charHeight + 2 * LINE_SPACING);
+		bar.setFilled(true);
+		bar.setFillColor(barColor);
+		add(bar, spacing, spacing);
 		
-		
-		
+		initDisplay();
 	}
 	
 	public void increment()
@@ -69,6 +71,16 @@ public class InstructionReadout extends GCompound implements Incrementable
 		charWidth = testLabel.getWidth();
 		testLabel.setLabel("Wq");
 		charHeight = testLabel.getHeight();
+	}
+	
+	private void initDisplay()
+	{
+		for(int i = 0; i < maxLines; ++i)
+		{
+			GLabel line = new GLabel("000");
+			display.add(line);
+			add(line, back.getX() + LINE_SPACING, back.getY() + LINE_SPACING + i * (LINE_SPACING + charHeight));
+		}
 	}
 	
 	private List<String> messages;
