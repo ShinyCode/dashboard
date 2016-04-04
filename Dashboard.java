@@ -54,7 +54,7 @@ public class Dashboard extends GraphicsProgram
 		pause(200);
 		ir.increment();
 		pause(200);
-		//ir.decrement();
+		ir.decrement();
 	}
 	
 	public void mousePressed(MouseEvent e)
