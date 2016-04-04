@@ -5,9 +5,9 @@ import java.util.List;
 
 import acm.graphics.*;
 
-public class InstructionReadout extends GCompound implements Incrementable
+public class InstrReadout extends GCompound implements Incrementable
 {
-	public InstructionReadout(double width, double height, double spacing, Color baseColor, Color backColor, Color barColor)
+	public InstrReadout(double width, double height, double spacing, Color baseColor, Color backColor, Color barColor)
 	{
 		messages = new ArrayList<String>();
 		display = new ArrayList<GLabel>();
