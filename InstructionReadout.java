@@ -96,4 +96,5 @@ public class InstructionReadout extends GCompound implements Incrementable
 	private int maxLineWidth;
 	private static final int LINE_SPACING = 2;
 	private boolean frozen = false;
+	private int currIndex = 0;
 }
