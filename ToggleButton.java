@@ -22,6 +22,11 @@ public class ToggleButton extends GenericButton
 		}
 	}
 	
+	public boolean isOn()
+	{
+		return on;
+	}
+	
 	private boolean on = false;
 	
 }
