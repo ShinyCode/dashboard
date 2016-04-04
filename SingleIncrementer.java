@@ -8,13 +8,11 @@ public class SingleIncrementer extends ButtonGrid
 {
 	public SingleIncrementer(double width, double height, double spacing, Color baseColor)
 	{
-		super(width, height, 3, 1, spacing, baseColor);
+		super(width, height, 2, 1, spacing, baseColor);
 		incButton = new TouchButton(width, height, Color.GREEN, "INC");
 		addButton(incButton, 0, 0);
 		decButton = new TouchButton(width, height, Color.RED, "DEC");
 		addButton(decButton, 1, 0);
-		discButton = new ToggleButton(width, height, Color.BLUE, "DISC");
-		addButton(discButton, 2, 0);
 	}
 	
 	public void mousePressed(MouseEvent e)
@@ -29,10 +27,6 @@ public class SingleIncrementer extends ButtonGrid
 		{
 			if(inc != null) inc.decrement();
 		}
-		else if(o == discButton)
-		{
-			if(inc != null) inc.setDiscrete(discButton.isOn());
-		}
 	}
 	
 	public void setIncrementable(Incrementable inc)
@@ -43,5 +37,4 @@ public class SingleIncrementer extends ButtonGrid
 	private Incrementable inc;
 	private TouchButton incButton;
 	private TouchButton decButton;
-	private ToggleButton discButton;
 }
