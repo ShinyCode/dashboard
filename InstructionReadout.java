@@ -35,7 +35,7 @@ public class InstructionReadout extends GCompound implements Incrementable
 		// Set up the display and set all chars to 0
 		initDisplay();
 		
-		// Clear the display
+		// Clear and update the display
 		refresh();
 	}
 	
