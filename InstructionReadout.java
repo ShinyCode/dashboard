@@ -69,7 +69,7 @@ public class InstructionReadout extends GCompound implements Incrementable
 	public void appendMessage(String msg)
 	{
 		messages.add(msg.substring(0, maxLineWidth));
-		//if(!frozen) increment();
+		if(!frozen) increment();
 	}
 	
 	private void refresh()
