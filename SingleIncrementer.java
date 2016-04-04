@@ -6,7 +6,7 @@ import acm.graphics.GObject;
 
 public class SingleIncrementer extends ButtonGrid
 {
-	public SingleIncrementer(double width, double height, double spacing, Color baseColor)
+	public SingleIncrementer(double width, double height, double spacing, Color baseColor, Color buttonColor)
 	{
 		super(width, height, 2, 1, spacing, baseColor);
 		incButton = new TouchButton(width, height, Color.GREEN, "INCD");
