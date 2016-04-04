@@ -33,10 +33,10 @@ public class InstructionReadout extends GCompound implements Incrementable
 		add(bar, spacing, spacing);
 		
 		// Set up the display and set all chars to 0
-		//initDisplay();
+		initDisplay();
 		
 		// Clear and update the display
-		//refresh();
+		refresh();
 	}
 	
 	public void increment()
@@ -66,7 +66,7 @@ public class InstructionReadout extends GCompound implements Incrementable
 	public void appendMessage(String msg)
 	{
 		messages.add(msg.substring(0, maxLineWidth));
-		if(!frozen) increment();
+		//if(!frozen) increment();
 	}
 	
 	private void refresh()
