@@ -82,7 +82,7 @@ public class InstructionReadout extends GCompound implements Incrementable
 		}
 		if(!messages.isEmpty())
 		{
-			for(int i = messages.size() - 1; i >= 0; --i)
+			for(int i = currIndex; i >= 0; --i)
 			{
 				if(numPrinted >= maxLines) break;
 				display.get(numPrinted).setLabel(messages.get(i));
