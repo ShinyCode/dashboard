@@ -9,9 +9,9 @@ public class SingleIncrementer extends ButtonGrid
 	public SingleIncrementer(double width, double height, double spacing, Color baseColor)
 	{
 		super(width, height, 2, 1, spacing, baseColor);
-		incButton = new TouchButton(width, height, Color.GREEN, "INC");
+		incButton = new TouchButton(width, height, Color.GREEN, "DINC");
 		addButton(incButton, 0, 0);
-		decButton = new TouchButton(width, height, Color.RED, "DEC");
+		decButton = new TouchButton(width, height, Color.RED, "DDEC");
 		addButton(decButton, 1, 0);
 	}
 	
