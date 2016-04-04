@@ -77,7 +77,7 @@ public class Dashboard extends GraphicsProgram
 	private LevelReadout lr2;
 	private AuxArrowPad aap;
 	private MainArrowPad map;
-	private static final int BUTTON_HEIGHT = 25;
+	private static final int BUTTON_HEIGHT = 40;
 	private static final int BUTTON_WIDTH = 50;
 	private static final int BUTTON_SPACING = 5;
 }
