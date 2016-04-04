@@ -36,9 +36,9 @@ public class MultiIncrementer extends ButtonGrid
 		}
 	}
 	
-	public void setIncrementable(Incrementable inc)
+	public void addIncrementable(Incrementable inc)
 	{
-		this.inc = inc;
+		incrementables.add(inc);
 	}
 	
 	private Incrementable inc;
