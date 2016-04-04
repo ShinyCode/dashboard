@@ -81,7 +81,7 @@ public class InstructionReadout extends GCompound implements Incrementable
 		{
 			GLabel line = new GLabel(testString);
 			display.add(line);
-			add(line, back.getX() + LINE_SPACING, back.getY() + LINE_SPACING + i * (LINE_SPACING + charHeight));
+			add(line, back.getX() + LINE_SPACING, charHeight + back.getY() + LINE_SPACING + i * (LINE_SPACING + charHeight));
 		}
 	}
 	
