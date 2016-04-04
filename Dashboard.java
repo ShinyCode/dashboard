@@ -39,7 +39,11 @@ public class Dashboard extends GraphicsProgram
 		add(lr1, 330, 0);
 		lr2 = new LevelReadout(30, 100, BUTTON_SPACING, 10, Color.BLACK, Color.GREEN, Color.RED);
 		add(lr2, 360, 0);
-		inc = new MultiIncrementer()
+		inc = new MultiIncrementer(BUTTON_WIDTH + 2 * BUTTON_SPACING, 3 * BUTTON_HEIGHT + 4 * BUTTON_SPACING, BUTTON_SPACING, Color.BLACK);
+		add(inc, 200, 200);
+		inc.addIncrementable(lr0);
+		inc.addIncrementable(lr1);
+		inc.addIncrementable(lr2);
 		
 	}
 	
