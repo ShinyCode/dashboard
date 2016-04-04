@@ -17,7 +17,7 @@ public class AuxArrowPad extends ButtonGrid
 		addButton(bnrButton, 1, 2);
 	}
 	
-	public boolean setButtonState(String instr, boolean turnOn)
+	public boolean setButtonState(String instr, boolean turnOn, MouseEvent e)
 	{
 		GenericButton gb = null;
 		if(instr.equals(fwdButton.getInstr())) gb = fwdButton;
@@ -25,8 +25,8 @@ public class AuxArrowPad extends ButtonGrid
 		else if(instr.equals(bnlButton.getInstr())) gb = bnlButton;
 		else if(instr.equals(bnrButton.getInstr())) gb = bnrButton;
 		if(gb == null) return false;
-		if(turnOn) gb.mousePressed(null); // Also bad? But it never tries to dereference the MouseEvent.
-		else gb.mouseReleased(null);
+		if(turnOn) gb.mousePressed(e); // Also bad? But it never tries to dereference the MouseEvent.
+		else gb.mouseReleased(e);
 		return true;
 	}
 	
