@@ -13,7 +13,7 @@ public class MainArrowPad extends ButtonGrid
 		super(width, height, 3, 3, spacing, baseColor);
 		aillButton = new TouchButton(width, height, buttonColor, "AILL");
 		addButton(aillButton, 0, 0);
-		fwdButton = new TouchButton(width, height, buttonColor, "FWD\nTEST");
+		fwdButton = new TouchButton(width, height, buttonColor, "FWD");
 		addButton(fwdButton, 0, 1);
 		ailrButton = new TouchButton(width, height, buttonColor, "AILR");
 		addButton(ailrButton, 0, 2);
