@@ -9,7 +9,8 @@ public class InstructionReadout extends GCompound implements Incrementable
 {
 	public InstructionReadout(double width, double height, double spacing, Color baseColor, Color backColor, Color barColor)
 	{
-		messages = new ArrayList<GLabel>();
+		messages = new ArrayList<String>();
+		display = new ArrayList<GLabel>();
 		
 		base = new GRect(width, height);
 		base.setFilled(true);
@@ -25,6 +26,9 @@ public class InstructionReadout extends GCompound implements Incrementable
 		maxLineWidth = (int)((back.getWidth() - 2 * LINE_SPACING) / charWidth);
 		maxLines = (int)(back.getHeight() / (charHeight + LINE_SPACING));
 		appendMessage("DISP: " + maxLines + "X" + maxLineWidth);
+		
+		bar = new GRect(width - 2 * spacing, charHeight + 2 * LINE_SPACING);
+		
 		
 		
 	}
