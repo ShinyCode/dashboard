@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.event.MouseEvent;
 
 
 public class AuxArrowPad extends ButtonGrid
@@ -16,13 +17,17 @@ public class AuxArrowPad extends ButtonGrid
 		addButton(bnrButton, 1, 2);
 	}
 	
-	public GenericButton getTouchButton(String instr) // Bad, since it exposes the internals.
+	public boolean setButtonState(String instr, boolean turnOn)
 	{
-		if(instr.equals(fwdButton.getInstr())) return fwdButton;
-		else if(instr.equals(revButton.getInstr())) return revButton;
-		else if(instr.equals(bnlButton.getInstr())) return bnlButton;
-		else if(instr.equals(bnrButton.getInstr())) return bnrButton;
-		return null;
+		GenericButton gb = null;
+		if(instr.equals(fwdButton.getInstr())) gb = fwdButton;
+		else if(instr.equals(revButton.getInstr())) gb = revButton;
+		else if(instr.equals(bnlButton.getInstr())) gb = bnlButton;
+		else if(instr.equals(bnrButton.getInstr())) gb = bnrButton;
+		if(gb == null) return false;
+		if(turnOn) gb.mousePressed(null); // Also bad? But it never tries to dereference the MouseEvent.
+		else gb.mouseReleased(null);
+		return true;
 	}
 	
 	private TouchButton fwdButton, revButton, bnlButton, bnrButton;
