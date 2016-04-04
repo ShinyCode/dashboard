@@ -17,8 +17,6 @@ public class LevelReadout extends GCompound implements Incrementable
 		back.setFillColor(backColor);
 		add(back, spacing, spacing);
 		
-		setLevel(0);
-		
 		//Need to check for bad input to numDivisions
 		this.numDivisions = numDivisions;
 		
@@ -26,6 +24,8 @@ public class LevelReadout extends GCompound implements Incrementable
 		bar.setFilled(true);
 		bar.setFillColor(barColor);
 		add(bar, spacing, height - spacing);
+		
+		setLevel(0);
 	}
 	
 	public void increment()
