@@ -47,7 +47,7 @@ public class InstrReadoutControl extends ButtonGrid
 	
 	public void addInstructionReadout(InstrReadout ir)
 	{
-		
+		this.ir = ir;
 	}
 	
 	private TouchButton incButton, decButton, clsButton;
