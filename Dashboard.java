@@ -35,6 +35,9 @@ public class Dashboard extends GraphicsProgram
 		bgr.addButton(src, 0, 1);
 		bgr.addButton(pwr, 1, 1);
 		add(bgr, 0, 0);
+		lr = new LevelReadout(2 * BUTTON_SPACING + BUTTON_WIDTH, 3 * BUTTON_SPACING + 2 * BUTTON_HEIGHT, BUTTON_SPACING, 10, Color.BLACK, Color.GREEN, Color.RED);
+		add(lr, 300, 300);
+		
 	}
 	
 	public void mousePressed(MouseEvent e)
@@ -58,6 +61,7 @@ public class Dashboard extends GraphicsProgram
 	private ButtonGroup bg;
 	private SingleIncrementer inc;
 	private ButtonGrid bgr;
+	private LevelReadout lr;
 	private static final int BUTTON_HEIGHT = 25;
 	private static final int BUTTON_WIDTH = 50;
 	private static final int BUTTON_SPACING = 5;
