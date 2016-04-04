@@ -75,9 +75,11 @@ public class InstructionReadout extends GCompound implements Incrementable
 	
 	private void initDisplay()
 	{
+		String testString = "";
+		for(int i = 0; i < maxLineWidth; ++i) testString += "W";
 		for(int i = 0; i < maxLines; ++i)
 		{
-			GLabel line = new GLabel("000");
+			GLabel line = new GLabel(testString);
 			display.add(line);
 			add(line, back.getX() + LINE_SPACING, back.getY() + LINE_SPACING + i * (LINE_SPACING + charHeight));
 		}
