@@ -68,6 +68,7 @@ public class InstructionReadout extends GCompound implements Incrementable
 	private void testResolution()
 	{
 		GLabel testLabel = new GLabel("W");
+		testLabel.setFont("Consolas-*-*");
 		charWidth = testLabel.getWidth();
 		testLabel.setLabel("W");
 		charHeight = testLabel.getHeight();
