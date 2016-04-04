@@ -21,6 +21,11 @@ public class InstructionReadout extends GCompound implements Incrementable
 		back.setFillColor(backColor);
 		add(back, spacing, spacing);
 		
+		testResolution();
+		maxLineWidth = (int)((back.getWidth() - 2 * LINE_SPACING) / charWidth);
+		maxLines = (int)(back.getHeight() / (charHeight + LINE_SPACING));
+		
+		
 		
 	}
 	
@@ -54,6 +59,19 @@ public class InstructionReadout extends GCompound implements Incrementable
 		
 	}
 	
+	private void testResolution()
+	{
+		GLabel testLabel = new GLabel("W");
+		charWidth = testLabel.getWidth();
+		testLabel.setLabel("Wq");
+		charHeight = testLabel.getHeight();
+	}
+	
 	private List<GLabel> messages;
 	private GRect base, back, bar;
+	private double charHeight;
+	private double charWidth;
+	private int maxLines;
+	private int maxLineWidth;
+	private static final int LINE_SPACING = 10;
 }
