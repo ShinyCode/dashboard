@@ -50,6 +50,7 @@ public class Dashboard extends GraphicsProgram
 		add(map, 400, 100);
 		map.addAuxArrowPad(aap);
 		ir = new InstructionReadout(100, 400, BUTTON_SPACING, Color.BLACK, Color.ORANGE, Color.ORANGE.brighter());
+		add(ir, 400, 500)
 	}
 	
 	public void mousePressed(MouseEvent e)
@@ -79,8 +80,8 @@ public class Dashboard extends GraphicsProgram
 	private AuxArrowPad aap;
 	private MainArrowPad map;
 	private InstructionReadout ir;
-	private static final int BUTTON_HEIGHT = 80;
-	private static final int BUTTON_WIDTH = 100;
+	private static final int BUTTON_HEIGHT = 60;
+	private static final int BUTTON_WIDTH = 80;
 	private static final int BUTTON_SPACING = 5;
 }
 
