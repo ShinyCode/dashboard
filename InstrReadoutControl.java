@@ -1,5 +1,8 @@
 import java.awt.Color;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+
+import acm.graphics.GObject;
 
 
 public class InstrReadoutControl extends ButtonGrid
@@ -17,6 +20,30 @@ public class InstrReadoutControl extends ButtonGrid
 		add(decButton, 3, 0);
 	}
 	
+	public void mousePressed(MouseEvent e)
+	{
+		GObject o = getElementAt(e.getX(), e.getY());
+		if(o instanceof MouseWidget) ((MouseWidget) o).mousePressed(e);
+		if(ir != null)
+		{
+			if(o == incButton)
+			{
+				ir.increment();
+			}
+			else if(o == decButton)
+			{
+				if(selButton.isOn()) index = (index - 1 + incrementables.size()) % incrementables.size();
+				else incrementables.get(index).decrement();
+			}
+		}
+	}
+	
+	public void addInstructionReadout(InstrReadout ir)
+	{
+		
+	}
+	
 	private TouchButton incButton, decButton, clsButton;
 	private ToggleButton frzButton;
+	private InstrReadout ir;
 }
