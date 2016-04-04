@@ -4,9 +4,9 @@ import java.awt.event.MouseEvent;
 import acm.graphics.GObject;
 
 
-public class Incrementer extends ButtonGrid
+public class SingleIncrementer extends ButtonGrid
 {
-	public Incrementer(double width, double height, double spacing, Color baseColor)
+	public SingleIncrementer(double width, double height, double spacing, Color baseColor)
 	{
 		super(width, height, 2, 1, spacing, baseColor);
 		incButton = new TouchButton(width, height, Color.GREEN, "INC");
