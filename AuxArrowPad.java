@@ -16,7 +16,7 @@ public class AuxArrowPad extends ButtonGrid
 		addButton(bnrButton, 1, 2);
 	}
 	
-	public GenericButton getTouchButton(String instr)
+	public GenericButton getTouchButton(String instr) // Bad, since it exposes the internals.
 	{
 		if(instr.equals(fwdButton.getInstr())) return fwdButton;
 		else if(instr.equals(revButton.getInstr())) return revButton;
