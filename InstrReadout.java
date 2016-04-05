@@ -1,7 +1,5 @@
 
 import java.awt.Color;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,8 +73,11 @@ public class InstrReadout extends GCompound implements Incrementable, Readout
 	
 	public void update(int data)
 	{
-		// To do, initialize nf and fix this code!
-		update(nf.format(data));
+		int numDigits = maxLineWidth - 1;
+		if(numDigits < 1) return;
+		String dispString = "";
+		if(data < 0) dispString
+		String dataString = Integer.toString(Math.abs(data));
 	}
 	
 	private void refresh()
@@ -131,5 +132,4 @@ public class InstrReadout extends GCompound implements Incrementable, Readout
 	private boolean frozen = false;
 	private int currIndex = 0;
 	private static final int BUFFER_SIZE = 100;
-	private NumberFormat nf;
 }
