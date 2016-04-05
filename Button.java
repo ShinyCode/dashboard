@@ -4,9 +4,9 @@ import acm.graphics.*;
 import java.awt.Color;
 import java.awt.event.*;
 
-public abstract class GenericButton extends MouseWidget
+public abstract class Button extends MouseWidget
 {
-	public GenericButton(double width, double height, Color baseColor, String instr)
+	public Button(double width, double height, Color baseColor, String instr)
 	{
 		rect = new GRect(0, 0, width, height);
 		rect.setFilled(true);

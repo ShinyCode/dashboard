@@ -1,7 +1,7 @@
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 
-public class ToggleButton extends GenericButton
+public class ToggleButton extends Button
 {
 	public ToggleButton(double width, double height, Color baseColor, String instr)
 	{

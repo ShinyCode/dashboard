@@ -12,7 +12,7 @@ public class ButtonGroup extends MouseWidget
 {
 	public ButtonGroup(double width, double height, Color baseColor)
 	{
-		buttons = new HashMap<String, GenericButton>();
+		buttons = new HashMap<String, Button>();
 		this.baseColor = baseColor;
 		base = new GRect(width, height);
 		base.setFilled(true);
@@ -20,7 +20,7 @@ public class ButtonGroup extends MouseWidget
 		add(base);
 	}
 	
-	public boolean addButton(GenericButton gb, double x, double y)
+	public boolean addButton(Button gb, double x, double y)
 	{
 		if(buttons.containsKey(gb.getInstr())) return false;
 		buttons.put(gb.getInstr(), gb);
@@ -28,7 +28,7 @@ public class ButtonGroup extends MouseWidget
 		return true;
 	}
 	
-	public GenericButton getButton(String instr)
+	public Button getButton(String instr)
 	{
 		if(!buttons.containsKey(instr.toUpperCase())) return null;
 		return buttons.get(instr);
@@ -46,7 +46,7 @@ public class ButtonGroup extends MouseWidget
 		if(o instanceof MouseWidget) ((MouseWidget) o).mouseReleased(e);
 	}
 	
-	private Map<String, GenericButton> buttons;
+	private Map<String, Button> buttons;
 	private Color baseColor;
 	private GRect base;
 }

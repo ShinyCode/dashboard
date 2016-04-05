@@ -12,7 +12,7 @@ public class ButtonGrid extends MouseWidget
 {
 	public ButtonGrid(double width, double height, int numRows, int numCols, double spacing, Color baseColor)
 	{
-		buttons = new ArrayList<GenericButton>(numRows * numCols);
+		buttons = new ArrayList<Button>(numRows * numCols);
 		this.numRows = numRows;
 		this.numCols = numCols;
 		this.spacing = spacing;
@@ -25,12 +25,12 @@ public class ButtonGrid extends MouseWidget
 		add(base);
 	}
 	
-	public boolean addButton(GenericButton gb, int row, int col)
+	public boolean addButton(Button gb, int row, int col)
 	{
 		return addButton(gb, row, col, 1, 1);
 	}
 	
-	public boolean addButton(GenericButton gb, int row, int col, int rowSpan, int colSpan)
+	public boolean addButton(Button gb, int row, int col, int rowSpan, int colSpan)
 	{
 		if(row < 0 || col < 0 || row >= numRows || col >= numCols) return false; //Invalid row, col dimension
 		if(rowSpan <= 0 || colSpan <= 0 || rowSpan > numRows - row || colSpan > numCols - col) return false; //Invalid row/column Span
@@ -39,7 +39,7 @@ public class ButtonGrid extends MouseWidget
 		return true;
 	}
 	
-	public GenericButton getButton(int row, int col)
+	public Button getButton(int row, int col)
 	{
 		if(row < 0 || col < 0 || row >= numRows || col >= numCols) return null;
 		return buttons.get(getIndex(row, col));
@@ -62,7 +62,7 @@ public class ButtonGrid extends MouseWidget
 		if(o instanceof MouseWidget) ((MouseWidget) o).mouseReleased(e);
 	}
 	
-	private List<GenericButton> buttons;
+	private List<Button> buttons;
 	private GRect base;
 	private Color baseColor;
 	private int numRows;

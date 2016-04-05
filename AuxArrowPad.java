@@ -19,7 +19,7 @@ public class AuxArrowPad extends ButtonGrid
 	
 	public boolean setButtonState(String instr, boolean turnOn, MouseEvent e)
 	{
-		GenericButton gb = null;
+		Button gb = null;
 		if(instr.equals(fwdButton.getInstr())) gb = fwdButton;
 		else if(instr.equals(revButton.getInstr())) gb = revButton;
 		else if(instr.equals(bnlButton.getInstr())) gb = bnlButton;

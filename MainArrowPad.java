@@ -36,11 +36,11 @@ public class MainArrowPad extends ButtonGrid
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
 		if(o instanceof MouseWidget) ((MouseWidget) o).mousePressed(e);
-		if(mimButton.isOn() && o != mimButton && o instanceof GenericButton)
+		if(mimButton.isOn() && o != mimButton && o instanceof Button)
 		{
 			for(AuxArrowPad aap : auxArrowPads)
 			{
-				aap.setButtonState(((GenericButton) o).getInstr(), true, e);
+				aap.setButtonState(((Button) o).getInstr(), true, e);
 			}
 		}
 	}
@@ -49,11 +49,11 @@ public class MainArrowPad extends ButtonGrid
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
 		if(o instanceof MouseWidget) ((MouseWidget) o).mouseReleased(e);
-		if(mimButton.isOn() && o != mimButton && o instanceof GenericButton)
+		if(mimButton.isOn() && o != mimButton && o instanceof Button)
 		{
 			for(AuxArrowPad aap : auxArrowPads)
 			{
-				aap.setButtonState(((GenericButton) o).getInstr(), false, e);
+				aap.setButtonState(((Button) o).getInstr(), false, e);
 			}
 		}
 	}
