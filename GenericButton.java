@@ -12,6 +12,7 @@ public abstract class GenericButton extends MouseWidget
 		rect.setFilled(true);
 		setBaseColor(baseColor);
 		label = new GLabel("");
+		label.setFont("Consolas-*-*")
 		setInstr(instr);
 		add(rect);
 		add(label);
