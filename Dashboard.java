@@ -27,7 +27,7 @@ public class Dashboard extends GraphicsProgram
 		Random r = new Random();
 		for(int i = 0; i < 10000; ++i)
 		{
-			ir.update(r.nextInt(10000000) - 5000000);
+			ir.update(r.nextInt(1000000000) - 500000000);
 			pause(100);
 		}
 	}
