@@ -73,7 +73,7 @@ public class InstrReadout extends GCompound implements Incrementable
 		if(!frozen) increment();
 	}
 	
-	public void update(double data)
+	public void update(int data)
 	{
 		// To do, initialize nf and fix this code!
 		update(nf.format(data));
