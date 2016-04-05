@@ -1,5 +1,5 @@
 
-public abstract class Sensor
+public abstract class Sensor extends GCompound
 {
-
+	
 }
