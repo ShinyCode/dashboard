@@ -67,9 +67,12 @@ public class InstrReadout extends GCompound implements Incrementable, Readout
 	
 	public void update(String msg)
 	{
-		if(messages.size() == BUFFER_SIZE) messages.remove(0);
-		messages.add(msg.substring(0, maxLineWidth));
-		if(!frozen) increment();
+		if(!frozen)
+		{
+			if(messages.size() == BUFFER_SIZE) messages.remove(0);
+			messages.add(msg.substring(0, maxLineWidth));
+			increment();
+		}
 	}
 	
 	public void update(int data)
