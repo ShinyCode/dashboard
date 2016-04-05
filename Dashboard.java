@@ -8,6 +8,7 @@
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
+import java.util.Random;
 
 import acm.graphics.*;
 import acm.io.IOConsole;
@@ -23,6 +24,11 @@ public class Dashboard extends GraphicsProgram
 		InstrReadoutControl irc = new InstrReadoutControl(BUTTON_WIDTH + 2 * BUTTON_SPACING, 4 * BUTTON_HEIGHT + 5 * BUTTON_SPACING, BUTTON_SPACING, Color.BLACK, Color.ORANGE);
 		irc.addInstrReadout(ir);
 		add(irc, 0, 300);
+		Random r = new Random();
+		for(int i = 0; i < 1000; ++i)
+		{
+			ir.update(r.nextInt(10000000) - 5000000);
+		}
 	}
 	
 	public void mousePressed(MouseEvent e)
