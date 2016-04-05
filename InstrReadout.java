@@ -61,6 +61,7 @@ public class InstrReadout extends GCompound implements Incrementable, Readout
 	public void clear()
 	{
 		messages.clear();
+		currIndex = 0;
 		refresh();
 	}
 	
