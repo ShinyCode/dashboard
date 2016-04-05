@@ -37,7 +37,7 @@ public class InstrReadout extends GCompound implements Incrementable
 		// Clear and update the display
 		refresh();
 		
-		appendMessage("DISP:" + maxLines + "X" + maxLineWidth);
+		update("DISP:" + maxLines + "X" + maxLineWidth);
 	}
 	
 	public void increment()
@@ -64,7 +64,7 @@ public class InstrReadout extends GCompound implements Incrementable
 		refresh();
 	}
 	
-	public void appendMessage(String msg)
+	public void update(String msg)
 	{
 		if(messages.size() == BUFFER_SIZE) messages.remove(0);
 		messages.add(msg.substring(0, maxLineWidth));
