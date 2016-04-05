@@ -81,7 +81,7 @@ public class InstrReadout extends GCompound implements Incrementable, Readout
 		if(numDigits < 1) return;
 		String dispString = "";
 		if(data < 0) dispString += "-";
-		else dispString += "=";
+		else dispString += "+";
 		String dataString = Integer.toString(Math.abs(data));
 		int numSpaces = maxLineWidth - 2 - dataString.length();
 		if(numSpaces < 0) // Need to truncate
