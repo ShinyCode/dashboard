@@ -25,9 +25,10 @@ public class Dashboard extends GraphicsProgram
 		irc.addInstrReadout(ir);
 		add(irc, 0, 300);
 		Random r = new Random();
-		for(int i = 0; i < 1000; ++i)
+		for(int i = 0; i < 10000; ++i)
 		{
 			ir.update(r.nextInt(10000000) - 5000000);
+			pause(100);
 		}
 	}
 	
