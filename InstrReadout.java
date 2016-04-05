@@ -7,7 +7,7 @@ import java.util.List;
 
 import acm.graphics.*;
 
-public class InstrReadout extends GCompound implements Incrementable
+public class InstrReadout extends GCompound implements Incrementable, Readout
 {
 	public InstrReadout(double width, double height, double spacing, Color baseColor, Color backColor, Color barColor)
 	{
