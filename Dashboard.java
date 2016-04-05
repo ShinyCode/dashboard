@@ -39,7 +39,7 @@ public class Dashboard extends GraphicsProgram
 		if(o instanceof MouseWidget) ((MouseWidget) o).mouseReleased(e);
 	}
 	
-	private static final int BUTTON_HEIGHT = 60;
+	private static final int BUTTON_HEIGHT = 40;
 	private static final int BUTTON_WIDTH = 80;
 	private static final int BUTTON_SPACING = 5;
 }
