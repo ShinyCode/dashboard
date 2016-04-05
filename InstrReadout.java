@@ -73,11 +73,28 @@ public class InstrReadout extends GCompound implements Incrementable, Readout
 	
 	public void update(int data)
 	{
-		int numDigits = maxLineWidth - 1;
+		int numDigits = maxLineWidth - 2;
 		if(numDigits < 1) return;
 		String dispString = "";
-		if(data < 0) dispString
+		if(data < 0) dispString += "-";
+		else dispString += " ";
 		String dataString = Integer.toString(Math.abs(data));
+		int numSpaces = maxLineWidth - 2 - dataString.length();
+		if(numSpaces < 0) // Need to truncate
+		{
+			dispString += "*"; // Indicate that the value is inaccurate
+			dispString += dataString.substring(dataString.length() - (maxLineWidth - 2));
+		}
+		else
+		{
+			dispString += " ";
+			for(int i = 0; i < numSpaces; ++i)
+			{
+				dispString += " ";
+			}
+			dispString += dataString;
+		}
+		update(dispString);
 	}
 	
 	private void refresh()
