@@ -66,6 +66,7 @@ public class InstrReadout extends GCompound implements Incrementable
 	
 	public void appendMessage(String msg)
 	{
+		if(messages.size() == BUFFER_SIZE) messages.remove(0);
 		messages.add(msg.substring(0, maxLineWidth));
 		if(!frozen) increment();
 	}
@@ -121,4 +122,5 @@ public class InstrReadout extends GCompound implements Incrementable
 	private static final int LINE_SPACING = 2;
 	private boolean frozen = false;
 	private int currIndex = 0;
+	private static final int BUFFER_SIZE = 100;
 }
