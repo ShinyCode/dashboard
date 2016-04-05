@@ -71,6 +71,11 @@ public class InstrReadout extends GCompound implements Incrementable
 		if(!frozen) increment();
 	}
 	
+	public void update(double data)
+	{
+		
+	}
+	
 	private void refresh()
 	{
 		int numPrinted = 0;
