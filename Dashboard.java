@@ -18,7 +18,11 @@ public class Dashboard extends GraphicsProgram
 	public void run()
 	{
 		addMouseListeners();
-		
+		InstrReadout ir = new InstrReadout(BUTTON_WIDTH + 2 * BUTTON_SPACING, 300, BUTTON_SPACING, Color.BLACK, Color.ORANGE, Color.ORANGE.brighter());
+		add(ir, 0, 0);
+		InstrReadoutControl irc = new InstrReadoutControl(BUTTON_WIDTH + 2 * BUTTON_SPACING, 4 * BUTTON_HEIGHT + 5 * BUTTON_SPACING, BUTTON_SPACING, Color.BLACK, Color.ORANGE);
+		irc.addInstrReadout(ir);
+		add(irc, 0, 300);
 	}
 	
 	public void mousePressed(MouseEvent e)
