@@ -6,9 +6,10 @@ import acm.graphics.*;
 
 public abstract class Sensor
 {
-	public Sensor()
+	public Sensor(int updateDelay)
 	{
 		readouts = new ArrayList<Readout>();
+		this.updateDelay = updateDelay;
 	}
 	
 	public void setActive(boolean flag)
@@ -75,5 +76,5 @@ public abstract class Sensor
 	List<Readout> readouts;
 	boolean active = false;
 	Thread thr;
-	private static final int updateDelay = 100;
+	int updateDelay;
 }
