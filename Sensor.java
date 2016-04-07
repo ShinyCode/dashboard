@@ -31,6 +31,11 @@ public abstract class Sensor
 		readouts.add(r);
 	}
 	
+	public void removeReadout(Readout r)
+	{
+		readouts.remove(r);
+	}
+	
 	private void turnOn()
 	{
 		thr = new Thread(new Runnable()
