@@ -4,7 +4,7 @@ import java.util.List;
 
 import acm.graphics.*;
 
-public abstract class Sensor
+public class Sensor
 {
 	public Sensor()
 	{
