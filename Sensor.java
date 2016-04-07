@@ -13,8 +13,67 @@ public abstract class Sensor
 	
 	public void setActive(boolean flag)
 	{
-		
+		if(flag && !active)
+		{
+			active = true;
+			turnOn();
+		}
+		else if(!flag && active)
+		{
+			active = false;
+			turnOff();
+		}
+	}
+	
+	public void addReadout(Readout r)
+	{
+		readouts.add(r);
+	}
+	
+	private void turnOn()
+	{
+		thr = new Thread(new Runnable()
+		{
+			public void run()
+			{
+				while(!Thread.interrupted())
+				{	
+					try
+					{
+						updateReadouts(getReading());
+						Thread.sleep(updateDelay);
+					}
+					catch(InterruptedException e)
+					{
+						return;
+					}
+					
+				}
+			}
+		});
+		thr.start();
+	}
+	
+	private void turnOff()
+	{
+		thr.interrupt();
+	}
+	
+	private void updateReadouts(String msg)
+	{
+		for(Readout r : readouts)
+		{
+			r.update(msg);
+		}
+	}
+	
+	private String getReading()
+	{
+		return "TEST";
 	}
 	
 	List<Readout> readouts;
+	boolean active = false;
+	Thread thr;
+	private static final int updateDelay = 100;
 }
