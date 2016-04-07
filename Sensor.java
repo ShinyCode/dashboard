@@ -68,13 +68,13 @@ public abstract class Sensor
 		}
 	}
 	
-	private String getReading()
+	public abstract String getReading()
 	{
 		return "TEST";
 	}
 	
-	List<Readout> readouts;
-	boolean active = false;
-	Thread thr;
-	int updateDelay;
+	protected List<Readout> readouts;
+	private boolean active = false;
+	private Thread thr;
+	private int updateDelay;
 }
