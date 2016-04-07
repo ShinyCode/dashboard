@@ -24,12 +24,15 @@ public class Dashboard extends GraphicsProgram
 		InstrReadoutControl irc = new InstrReadoutControl(BUTTON_WIDTH + 2 * BUTTON_SPACING, 4 * BUTTON_HEIGHT + 5 * BUTTON_SPACING, BUTTON_SPACING, Color.BLACK, Color.ORANGE);
 		irc.addInstrReadout(ir);
 		add(irc, 0, 300);
-		Random r = new Random();
+		/*Random r = new Random();
 		for(int i = 0; i < 10000; ++i)
 		{
 			ir.update(r.nextInt(1000000000) - 500000000);
 			pause(100);
-		}
+		}*/
+		Sensor s = new Sensor();
+		s.addReadout(ir);
+		s.setActive(true);
 	}
 	
 	public void mousePressed(MouseEvent e)
