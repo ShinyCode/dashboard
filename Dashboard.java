@@ -33,6 +33,8 @@ public class Dashboard extends GraphicsProgram
 		Sensor s = new Sensor();
 		s.addReadout(ir);
 		s.setActive(true);
+		pause(10000);
+		s.setActive(false);
 	}
 	
 	public void mousePressed(MouseEvent e)
