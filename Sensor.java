@@ -68,10 +68,7 @@ public abstract class Sensor
 		}
 	}
 	
-	public abstract String getReading()
-	{
-		return "TEST";
-	}
+	public abstract String getReading();
 	
 	protected List<Readout> readouts;
 	private boolean active = false;
