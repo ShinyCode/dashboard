@@ -33,7 +33,7 @@ public class Dashboard extends GraphicsProgram
 		Sensor s = new Sensor();
 		s.addReadout(ir);
 		s.setActive(true);
-		pause(10000);
+		pause(1000);
 		s.setActive(false);
 	}
 	
