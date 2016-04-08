@@ -49,6 +49,25 @@ public class LevelReadout extends GCompound implements Incrementable, Readout
 		return true;
 	}
 	
+	public void update(String msg)
+	{
+		int data = 0;
+		try
+		{
+			data = Integer.parseInt(msg);
+		}
+		catch(NumberFormatException e)
+		{
+			return;
+		}
+		update(data);
+	}
+	
+	public void update(int data)
+	{
+		setLevel(data);
+	}
+	
 	int level;
 	int numDivisions;
 	GRect base;
