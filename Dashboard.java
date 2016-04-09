@@ -63,6 +63,9 @@ public class Dashboard extends GraphicsProgram
 		add(rotCtrl, rot.getX(), rot.getY() + rot.getHeight() + COMPONENT_SPACING);
 		addrCtrl = new InstrReadoutControl(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
 		add(addrCtrl, addr.getX(), addr.getY() + addr.getHeight() + COMPONENT_SPACING);
+		
+		// Set up sensors
+		sensAdd = new RandomAddressSensor()
 	}
 	
 	
@@ -103,5 +106,6 @@ public class Dashboard extends GraphicsProgram
 	private static final Color BUTTON_COLOR_2 = Color.ORANGE;
 	private static final Color READOUT_COLOR = Color.ORANGE;
 	private static final double READOUT_BUTTON_HEIGHT = BUTTON_HEIGHT / 2.0;
+	private static final int UPDATE_SPEED = 100;
 }
 
