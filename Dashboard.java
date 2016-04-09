@@ -83,7 +83,6 @@ public class Dashboard extends GraphicsProgram
 		background.sendToBack();
 	}
 	
-	
 	public void mousePressed(MouseEvent e)
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
@@ -96,6 +95,11 @@ public class Dashboard extends GraphicsProgram
 		GObject o = getElementAt(e.getX(), e.getY());
 		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
 		if(o instanceof MouseWidget) ((MouseWidget) o).mouseReleased(e);
+	}
+	
+	private void addBorder(GObject o, Color c)
+	{
+		
 	}
 	
 	private ButtonGrid pwr;
