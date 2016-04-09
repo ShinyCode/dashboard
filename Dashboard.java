@@ -25,6 +25,7 @@ public class Dashboard extends GraphicsProgram
 		pwr.addButton(mpwr, 0, 0);
 		add(pwr, COMPONENT_SPACING, COMPONENT_SPACING);
 		
+		
 		// Set up aux console
 		aux = new ButtonGrid(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING, 1, 3, BUTTON_SPACING, BASE_COLOR);
 		TouchButton aux0 = new TouchButton(0, 0, BUTTON_COLOR_1, "AUX0");
