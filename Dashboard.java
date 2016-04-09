@@ -99,7 +99,11 @@ public class Dashboard extends GraphicsProgram
 	
 	private void addBorder(GObject o, Color c)
 	{
-		
+		GRect background = new GRect(o.getWidth() + 2 * BORDER_WIDTH, o.getHeight() + 2 * BORDER_WIDTH);
+		background.setFilled(true);
+		background.setFillColor(c);
+		add(background, o.getX() - BORDER_WIDTH, o.getY() - BORDER_WIDTH);
+		o.sendToFront();
 	}
 	
 	private ButtonGrid pwr;
@@ -126,5 +130,6 @@ public class Dashboard extends GraphicsProgram
 	private static final Color READOUT_COLOR = Color.ORANGE;
 	private static final double READOUT_BUTTON_HEIGHT = BUTTON_HEIGHT / 2.0;
 	private static final int UPDATE_SPEED = 100;
+	private static final double BORDER_WIDTH = 3;
 }
 
