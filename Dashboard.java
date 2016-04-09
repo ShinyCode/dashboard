@@ -59,7 +59,12 @@ public class Dashboard extends GraphicsProgram
 		// Set up readout controls
 		spdCtrl = new InstrReadoutControl(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
 		add(spdCtrl, spd.getX(), spd.getY() + spd.getHeight() + COMPONENT_SPACING);
+		rotCtrl = new InstrReadoutControl(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
+		add(rotCtrl, rot.getX(), rot.getY() + rot.getHeight() + COMPONENT_SPACING);
+		addrCtrl = new InstrReadoutControl(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
+		add(addrCtrl, addr.getX(), addr.getY() + addr.getHeight() + COMPONENT_SPACING);
 	}
+	
 	
 	public void mousePressed(MouseEvent e)
 	{
@@ -85,7 +90,7 @@ public class Dashboard extends GraphicsProgram
 	private InstrReadout addr;
 	private InstrReadoutControl spdCtrl;
 	private InstrReadoutControl rotCtrl;
-	private InstrReadoutControl addCtrl;
+	private InstrReadoutControl addrCtrl;
 	
 	private RandomAddressSensor sensAdd;
 	
