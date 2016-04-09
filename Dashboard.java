@@ -50,6 +50,11 @@ public class Dashboard extends GraphicsProgram
 		double readoutWidth = BUTTON_WIDTH + 2 * BUTTON_SPACING;
 		double readoutHeight = 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING + COMPONENT_SPACING;
 		spd = new InstrReadout(readoutWidth, readoutHeight, BUTTON_SPACING, BASE_COLOR, READOUT_COLOR, READOUT_COLOR.brighter());
+		rot = new InstrReadout(readoutWidth, readoutHeight, BUTTON_SPACING, BASE_COLOR, READOUT_COLOR, READOUT_COLOR.brighter());
+		addr = new InstrReadout(readoutWidth, readoutHeight, BUTTON_SPACING, BASE_COLOR, READOUT_COLOR, READOUT_COLOR.brighter());
+		add(spd, aux.getX() + aux.getWidth() + COMPONENT_SPACING, pwr.getY());
+		add(rot, spd.getX() + spd.getWidth() + COMPONENT_SPACING, spd.getY());
+		add(addr, rot.getX() + rot.getWidth() + COMPONENT_SPACING, rot.getY());
 	}
 	
 	public void mousePressed(MouseEvent e)
@@ -73,7 +78,7 @@ public class Dashboard extends GraphicsProgram
 	private AuxArrowPad aap;
 	private InstrReadout spd;
 	private InstrReadout rot;
-	private InstrReadout add;
+	private InstrReadout addr;
 	private InstrReadoutControl spdCtrl;
 	private InstrReadoutControl rotCtrl;
 	private InstrReadoutControl addCtrl;
