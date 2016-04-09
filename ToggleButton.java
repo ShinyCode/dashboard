@@ -13,7 +13,7 @@ public class ToggleButton extends Button
 		if(on)
 		{
 			on = false;
-			rect.setColor(baseColor.darker());
+			rect.setColor(baseColor);
 		}
 		else
 		{
