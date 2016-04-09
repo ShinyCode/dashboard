@@ -41,7 +41,7 @@ public class Dashboard extends GraphicsProgram
 		
 		// Set up power control
 		sinc = new SingleIncrementer(BUTTON_WIDTH / 2.0 + BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_2);
-		lr = new LevelReadout(sinc.getWidth()), sinc.getHeight(), BUTTON_SPACING, 10, BASE_COLOR, BUTTON_COLOR_1, BUTTON_COLOR_1.brighter());
+		lr = new LevelReadout(sinc.getWidth(), sinc.getHeight(), BUTTON_SPACING, 10, BASE_COLOR, BUTTON_COLOR_1, BUTTON_COLOR_1.brighter());
 		add(sinc, pwr.getX(), aap.getY());
 		add(lr, sinc.getX() + sinc.getWidth(), aap.getY());
 	}
