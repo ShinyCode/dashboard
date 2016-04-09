@@ -24,6 +24,7 @@ public class Dashboard extends GraphicsProgram
 		ToggleButton mpwr = new ToggleButton(0, 0, BUTTON_COLOR_2, "MPWR");
 		pwr.addButton(mpwr, 0, 0);
 		add(pwr, COMPONENT_SPACING, COMPONENT_SPACING);
+		addBorder(pwr, BUTTON_COLOR_2);
 		
 		
 		// Set up aux console
