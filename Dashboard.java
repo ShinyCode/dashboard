@@ -50,6 +50,7 @@ public class Dashboard extends GraphicsProgram
 		add(sinc, pwr.getX(), aap.getY());
 		add(lr, sinc.getX() + sinc.getWidth(), aap.getY());
 		
+		
 		// Set up readouts
 		double readoutWidth = BUTTON_WIDTH + 2 * BUTTON_SPACING;
 		double readoutHeight = 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING + COMPONENT_SPACING;
