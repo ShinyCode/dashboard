@@ -48,7 +48,7 @@ public class Dashboard extends GraphicsProgram
 		lr = new LevelReadout(sinc.getWidth(), sinc.getHeight(), BUTTON_SPACING, 10, BASE_COLOR, BUTTON_COLOR_1, BUTTON_COLOR_2);
 		sinc.setIncrementable(lr);
 		add(sinc, pwr.getX(), aap.getY());
-		add(lr, sinc.getX() + sinc.getWidth(), aap.getY());
+		add(lr, sinc.getX() + sinc.getWidth() + 2 * BORDER_WIDTH, aap.getY());
 		addBorder(sinc, BUTTON_COLOR_2);
 		addBorder(lr, BUTTON_COLOR_1);
 		
