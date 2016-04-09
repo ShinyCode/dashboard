@@ -40,7 +40,7 @@ public class Dashboard extends GraphicsProgram
 		// Set up arrow pad
 		aap = new AuxArrowPad(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
 		add(aap, aux.getX(), aux.getY() + aux.getHeight() + COMPONENT_SPACING);
-		addBorder(aap, BUTTON_COLOR_2);
+		addBorder(aap, BUTTON_COLOR_1);
 		
 		// Set up power control
 		sinc = new SingleIncrementer(BUTTON_WIDTH / 2.0 + BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_2);
