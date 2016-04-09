@@ -36,6 +36,7 @@ public class Dashboard extends GraphicsProgram
 		aux.addButton(aux1, 0, 1);
 		aux.addButton(aux2, 0, 2);
 		add(aux, pwr.getX() + pwr.getWidth() + COMPONENT_SPACING, COMPONENT_SPACING);
+		addBorder(aux, BUTTON_COLOR_1)
 		
 		// Set up arrow pad
 		aap = new AuxArrowPad(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
