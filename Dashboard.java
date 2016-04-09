@@ -44,7 +44,7 @@ public class Dashboard extends GraphicsProgram
 		addBorder(aap, BUTTON_COLOR_1);
 		
 		// Set up power control
-		sinc = new SingleIncrementer(BUTTON_WIDTH / 2.0 + BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_2);
+		sinc = new SingleIncrementer(BUTTON_WIDTH / 2.0 + BUTTON_SPACING - BORDER_WIDTH, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_2);
 		lr = new LevelReadout(sinc.getWidth(), sinc.getHeight(), BUTTON_SPACING, 10, BASE_COLOR, BUTTON_COLOR_1, BUTTON_COLOR_2);
 		sinc.setIncrementable(lr);
 		add(sinc, pwr.getX(), aap.getY());
