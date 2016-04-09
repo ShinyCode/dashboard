@@ -80,6 +80,7 @@ public class Dashboard extends GraphicsProgram
 		background.setFilled(true);
 		background.setFillColor(BASE_COLOR);
 		add(background, 0, 0);
+		background.sendToBack();
 	}
 	
 	
