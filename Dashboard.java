@@ -65,7 +65,9 @@ public class Dashboard extends GraphicsProgram
 		add(addrCtrl, addr.getX(), addr.getY() + addr.getHeight() + COMPONENT_SPACING);
 		
 		// Connect readouts to readout controls
-		spdCtrl.setReadout(spd);
+		spdCtrl.addInstrReadout(spd);
+		rotCtrl.addInstrReadout(rot);
+		addrCtrl.addInstrReadout(addr);
 		
 		// Set up sensors
 		sensAdd = new RandomAddressSensor(UPDATE_SPEED);
