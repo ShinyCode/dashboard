@@ -132,6 +132,6 @@ public class Dashboard extends GraphicsProgram
 	private static final Color READOUT_COLOR = Color.ORANGE;
 	private static final double READOUT_BUTTON_HEIGHT = BUTTON_HEIGHT / 2.0;
 	private static final int UPDATE_SPEED = 100;
-	private static final double BORDER_WIDTH = 4;
+	private static final double BORDER_WIDTH = 2;
 }
 
