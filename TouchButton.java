@@ -15,6 +15,6 @@ public class TouchButton extends Button
 	
 	public void mouseReleased(MouseEvent e)
 	{
-		rect.setColor(baseColor.darker());
+		rect.setColor(baseColor);
 	}
 }
