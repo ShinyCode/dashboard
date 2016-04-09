@@ -40,7 +40,8 @@ public class Dashboard extends GraphicsProgram
 		add(aap, aux.getX(), aux.getY() + aux.getHeight() + COMPONENT_SPACING);
 		
 		// Set up power control
-		
+		sinc = new SingleIncrementer(BUTTON_WIDTH / 2.0 + BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_2);
+		add(sinc, pwr.getX(), aap.getY());
 	}
 	
 	public void mousePressed(MouseEvent e)
