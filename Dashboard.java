@@ -41,17 +41,7 @@ public class Dashboard extends GraphicsProgram
 		// Set up arrow pad
 		aap = new AuxArrowPad(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
 		add(aap, aux.getX(), aux.getY() + aux.getHeight() + COMPONENT_SPACING);
-		addBorder(aap, BUTTON_COLOR_1);
-		
-		// Set up power control
-		sinc = new SingleIncrementer(BUTTON_WIDTH / 2.0 + BUTTON_SPACING - BORDER_WIDTH, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_2);
-		lr = new LevelReadout(sinc.getWidth(), sinc.getHeight(), BUTTON_SPACING, 10, BASE_COLOR, BUTTON_COLOR_1, BUTTON_COLOR_2);
-		sinc.setIncrementable(lr);
-		add(sinc, pwr.getX(), aap.getY());
-		add(lr, sinc.getX() + sinc.getWidth() + 2 * BORDER_WIDTH, aap.getY());
-		addBorder(sinc, BUTTON_COLOR_2);
-		addBorder(lr, BUTTON_COLOR_1);
-		
+		addBorder(aap, BUTTON_COLOR_1);	
 		
 		// Set up readouts
 		double readoutWidth = BUTTON_WIDTH + 2 * BUTTON_SPACING;
@@ -86,6 +76,15 @@ public class Dashboard extends GraphicsProgram
 		sensAdd = new RandomAddressSensor(UPDATE_SPEED);
 		sensAdd.addReadout(addr);
 		sensAdd.setActive(true);
+		
+		// Set up power control
+		sinc = new SingleIncrementer(BUTTON_WIDTH / 2.0 + BUTTON_SPACING - BORDER_WIDTH, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_2);
+		lr = new LevelReadout(sinc.getWidth(), sinc.getHeight(), BUTTON_SPACING, 10, BASE_COLOR, BUTTON_COLOR_1, BUTTON_COLOR_2);
+		sinc.setIncrementable(lr);
+		add(sinc, pwr.getX(), aap.getY());
+		add(lr, sinc.getX() + sinc.getWidth() + 2 * BORDER_WIDTH, aap.getY());
+		addBorder(sinc, BUTTON_COLOR_2);
+		addBorder(lr, BUTTON_COLOR_1);
 		
 		// Add a background
 		GRect background = new GRect(addr.getX() + addr.getWidth() + 2 * COMPONENT_SPACING - pwr.getX(),
