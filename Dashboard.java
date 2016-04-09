@@ -58,7 +58,7 @@ public class Dashboard extends GraphicsProgram
 		add(spd, aux.getX() + aux.getWidth() + COMPONENT_SPACING, pwr.getY());
 		add(rot, spd.getX() + spd.getWidth() + COMPONENT_SPACING, spd.getY());
 		add(addr, rot.getX() + rot.getWidth() + COMPONENT_SPACING, rot.getY());
-		addBorder(spd, BUTTON_COLOR_2);
+		addBorder(spd, BUTTON_COLOR_1);
 		
 		// Set up readout controls
 		spdCtrl = new InstrReadoutControl(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
