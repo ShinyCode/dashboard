@@ -124,7 +124,7 @@ public class Dashboard extends GraphicsProgram
 	
 	private static final double BUTTON_HEIGHT = 40;
 	private static final double BUTTON_WIDTH = 80;
-	private static final double BUTTON_SPACING = 5;
+	private static final double BUTTON_SPACING = 10;
 	private static final double COMPONENT_SPACING = 10;
 	private static final Color BASE_COLOR = Color.BLACK;
 	private static final Color BUTTON_COLOR_1 = Color.BLUE.brighter();
