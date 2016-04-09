@@ -29,12 +29,12 @@ public class Dashboard extends GraphicsProgram
 		
 		// Set up aux console
 		aux = new ButtonGrid(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING, 1, 3, BUTTON_SPACING, BASE_COLOR);
-		TouchButton aux0 = new TouchButton(0, 0, BUTTON_COLOR_1, "AUX0");
-		TouchButton aux1 = new TouchButton(0, 0, BUTTON_COLOR_1, "AUX1");
-		TouchButton aux2 = new TouchButton(0, 0, BUTTON_COLOR_1, "AUX2");
-		aux.addButton(aux0, 0, 0);
-		aux.addButton(aux1, 0, 1);
-		aux.addButton(aux2, 0, 2);
+		ToggleButton com0 = new ToggleButton(0, 0, BUTTON_COLOR_1, "COM0");
+		ToggleButton com1 = new ToggleButton(0, 0, BUTTON_COLOR_1, "COM1");
+		ToggleButton com2 = new ToggleButton(0, 0, BUTTON_COLOR_1, "COM2");
+		aux.addButton(com0, 0, 0);
+		aux.addButton(com1, 0, 1);
+		aux.addButton(com2, 0, 2);
 		add(aux, pwr.getX() + pwr.getWidth() + COMPONENT_SPACING, COMPONENT_SPACING);
 		addBorder(aux, BUTTON_COLOR_1);
 		
