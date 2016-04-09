@@ -22,7 +22,7 @@ public class Dashboard extends GraphicsProgram
 		// Set up power console
 		pwr = new ButtonGrid(1 * BUTTON_WIDTH + 2 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING, 1, 1, BUTTON_SPACING, BASE_COLOR);
 		ToggleButton mpwr = new ToggleButton(0, 0, BUTTON_COLOR_2, "MPWR");
-		pwr.add(mpwr, 0, 0);
+		pwr.addButton(mpwr, 0, 0);
 		add(pwr, COMPONENT_SPACING, COMPONENT_SPACING);
 		
 		// Set up aux console
@@ -30,9 +30,9 @@ public class Dashboard extends GraphicsProgram
 		TouchButton aux0 = new TouchButton(0, 0, BUTTON_COLOR_1, "AUX0");
 		TouchButton aux1 = new TouchButton(0, 0, BUTTON_COLOR_1, "AUX1");
 		TouchButton aux2 = new TouchButton(0, 0, BUTTON_COLOR_1, "AUX2");
-		aux.add(aux0, 0, 0);
-		aux.add(aux1, 0, 1);
-		aux.add(aux2, 0, 2);
+		aux.addButton(aux0, 0, 0);
+		aux.addButton(aux1, 0, 1);
+		aux.addButton(aux2, 0, 2);
 		add(aux, pwr.getX() + pwr.getWidth() + COMPONENT_SPACING, COMPONENT_SPACING);
 		
 		// Set up arrow pad
