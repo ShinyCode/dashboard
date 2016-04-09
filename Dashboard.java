@@ -65,7 +65,8 @@ public class Dashboard extends GraphicsProgram
 		add(addrCtrl, addr.getX(), addr.getY() + addr.getHeight() + COMPONENT_SPACING);
 		
 		// Set up sensors
-		sensAdd = new RandomAddressSensor()
+		sensAdd = new RandomAddressSensor(UPDATE_SPEED);
+		sensAdd.addComponent(addr);
 	}
 	
 	
