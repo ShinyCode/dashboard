@@ -47,7 +47,9 @@ public class Dashboard extends GraphicsProgram
 		add(lr, sinc.getX() + sinc.getWidth(), aap.getY());
 		
 		// Set up readouts
-		
+		double readoutWidth = BUTTON_WIDTH + 2 * BUTTON_SPACING;
+		double readoutHeight = 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING + COMPONENT_SPACING;
+		spd = new InstrReadout(readoutWidth, readoutHeight, BUTTON_SPACING, BASE_COLOR, READOUT_COLOR, READOUT_COLOR.brighter());
 	}
 	
 	public void mousePressed(MouseEvent e)
@@ -85,5 +87,6 @@ public class Dashboard extends GraphicsProgram
 	private static final Color BASE_COLOR = Color.BLACK;
 	private static final Color BUTTON_COLOR_1 = Color.BLUE.brighter();
 	private static final Color BUTTON_COLOR_2 = Color.ORANGE;
+	private static final Color READOUT_COLOR = Color.ORANGE;
 }
 
