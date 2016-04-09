@@ -73,6 +73,13 @@ public class Dashboard extends GraphicsProgram
 		sensAdd = new RandomAddressSensor(UPDATE_SPEED);
 		sensAdd.addReadout(addr);
 		sensAdd.setActive(true);
+		
+		// Add a background
+		GRect background = new GRect(addr.getX() + addr.getWidth() + 2 * COMPONENT_SPACING - pwr.getX(),
+				addrCtrl.getY() + addrCtrl.getHeight() + 2 * COMPONENT_SPACING - addr.getY());
+		background.setFilled(true);
+		background.setFillColor(BASE_COLOR);
+		add(background, 0, 0);
 	}
 	
 	
