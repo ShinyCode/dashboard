@@ -38,6 +38,9 @@ public class Dashboard extends GraphicsProgram
 		// Set up arrow pad
 		aap = new AuxArrowPad(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
 		add(aap, aux.getX(), aux.getY() + aux.getHeight() + COMPONENT_SPACING);
+		
+		// Set up power control
+		
 	}
 	
 	public void mousePressed(MouseEvent e)
