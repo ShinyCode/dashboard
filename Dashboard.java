@@ -55,6 +55,9 @@ public class Dashboard extends GraphicsProgram
 		add(spd, aux.getX() + aux.getWidth() + COMPONENT_SPACING, pwr.getY());
 		add(rot, spd.getX() + spd.getWidth() + COMPONENT_SPACING, spd.getY());
 		add(addr, rot.getX() + rot.getWidth() + COMPONENT_SPACING, rot.getY());
+		
+		// Set up readout controls
+		
 	}
 	
 	public void mousePressed(MouseEvent e)
