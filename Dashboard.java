@@ -60,6 +60,8 @@ public class Dashboard extends GraphicsProgram
 		add(rot, spd.getX() + spd.getWidth() + COMPONENT_SPACING, spd.getY());
 		add(addr, rot.getX() + rot.getWidth() + COMPONENT_SPACING, rot.getY());
 		addBorder(spd, BUTTON_COLOR_2);
+		addBorder(rot, BUTTON_COLOR_2);
+		addBorder(addr, BUTTON_COLOR_2);
 		
 		// Set up readout controls
 		spdCtrl = new InstrReadoutControl(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
@@ -68,6 +70,9 @@ public class Dashboard extends GraphicsProgram
 		add(rotCtrl, rot.getX(), rot.getY() + rot.getHeight() + COMPONENT_SPACING);
 		addrCtrl = new InstrReadoutControl(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
 		add(addrCtrl, addr.getX(), addr.getY() + addr.getHeight() + COMPONENT_SPACING);
+		addBorder(spdCtrl, BUTTON_COLOR_1);
+		addBorder(rotCtrl, BUTTON_COLOR_1);
+		addBorder(addrCtrl, BUTTON_COLOR_1);
 		
 		// Connect readouts to readout controls
 		spdCtrl.addInstrReadout(spd);
