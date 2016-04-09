@@ -66,7 +66,8 @@ public class Dashboard extends GraphicsProgram
 		
 		// Set up sensors
 		sensAdd = new RandomAddressSensor(UPDATE_SPEED);
-		sensAdd.addComponent(addr);
+		sensAdd.addReadout(addr);
+		sensAdd.setActive(true);
 	}
 	
 	
