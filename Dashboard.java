@@ -45,6 +45,9 @@ public class Dashboard extends GraphicsProgram
 		sinc.setIncrementable(lr);
 		add(sinc, pwr.getX(), aap.getY());
 		add(lr, sinc.getX() + sinc.getWidth(), aap.getY());
+		
+		// Set up readouts
+		
 	}
 	
 	public void mousePressed(MouseEvent e)
