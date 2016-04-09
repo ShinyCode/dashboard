@@ -49,6 +49,7 @@ public class Dashboard extends GraphicsProgram
 		sinc.setIncrementable(lr);
 		add(sinc, pwr.getX(), aap.getY());
 		add(lr, sinc.getX() + sinc.getWidth(), aap.getY());
+		addBorder(sinc, BUTTON_COLOR_2);
 		
 		
 		// Set up readouts
