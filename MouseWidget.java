@@ -4,9 +4,9 @@ import java.awt.event.*;
 
 public abstract class MouseWidget extends GCompound
 {
-	public void mousePressed(MouseEvent e)
+	public String mousePressed(MouseEvent e)
 	{
-		
+		return NULL;
 	}
 	
 	public void mouseReleased(MouseEvent e)
