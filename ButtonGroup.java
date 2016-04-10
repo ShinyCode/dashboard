@@ -34,16 +34,20 @@ public class ButtonGroup extends MouseWidget
 		return buttons.get(instr);
 	}
 	
-	public void mousePressed(MouseEvent e)
+	public String mousePressed(MouseEvent e)
 	{
+		String cmd = null;
 		GObject o = getElementAt(e.getX(), e.getY());
-		if(o instanceof MouseWidget) ((MouseWidget) o).mousePressed(e);
+		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
+		return cmd;
 	}
 	
-	public void mouseReleased(MouseEvent e)
+	public String mouseReleased(MouseEvent e)
 	{
+		String cmd = null;
 		GObject o = getElementAt(e.getX(), e.getY());
-		if(o instanceof MouseWidget) ((MouseWidget) o).mouseReleased(e);
+		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseReleased(e);
+		return cmd;
 	}
 	
 	private Map<String, Button> buttons;
