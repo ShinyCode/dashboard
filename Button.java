@@ -21,7 +21,7 @@ public abstract class Button extends MouseWidget
 	public void setBaseColor(Color baseColor)
 	{
 		this.baseColor = baseColor;
-		rect.setColor(baseColor.darker());
+		rect.setColor(baseColor);
 	}
 	
 	public void setInstr(String instr)
