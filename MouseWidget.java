@@ -6,7 +6,7 @@ public abstract class MouseWidget extends GCompound
 {
 	public String mousePressed(MouseEvent e)
 	{
-		return NULL;
+		return null;
 	}
 	
 	public void mouseReleased(MouseEvent e)
