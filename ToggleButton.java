@@ -8,17 +8,19 @@ public class ToggleButton extends Button
 		super(width, height, baseColor, instr);
 	}
 	
-	public void mousePressed(MouseEvent e)
+	public String mousePressed(MouseEvent e)
 	{
 		if(on)
 		{
 			on = false;
 			rect.setColor(baseColor);
+			return getInstr() + " SET_ACTIVE_FALSE";
 		}
 		else
 		{
 			on = true;
 			rect.setColor(baseColor.brighter());
+			return getInstr() + " SET_ACTIVE_TRUE";
 		}
 	}
 	
