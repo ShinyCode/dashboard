@@ -97,16 +97,20 @@ public class Dashboard extends GraphicsProgram
 	
 	public void mousePressed(MouseEvent e)
 	{
+		String cmd = null;
 		GObject o = getElementAt(e.getX(), e.getY());
 		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
-		if(o instanceof MouseWidget) ((MouseWidget) o).mousePressed(e);
+		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
+		if(cmd != null) System.out.println(cmd);
 	}
 	
 	public void mouseReleased(MouseEvent e)
 	{
+		String cmd = null;
 		GObject o = getElementAt(e.getX(), e.getY());
 		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
-		if(o instanceof MouseWidget) ((MouseWidget) o).mouseReleased(e);
+		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseReleased(e);
+		if(cmd != null) System.out.println(cmd);
 	}
 	
 	private void addBorder(GObject o, Color c)
