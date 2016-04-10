@@ -9,33 +9,33 @@ public abstract class MouseWidget extends GCompound
 		return null;
 	}
 	
-	public void mouseReleased(MouseEvent e)
+	public String mouseReleased(MouseEvent e)
 	{
-		
+		return null;
 	}
 	
-	public void mouseExited(MouseEvent e)
+	public String mouseExited(MouseEvent e)
 	{
-		
+		return null;
 	}
 	
-	public void mouseClicked(MouseEvent e)
+	public String mouseClicked(MouseEvent e)
 	{
-		
+		return null;
 	}
 	
-	public void mouseEntered(MouseEvent e)
+	public String mouseEntered(MouseEvent e)
 	{
-		
+		return null;
 	}
 	
-	public void mouseDragged(MouseEvent e)
+	public String mouseDragged(MouseEvent e)
 	{
-		
+		return null;
 	}
 	
-	public void mouseMoved(MouseEvent e)
+	public String mouseMoved(MouseEvent e)
 	{
-		
+		return null;
 	}
 }
