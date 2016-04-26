@@ -21,6 +21,7 @@ public class Dashboard extends GraphicsProgram
 		addMouseListeners();
 		// Set up power console
 		pwr = new ButtonGrid(1 * BUTTON_WIDTH + 2 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING, 1, 1, BUTTON_SPACING, BASE_COLOR);
+		pwr.setName("PWR");
 		ToggleButton mpwr = new ToggleButton(0, 0, BUTTON_COLOR_2, "MPWR");
 		pwr.addButton(mpwr, 0, 0);
 		add(pwr, COMPONENT_SPACING, COMPONENT_SPACING);
@@ -29,6 +30,7 @@ public class Dashboard extends GraphicsProgram
 		
 		// Set up aux console
 		aux = new ButtonGrid(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING, 1, 3, BUTTON_SPACING, BASE_COLOR);
+		pwr.setName("AUX");
 		ToggleButton com0 = new ToggleButton(0, 0, BUTTON_COLOR_1, "COM0");
 		ToggleButton com1 = new ToggleButton(0, 0, BUTTON_COLOR_1, "COM1");
 		ToggleButton com2 = new ToggleButton(0, 0, BUTTON_COLOR_1, "COM2");
@@ -40,6 +42,7 @@ public class Dashboard extends GraphicsProgram
 		
 		// Set up arrow pad
 		aap = new AuxArrowPad(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
+		aap.setName("CTRL");
 		add(aap, aux.getX(), aux.getY() + aux.getHeight() + COMPONENT_SPACING);
 		addBorder(aap, BUTTON_COLOR_1);	
 		
@@ -59,10 +62,13 @@ public class Dashboard extends GraphicsProgram
 		// Set up readout controls
 		spdCtrl = new InstrReadoutControl(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
 		add(spdCtrl, spd.getX(), spd.getY() + spd.getHeight() + COMPONENT_SPACING);
+		spdCtrl.setName("SPD_CTRL");
 		rotCtrl = new InstrReadoutControl(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
 		add(rotCtrl, rot.getX(), rot.getY() + rot.getHeight() + COMPONENT_SPACING);
+		rotCtrl.setName("ROT_CTRL");
 		addrCtrl = new InstrReadoutControl(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
 		add(addrCtrl, addr.getX(), addr.getY() + addr.getHeight() + COMPONENT_SPACING);
+		addrCtrl.setName("ADDR_CTRL");
 		addBorder(spdCtrl, BUTTON_COLOR_1);
 		addBorder(rotCtrl, BUTTON_COLOR_1);
 		addBorder(addrCtrl, BUTTON_COLOR_1);
@@ -79,6 +85,7 @@ public class Dashboard extends GraphicsProgram
 		
 		// Set up power control
 		sinc = new SingleIncrementer(BUTTON_WIDTH / 2.0 + BUTTON_SPACING - BORDER_WIDTH, spdCtrl.getY() + spdCtrl.getHeight() - aap.getY(), BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_2);
+		sinc.setName("SINC");
 		lr = new LevelReadout(sinc.getWidth(), sinc.getHeight(), BUTTON_SPACING, 10, BASE_COLOR, BUTTON_COLOR_1, BUTTON_COLOR_2);
 		sinc.setIncrementable(lr);
 		add(sinc, pwr.getX(), aap.getY());
