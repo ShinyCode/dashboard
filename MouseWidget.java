@@ -49,5 +49,5 @@ public abstract class MouseWidget extends GCompound
 		return name;
 	}
 	
-	private String name = "";
+	private String name;
 }
