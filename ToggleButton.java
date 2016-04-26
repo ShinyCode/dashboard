@@ -20,7 +20,7 @@ public class ToggleButton extends Button
 		{
 			on = true;
 			rect.setColor(baseColor.brighter());
-			return getPAth() + ".SET_ACTIVE_TRUE";
+			return getPath() + ".SET_ACTIVE_TRUE";
 		}
 	}
 	
