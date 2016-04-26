@@ -20,7 +20,6 @@ public class SingleIncrementer extends ButtonGrid
 		String cmd = null;
 		GObject o = getElementAt(e.getX(), e.getY());
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
-		if(cmd != null) cmd = getName() + "." + cmd;
 		if(o == incButton)
 		{
 			if(inc != null) inc.increment();
