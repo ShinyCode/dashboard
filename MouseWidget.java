@@ -3,7 +3,7 @@ import acm.graphics.*;
 import java.awt.event.*;
 
 public abstract class MouseWidget extends GCompound
-{
+{	
 	public String mousePressed(MouseEvent e)
 	{
 		return null;
@@ -38,4 +38,16 @@ public abstract class MouseWidget extends GCompound
 	{
 		return null;
 	}
+	
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	
+	private String name = "";
 }
