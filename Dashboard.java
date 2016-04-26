@@ -14,6 +14,12 @@ import acm.graphics.*;
 import acm.io.IOConsole;
 import acm.program.*;
 
+// Todo:
+/* Make it possible to get the stack trace.
+ * 
+ * 
+ */
+
 public class Dashboard extends GraphicsProgram
 {
 	public void run()
