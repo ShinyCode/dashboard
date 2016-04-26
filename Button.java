@@ -16,6 +16,7 @@ public abstract class Button extends MouseWidget
 		setInstr(instr);
 		add(rect);
 		add(label);
+		path = instr;
 	}
 	
 	public void setBaseColor(Color baseColor)
@@ -47,7 +48,18 @@ public abstract class Button extends MouseWidget
 		setInstr(label.getLabel());
 	}
 	
+	public void addParentToPath(String parent)
+	{
+		path = parent + "." + path;
+	}
+	
+	public void getPath()
+	{
+		return path;
+	}
+	
 	protected GRect rect;
 	protected GLabel label;
 	protected Color baseColor;
+	private String path;
 }
