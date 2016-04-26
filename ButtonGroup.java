@@ -25,7 +25,6 @@ public class ButtonGroup extends MouseWidget
 		if(buttons.containsKey(gb.getInstr())) return false;
 		buttons.put(gb.getInstr(), gb);
 		add(gb, x, y);
-		gb.addParentToPath(getName());
 		return true;
 	}
 	
