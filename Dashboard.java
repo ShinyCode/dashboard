@@ -30,8 +30,7 @@ public class Dashboard extends GraphicsProgram
 		
 		// Set up aux console
 		aux = new ButtonGrid(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING, 1, 3, BUTTON_SPACING, BASE_COLOR);
-		pwr.setName("AUX");
-		System.out.println(pwr.getName());
+		aux.setName("AUX");
 		ToggleButton com0 = new ToggleButton(0, 0, BUTTON_COLOR_1, "COM0");
 		ToggleButton com1 = new ToggleButton(0, 0, BUTTON_COLOR_1, "COM1");
 		ToggleButton com2 = new ToggleButton(0, 0, BUTTON_COLOR_1, "COM2");
