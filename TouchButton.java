@@ -11,12 +11,12 @@ public class TouchButton extends Button
 	public String mousePressed(MouseEvent e)
 	{
 		rect.setColor(baseColor.brighter());
-		return getPath() + ".SET_ACTIVE_TRUE";
+		return getInstr() + ".SET_ACTIVE_TRUE";
 	}
 	
 	public String mouseReleased(MouseEvent e)
 	{
 		rect.setColor(baseColor);
-		return getPath() + ".SET_ACTIVE_FALSE";
+		return getInstr() + ".SET_ACTIVE_FALSE";
 	}
 }
