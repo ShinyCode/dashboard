@@ -22,7 +22,6 @@ public class Dashboard extends GraphicsProgram
 		// Set up power console
 		pwr = new ButtonGrid(1 * BUTTON_WIDTH + 2 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING, 1, 1, BUTTON_SPACING, BASE_COLOR);
 		pwr.setName("PWR");
-		System.out.println(pwr.getName());
 		ToggleButton mpwr = new ToggleButton(0, 0, BUTTON_COLOR_2, "MPWR");
 		pwr.addButton(mpwr, 0, 0);
 		add(pwr, COMPONENT_SPACING, COMPONENT_SPACING);
@@ -32,6 +31,7 @@ public class Dashboard extends GraphicsProgram
 		// Set up aux console
 		aux = new ButtonGrid(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING, 1, 3, BUTTON_SPACING, BASE_COLOR);
 		pwr.setName("AUX");
+		System.out.println(pwr.getName());
 		ToggleButton com0 = new ToggleButton(0, 0, BUTTON_COLOR_1, "COM0");
 		ToggleButton com1 = new ToggleButton(0, 0, BUTTON_COLOR_1, "COM1");
 		ToggleButton com2 = new ToggleButton(0, 0, BUTTON_COLOR_1, "COM2");
