@@ -48,18 +48,7 @@ public abstract class Button extends MouseWidget
 		setInstr(label.getLabel());
 	}
 	
-	public void addParentToPath(String parent)
-	{
-		path = parent + "." + path;
-	}
-	
-	public String getPath()
-	{
-		return path;
-	}
-	
 	protected GRect rect;
 	protected GLabel label;
 	protected Color baseColor;
-	private String path;
 }
