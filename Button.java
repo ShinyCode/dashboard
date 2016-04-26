@@ -16,7 +16,6 @@ public abstract class Button extends MouseWidget
 		setInstr(instr);
 		add(rect);
 		add(label);
-		path = instr;
 	}
 	
 	public void setBaseColor(Color baseColor)
