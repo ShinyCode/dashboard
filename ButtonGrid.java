@@ -36,7 +36,6 @@ public class ButtonGrid extends MouseWidget
 		if(rowSpan <= 0 || colSpan <= 0 || rowSpan > numRows - row || colSpan > numCols - col) return false; //Invalid row/column Span
 		gb.resize(colSpan * buttonWidth + (colSpan - 1) * spacing, rowSpan * buttonHeight + (rowSpan - 1) * spacing);
 		add(gb, col * buttonWidth + (col + 1) * spacing, row * buttonHeight + (row + 1) * spacing);
-		System.out.println("Added " + getName());
 		gb.addParentToPath(getName());
 		return true;
 	}
