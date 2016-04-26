@@ -53,7 +53,7 @@ public abstract class Button extends MouseWidget
 		path = parent + "." + path;
 	}
 	
-	public void getPath()
+	public String getPath()
 	{
 		return path;
 	}
