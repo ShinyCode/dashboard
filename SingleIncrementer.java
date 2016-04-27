@@ -15,11 +15,8 @@ public class SingleIncrementer extends ButtonGrid
 		addButton(decButton, 1, 0);
 	}
 	
-	public String mousePressed(MouseEvent e)
+	public void onMousePressed(GObject o)
 	{
-		String cmd = null;
-		GObject o = getElementAt(e.getX(), e.getY());
-		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
 		if(o == incButton)
 		{
 			if(inc != null) inc.increment();
@@ -28,7 +25,6 @@ public class SingleIncrementer extends ButtonGrid
 		{
 			if(inc != null) inc.decrement();
 		}
-		return cmd;
 	}
 	
 	public void setIncrementable(Incrementable inc)
