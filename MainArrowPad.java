@@ -38,7 +38,7 @@ public class MainArrowPad extends ButtonGrid
 		{
 			for(AuxArrowPad aap : auxArrowPads)
 			{
-				aap.setButtonState(((Button) o).getInstr(), true, e);
+				aap.setButtonState(((Button) o).getInstr(), true);
 			}
 		}
 	}
@@ -49,7 +49,7 @@ public class MainArrowPad extends ButtonGrid
 		{
 			for(AuxArrowPad aap : auxArrowPads)
 			{
-				aap.setButtonState(((Button) o).getInstr(), false, e);
+				aap.setButtonState(((Button) o).getInstr(), false);
 			}
 		}
 	}
