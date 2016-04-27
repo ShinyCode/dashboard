@@ -20,7 +20,7 @@ public abstract class MouseWidget extends GCompound
 		String cmd = null;
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseReleased(e);
 		onMouseReleased(o);
-		return cmd;
+		return name + "." + cmd;
 	}
 	
 	public String mouseExited(MouseEvent e)
@@ -29,7 +29,7 @@ public abstract class MouseWidget extends GCompound
 		String cmd = null;
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseExited(e);
 		onMouseExited(o);
-		return cmd;
+		return name + "." + cmd;
 	}
 	
 	public String mouseClicked(MouseEvent e)
@@ -38,7 +38,7 @@ public abstract class MouseWidget extends GCompound
 		String cmd = null;
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseClicked(e);
 		onMouseClicked(o);
-		return cmd;
+		return name + "." + cmd;
 	}
 	
 	public String mouseEntered(MouseEvent e)
@@ -47,7 +47,7 @@ public abstract class MouseWidget extends GCompound
 		String cmd = null;
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseEntered(e);
 		onMouseEntered(o);
-		return cmd;
+		return name + "." + cmd;
 	}
 	
 	public String mouseDragged(MouseEvent e)
@@ -56,7 +56,7 @@ public abstract class MouseWidget extends GCompound
 		String cmd = null;
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseDragged(e);
 		onMouseDragged(o);
-		return cmd;
+		return name + "." + cmd;
 	}
 	
 	public String mouseMoved(MouseEvent e)
@@ -65,7 +65,7 @@ public abstract class MouseWidget extends GCompound
 		String cmd = null;
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseMoved(e);
 		onMouseMoved(o);
-		return cmd;
+		return name + "." + cmd;
 	}
 	
 	public void setName(String name)
