@@ -1,11 +1,16 @@
 
 import acm.graphics.*;
+
 import java.awt.event.*;
 
 public abstract class MouseWidget extends GCompound
 {	
 	public final String mousePressed(MouseEvent e)
 	{
+		GObject o = getElementAt(e.getX(), e.getY());
+		String cmd = null;
+		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
+		onMousePressed(o);
 		return null;
 	}
 	
@@ -47,6 +52,11 @@ public abstract class MouseWidget extends GCompound
 	public String getName()
 	{
 		return name;
+	}
+	
+	public void onMousePressed(GObject o)
+	{
+		
 	}
 	
 	private String name = "";
