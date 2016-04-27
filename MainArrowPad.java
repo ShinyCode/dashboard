@@ -32,11 +32,8 @@ public class MainArrowPad extends ButtonGrid
 		auxArrowPads = new ArrayList<AuxArrowPad>();
 	}
 	
-	public String mousePressed(MouseEvent e)
+	public void onMousePressed(GObject o)
 	{
-		String cmd = null;
-		GObject o = getElementAt(e.getX(), e.getY());
-		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
 		if(mimButton.isOn() && o != mimButton && o instanceof Button)
 		{
 			for(AuxArrowPad aap : auxArrowPads)
@@ -44,14 +41,10 @@ public class MainArrowPad extends ButtonGrid
 				aap.setButtonState(((Button) o).getInstr(), true, e);
 			}
 		}
-		return cmd;
 	}
 	
-	public String mouseReleased(MouseEvent e)
+	public void onMouseReleased(GObject o)
 	{
-		String cmd = null;
-		GObject o = getElementAt(e.getX(), e.getY());
-		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseReleased(e);
 		if(mimButton.isOn() && o != mimButton && o instanceof Button)
 		{
 			for(AuxArrowPad aap : auxArrowPads)
@@ -59,7 +52,6 @@ public class MainArrowPad extends ButtonGrid
 				aap.setButtonState(((Button) o).getInstr(), false, e);
 			}
 		}
-		return cmd;
 	}
 	
 	public void addAuxArrowPad(AuxArrowPad aap)
