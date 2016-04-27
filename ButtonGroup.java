@@ -34,6 +34,7 @@ public class ButtonGroup extends MouseWidget
 		return buttons.get(instr);
 	}
 	
+	/*
 	public String mousePressed(MouseEvent e)
 	{
 		String cmd = null;
@@ -49,6 +50,7 @@ public class ButtonGroup extends MouseWidget
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseReleased(e);
 		return cmd;
 	}
+	*/
 	
 	private Map<String, Button> buttons;
 	private Color baseColor;
