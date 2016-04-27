@@ -26,7 +26,7 @@ public class ToggleButton extends Button
 	
 	public String mouseReleased(MouseEvent e)
 	{
-		return "HEY";
+		return null;
 	}
 	
 	public boolean isOn()
