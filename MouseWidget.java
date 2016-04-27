@@ -5,43 +5,67 @@ import java.awt.event.*;
 
 public abstract class MouseWidget extends GCompound
 {	
-	public final String mousePressed(MouseEvent e)
+	public String mousePressed(MouseEvent e)
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
 		String cmd = null;
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
 		onMousePressed(o);
-		return null;
+		return cmd;
 	}
 	
-	public final String mouseReleased(MouseEvent e)
+	public String mouseReleased(MouseEvent e)
 	{
-		return null;
+		GObject o = getElementAt(e.getX(), e.getY());
+		String cmd = null;
+		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
+		onMouseReleased(o);
+		return cmd;
 	}
 	
-	public final String mouseExited(MouseEvent e)
+	public String mouseExited(MouseEvent e)
 	{
-		return null;
+		GObject o = getElementAt(e.getX(), e.getY());
+		String cmd = null;
+		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
+		onMouseExited(o);
+		return cmd;
 	}
 	
-	public final String mouseClicked(MouseEvent e)
+	public String mouseClicked(MouseEvent e)
 	{
-		return null;
+		GObject o = getElementAt(e.getX(), e.getY());
+		String cmd = null;
+		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
+		onMouseClicked(o);
+		return cmd;
 	}
 	
-	public final String mouseEntered(MouseEvent e)
+	public String mouseEntered(MouseEvent e)
 	{
-		return null;
+		GObject o = getElementAt(e.getX(), e.getY());
+		String cmd = null;
+		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
+		onMouseEntered(o);
+		return cmd;
 	}
 	
-	public final String mouseDragged(MouseEvent e)
+	public String mouseDragged(MouseEvent e)
 	{
-		return null;
+		GObject o = getElementAt(e.getX(), e.getY());
+		String cmd = null;
+		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
+		onMouseDragged(o);
+		return cmd;
 	}
 	
-	public final String mouseMoved(MouseEvent e)
+	public String mouseMoved(MouseEvent e)
 	{
-		return null;
+		GObject o = getElementAt(e.getX(), e.getY());
+		String cmd = null;
+		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
+		onMouseMoved(o);
+		return cmd;
 	}
 	
 	public void setName(String name)
@@ -56,7 +80,37 @@ public abstract class MouseWidget extends GCompound
 	
 	public void onMousePressed(GObject o)
 	{
-		
+		// Do nothing
+	}
+	
+	public void onMouseReleased(GObject o)
+	{
+		// Do nothing
+	}
+	
+	public void onMouseExited(GObject o)
+	{
+		// Do nothing
+	}
+	
+	public void onMouseClicked(GObject o)
+	{
+		// Do nothing
+	}
+	
+	public void onMouseEntered(GObject o)
+	{
+		// Do nothing
+	}
+	
+	public void onMouseDragged(GObject o)
+	{
+		// Do nothing
+	}
+	
+	public void onMouseMoved(GObject o)
+	{
+		// Do nothing
 	}
 	
 	private String name = "";
