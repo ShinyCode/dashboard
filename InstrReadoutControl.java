@@ -19,11 +19,8 @@ public class InstrReadoutControl extends ButtonGrid
 		addButton(decButton, 3, 0);
 	}
 	
-	public String mousePressed(MouseEvent e)
+	public void onMousePressed(GObject o)
 	{
-		GObject o = getElementAt(e.getX(), e.getY());
-		String cmd = null;
-		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
 		if(ir != null)
 		{
 			if(o == incButton)
@@ -43,7 +40,6 @@ public class InstrReadoutControl extends ButtonGrid
 				ir.setFrozen(frzButton.isOn());
 			}
 		}
-		return cmd;
 	}
 	
 	public void addInstrReadout(InstrReadout ir)
