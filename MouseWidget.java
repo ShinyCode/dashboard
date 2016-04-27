@@ -11,7 +11,7 @@ public abstract class MouseWidget extends GCompound
 		String cmd = null;
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
 		onMousePressed(o);
-		return cmd;
+		return name + "." + cmd;
 	}
 	
 	public String mouseReleased(MouseEvent e)
