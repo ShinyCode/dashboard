@@ -2,7 +2,6 @@
 import acm.graphics.*;
 
 import java.awt.Color;
-import java.awt.event.*;
 
 public abstract class Button extends MouseWidget
 {
