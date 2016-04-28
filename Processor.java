@@ -1,6 +1,15 @@
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 
 public class Processor {
 
+	public Processor(int updateDelay)
+	{
+		this.updateDelay = updateDelay;
+		queue = new ArrayDeque<String>();
+	}
+	
 	public void setActive(boolean flag)
 	{
 		if(flag && !active)
@@ -18,7 +27,7 @@ public class Processor {
 	// Issues a command to the processor, enqueueing it onto the processor's queue.
 	public void issue(String instr)
 	{
-		
+		queue.add(instr);
 	}
 	
 	private void turnOn()
@@ -29,7 +38,15 @@ public class Processor {
 			{
 				while(!Thread.interrupted())
 				{	
-					// Execute code
+					try
+					{
+						// DO stuff
+						Thread.sleep(updateDelay);
+					}
+					catch(InterruptedException e)
+					{
+						return;
+					}
 				}
 			}
 		});
@@ -43,4 +60,6 @@ public class Processor {
 	
 	private Thread thr;
 	private boolean active = false;
+	private Queue queue;
+	private int updateDelay;
 }
