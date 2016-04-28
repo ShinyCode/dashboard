@@ -23,14 +23,6 @@ public class Processor {
 			{
 				while(!Thread.interrupted())
 				{	
-					try
-					{
-						// Execute code
-					}
-					catch(InterruptedException e)
-					{
-						return;
-					}
 					
 				}
 			}
