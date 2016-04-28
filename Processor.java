@@ -15,6 +15,7 @@ public class Processor {
 		}
 	}
 	
+	// Issues a command to the processor, enqueueing it onto the processor's queue.
 	public void issue(String instr)
 	{
 		
