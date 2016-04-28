@@ -15,6 +15,11 @@ public class Processor {
 		}
 	}
 	
+	public void issue(String instr)
+	{
+		
+	}
+	
 	private void turnOn()
 	{
 		thr = new Thread(new Runnable()
