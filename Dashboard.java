@@ -107,7 +107,7 @@ public class Dashboard extends GraphicsProgram
 		add(background, 0, 0);
 		background.sendToBack();
 		
-		prc = new Processor(1000);
+		prc = new Processor(1);
 		prc.setActive(true);
 	}
 	
