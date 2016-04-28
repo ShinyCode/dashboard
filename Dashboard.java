@@ -106,6 +106,9 @@ public class Dashboard extends GraphicsProgram
 		background.setFillColor(BASE_COLOR);
 		add(background, 0, 0);
 		background.sendToBack();
+		
+		prc = new Processor(100);
+		prc.setActive(true);
 	}
 	
 	public void mousePressed(MouseEvent e)
