@@ -27,7 +27,7 @@ public class Processor {
 	// Issues a command to the processor, enqueueing it onto the processor's queue.
 	public void issue(String instr)
 	{
-		queue.add(instr);
+		if(active) queue.add(instr);
 	}
 	
 	private void turnOn()
@@ -60,6 +60,6 @@ public class Processor {
 	
 	private Thread thr;
 	private boolean active = false;
-	private Queue queue;
+	private Queue<String> queue;
 	private int updateDelay;
 }
