@@ -40,7 +40,7 @@ public class Processor {
 				{	
 					try
 					{
-						// DO stuff
+						exec();
 						Thread.sleep(updateDelay);
 					}
 					catch(InterruptedException e)
@@ -56,6 +56,14 @@ public class Processor {
 	private void turnOff()
 	{
 		thr.interrupt();
+	}
+	
+	// Executes the instruction at the top of the queue
+	private void exec()
+	{
+		if(queue.isEmpty()) return;
+		// In the future, parse this. But for now, we'll print it out.
+		System.out.println(queue.remove());
 	}
 	
 	private Thread thr;
