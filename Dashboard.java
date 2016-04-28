@@ -146,6 +146,7 @@ public class Dashboard extends GraphicsProgram
 	private InstrReadoutControl spdCtrl;
 	private InstrReadoutControl rotCtrl;
 	private InstrReadoutControl addrCtrl;
+	private Processor prc;
 	
 	private RandomAddressSensor sensAdd;
 	
