@@ -117,7 +117,7 @@ public class Dashboard extends GraphicsProgram
 		GObject o = getElementAt(e.getX(), e.getY());
 		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
-		if(cmd != null) System.out.println(cmd);
+		if(cmd != null) prc.issue(cmd);
 	}
 	
 	public void mouseReleased(MouseEvent e)
@@ -126,7 +126,7 @@ public class Dashboard extends GraphicsProgram
 		GObject o = getElementAt(e.getX(), e.getY());
 		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseReleased(e);
-		if(cmd != null) System.out.println(cmd);
+		if(cmd != null) prc.issue(cmd);
 	}
 	
 	private void addBorder(GObject o, Color c)
