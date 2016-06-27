@@ -41,9 +41,9 @@ public class MultiIncrementer extends ButtonGrid
 			return this;
 		}
 		
-		public SingleIncrementer build()
+		public MultiIncrementer build()
 		{
-			return new SingleIncrementer(width, height, spacing, baseColor, buttonColor);
+			return new MultiIncrementer(width, height, spacing, baseColor, buttonColor);
 		}				
 	}
 	
