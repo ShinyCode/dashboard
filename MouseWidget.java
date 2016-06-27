@@ -11,7 +11,7 @@ import java.awt.event.*;
  */
 public abstract class MouseWidget extends GCompound
 {	
-	public final String mousePressed(MouseEvent e)
+	public String mousePressed(MouseEvent e)
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
 		String cmd = null;
