@@ -34,24 +34,6 @@ public class ButtonGroup extends MouseWidget
 		return buttons.get(instr);
 	}
 	
-	/*
-	public String mousePressed(MouseEvent e)
-	{
-		String cmd = null;
-		GObject o = getElementAt(e.getX(), e.getY());
-		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
-		return cmd;
-	}
-	
-	public String mouseReleased(MouseEvent e)
-	{
-		String cmd = null;
-		GObject o = getElementAt(e.getX(), e.getY());
-		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseReleased(e);
-		return cmd;
-	}
-	*/
-	
 	private Map<String, Button> buttons;
 	private Color baseColor;
 	private GRect base;
