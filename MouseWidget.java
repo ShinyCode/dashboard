@@ -17,7 +17,7 @@ public abstract class MouseWidget extends GCompound
 	 * call hierarchy.
 	 * <p>
 	 * This method serves as a wrapper for {@link onMousePressed}, which
-	 * is overridden by subclasses of MouseWidget as an action callback.
+	 * is overridden by subclasses of {@link MouseWidget} as an action callback.
 	 * 
 	 * @param e a {@link MouseEvent} that represents the associated mouse action
 	 * @return the end action being executed and the associated call hierarchy.
