@@ -4,7 +4,7 @@ public class AuxArrowPad extends ButtonGrid
 {
 	private TouchButton fwdButton, revButton, bnlButton, bnrButton;
 	
-	public static class AuxArrowPadBuilder
+	public static class Builder
 	{
 		private final double width;
 		private final double height;
@@ -13,25 +13,25 @@ public class AuxArrowPad extends ButtonGrid
 		private Color baseColor = Color.BLACK;
 		private Color buttonColor = Color.BLACK;
 		
-		public AuxArrowPadBuilder(double width, double height)
+		public Builder(double width, double height)
 		{
 			this.width = width;
 			this.height = height;
 		}
 		
-		public AuxArrowPadBuilder withSpacing(double spacing)
+		public Builder withSpacing(double spacing)
 		{
 			this.spacing = spacing;
 			return this;
 		}
 		
-		public AuxArrowPadBuilder withBaseColor(Color baseColor)
+		public Builder withBaseColor(Color baseColor)
 		{
 			this.baseColor = baseColor;
 			return this;
 		}
 		
-		public AuxArrowPadBuilder withButtonColor(Color buttonColor)
+		public Builder withButtonColor(Color buttonColor)
 		{
 			this.buttonColor = buttonColor;
 			return this;
