@@ -9,10 +9,13 @@ public class ButtonGroup extends MouseWidget
 	private HashMap<String, Button> buttons;
 	private GRect base;
 	
-	public static class Builder
+	public class ButtonGroupBuilder
 	{
-		private final HashMap<String, Button> buttons;
-		private final GRect base;
+		private final double width;
+		private final double height;
+		
+		private Color baseColor = Color.BLACK; // Default color
+		
 		
 	}
 	
