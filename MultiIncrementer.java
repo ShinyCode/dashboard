@@ -3,7 +3,6 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-import SingleIncrementer.Builder;
 import acm.graphics.GObject;
 
 
