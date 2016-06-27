@@ -20,7 +20,7 @@ public abstract class MouseWidget extends GCompound
 	 * is overridden by subclasses of {@link MouseWidget} as an action callback.
 	 * 
 	 * @param e a {@link MouseEvent} that represents the associated mouse action
-	 * @return the end action being executed and the associated call hierarchy.
+	 * @return the end action being executed and the associated call hierarchy
 	 */
 	public String mousePressed(MouseEvent e)
 	{
@@ -41,7 +41,7 @@ public abstract class MouseWidget extends GCompound
 	 * is overridden by subclasses of {@link MouseWidget} as an action callback.
 	 * 
 	 * @param e a {@link MouseEvent} that represents the associated mouse action
-	 * @return the end action being executed and the associated call hierarchy.
+	 * @return the end action being executed and the associated call hierarchy
 	 */
 	public String mouseReleased(MouseEvent e)
 	{
@@ -62,7 +62,7 @@ public abstract class MouseWidget extends GCompound
 	 * is overridden by subclasses of {@link MouseWidget} as an action callback.
 	 * 
 	 * @param e a {@link MouseEvent} that represents the associated mouse action
-	 * @return the end action being executed and the associated call hierarchy.
+	 * @return the end action being executed and the associated call hierarchy
 	 */
 	public String mouseExited(MouseEvent e)
 	{
@@ -83,7 +83,7 @@ public abstract class MouseWidget extends GCompound
 	 * is overridden by subclasses of {@link MouseWidget} as an action callback.
 	 * 
 	 * @param e a {@link MouseEvent} that represents the associated mouse action
-	 * @return the end action being executed and the associated call hierarchy.
+	 * @return the end action being executed and the associated call hierarchy
 	 */
 	public String mouseClicked(MouseEvent e)
 	{
@@ -104,7 +104,7 @@ public abstract class MouseWidget extends GCompound
 	 * is overridden by subclasses of {@link MouseWidget} as an action callback.
 	 * 
 	 * @param e a {@link MouseEvent} that represents the associated mouse action
-	 * @return the end action being executed and the associated call hierarchy.
+	 * @return the end action being executed and the associated call hierarchy
 	 */
 	public String mouseEntered(MouseEvent e)
 	{
@@ -125,7 +125,7 @@ public abstract class MouseWidget extends GCompound
 	 * is overridden by subclasses of {@link MouseWidget} as an action callback.
 	 * 
 	 * @param e a {@link MouseEvent} that represents the associated mouse action
-	 * @return the end action being executed and the associated call hierarchy.
+	 * @return the end action being executed and the associated call hierarchy
 	 */
 	public String mouseDragged(MouseEvent e)
 	{
@@ -146,7 +146,7 @@ public abstract class MouseWidget extends GCompound
 	 * is overridden by subclasses of {@link MouseWidget} as an action callback.
 	 * 
 	 * @param e a {@link MouseEvent} that represents the associated mouse action
-	 * @return the end action being executed and the associated call hierarchy.
+	 * @return the end action being executed and the associated call hierarchy
 	 */
 	public String mouseMoved(MouseEvent e)
 	{
@@ -271,5 +271,9 @@ public abstract class MouseWidget extends GCompound
 		// Do nothing
 	}
 	
+	/**
+	 * the name of the that will be displayed
+	 * in subsequent call hierarchies
+	 */
 	private String name = "";
 }
