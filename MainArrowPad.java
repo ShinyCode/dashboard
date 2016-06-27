@@ -11,7 +11,7 @@ public class MainArrowPad extends ButtonGrid
 	private ToggleButton mimButton;
 	private List<AuxArrowPad> auxArrowPads;
 	
-	public static class MainArrowPadBuilder
+	public static class Builder
 	{
 		private final double width;
 		private final double height;
@@ -20,25 +20,25 @@ public class MainArrowPad extends ButtonGrid
 		private Color baseColor = Color.BLACK;
 		private Color buttonColor = Color.BLACK;
 		
-		public MainArrowPadBuilder(double width, double height)
+		public Builder(double width, double height)
 		{
 			this.width = width;
 			this.height = height;
 		}
 		
-		public MainArrowPadBuilder withSpacing(double spacing)
+		public Builder withSpacing(double spacing)
 		{
 			this.spacing = spacing;
 			return this;
 		}
 		
-		public MainArrowPadBuilder withBaseColor(Color baseColor)
+		public Builder withBaseColor(Color baseColor)
 		{
 			this.baseColor = baseColor;
 			return this;
 		}
 		
-		public MainArrowPadBuilder withButtonColor(Color buttonColor)
+		public Builder withButtonColor(Color buttonColor)
 		{
 			this.buttonColor = buttonColor;
 			return this;
