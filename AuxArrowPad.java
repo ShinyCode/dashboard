@@ -3,7 +3,7 @@ import java.awt.Color;
 
 public class AuxArrowPad extends ButtonGrid
 {
-	public AuxArrowPad(double width, double height, double spacing, Color baseColor, Color buttonColor)
+	protected AuxArrowPad(double width, double height, double spacing, Color baseColor, Color buttonColor)
 	{
 		super(width, height, 2, 3, spacing, baseColor);
 		fwdButton = new TouchButton(width, height, buttonColor, "FWD");
