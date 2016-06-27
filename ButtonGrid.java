@@ -7,6 +7,15 @@ import acm.graphics.GRect;
 
 public class ButtonGrid extends MouseWidget
 {
+	private List<Button> buttons;
+	private GRect base;
+	private Color baseColor;
+	private int numRows;
+	private int numCols;
+	private double buttonWidth;
+	private double buttonHeight;
+	private double spacing;
+	
 	public ButtonGrid(double width, double height, int numRows, int numCols, double spacing, Color baseColor)
 	{
 		buttons = new ArrayList<Button>(numRows * numCols);
@@ -46,13 +55,4 @@ public class ButtonGrid extends MouseWidget
 	{
 		return row * numRows + col;
 	}
-	
-	private List<Button> buttons;
-	private GRect base;
-	private Color baseColor;
-	private int numRows;
-	private int numCols;
-	private double buttonWidth;
-	private double buttonHeight;
-	private double spacing;
 }
