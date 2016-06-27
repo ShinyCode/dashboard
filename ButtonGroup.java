@@ -6,7 +6,7 @@ import acm.graphics.*;
 
 public class ButtonGroup extends MouseWidget
 {
-	private HashMap<String, Button> buttons;
+	private Map<String, Button> buttons;
 	private GRect base;
 	
 	public static class ButtonGroupBuilder
