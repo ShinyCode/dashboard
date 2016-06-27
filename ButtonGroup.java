@@ -9,6 +9,11 @@ public class ButtonGroup extends MouseWidget
 	private HashMap<String, Button> buttons;
 	private GRect base;
 	
+	public static class Builder
+	{
+		
+	}
+	
 	public ButtonGroup(double width, double height, Color baseColor)
 	{
 		buttons = new HashMap<String, Button>();
