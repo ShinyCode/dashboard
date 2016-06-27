@@ -47,22 +47,6 @@ public class ButtonGrid extends MouseWidget
 		return row * numRows + col;
 	}
 	
-	/*
-	public String mousePressed(MouseEvent e)
-	{
-		GObject o = getElementAt(e.getX(), e.getY());
-		if(o instanceof MouseWidget) return ((MouseWidget) o).mousePressed(e);
-		return null;
-	}
-	
-	public String mouseReleased(MouseEvent e)
-	{
-		GObject o = getElementAt(e.getX(), e.getY());
-		if(o instanceof MouseWidget) return ((MouseWidget) o).mouseReleased(e);
-		return null;
-	}
-	*/
-	
 	private List<Button> buttons;
 	private GRect base;
 	private int numRows;
