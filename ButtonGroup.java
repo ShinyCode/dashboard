@@ -7,6 +7,9 @@ import acm.graphics.*;
 
 public class ButtonGroup extends MouseWidget
 {
+	private Map<String, Button> buttons;
+	private GRect base;
+	
 	public ButtonGroup(double width, double height, Color baseColor)
 	{
 		buttons = new HashMap<String, Button>();
@@ -30,6 +33,5 @@ public class ButtonGroup extends MouseWidget
 		return buttons.get(instr);
 	}
 	
-	private Map<String, Button> buttons;
-	private GRect base;
+	
 }
