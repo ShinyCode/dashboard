@@ -3,12 +3,53 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import SingleIncrementer.Builder;
 import acm.graphics.GObject;
 
 
 public class MultiIncrementer extends ButtonGrid
 {
-	public MultiIncrementer(double width, double height, double spacing, Color baseColor, Color buttonColor)
+
+	public static class Builder
+	{
+		private final double width;
+		private final double height;
+		
+		private double spacing = 0;
+		private Color baseColor = Color.BLACK;
+		private Color buttonColor = Color.BLACK;
+		
+		public Builder(double width, double height)
+		{
+			this.width = width;
+			this.height = height;
+		}
+		
+		public Builder withSpacing(double spacing)
+		{
+			this.spacing = spacing;
+			return this;
+		}
+		
+		public Builder withBaseColor(Color baseColor)
+		{
+			this.baseColor = baseColor;
+			return this;
+		}
+		
+		public Builder withButtonColor(Color buttonColor)
+		{
+			this.buttonColor = buttonColor;
+			return this;
+		}
+		
+		public SingleIncrementer build()
+		{
+			return new SingleIncrementer(width, height, spacing, baseColor, buttonColor);
+		}				
+	}
+	
+	protected MultiIncrementer(double width, double height, double spacing, Color baseColor, Color buttonColor)
 	{
 		super(width, height, 3, 1, spacing, baseColor);
 		incButton = new TouchButton(width, height, buttonColor, "INC");
