@@ -7,7 +7,12 @@ import acm.graphics.GObject;
 
 public class MultiIncrementer extends ButtonGrid
 {
-
+	private int index = 0;
+	private TouchButton incButton;
+	private TouchButton decButton;
+	private ToggleButton selButton;
+	private List<Incrementable> incrementables;
+	
 	public static class Builder
 	{
 		private final double width;
@@ -80,10 +85,4 @@ public class MultiIncrementer extends ButtonGrid
 	{
 		if(inc != null) incrementables.add(inc);
 	}
-	
-	private int index = 0;
-	private TouchButton incButton;
-	private TouchButton decButton;
-	private ToggleButton selButton;
-	private List<Incrementable> incrementables;
 }
