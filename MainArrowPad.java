@@ -9,7 +9,8 @@ public class MainArrowPad extends ButtonGrid
 {
 	public MainArrowPad(double width, double height, double spacing, Color baseColor, Color buttonColor)
 	{
-		super(width, height, 3, 3, spacing, baseColor);
+		// super(width, height, 3, 3, spacing, baseColor);
+		
 		aillButton = new TouchButton(width, height, buttonColor, "AILL");
 		addButton(aillButton, 0, 0);
 		fwdButton = new TouchButton(width, height, buttonColor, "FWD");
