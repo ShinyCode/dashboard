@@ -7,8 +7,6 @@ import acm.graphics.GObject;
 
 public class MainArrowPad extends ButtonGrid
 {
-	private static final int NUM_ROWS = 3;
-	private static final int NUM_COLS = 3;
 	private TouchButton aillButton, fwdButton, ailrButton, bnlButton, revButton, bnrButton, rudlButton, rudrButton;
 	private ToggleButton mimButton;
 	private List<AuxArrowPad> auxArrowPads;
@@ -54,7 +52,7 @@ public class MainArrowPad extends ButtonGrid
 	
 	protected MainArrowPad(double width, double height, double spacing, Color baseColor, Color buttonColor)
 	{
-		super(width, height, NUM_ROWS, NUM_COLS, spacing, baseColor);
+		super(width, height, 3, 3, spacing, baseColor);
 		aillButton = new TouchButton(width, height, buttonColor, "AILL");
 		addButton(aillButton, 0, 0);
 		fwdButton = new TouchButton(width, height, buttonColor, "FWD");
