@@ -1,13 +1,12 @@
 
 import java.awt.Color;
 import java.util.HashMap;
-import java.util.Map;
 
 import acm.graphics.*;
 
 public class ButtonGroup extends MouseWidget
 {
-	private Map<String, Button> buttons;
+	private HashMap<String, Button> buttons;
 	private GRect base;
 	
 	public ButtonGroup(double width, double height, Color baseColor)
