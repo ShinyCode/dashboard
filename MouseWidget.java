@@ -102,6 +102,13 @@ public abstract class MouseWidget extends GCompound
 		return name;
 	}
 	
+	/**
+	 * Called by {@link mousePressed} to execute code specific to this {@link MouseWidget}.
+	 * As 
+	 * 
+	 * @param e a {@link MouseEvent} that represents the associated mouse action
+	 * @return the end action being executed and the associated call hierarchy.
+	 */
 	public void onMousePressed(GObject o)
 	{
 		// Do nothing
