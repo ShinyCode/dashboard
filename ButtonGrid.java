@@ -16,7 +16,50 @@ public class ButtonGrid extends MouseWidget
 	private double buttonHeight;
 	private double spacing;
 	
-	public ButtonGrid(double width, double height, int numRows, int numCols, double spacing, Color baseColor)
+	public static class ButtonGridBuilder
+	{
+		private final double width;
+		private final double height;
+		
+		private int numRows = 1;
+		private int numCols = 1;
+		private double spacing = 0;
+		private Color baseColor = Color.BLACK;
+		
+		public ButtonGridBuilder(double width, double height)
+		{
+			this.width = width;
+			this.height = height;
+		}
+		
+		public ButtonGridBuilder withRowsCols(int numRows, int numCols)
+		{
+			this.numRows = numRows;
+			this.numCols = numCols;
+			return this;
+		}
+		
+		public ButtonGridBuilder withSpacing(double spacing)
+		{
+			this.spacing = spacing;
+			return this;
+		}
+		
+		public ButtonGridBuilder withBaseColor(Color baseColor)
+		{
+			this.baseColor = baseColor;
+			return this;
+		}
+		
+		public ButtonGrid build()
+		{
+			return new ButtonGrid(width, height, numRows, numCols, spacing, baseColor);
+		}
+		
+		
+	}
+	
+	private ButtonGrid(double width, double height, int numRows, int numCols, double spacing, Color baseColor)
 	{
 		buttons = new ArrayList<Button>(numRows * numCols);
 		this.numRows = numRows;
