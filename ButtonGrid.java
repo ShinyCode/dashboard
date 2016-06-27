@@ -53,9 +53,7 @@ public class ButtonGrid extends MouseWidget
 		public ButtonGrid build()
 		{
 			return new ButtonGrid(width, height, numRows, numCols, spacing, baseColor);
-		}
-		
-		
+		}				
 	}
 	
 	private ButtonGrid(double width, double height, int numRows, int numCols, double spacing, Color baseColor)
