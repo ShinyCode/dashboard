@@ -103,7 +103,7 @@ public class Dashboard extends GraphicsProgram
 		sensAdd.setActive(true);
 		
 		// Set up power control
-		sinc = new SingleIncrementerBuilder(BUTTON_WIDTH / 2.0 + BUTTON_SPACING - BORDER_WIDTH, spdCtrl.getY() + spdCtrl.getHeight() - aap.getY())
+		sinc = new SingleIncrementer.SingleIncrementerBuilder(BUTTON_WIDTH / 2.0 + BUTTON_SPACING - BORDER_WIDTH, spdCtrl.getY() + spdCtrl.getHeight() - aap.getY())
 			.withSpacing(BUTTON_SPACING)
 			.withBaseColor(BASE_COLOR)
 			.withButtonColor(BUTTON_COLOR_2)
