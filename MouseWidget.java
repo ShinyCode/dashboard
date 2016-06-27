@@ -4,7 +4,8 @@ import acm.graphics.*;
 import java.awt.event.*;
 
 /**
- * Provides the base functionality for all user-interactable widgets.
+ * Provides the base functionality for all user-interactable widgets that require
+ * mouse input.
  * 
  * @author Mark Sabini
  *
