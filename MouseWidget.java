@@ -104,10 +104,11 @@ public abstract class MouseWidget extends GCompound
 	
 	/**
 	 * Called by {@link mousePressed} to execute code specific to this {@link MouseWidget}.
-	 * As the method exists within a wrapper function, the client does not explicitly call
+	 * The client should override this function to implement a callback for the specific MouseWidget.
+	 * As the method exists within a wrapper function, the client should not explicitly call
 	 * subwidgets' versions of mousePressed.
 	 * 
-	 * @param o the exact element within the MouseWidget that the user interacted with
+	 * @param o the exact element within the MouseWidget that the client interacted with
 	 */
 	public void onMousePressed(GObject o)
 	{
