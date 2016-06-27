@@ -4,14 +4,14 @@ import acm.graphics.*;
 import java.awt.event.*;
 
 /**
- * Class that provides the base functionality for 
+ * Provides the base functionality for all user-interactable widgets.
  * 
  * @author Mark Sabini
  *
  */
 public abstract class MouseWidget extends GCompound
 {	
-	public String mousePressed(MouseEvent e)
+	public final String mousePressed(MouseEvent e)
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
 		String cmd = null;
