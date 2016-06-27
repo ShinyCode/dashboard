@@ -13,14 +13,14 @@ public abstract class MouseWidget extends GCompound
 {	
 	/**
 	 * Called by the client to simulate the mouse being pressed, and returns
-	 * a string representing the hierarchy of all the widgets being clicked
-	 * within the current widget.
+	 * a string representing the end action being executed and the associated
+	 * call hierarchy.
 	 * <p>
 	 * This method serves as a wrapper for {@link onMousePressed}, which
 	 * is overridden by subclasses of MouseWidget as an action callback.
 	 * 
-	 * @param e 
-	 * @return
+	 * @param e a {@link MouseEvent} that represents the associated mouse action
+	 * @return the end action being executed and the associated call hierarchy.
 	 */
 	public String mousePressed(MouseEvent e)
 	{
