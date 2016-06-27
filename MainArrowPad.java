@@ -4,7 +4,6 @@ import java.util.List;
 
 import acm.graphics.GObject;
 
-
 public class MainArrowPad extends ButtonGrid
 {
 	private static final int NUM_ROWS = 3;
