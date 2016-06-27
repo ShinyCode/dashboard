@@ -10,20 +10,20 @@ public class ButtonGroup extends MouseWidget
 	private Map<String, Button> buttons;
 	private GRect base;
 	
-	public static class ButtonGroupBuilder
+	public static class Builder
 	{
 		private final double width;
 		private final double height;
 		
 		private Color baseColor = Color.BLACK; // Default color
 		
-		public ButtonGroupBuilder(double width, double height)
+		public Builder(double width, double height)
 		{
 			this.width = width;
 			this.height = height;
 		}
 		
-		public ButtonGroupBuilder withBaseColor(Color baseColor)
+		public Builder withBaseColor(Color baseColor)
 		{
 			this.baseColor = baseColor;
 			return this;
