@@ -15,8 +15,8 @@ import acm.io.IOConsole;
 import acm.program.*;
 
 // Todo:
-/* Make it possible to get the stack trace.
- * 
+/* Make it possible to get the stack trace. - DONE
+ * Implemented Builders in some classes, but try to use generics to allow inheritance of builder
  * 
  */
 
