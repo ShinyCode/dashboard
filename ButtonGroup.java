@@ -13,7 +13,6 @@ public class ButtonGroup extends MouseWidget
 	public ButtonGroup(double width, double height, Color baseColor)
 	{
 		buttons = new HashMap<String, Button>();
-		this.baseColor = baseColor;
 		base = new GRect(width, height);
 		base.setFilled(true);
 		base.setFillColor(baseColor);
@@ -35,6 +34,5 @@ public class ButtonGroup extends MouseWidget
 	}
 	
 	private Map<String, Button> buttons;
-	private Color baseColor;
 	private GRect base;
 }
