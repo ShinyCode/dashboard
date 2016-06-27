@@ -5,7 +5,6 @@ import acm.graphics.GObject;
 
 public class SingleIncrementer extends ButtonGrid
 {
-	
 	public static class SingleIncrementerBuilder
 	{
 		private final double width;
