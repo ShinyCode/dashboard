@@ -3,6 +3,12 @@ import acm.graphics.*;
 
 import java.awt.event.*;
 
+/**
+ * Class that provides the base functionality for 
+ * 
+ * @author Mark Sabini
+ *
+ */
 public abstract class MouseWidget extends GCompound
 {	
 	public String mousePressed(MouseEvent e)
