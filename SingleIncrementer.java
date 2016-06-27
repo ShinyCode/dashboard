@@ -5,7 +5,7 @@ import acm.graphics.GObject;
 
 public class SingleIncrementer extends ButtonGrid
 {
-	public static class SingleIncrementerBuilder
+	public static class Builder
 	{
 		private final double width;
 		private final double height;
@@ -14,25 +14,25 @@ public class SingleIncrementer extends ButtonGrid
 		private Color baseColor = Color.BLACK;
 		private Color buttonColor = Color.BLACK;
 		
-		public SingleIncrementerBuilder(double width, double height)
+		public Builder(double width, double height)
 		{
 			this.width = width;
 			this.height = height;
 		}
 		
-		public SingleIncrementerBuilder withSpacing(double spacing)
+		public Builder withSpacing(double spacing)
 		{
 			this.spacing = spacing;
 			return this;
 		}
 		
-		public SingleIncrementerBuilder withBaseColor(Color baseColor)
+		public Builder withBaseColor(Color baseColor)
 		{
 			this.baseColor = baseColor;
 			return this;
 		}
 		
-		public SingleIncrementerBuilder withButtonColor(Color buttonColor)
+		public Builder withButtonColor(Color buttonColor)
 		{
 			this.buttonColor = buttonColor;
 			return this;
