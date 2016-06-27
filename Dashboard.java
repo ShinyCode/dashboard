@@ -56,7 +56,11 @@ public class Dashboard extends GraphicsProgram
 		addBorder(aux, BUTTON_COLOR_1);
 		
 		// Set up arrow pad
-		aap = new AuxArrowPad(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
+		aap = new AuxArrowPad.AuxArrowPadBuilder(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING)
+			.withSpacing(BUTTON_SPACING)
+			.withBaseColor(BASE_COLOR)
+			.withButtonColor(BUTTON_COLOR_1)
+			.build();
 		aap.setName("CTRL");
 		add(aap, aux.getX(), aux.getY() + aux.getHeight() + COMPONENT_SPACING);
 		addBorder(aap, BUTTON_COLOR_1);	
