@@ -27,7 +27,7 @@ public class Dashboard extends GraphicsProgram
 		addMouseListeners();
 		// Set up power console
 		// pwr = new ButtonGrid(1 * BUTTON_WIDTH + 2 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING, 1, 1, BUTTON_SPACING, BASE_COLOR);
-		pwr = new ButtonGrid.ButtonGridBuilder(1 * BUTTON_WIDTH + 2 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING)
+		pwr = new ButtonGrid.Builder(1 * BUTTON_WIDTH + 2 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING)
 			.withRowsCols(1, 1)
 			.withSpacing(BUTTON_SPACING)
 			.withBaseColor(BASE_COLOR)
@@ -40,7 +40,7 @@ public class Dashboard extends GraphicsProgram
 		
 		
 		// Set up aux console
-		aux = new ButtonGrid.ButtonGridBuilder(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING)
+		aux = new ButtonGrid.Builder(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING)
 			.withRowsCols(1, 3)
 			.withSpacing(BUTTON_SPACING)
 			.withBaseColor(BASE_COLOR)
@@ -56,7 +56,7 @@ public class Dashboard extends GraphicsProgram
 		addBorder(aux, BUTTON_COLOR_1);
 		
 		// Set up arrow pad
-		aap = new AuxArrowPad.AuxArrowPadBuilder(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING)
+		aap = new AuxArrowPad.Builder(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING)
 			.withSpacing(BUTTON_SPACING)
 			.withBaseColor(BASE_COLOR)
 			.withButtonColor(BUTTON_COLOR_1)
