@@ -1,10 +1,7 @@
-
-import java.awt.event.MouseEvent;
+import java.awt.Color;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-import acm.graphics.GObject;
 import acm.graphics.GRect;
 
 
