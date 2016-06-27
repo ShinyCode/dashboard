@@ -15,10 +15,22 @@ public class ButtonGroup extends MouseWidget
 		private final double height;
 		
 		private Color baseColor = Color.BLACK; // Default color
+		
 		public ButtonGroupBuilder(double width, double height)
 		{
 			this.width = width;
 			this.height = height;
+		}
+		
+		public ButtonGroupBuilder withBaseColor(Color baseColor)
+		{
+			this.baseColor = baseColor;
+			return this;
+		}
+		
+		public ButtonGroup build()
+		{
+			return new ButtonGroup(width, height, baseColor);
 		}
 	}
 	
