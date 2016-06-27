@@ -1,14 +1,13 @@
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 
-import AuxArrowPad.AuxArrowPadBuilder;
 import acm.graphics.GObject;
 
 
 public class SingleIncrementer extends ButtonGrid
 {
 	
-	public static class AuxArrowPadBuilder
+	public static class SingleIncrementerBuilder
 	{
 		private final double width;
 		private final double height;
@@ -17,33 +16,33 @@ public class SingleIncrementer extends ButtonGrid
 		private Color baseColor = Color.BLACK;
 		private Color buttonColor = Color.BLACK;
 		
-		public AuxArrowPadBuilder(double width, double height)
+		public SingleIncrementerBuilder(double width, double height)
 		{
 			this.width = width;
 			this.height = height;
 		}
 		
-		public AuxArrowPadBuilder withSpacing(double spacing)
+		public SingleIncrementerBuilder withSpacing(double spacing)
 		{
 			this.spacing = spacing;
 			return this;
 		}
 		
-		public AuxArrowPadBuilder withBaseColor(Color baseColor)
+		public SingleIncrementerBuilder withBaseColor(Color baseColor)
 		{
 			this.baseColor = baseColor;
 			return this;
 		}
 		
-		public AuxArrowPadBuilder withButtonColor(Color buttonColor)
+		public SingleIncrementerBuilder withButtonColor(Color buttonColor)
 		{
 			this.buttonColor = buttonColor;
 			return this;
 		}
 		
-		public AuxArrowPad build()
+		public SingleIncrementer build()
 		{
-			return new AuxArrowPad(width, height, spacing, baseColor, buttonColor);
+			return new SingleIncrementer(width, height, spacing, baseColor, buttonColor);
 		}				
 	}
 	
