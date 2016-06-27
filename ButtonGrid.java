@@ -56,7 +56,7 @@ public class ButtonGrid extends MouseWidget
 		}				
 	}
 	
-	private ButtonGrid(double width, double height, int numRows, int numCols, double spacing, Color baseColor)
+	protected ButtonGrid(double width, double height, int numRows, int numCols, double spacing, Color baseColor)
 	{
 		buttons = new ArrayList<Button>(numRows * numCols);
 		this.numRows = numRows;
