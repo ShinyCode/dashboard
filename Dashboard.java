@@ -26,7 +26,12 @@ public class Dashboard extends GraphicsProgram
 	{
 		addMouseListeners();
 		// Set up power console
-		pwr = new ButtonGrid(1 * BUTTON_WIDTH + 2 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING, 1, 1, BUTTON_SPACING, BASE_COLOR);
+		// pwr = new ButtonGrid(1 * BUTTON_WIDTH + 2 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING, 1, 1, BUTTON_SPACING, BASE_COLOR);
+		pwr = new ButtonGrid.ButtonGridBuilder(1 * BUTTON_WIDTH + 2 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING)
+			.withRowsCols(1, 1)
+			.withSpacing(BUTTON_SPACING)
+			.withBaseColor(BASE_COLOR)
+			.build();
 		pwr.setName("PWR");
 		ToggleButton mpwr = new ToggleButton(0, 0, BUTTON_COLOR_2, "MPWR");
 		pwr.addButton(mpwr, 0, 0);
