@@ -2,9 +2,8 @@ import java.awt.Color;
 
 public class AuxArrowPad extends ButtonGrid
 {
-	private static final int NUM_ROWS = 3;
+	private static final int NUM_ROWS = 2;
 	private static final int NUM_COLS = 3;
-	
 	private TouchButton fwdButton, revButton, bnlButton, bnrButton;
 	
 	public static class AuxArrowPadBuilder
@@ -48,7 +47,7 @@ public class AuxArrowPad extends ButtonGrid
 	
 	protected AuxArrowPad(double width, double height, double spacing, Color baseColor, Color buttonColor)
 	{
-		super(width, height, 2, 3, spacing, baseColor);
+		super(width, height, NUM_ROWS, NUM_COLS, spacing, baseColor);
 		fwdButton = new TouchButton(width, height, buttonColor, "FWD");
 		addButton(fwdButton, 0, 1);
 		revButton = new TouchButton(width, height, buttonColor, "REV");
