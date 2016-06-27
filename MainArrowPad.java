@@ -2,12 +2,55 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
+import ButtonGrid.ButtonGridBuilder;
 import acm.graphics.GObject;
 
 
 public class MainArrowPad extends ButtonGrid
 {
-	public MainArrowPad(double width, double height, double spacing, Color baseColor, Color buttonColor)
+	
+	public static class ButtonGridBuilder
+	{
+		private final double width;
+		private final double height;
+		
+		private int numRows = 1;
+		private int numCols = 1;
+		private double spacing = 0;
+		private Color baseColor = Color.BLACK;
+		
+		public ButtonGridBuilder(double width, double height)
+		{
+			this.width = width;
+			this.height = height;
+		}
+		
+		public ButtonGridBuilder withRowsCols(int numRows, int numCols)
+		{
+			this.numRows = numRows;
+			this.numCols = numCols;
+			return this;
+		}
+		
+		public ButtonGridBuilder withSpacing(double spacing)
+		{
+			this.spacing = spacing;
+			return this;
+		}
+		
+		public ButtonGridBuilder withBaseColor(Color baseColor)
+		{
+			this.baseColor = baseColor;
+			return this;
+		}
+		
+		public ButtonGrid build()
+		{
+			return new ButtonGrid(width, height, numRows, numCols, spacing, baseColor);
+		}				
+	}
+	
+	protected MainArrowPad(double width, double height, double spacing, Color baseColor, Color buttonColor)
 	{
 		super(width, height, 3, 3, spacing, baseColor);
 		aillButton = new TouchButton(width, height, buttonColor, "AILL");
