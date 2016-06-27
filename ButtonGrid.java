@@ -49,6 +49,7 @@ public class ButtonGrid extends MouseWidget
 	
 	private List<Button> buttons;
 	private GRect base;
+	private Color baseColor;
 	private int numRows;
 	private int numCols;
 	private double buttonWidth;
