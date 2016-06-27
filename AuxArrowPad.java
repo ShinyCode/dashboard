@@ -1,8 +1,9 @@
 import java.awt.Color;
 
-
 public class AuxArrowPad extends ButtonGrid
 {
+	private TouchButton fwdButton, revButton, bnlButton, bnrButton;
+	
 	protected AuxArrowPad(double width, double height, double spacing, Color baseColor, Color buttonColor)
 	{
 		super(width, height, 2, 3, spacing, baseColor);
@@ -28,6 +29,4 @@ public class AuxArrowPad extends ButtonGrid
 		else gb.mouseReleased(null);
 		return true;
 	}
-	
-	private TouchButton fwdButton, revButton, bnlButton, bnrButton;
 }
