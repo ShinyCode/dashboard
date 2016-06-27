@@ -2,6 +2,9 @@ import java.awt.Color;
 
 public class AuxArrowPad extends ButtonGrid
 {
+	private static final int NUM_ROWS = 3;
+	private static final int NUM_COLS = 3;
+	
 	private TouchButton fwdButton, revButton, bnlButton, bnrButton;
 	
 	public static class AuxArrowPadBuilder
