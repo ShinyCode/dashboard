@@ -14,13 +14,6 @@ public class ButtonGroup extends MouseWidget
 		private final HashMap<String, Button> buttons;
 		private final GRect base;
 		
-		public Builder addButton(Button gb, double x, double y)
-		{
-			if(buttons.containsKey(gb.getInstr())) return this;
-			buttons.put(gb.getInstr(), gb);
-			add(gb, x, y);
-			return this;
-		}
 	}
 	
 	private ButtonGroup(double width, double height, Color baseColor)
