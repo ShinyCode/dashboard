@@ -9,7 +9,6 @@ public class ButtonGrid extends MouseWidget
 {
 	private List<Button> buttons;
 	private GRect base;
-	private Color baseColor;
 	private int numRows;
 	private int numCols;
 	private double buttonWidth;
@@ -67,7 +66,6 @@ public class ButtonGrid extends MouseWidget
 		this.spacing = spacing;
 		buttonWidth = (width - (numCols + 1) * spacing) / numCols;
 		buttonHeight = (height - (numRows + 1) * spacing) / numRows;
-		this.baseColor = baseColor;
 		base = new GRect(width, height);
 		base.setFilled(true);
 		base.setFillColor(baseColor);
