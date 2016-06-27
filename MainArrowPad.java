@@ -8,39 +8,40 @@ import acm.graphics.GObject;
 
 public class MainArrowPad extends ButtonGrid
 {
+	private TouchButton aillButton, fwdButton, ailrButton, bnlButton, revButton, bnrButton, rudlButton, rudrButton;
+	private ToggleButton mimButton;
+	private List<AuxArrowPad> auxArrowPads;
 	
-	public static class ButtonGridBuilder
+	public static class MainArrowPadBuilder
 	{
 		private final double width;
 		private final double height;
 		
-		private int numRows = 1;
-		private int numCols = 1;
 		private double spacing = 0;
 		private Color baseColor = Color.BLACK;
+		private Color buttonColor = Color.BLACK;
 		
-		public ButtonGridBuilder(double width, double height)
+		public MainArrowPadBuilder(double width, double height)
 		{
 			this.width = width;
 			this.height = height;
 		}
 		
-		public ButtonGridBuilder withRowsCols(int numRows, int numCols)
-		{
-			this.numRows = numRows;
-			this.numCols = numCols;
-			return this;
-		}
-		
-		public ButtonGridBuilder withSpacing(double spacing)
+		public MainArrowPadBuilder withSpacing(double spacing)
 		{
 			this.spacing = spacing;
 			return this;
 		}
 		
-		public ButtonGridBuilder withBaseColor(Color baseColor)
+		public MainArrowPadBuilder withBaseColor(Color baseColor)
 		{
 			this.baseColor = baseColor;
+			return this;
+		}
+		
+		public MainArrowPadBuilder withButtonColor(Color buttonColor)
+		{
+			this.buttonColor = buttonColor;
 			return this;
 		}
 		
@@ -100,8 +101,4 @@ public class MainArrowPad extends ButtonGrid
 	{
 		auxArrowPads.add(aap);
 	}
-	
-	private TouchButton aillButton, fwdButton, ailrButton, bnlButton, revButton, bnrButton, rudlButton, rudrButton;
-	private ToggleButton mimButton;
-	private List<AuxArrowPad> auxArrowPads;
 }
