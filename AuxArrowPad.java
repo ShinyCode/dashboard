@@ -4,47 +4,6 @@ public final class AuxArrowPad extends ButtonGrid
 {
 	private TouchButton fwdButton, revButton, bnlButton, bnrButton;
 	
-	/*
-	public static class Builder
-	{
-		private final double width;
-		private final double height;
-		
-		private double spacing = 0;
-		private Color baseColor = Color.BLACK;
-		private Color buttonColor = Color.BLACK;
-		
-		public Builder(double width, double height)
-		{
-			this.width = width;
-			this.height = height;
-		}
-		
-		public Builder withSpacing(double spacing)
-		{
-			this.spacing = spacing;
-			return this;
-		}
-		
-		public Builder withBaseColor(Color baseColor)
-		{
-			this.baseColor = baseColor;
-			return this;
-		}
-		
-		public Builder withButtonColor(Color buttonColor)
-		{
-			this.buttonColor = buttonColor;
-			return this;
-		}
-		
-		public AuxArrowPad build()
-		{
-			return new AuxArrowPad(width, height, spacing, baseColor, buttonColor);
-		}				
-	}
-	*/
-	
 	public static class Builder extends ButtonGrid.Builder<Builder>
 	{
 		private Color buttonColor = Color.BLACK;
