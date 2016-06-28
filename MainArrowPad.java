@@ -5,7 +5,7 @@ import java.util.List;
 import acm.graphics.GObject;
 
 
-public class MainArrowPad extends ButtonGrid
+public final class MainArrowPad extends ButtonGrid
 {
 	private TouchButton aillButton, fwdButton, ailrButton, bnlButton, revButton, bnrButton, rudlButton, rudrButton;
 	private ToggleButton mimButton;
