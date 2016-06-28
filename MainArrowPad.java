@@ -27,9 +27,9 @@ public final class MainArrowPad extends ButtonGrid
 			return this;
 		}
 		
-		public AuxArrowPad build()
+		public MainArrowPad build()
 		{
-			return new AuxArrowPad(width, height, spacing, baseColor, buttonColor);
+			return new MainArrowPad(width, height, spacing, baseColor, buttonColor);
 		}		
 	}
 	
