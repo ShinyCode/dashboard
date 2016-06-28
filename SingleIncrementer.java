@@ -3,7 +3,7 @@ import java.awt.Color;
 import acm.graphics.GObject;
 
 
-public class SingleIncrementer extends ButtonGrid
+public final class SingleIncrementer extends ButtonGrid
 {
 	public static class Builder
 	{
