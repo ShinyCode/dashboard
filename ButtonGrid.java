@@ -20,8 +20,8 @@ public class ButtonGrid extends MouseWidget
 		private final double width;
 		private final double height;
 		
-		private int numRows = 1;
-		private int numCols = 1;
+		protected int numRows = 1;
+		protected int numCols = 1;
 		private double spacing = 0;
 		private Color baseColor = Color.BLACK;
 		
