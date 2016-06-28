@@ -1,4 +1,5 @@
 
-public abstract class Readout {
+public abstract class Readout extends Updatable
+{
 
 }
