@@ -2,7 +2,7 @@ import java.awt.Color;
 import acm.graphics.*;
 
 
-public class LevelReadout extends GCompound implements Incrementable, Updatable
+public final class LevelReadout extends GCompound implements Incrementable, Updatable
 {
 	public LevelReadout(double width, double height, double spacing, int numDivisions, Color baseColor, Color backColor, Color barColor)
 	{
