@@ -1,6 +1,6 @@
 import java.awt.Color;
 
-public class AuxArrowPad extends ButtonGrid
+public final class AuxArrowPad extends ButtonGrid
 {
 	private TouchButton fwdButton, revButton, bnlButton, bnrButton;
 	
