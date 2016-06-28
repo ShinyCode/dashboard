@@ -1,7 +1,6 @@
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 
-import MultiIncrementer.Builder;
 import acm.graphics.GObject;
 
 
