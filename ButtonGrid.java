@@ -31,23 +31,23 @@ public class ButtonGrid extends MouseWidget
 			this.height = height;
 		}
 		
-		public Builder withRowsCols(int numRows, int numCols)
+		public T withRowsCols(int numRows, int numCols)
 		{
 			this.numRows = numRows;
 			this.numCols = numCols;
-			return this;
+			return (T)this;
 		}
 		
-		public Builder withSpacing(double spacing)
+		public T withSpacing(double spacing)
 		{
 			this.spacing = spacing;
-			return this;
+			return (T)this;
 		}
 		
-		public Builder withBaseColor(Color baseColor)
+		public T withBaseColor(Color baseColor)
 		{
 			this.baseColor = baseColor;
-			return this;
+			return (T)this;
 		}
 		
 		public ButtonGrid build()
