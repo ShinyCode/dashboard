@@ -47,11 +47,23 @@ public final class AuxArrowPad extends ButtonGrid
 	
 	public static class Builder extends ButtonGrid.Builder<Builder>
 	{
+		private Color buttonColor = Color.BLACK;
+		
 		public Builder(double width, double height)
 		{
 			super(width, height);
 		}
 		
+		public Builder withButtonColor(Color buttonColor)
+		{
+			this.buttonColor = buttonColor;
+			return this;
+		}
+		
+		public AuxArrowPad build()
+		{
+			return new AuxArrowPad(width, height, spacing, baseColor, buttonColor);
+		}		
 	}
 	
 	protected AuxArrowPad(double width, double height, double spacing, Color baseColor, Color buttonColor)
