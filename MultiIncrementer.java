@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
+import SingleIncrementer.Builder;
 import acm.graphics.GObject;
 
 
@@ -13,31 +14,13 @@ public final class MultiIncrementer extends ButtonGrid
 	private ToggleButton selButton;
 	private List<Incrementable> incrementables;
 	
-	public static class Builder
+	public static class Builder extends ButtonGrid.Builder<Builder>
 	{
-		private final double width;
-		private final double height;
-		
-		private double spacing = 0;
-		private Color baseColor = Color.BLACK;
 		private Color buttonColor = Color.BLACK;
 		
 		public Builder(double width, double height)
 		{
-			this.width = width;
-			this.height = height;
-		}
-		
-		public Builder withSpacing(double spacing)
-		{
-			this.spacing = spacing;
-			return this;
-		}
-		
-		public Builder withBaseColor(Color baseColor)
-		{
-			this.baseColor = baseColor;
-			return this;
+			super(width, height);
 		}
 		
 		public Builder withButtonColor(Color buttonColor)
@@ -49,7 +32,7 @@ public final class MultiIncrementer extends ButtonGrid
 		public MultiIncrementer build()
 		{
 			return new MultiIncrementer(width, height, spacing, baseColor, buttonColor);
-		}				
+		}		
 	}
 	
 	protected MultiIncrementer(double width, double height, double spacing, Color baseColor, Color buttonColor)
