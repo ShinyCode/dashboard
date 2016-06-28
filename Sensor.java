@@ -8,7 +8,7 @@ public abstract class Sensor
 {
 	public Sensor(int updateDelay)
 	{
-		readouts = new ArrayList<Readout>();
+		readouts = new ArrayList<Updatable>();
 		this.updateDelay = updateDelay;
 	}
 	
@@ -26,12 +26,12 @@ public abstract class Sensor
 		}
 	}
 	
-	public void addReadout(Readout r)
+	public void addReadout(Updatable r)
 	{
 		readouts.add(r);
 	}
 	
-	public void removeReadout(Readout r)
+	public void removeReadout(Updatable r)
 	{
 		readouts.remove(r);
 	}
@@ -67,7 +67,7 @@ public abstract class Sensor
 	
 	private void updateReadouts(String msg)
 	{
-		for(Readout r : readouts)
+		for(Updatable r : readouts)
 		{
 			r.update(msg);
 		}
@@ -75,7 +75,7 @@ public abstract class Sensor
 	
 	public abstract String getReading();
 	
-	protected List<Readout> readouts;
+	protected List<Updatable> readouts;
 	private boolean active = false;
 	private Thread thr;
 	private int updateDelay;
