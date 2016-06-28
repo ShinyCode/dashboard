@@ -17,13 +17,13 @@ public class ButtonGrid extends MouseWidget
 	
 	public static class Builder<T extends Builder>
 	{
-		private final double width;
-		private final double height;
+		protected final double width;
+		protected final double height;
 		
 		protected int numRows = 1;
 		protected int numCols = 1;
-		private double spacing = 0;
-		private Color baseColor = Color.BLACK;
+		protected double spacing = 0;
+		protected Color baseColor = Color.BLACK;
 		
 		public Builder(double width, double height)
 		{
