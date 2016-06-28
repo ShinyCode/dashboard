@@ -79,7 +79,11 @@ public class Dashboard extends GraphicsProgram
 		addBorder(addr, BUTTON_COLOR_2);
 		
 		// Set up readout controls
-		spdCtrl = new InstrReadoutControl(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
+		spdCtrl = new InstrReadoutControl.Builder(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING)
+			.withSpacing(BUTTON_SPACING)
+			.withBaseColor(BASE_COLOR)
+			.withButtonColor(BUTTON_COLOR_1)
+			.build();
 		add(spdCtrl, spd.getX(), spd.getY() + spd.getHeight() + COMPONENT_SPACING);
 		spdCtrl.setName("SPD_CTRL");
 		rotCtrl = new InstrReadoutControl(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
