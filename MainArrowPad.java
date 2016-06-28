@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
+import AuxArrowPad.Builder;
 import acm.graphics.GObject;
 
 
@@ -11,31 +12,13 @@ public final class MainArrowPad extends ButtonGrid
 	private ToggleButton mimButton;
 	private List<AuxArrowPad> auxArrowPads;
 	
-	public static class Builder
+	public static class Builder extends ButtonGrid.Builder<Builder>
 	{
-		private final double width;
-		private final double height;
-		
-		private double spacing = 0;
-		private Color baseColor = Color.BLACK;
 		private Color buttonColor = Color.BLACK;
 		
 		public Builder(double width, double height)
 		{
-			this.width = width;
-			this.height = height;
-		}
-		
-		public Builder withSpacing(double spacing)
-		{
-			this.spacing = spacing;
-			return this;
-		}
-		
-		public Builder withBaseColor(Color baseColor)
-		{
-			this.baseColor = baseColor;
-			return this;
+			super(width, height);
 		}
 		
 		public Builder withButtonColor(Color buttonColor)
@@ -44,10 +27,10 @@ public final class MainArrowPad extends ButtonGrid
 			return this;
 		}
 		
-		public MainArrowPad build()
+		public AuxArrowPad build()
 		{
-			return new MainArrowPad(width, height, spacing, baseColor, buttonColor);
-		}				
+			return new AuxArrowPad(width, height, spacing, baseColor, buttonColor);
+		}		
 	}
 	
 	protected MainArrowPad(double width, double height, double spacing, Color baseColor, Color buttonColor)
