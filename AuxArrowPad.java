@@ -4,6 +4,7 @@ public final class AuxArrowPad extends ButtonGrid
 {
 	private TouchButton fwdButton, revButton, bnlButton, bnrButton;
 	
+	/*
 	public static class Builder
 	{
 		private final double width;
@@ -41,6 +42,16 @@ public final class AuxArrowPad extends ButtonGrid
 		{
 			return new AuxArrowPad(width, height, spacing, baseColor, buttonColor);
 		}				
+	}
+	*/
+	
+	public static class Builder extends ButtonGrid.Builder<Builder>
+	{
+		public Builder(double width, double height)
+		{
+			super(width, height);
+		}
+		
 	}
 	
 	protected AuxArrowPad(double width, double height, double spacing, Color baseColor, Color buttonColor)
