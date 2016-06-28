@@ -5,7 +5,7 @@ import java.util.List;
 import acm.graphics.GObject;
 
 
-public class MultiIncrementer extends ButtonGrid
+public final class MultiIncrementer extends ButtonGrid
 {
 	private int index = 0;
 	private TouchButton incButton;
