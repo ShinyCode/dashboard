@@ -86,7 +86,11 @@ public class Dashboard extends GraphicsProgram
 			.build();
 		add(spdCtrl, spd.getX(), spd.getY() + spd.getHeight() + COMPONENT_SPACING);
 		spdCtrl.setName("SPD_CTRL");
-		rotCtrl = new InstrReadoutControl(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
+		rotCtrl = new InstrReadoutControl(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING)
+			.withSpacing(BUTTON_SPACING)
+			.withBaseColor(BASE_COLOR)
+			.withButtonColor(BUTTON_COLOR_1)
+			.build();
 		add(rotCtrl, rot.getX(), rot.getY() + rot.getHeight() + COMPONENT_SPACING);
 		rotCtrl.setName("ROT_CTRL");
 		addrCtrl = new InstrReadoutControl(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING, BUTTON_SPACING, BASE_COLOR, BUTTON_COLOR_1);
