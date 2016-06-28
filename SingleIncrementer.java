@@ -40,16 +40,16 @@ public class SingleIncrementer extends ButtonGrid
 		
 		public SingleIncrementer build()
 		{
-			return new SingleIncrementer(width, height, spacing, baseColor, buttonColor);
+			return new SingleIncrementer(this);
 		}				
 	}
 	
-	protected SingleIncrementer(double width, double height, double spacing, Color baseColor, Color buttonColor)
+	protected SingleIncrementer(Builder builder)
 	{
-		super(width, height, 2, 1, spacing, baseColor);
-		incButton = new TouchButton(width, height, buttonColor, "INC");
+		super(builder.width, builder.height, 2, 1, builder.spacing, builder.baseColor);
+		incButton = new TouchButton(builder.width, builder.height, builder.buttonColor, "INC");
 		addButton(incButton, 0, 0);
-		decButton = new TouchButton(width, height, buttonColor, "DEC");
+		decButton = new TouchButton(builder.width, builder.height, builder.buttonColor, "DEC");
 		addButton(decButton, 1, 0);
 	}
 	
