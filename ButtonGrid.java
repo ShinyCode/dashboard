@@ -15,7 +15,7 @@ public class ButtonGrid extends MouseWidget
 	private double buttonHeight;
 	private double spacing;
 	
-	public static class Builder
+	public static class Builder<T extends Builder>
 	{
 		private final double width;
 		private final double height;
