@@ -9,31 +9,13 @@ public final class InstrReadoutControl extends ButtonGrid
 	private ToggleButton frzButton;
 	private InstrReadout ir;
 	
-	public static class Builder
+	public static class Builder extends ButtonGrid.Builder<Builder>
 	{
-		private final double width;
-		private final double height;
-		
-		private double spacing = 0;
-		private Color baseColor = Color.BLACK;
 		private Color buttonColor = Color.BLACK;
 		
 		public Builder(double width, double height)
 		{
-			this.width = width;
-			this.height = height;
-		}
-		
-		public Builder withSpacing(double spacing)
-		{
-			this.spacing = spacing;
-			return this;
-		}
-		
-		public Builder withBaseColor(Color baseColor)
-		{
-			this.baseColor = baseColor;
-			return this;
+			super(width, height);
 		}
 		
 		public Builder withButtonColor(Color buttonColor)
@@ -45,7 +27,7 @@ public final class InstrReadoutControl extends ButtonGrid
 		public InstrReadoutControl build()
 		{
 			return new InstrReadoutControl(width, height, spacing, baseColor, buttonColor);
-		}				
+		}		
 	}
 	
 	public InstrReadoutControl(double width, double height, double spacing, Color baseColor, Color buttonColor)
