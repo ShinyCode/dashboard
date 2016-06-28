@@ -1,6 +1,5 @@
 import java.awt.Color;
 
-import AuxArrowPad.Builder;
 import acm.graphics.GObject;
 
 
