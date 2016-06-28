@@ -3,7 +3,7 @@ import java.awt.Color;
 import acm.graphics.GObject;
 
 
-public class InstrReadoutControl extends ButtonGrid
+public final class InstrReadoutControl extends ButtonGrid
 {
 	private TouchButton incButton, decButton, clsButton;
 	private ToggleButton frzButton;
