@@ -52,7 +52,7 @@ public class ButtonGrid extends MouseWidget
 		
 		public ButtonGrid build()
 		{
-			return new ButtonGrid(width, height, numRows, numCols, spacing, baseColor);
+			return new ButtonGrid(this);
 		}				
 	}
 	
