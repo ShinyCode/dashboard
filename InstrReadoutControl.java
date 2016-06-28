@@ -44,9 +44,9 @@ public class InstrReadoutControl extends ButtonGrid
 			return this;
 		}
 		
-		public MultiIncrementer build()
+		public InstrReadoutControl build()
 		{
-			return new MultiIncrementer(width, height, spacing, baseColor, buttonColor);
+			return new InstrReadoutControl(width, height, spacing, baseColor, buttonColor);
 		}				
 	}
 	
