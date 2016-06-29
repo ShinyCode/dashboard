@@ -93,8 +93,8 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 			return;
 		}
 		double range = maxValue - minValue;
+		// TODO: Check if want to make long
 		setLevel((int)Math.round((value - minValue) * numDivisions / range));
-		
 	}
 	
 	public void setLevel(int level)
