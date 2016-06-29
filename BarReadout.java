@@ -14,16 +14,12 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 	private double minValue;
 	private double maxValue;
 	
-	public static final int VERTICAL = 0;
-	public static final int HORIZONTAL = 1;
-	
 	public static final class Builder extends Readout.Builder<Builder>
 	{	
 		private int numDivisions = 0;
 		private double minValue = 0.0;
 		private double maxValue = 100.0;
-		private int orientation = VERTICAL;
-		
+
 		// If numDivisions is 0, operate in "continuous" mode.
 		// Here, we set numDivisions to the bar height, but since we don't know
 		// the spacing until we build(), we defer exact calculation until then.
@@ -39,13 +35,6 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 			if(minValue >= maxValue) throw new IllegalArgumentException();
 			this.minValue = minValue;
 			this.maxValue = maxValue;
-			return this;
-		}
-		
-		public Builder withOrientation(int orientation)
-		{
-			if(orientation == VERTICAL) this.orientation = VERTICAL;
-			if(orientation == HORIZONTAL) this.orientation = HORIZONTAL;
 			return this;
 		}
 		
