@@ -12,8 +12,8 @@ public abstract class ButtonGroup extends MouseWidget
 	
 	public abstract static class Builder<T extends Builder>
 	{
-		private final double width;
-		private final double height;
+		protected final double width;
+		protected final double height;
 		
 		private Color baseColor = Color.BLACK; // Default color
 		
