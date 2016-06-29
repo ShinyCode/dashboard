@@ -13,7 +13,7 @@ public final class MultiIncrementer extends ButtonGrid
 	private ToggleButton selButton;
 	private List<Incrementable> incrementables;
 	
-	public static class Builder extends ButtonGrid.Builder<Builder>
+	public static final class Builder extends ButtonGrid.Builder<Builder>
 	{
 		private Color buttonColor = Color.BLACK;
 		
