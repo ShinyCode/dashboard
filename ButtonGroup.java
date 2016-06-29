@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
 
+import ButtonGrid.Builder;
 import acm.graphics.*;
 
 public abstract class ButtonGroup extends MouseWidget
@@ -10,7 +11,7 @@ public abstract class ButtonGroup extends MouseWidget
 	private Map<String, Button> buttons;
 	private GRect base;
 	
-	public static class Builder
+	public static class Builder<T extends Builder>
 	{
 		private final double width;
 		private final double height;
