@@ -25,7 +25,6 @@ public final class BarReadout extends Readout implements Incrementable, Updatabl
 			if(numDivisions < 0) throw new IllegalArgumentException();
 		}
 		
-		
 		public BarReadout build()
 		{
 			if(numDivisions == 0) numDivisions = (int)(height - 2 * spacing); // 1 division per pixel in bar
