@@ -40,7 +40,7 @@ public class Dashboard extends GraphicsProgram
 		
 		
 		// Set up aux console
-		aux = new ButtonGrid.Builder(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING)
+		aux = new CustomButtonGrid.Builder(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING)
 			.withRowsCols(1, 3)
 			.withSpacing(BUTTON_SPACING)
 			.withBaseColor(BASE_COLOR)
