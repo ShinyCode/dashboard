@@ -15,7 +15,7 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 	private double maxValue;
 	
 	public static final int VERTICAL = 0;
-	public static final int HORIZONTAL = 0;
+	public static final int HORIZONTAL = 1;
 	
 	public static final class Builder extends Readout.Builder<Builder>
 	{	
