@@ -3,7 +3,6 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
 
-import ButtonGrid.Builder;
 import acm.graphics.*;
 
 public abstract class ButtonGroup extends MouseWidget
