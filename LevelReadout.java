@@ -67,12 +67,12 @@ public final class LevelReadout extends Readout implements Incrementable, Updata
 		setLevel(data);
 	}
 	
-	int level;
-	int numDivisions;
-	GRect base;
-	GRect back;
-	GRect bar;
-	double spacing;
+	private int level;
+	private int numDivisions;
+	private GRect base;
+	private GRect back;
+	private GRect bar;
+	private double spacing;
 	@Override
 	public void update(String msg) {
 		// TODO Auto-generated method stub
