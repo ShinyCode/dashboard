@@ -3,7 +3,7 @@ import java.awt.Color;
 import acm.graphics.GRect;
 
 
-public final class ColorReadout extends Readout
+public final class ColorReadout extends Readout implements ColorUpdatable
 {
 	private GRect base;
 	private GRect colorDisplay;
