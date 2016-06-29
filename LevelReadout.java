@@ -5,7 +5,7 @@ import acm.graphics.*;
 
 public final class LevelReadout extends Readout implements Incrementable, Updatable
 {
-	public LevelReadout(double width, double height, double spacing, Color baseColor, Color backColor, Color barColor, int numDivisions, )
+	public LevelReadout(double width, double height, double spacing, Color baseColor, Color color, Color accentColor, int numDivisions)
 	{
 		this.spacing = spacing;
 		base = new GRect(width, height);
@@ -15,7 +15,7 @@ public final class LevelReadout extends Readout implements Incrementable, Updata
 		
 		back = new GRect(width - 2 * spacing, height - 2 * spacing);
 		back.setFilled(true);
-		back.setFillColor(backColor);
+		back.setFillColor(color);
 		add(back, spacing, spacing);
 		
 		//Need to check for bad input to numDivisions
@@ -23,7 +23,7 @@ public final class LevelReadout extends Readout implements Incrementable, Updata
 		
 		bar = new GRect(back.getWidth(), 0);
 		bar.setFilled(true);
-		bar.setFillColor(barColor);
+		bar.setFillColor(accentColor);
 		add(bar, spacing, height - spacing);
 		
 		setLevel(0);
