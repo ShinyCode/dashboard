@@ -5,7 +5,7 @@ import java.util.Map;
 
 import acm.graphics.*;
 
-public class ButtonGroup extends MouseWidget
+public abstract class ButtonGroup extends MouseWidget
 {
 	private Map<String, Button> buttons;
 	private GRect base;
