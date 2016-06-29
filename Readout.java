@@ -11,22 +11,15 @@ public abstract class Readout extends GCompound
 		protected final double width;
 		protected final double height;
 		
-		protected int numRows = 1;
-		protected int numCols = 1;
 		protected double spacing = 0;
 		protected Color baseColor = Color.BLACK;
+		protected Color color = Color.BLACK;
+		protected Color accentColor = Color.BLACK;
 		
 		public Builder(double width, double height)
 		{
 			this.width = width;
 			this.height = height;
-		}
-		
-		public T withRowsCols(int numRows, int numCols)
-		{
-			this.numRows = numRows;
-			this.numCols = numCols;
-			return (T)this;
 		}
 		
 		public T withSpacing(double spacing)
