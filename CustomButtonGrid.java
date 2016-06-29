@@ -3,7 +3,7 @@ import java.awt.Color;
 
 public final class CustomButtonGrid extends ButtonGrid
 {
-	public static class Builder extends ButtonGrid.Builder<Builder>
+	public final static class Builder extends ButtonGrid.Builder<Builder>
 	{
 		public Builder(double width, double height)
 		{
