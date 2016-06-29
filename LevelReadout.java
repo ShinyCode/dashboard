@@ -1,10 +1,23 @@
 import java.awt.Color;
 
+import ColorReadout.Builder;
 import acm.graphics.*;
 
 
 public final class LevelReadout extends Readout implements Incrementable, Updatable
 {
+	public static final class Builder extends Readout.Builder<Builder>
+	{	
+		public Builder(double width, double height)
+		{
+			super(width, height);
+		}
+		
+		public ColorReadout build()
+		{
+			return new ColorReadout(width, height, spacing, baseColor, color); // accentColor not used
+		}		
+	}
 	
 	protected LevelReadout(double width, double height, double spacing, Color baseColor, Color color, Color accentColor, int numDivisions)
 	{
