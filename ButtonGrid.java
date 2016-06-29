@@ -15,6 +15,7 @@ public abstract class ButtonGrid extends MouseWidget
 	private double buttonHeight;
 	private double spacing;
 	
+	@SuppressWarnings("rawtypes")
 	public static abstract class Builder<T extends Builder>
 	{
 		protected final double width;
@@ -31,6 +32,7 @@ public abstract class ButtonGrid extends MouseWidget
 			this.height = height;
 		}
 		
+		@SuppressWarnings("unchecked")
 		public T withRowsCols(int numRows, int numCols)
 		{
 			this.numRows = numRows;
@@ -38,12 +40,14 @@ public abstract class ButtonGrid extends MouseWidget
 			return (T)this;
 		}
 		
+		@SuppressWarnings("unchecked")
 		public T withSpacing(double spacing)
 		{
 			this.spacing = spacing;
 			return (T)this;
 		}
 		
+		@SuppressWarnings("unchecked")
 		public T withBaseColor(Color baseColor)
 		{
 			this.baseColor = baseColor;
