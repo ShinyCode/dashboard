@@ -9,7 +9,7 @@ public final class InstrReadoutControl extends ButtonGrid
 	private ToggleButton frzButton;
 	private InstrReadout ir;
 	
-	public static class Builder extends ButtonGrid.Builder<Builder>
+	public static final class Builder extends ButtonGrid.Builder<Builder>
 	{
 		private Color buttonColor = Color.BLACK;
 		
