@@ -14,22 +14,21 @@ public final class BarReadout extends Readout implements Incrementable, Updatabl
 	
 	public static final class Builder extends Readout.Builder<Builder>
 	{	
-		private int numDivisions;
-		private int mode;
-		
-		public Builder(double width, double height)
+		private int numDivisions = 0;
+
+		// If numDivisions is 0, operate in "continuous" mode.
+		// Here, we set numDivisions to the bar height, but since we don't know
+		// the spacing until we build(), we defer exact calculation until then.
+		public Builder(double width, double height, int numDivisions)
 		{
 			super(width, height);
+			if(numDivisions < 0) throw new IllegalArgumentException();
 		}
 		
-		public Builder withNumDivisions(int numDivisions)
-		{
-			if(numDivisions <= 0) throw new IllegalArgumentException();
-			return this;
-		}
 		
 		public BarReadout build()
 		{
+			if(numDivisions == 0) numDivisions = (int)(height - 2 * spacing);
 			return new BarReadout(width, height, spacing, baseColor, color, accentColor, numDivisions);
 		}		
 	}
