@@ -1,6 +1,5 @@
 import java.awt.Color;
 
-import ColorReadout.Builder;
 import acm.graphics.*;
 
 
