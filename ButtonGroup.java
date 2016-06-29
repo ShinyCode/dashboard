@@ -30,10 +30,7 @@ public abstract class ButtonGroup extends MouseWidget
 			return (T)this;
 		}
 		
-		public ButtonGroup build()
-		{
-			return new ButtonGroup(width, height, baseColor);
-		}
+		public abstract ButtonGroup build();
 	}
 	
 	private ButtonGroup(double width, double height, Color baseColor)
