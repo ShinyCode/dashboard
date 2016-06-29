@@ -127,6 +127,7 @@ public class Dashboard extends GraphicsProgram
 		addBorder(lr, BUTTON_COLOR_1);
 		
 		// Testing
+		/*
 		ColorReadout cr = new ColorReadout.Builder(aap.getWidth(), sinc.getHeight())
 			.withSpacing(BUTTON_SPACING)
 			.withBaseColor(BASE_COLOR)
@@ -135,6 +136,7 @@ public class Dashboard extends GraphicsProgram
 		add(cr, sinc.getX(), sinc.getY() + sinc.getHeight() + 20);
 		pause(1000);
 		cr.update(Color.RED);
+		*/
 		
 		// Add a background
 		GRect background = new GRect(addr.getX() + addr.getWidth() + 2 * COMPONENT_SPACING - pwr.getX(),
