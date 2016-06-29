@@ -66,14 +66,15 @@ public final class BarReadout extends Readout implements Incrementable, Updatabl
 		setLevel(level - 1);
 	}
 	
-	private void setLevel(int level)
+	private boolean setLevel(int level)
 	{
-		if(level < 0 || level > numDivisions) throw new IllegalArgumentException();
-		if(bar == null) return;
+		if(level < 0 || level > numDivisions) return false;
+		if(bar == null) return false;
 		this.level = level;
 		double newHeight = ((double) level) * back.getHeight() / numDivisions;
 		bar.setLocation(spacing, base.getHeight() - spacing - newHeight);
 		bar.setSize(bar.getWidth(), newHeight);
+		return true;
 	}
 	
 	public void update(int data)
