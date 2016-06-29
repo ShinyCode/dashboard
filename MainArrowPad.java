@@ -11,7 +11,7 @@ public final class MainArrowPad extends ButtonGrid
 	private ToggleButton mimButton;
 	private List<AuxArrowPad> auxArrowPads;
 	
-	public static class Builder extends ButtonGrid.Builder<Builder>
+	public static final class Builder extends ButtonGrid.Builder<Builder>
 	{
 		private Color buttonColor = Color.BLACK;
 		
