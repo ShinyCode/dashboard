@@ -14,7 +14,7 @@ public final class BarReadout extends Readout implements Incrementable, Updatabl
 	
 	public static final class Builder extends Readout.Builder<Builder>
 	{	
-		
+		private int
 		public Builder(double width, double height)
 		{
 			super(width, height);
