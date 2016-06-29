@@ -133,6 +133,8 @@ public class Dashboard extends GraphicsProgram
 			.withColor(Color.GREEN)
 			.build();
 		add(cr, sinc.getX(), sinc.getY() + sinc.getHeight() + 20);
+		pause(1000);
+		cr.update(Color.RED);
 		
 		// Add a background
 		GRect background = new GRect(addr.getX() + addr.getWidth() + 2 * COMPONENT_SPACING - pwr.getX(),
