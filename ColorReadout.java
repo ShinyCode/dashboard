@@ -1,4 +1,5 @@
 
-public class ColorReadout {
-
+public class ColorReadout extends Readout
+{
+	
 }
