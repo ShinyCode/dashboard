@@ -1,7 +1,4 @@
 import java.awt.Color;
-import java.util.ArrayList;
-
-import acm.graphics.GRect;
 
 
 public final class CustomButtonGrid extends ButtonGrid
