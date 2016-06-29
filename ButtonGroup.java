@@ -11,7 +11,7 @@ public abstract class ButtonGroup extends MouseWidget
 	private Map<String, Button> buttons;
 	private GRect base;
 	
-	public static class Builder<T extends Builder>
+	public abstract static class Builder<T extends Builder>
 	{
 		private final double width;
 		private final double height;
