@@ -19,7 +19,7 @@ public final class CustomButtonGroup extends ButtonGroup
 		}		
 	}
 	
-	private CustomButtonGroup(double width, double height, Color baseColor)
+	protected CustomButtonGroup(double width, double height, Color baseColor)
 	{
 		super(width, height, baseColor);
 	}
