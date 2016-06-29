@@ -67,12 +67,12 @@ public abstract class ButtonGrid extends MouseWidget
 		add(base);
 	}
 	
-	public boolean addButton(Button gb, int row, int col)
+	protected boolean addButton(Button gb, int row, int col)
 	{
 		return addButton(gb, row, col, 1, 1);
 	}
 	
-	public boolean addButton(Button gb, int row, int col, int rowSpan, int colSpan)
+	protected boolean addButton(Button gb, int row, int col, int rowSpan, int colSpan)
 	{
 		if(row < 0 || col < 0 || row >= numRows || col >= numCols) return false; //Invalid row, col dimension
 		if(rowSpan <= 0 || colSpan <= 0 || rowSpan > numRows - row || colSpan > numCols - col) return false; //Invalid row/column Span
@@ -81,7 +81,7 @@ public abstract class ButtonGrid extends MouseWidget
 		return true;
 	}
 	
-	public Button getButton(int row, int col)
+	protected Button getButton(int row, int col)
 	{
 		if(row < 0 || col < 0 || row >= numRows || col >= numCols) return null;
 		return buttons.get(getIndex(row, col));
