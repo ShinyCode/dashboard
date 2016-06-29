@@ -1,4 +1,5 @@
 
-public class CustomButtonGroup {
+public final class CustomButtonGroup extends ButtonGroup
+{
 
 }
