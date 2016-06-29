@@ -22,7 +22,11 @@ public final class BarReadout extends Readout implements Incrementable, Updatabl
 			super(width, height);
 		}
 		
-		public Builder withMode(int)
+		public Builder withNumDivisions(int numDivisions)
+		{
+			if(numDivisions <= 0) throw new IllegalArgumentException();
+			return this;
+		}
 		
 		public BarReadout build()
 		{
