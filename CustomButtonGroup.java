@@ -23,4 +23,15 @@ public final class CustomButtonGroup extends ButtonGroup
 	{
 		super(width, height, baseColor);
 	}
+	
+	public boolean addButton(Button gb, double x, double y)
+	{
+		return super.addButton(gb, x, y);
+	}
+	
+	public Button getButton(String instr)
+	{
+		if(!buttons.containsKey(instr.toUpperCase())) return null;
+		return buttons.get(instr);
+	}
 }
