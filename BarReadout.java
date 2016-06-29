@@ -14,11 +14,15 @@ public final class BarReadout extends Readout implements Incrementable, Updatabl
 	
 	public static final class Builder extends Readout.Builder<Builder>
 	{	
-		private int
+		private int numDivisions;
+		private int mode;
+		
 		public Builder(double width, double height)
 		{
 			super(width, height);
 		}
+		
+		public Builder withMode(int)
 		
 		public BarReadout build()
 		{
