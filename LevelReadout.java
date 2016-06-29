@@ -1,8 +1,9 @@
 import java.awt.Color;
+
 import acm.graphics.*;
 
 
-public final class LevelReadout extends GCompound implements Incrementable, Updatable
+public final class LevelReadout extends Readout implements Incrementable, Updatable
 {
 	public LevelReadout(double width, double height, double spacing, int numDivisions, Color baseColor, Color backColor, Color barColor)
 	{
@@ -60,4 +61,9 @@ public final class LevelReadout extends GCompound implements Incrementable, Upda
 	GRect back;
 	GRect bar;
 	double spacing;
+	@Override
+	public void update(String msg) {
+		// TODO Auto-generated method stub
+		
+	}
 }
