@@ -15,11 +15,7 @@ public final class ColorReadout extends Readout
 			super(width, height);
 		}
 		
-		public Builder withButtonColor(Color buttonColor)
-		{
-			this.buttonColor = buttonColor;
-			return this;
-		}
+		
 		
 		public InstrReadoutControl build()
 		{
