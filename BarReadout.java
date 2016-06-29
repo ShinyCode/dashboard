@@ -28,7 +28,7 @@ public final class BarReadout extends Readout implements Incrementable, Updatabl
 		
 		public BarReadout build()
 		{
-			if(numDivisions == 0) numDivisions = (int)(height - 2 * spacing); // height of bar
+			if(numDivisions == 0) numDivisions = (int)(height - 2 * spacing); // 1 division per pixel in bar
 			return new BarReadout(width, height, spacing, baseColor, color, accentColor, numDivisions);
 		}		
 	}
