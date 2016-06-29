@@ -24,10 +24,10 @@ public abstract class ButtonGroup extends MouseWidget
 			this.height = height;
 		}
 		
-		public Builder withBaseColor(Color baseColor)
+		public T withBaseColor(Color baseColor)
 		{
 			this.baseColor = baseColor;
-			return this;
+			return (T)this;
 		}
 		
 		public ButtonGroup build()
