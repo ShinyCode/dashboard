@@ -50,10 +50,7 @@ public abstract class ButtonGrid extends MouseWidget
 			return (T)this;
 		}
 		
-		public ButtonGrid build()
-		{
-			return new ButtonGrid(width, height, numRows, numCols, spacing, baseColor);
-		}				
+		public abstract ButtonGrid build();			
 	}
 	
 	protected ButtonGrid(double width, double height, int numRows, int numCols, double spacing, Color baseColor)
