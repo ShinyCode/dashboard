@@ -17,7 +17,7 @@ public final class ColorReadout extends Readout
 		
 		public ColorReadout build()
 		{
-			return new ColorReadout(width, height, spacing, baseColor, color);
+			return new ColorReadout(width, height, spacing, baseColor, color); // accentColor not used
 		}		
 	}
 	
