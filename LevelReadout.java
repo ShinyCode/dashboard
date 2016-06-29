@@ -5,6 +5,7 @@ import acm.graphics.*;
 
 public final class LevelReadout extends Readout implements Incrementable, Updatable
 {
+	
 	protected LevelReadout(double width, double height, double spacing, Color baseColor, Color color, Color accentColor, int numDivisions)
 	{
 		this.spacing = spacing;
