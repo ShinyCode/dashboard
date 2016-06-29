@@ -126,6 +126,14 @@ public class Dashboard extends GraphicsProgram
 		addBorder(sinc, BUTTON_COLOR_2);
 		addBorder(lr, BUTTON_COLOR_1);
 		
+		// Testing
+		ColorReadout cr = new ColorReadout.Builder(aap.getWidth(), sinc.getHeight())
+			.withSpacing(BUTTON_SPACING)
+			.withBaseColor(BASE_COLOR)
+			.withColor(Color.RED)
+			.build();
+		add(cr, sinc.getX(), sinc.getY() + sinc.getHeight() + 20);
+		
 		// Add a background
 		GRect background = new GRect(addr.getX() + addr.getWidth() + 2 * COMPONENT_SPACING - pwr.getX(),
 				addrCtrl.getY() + addrCtrl.getHeight() + 2 * COMPONENT_SPACING - addr.getY());
