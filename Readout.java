@@ -34,6 +34,18 @@ public abstract class Readout extends GCompound
 			return (T)this;
 		}
 		
+		public T withColor(Color color)
+		{
+			this.color = color;
+			return (T)this;
+		}
+		
+		public T withAccentColor(Color accentColor)
+		{
+			this.accentColor = accentColor;
+			return (T)this;
+		}
+		
 		public abstract Readout build();			
 	}
 }
