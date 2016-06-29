@@ -15,11 +15,9 @@ public final class ColorReadout extends Readout
 			super(width, height);
 		}
 		
-		
-		
-		public InstrReadoutControl build()
+		public ColorReadout build()
 		{
-			return new InstrReadoutControl(width, height, spacing, baseColor, buttonColor);
+			return new ColorReadout(width, height, spacing, baseColor, color);
 		}		
 	}
 	
