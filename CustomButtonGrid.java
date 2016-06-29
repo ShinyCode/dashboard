@@ -3,6 +3,14 @@ import java.awt.Color;
 
 public final class CustomButtonGrid extends ButtonGrid
 {
+	public static class Builder extends ButtonGrid.Builder<Builder>
+	{
+		public CustomButtonGrid build()
+		{
+			return new CustomButtonGrid(width, height, numRows, numCols, spacing, baseColor);
+		}		
+	}
+	
 	protected CustomButtonGrid(double width, double height, int numRows, int numCols, double spacing, Color baseColor)
 	{
 		super(width, height, numRows, numCols, spacing, baseColor);
