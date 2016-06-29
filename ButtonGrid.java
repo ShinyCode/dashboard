@@ -5,7 +5,7 @@ import java.util.List;
 import acm.graphics.GRect;
 
 
-public class ButtonGrid extends MouseWidget
+public abstract class ButtonGrid extends MouseWidget
 {
 	private List<Button> buttons;
 	private GRect base;
