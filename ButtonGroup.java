@@ -32,7 +32,7 @@ public abstract class ButtonGroup extends MouseWidget
 		public abstract ButtonGroup build();
 	}
 	
-	private ButtonGroup(double width, double height, Color baseColor)
+	protected ButtonGroup(double width, double height, Color baseColor)
 	{
 		buttons = new HashMap<String, Button>();
 		base = new GRect(width, height);
