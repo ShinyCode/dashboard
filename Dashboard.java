@@ -165,8 +165,8 @@ public class Dashboard extends GraphicsProgram
 		o.sendToFront();
 	}
 	
-	private ButtonGrid pwr;
-	private ButtonGrid aux;
+	private CustomButtonGrid pwr;
+	private CustomButtonGrid aux;
 	private SingleIncrementer sinc;
 	private LevelReadout lr;
 	private AuxArrowPad aap;
