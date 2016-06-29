@@ -3,7 +3,7 @@ import java.awt.Color;
 import acm.graphics.*;
 
 
-public final class BarReadout extends Readout implements Incrementable, Updatable
+public final class BarReadout extends Readout implements Incrementable, NumberUpdatable
 {
 	private int level;
 	private int numDivisions;
