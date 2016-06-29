@@ -107,10 +107,4 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 		bar.setSize(bar.getWidth(), newHeight);
 		return;
 	}
-	
-	@Override
-	public void update(String msg) {
-		// TODO Auto-generated method stub
-		
-	}
 }
