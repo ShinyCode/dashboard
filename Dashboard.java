@@ -119,7 +119,12 @@ public class Dashboard extends GraphicsProgram
 			.withButtonColor(BUTTON_COLOR_2)
 			.build();
 		sinc.setName("SINC");
-		lr = new BarReadout(sinc.getWidth(), sinc.getHeight(), BUTTON_SPACING, 10, BASE_COLOR, BUTTON_COLOR_1, BUTTON_COLOR_2);
+		lr = new BarReadout.Builder(sinc.getWidth(), sinc.getHeight(), 10)
+			.withSpacing(BUTTON_SPACING)
+			.withBaseColor(BASE_COLOR)
+			.withColor(BUTTON_COLOR_1)
+			.withAccentColor(BUTTON_COLOR_2)
+			.build();
 		sinc.setIncrementable(lr);
 		add(sinc, pwr.getX(), aap.getY());
 		add(lr, sinc.getX() + sinc.getWidth() + 2 * BORDER_WIDTH, aap.getY());
