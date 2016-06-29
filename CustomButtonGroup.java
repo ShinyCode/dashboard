@@ -31,7 +31,6 @@ public final class CustomButtonGroup extends ButtonGroup
 	
 	public Button getButton(String instr)
 	{
-		if(!buttons.containsKey(instr.toUpperCase())) return null;
-		return buttons.get(instr);
+		return super.getButton(instr);
 	}
 }
