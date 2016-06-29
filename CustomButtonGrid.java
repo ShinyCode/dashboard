@@ -1,4 +1,5 @@
 
-public final class CustomButtonGrid {
+public final class CustomButtonGrid extends ButtonGrid
+{
 
 }
