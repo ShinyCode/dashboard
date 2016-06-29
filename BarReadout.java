@@ -11,6 +11,8 @@ public final class BarReadout extends Readout implements Incrementable, Updatabl
 	private GRect back;
 	private GRect bar;
 	private double spacing;
+	private double minValue;
+	private double maxValue;
 	
 	public static final class Builder extends Readout.Builder<Builder>
 	{	
