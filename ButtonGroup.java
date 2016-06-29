@@ -15,7 +15,7 @@ public abstract class ButtonGroup extends MouseWidget
 		protected final double width;
 		protected final double height;
 		
-		protect Color baseColor = Color.BLACK; // Default color
+		protected Color baseColor = Color.BLACK; // Default color
 		
 		public Builder(double width, double height)
 		{
