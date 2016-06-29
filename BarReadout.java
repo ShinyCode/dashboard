@@ -66,7 +66,7 @@ public final class BarReadout extends Readout implements Incrementable, Updatabl
 		setLevel(level - 1);
 	}
 	
-	public void setLevel(int level)
+	private void setLevel(int level)
 	{
 		if(level < 0 || level > numDivisions) throw new IllegalArgumentException();
 		if(bar == null) return;
