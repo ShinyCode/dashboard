@@ -130,7 +130,7 @@ public class Dashboard extends GraphicsProgram
 		ColorReadout cr = new ColorReadout.Builder(aap.getWidth(), sinc.getHeight())
 			.withSpacing(BUTTON_SPACING)
 			.withBaseColor(BASE_COLOR)
-			.withColor(Color.RED)
+			.withColor(Color.GREEN)
 			.build();
 		add(cr, sinc.getX(), sinc.getY() + sinc.getHeight() + 20);
 		
