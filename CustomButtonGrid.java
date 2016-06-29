@@ -5,6 +5,11 @@ public final class CustomButtonGrid extends ButtonGrid
 {
 	public static class Builder extends ButtonGrid.Builder<Builder>
 	{
+		public Builder(double width, double height)
+		{
+			super(width, height);
+		}
+		
 		public CustomButtonGrid build()
 		{
 			return new CustomButtonGrid(width, height, numRows, numCols, spacing, baseColor);
