@@ -8,10 +8,8 @@
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
-import java.util.Random;
 
 import acm.graphics.*;
-import acm.io.IOConsole;
 import acm.program.*;
 
 // Todo:
