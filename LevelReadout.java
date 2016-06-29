@@ -19,9 +19,9 @@ public final class LevelReadout extends Readout implements Incrementable, Updata
 			super(width, height);
 		}
 		
-		public ColorReadout build()
+		public LevelReadout build()
 		{
-			return new ColorReadout(width, height, spacing, baseColor, color); // accentColor not used
+			return new LevelReadout(width, height, spacing, baseColor, color); // accentColor not used
 		}		
 	}
 	
