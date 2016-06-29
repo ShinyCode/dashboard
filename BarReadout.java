@@ -44,7 +44,9 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 		
 		public Builder withOrientation(int orientation)
 		{
-			
+			if(orientation == VERTICAL) this.orientation = VERTICAL;
+			if(orientation == HORIZONTAL) this.orientation = HORIZONTAL;
+			return this;
 		}
 		
 		public BarReadout build()
