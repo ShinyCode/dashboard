@@ -119,7 +119,7 @@ public class Dashboard extends GraphicsProgram
 			.withButtonColor(BUTTON_COLOR_2)
 			.build();
 		sinc.setName("SINC");
-		lr = new LevelReadout(sinc.getWidth(), sinc.getHeight(), BUTTON_SPACING, 10, BASE_COLOR, BUTTON_COLOR_1, BUTTON_COLOR_2);
+		lr = new BarReadout(sinc.getWidth(), sinc.getHeight(), BUTTON_SPACING, 10, BASE_COLOR, BUTTON_COLOR_1, BUTTON_COLOR_2);
 		sinc.setIncrementable(lr);
 		add(sinc, pwr.getX(), aap.getY());
 		add(lr, sinc.getX() + sinc.getWidth() + 2 * BORDER_WIDTH, aap.getY());
@@ -180,7 +180,7 @@ public class Dashboard extends GraphicsProgram
 	private CustomButtonGrid pwr;
 	private CustomButtonGrid aux;
 	private SingleIncrementer sinc;
-	private LevelReadout lr;
+	private BarReadout lr;
 	private AuxArrowPad aap;
 	private InstrReadout spd;
 	private InstrReadout rot;

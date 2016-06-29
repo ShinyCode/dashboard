@@ -3,7 +3,7 @@ import java.awt.Color;
 import acm.graphics.*;
 
 
-public final class LevelReadout extends Readout implements Incrementable, Updatable
+public final class BarReadout extends Readout implements Incrementable, Updatable
 {
 	private int level;
 	private int numDivisions;
@@ -19,13 +19,13 @@ public final class LevelReadout extends Readout implements Incrementable, Updata
 			super(width, height);
 		}
 		
-		public LevelReadout build()
+		public BarReadout build()
 		{
-			return new LevelReadout(width, height, spacing, baseColor, color); // accentColor not used
+			return new BarReadout(width, height, spacing, baseColor, color); // accentColor not used
 		}		
 	}
 	
-	protected LevelReadout(double width, double height, double spacing, Color baseColor, Color color, Color accentColor, int numDivisions)
+	protected BarReadout(double width, double height, double spacing, Color baseColor, Color color, Color accentColor, int numDivisions)
 	{
 		this.spacing = spacing;
 		base = new GRect(width, height);
