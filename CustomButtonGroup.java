@@ -1,7 +1,4 @@
 import java.awt.Color;
-import java.util.HashMap;
-
-import acm.graphics.GRect;
 
 
 public final class CustomButtonGroup extends ButtonGroup
