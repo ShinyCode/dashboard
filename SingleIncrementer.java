@@ -9,7 +9,7 @@ public final class SingleIncrementer extends ButtonGrid
 	private TouchButton incButton;
 	private TouchButton decButton;
 	
-	public static class Builder extends ButtonGrid.Builder<Builder>
+	public static final class Builder extends ButtonGrid.Builder<Builder>
 	{
 		private Color buttonColor = Color.BLACK;
 		
