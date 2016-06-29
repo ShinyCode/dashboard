@@ -4,7 +4,7 @@ public final class AuxArrowPad extends ButtonGrid
 {
 	private TouchButton fwdButton, revButton, bnlButton, bnrButton;
 	
-	public static class Builder extends ButtonGrid.Builder<Builder>
+	public static final class Builder extends ButtonGrid.Builder<Builder>
 	{
 		private Color buttonColor = Color.BLACK;
 		
