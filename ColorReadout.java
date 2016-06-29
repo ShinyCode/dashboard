@@ -8,6 +8,25 @@ public final class ColorReadout extends Readout
 	private GRect base;
 	private GRect colorDisplay;
 	
+	public static final class Builder extends Readout.Builder<Builder>
+	{	
+		public Builder(double width, double height)
+		{
+			super(width, height);
+		}
+		
+		public Builder withButtonColor(Color buttonColor)
+		{
+			this.buttonColor = buttonColor;
+			return this;
+		}
+		
+		public InstrReadoutControl build()
+		{
+			return new InstrReadoutControl(width, height, spacing, baseColor, buttonColor);
+		}		
+	}
+	
 	protected ColorReadout(double width, double height, double spacing, Color baseColor, Color defaultColor)
 	{
 		base = new GRect(width, height);
