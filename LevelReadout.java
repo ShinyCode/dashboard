@@ -18,8 +18,6 @@ public final class LevelReadout extends Readout implements Incrementable, Updata
 		back.setFillColor(color);
 		add(back, spacing, spacing);
 		
-		//Need to check for bad input to numDivisions
-		if(numDivisions <= 0) throw new IllegalArgumentException();
 		this.numDivisions = numDivisions;
 		
 		bar = new GRect(back.getWidth(), 0);
