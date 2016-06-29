@@ -5,6 +5,13 @@ import acm.graphics.*;
 
 public final class LevelReadout extends Readout implements Incrementable, Updatable
 {
+	private int level;
+	private int numDivisions;
+	private GRect base;
+	private GRect back;
+	private GRect bar;
+	private double spacing;
+	
 	public static final class Builder extends Readout.Builder<Builder>
 	{	
 		public Builder(double width, double height)
@@ -67,12 +74,6 @@ public final class LevelReadout extends Readout implements Incrementable, Updata
 		setLevel(data);
 	}
 	
-	private int level;
-	private int numDivisions;
-	private GRect base;
-	private GRect back;
-	private GRect bar;
-	private double spacing;
 	@Override
 	public void update(String msg) {
 		// TODO Auto-generated method stub
