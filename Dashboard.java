@@ -27,7 +27,7 @@ public class Dashboard extends GraphicsProgram
 		addMouseListeners();
 		// Set up power console
 		// pwr = new ButtonGrid(1 * BUTTON_WIDTH + 2 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING, 1, 1, BUTTON_SPACING, BASE_COLOR);
-		pwr = new ButtonGrid.Builder(1 * BUTTON_WIDTH + 2 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING)
+		pwr = new CustomButtonGrid.Builder(1 * BUTTON_WIDTH + 2 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING)
 			.withRowsCols(1, 1)
 			.withSpacing(BUTTON_SPACING)
 			.withBaseColor(BASE_COLOR)
