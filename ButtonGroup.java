@@ -41,7 +41,7 @@ public abstract class ButtonGroup extends MouseWidget
 		add(base);
 	}
 	
-	public boolean addButton(Button gb, double x, double y)
+	protected boolean addButton(Button gb, double x, double y)
 	{
 		if(buttons.containsKey(gb.getInstr())) return false;
 		buttons.put(gb.getInstr(), gb);
@@ -49,7 +49,7 @@ public abstract class ButtonGroup extends MouseWidget
 		return true;
 	}
 	
-	public Button getButton(String instr)
+	protected Button getButton(String instr)
 	{
 		if(!buttons.containsKey(instr.toUpperCase())) return null;
 		return buttons.get(instr);
