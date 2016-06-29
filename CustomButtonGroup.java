@@ -1,3 +1,8 @@
+import java.awt.Color;
+import java.util.HashMap;
+
+import acm.graphics.GRect;
+
 
 public final class CustomButtonGroup extends ButtonGroup
 {
@@ -10,7 +15,12 @@ public final class CustomButtonGroup extends ButtonGroup
 		
 		public CustomButtonGroup build()
 		{
-			return new CustomButtonGrid(width, height, numRows, numCols, spacing, baseColor);
+			return new CustomButtonGroup(width, height, baseColor);
 		}		
+	}
+	
+	private CustomButtonGroup(double width, double height, Color baseColor)
+	{
+		super(width, height, baseColor)
 	}
 }
