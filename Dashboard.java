@@ -153,6 +153,10 @@ public class Dashboard extends GraphicsProgram
 			.withStartAngle(0)
 			.withSweepAngle(90)
 			.build();
+		GRectangle bounds = dr.getBounds();
+		GRect r = new GRect(bounds.getWidth(), bounds.getHeight());
+		r.setColor(Color.WHITE);
+		add(r, bounds.getX(), bounds.getY());
 		add(dr, aap.getX(), aap.getY() + aap.getHeight());
 		
 		// Add a background
