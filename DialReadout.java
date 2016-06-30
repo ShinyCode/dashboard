@@ -103,6 +103,7 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 		double scaleFactor = Math.min(xScaleFactor, yScaleFactor);
 		dial.setFrameRectangle(dial.getX(), dial.getY(), dialDiameter * scaleFactor, dialDiameter * scaleFactor);
 		dialRadius = dialDiameter * scaleFactor / 2.0;
+		
 		// Calculate where the dial should go.
 		// In the final step, we have to subtract a bias since dial.getX() gets the x-coordinate of the 
 		// frame rectangle, not the bounding box.
@@ -114,22 +115,6 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 		// Draw the dot to mark the start of the dial
 		GRectangle frame = dial.getFrameRectangle();
 		dialCenter = new GPoint(frame.getX() + frame.getWidth() / 2, frame.getY() + frame.getHeight() / 2);
-		// GOval dot = new GOval(spacing / 2, spacing / 2);
-		// dot.setFilled(true);
-		// dot.setFillColor(color);
-		// double dotX = dialCenter.getX() - dot.getWidth() / 2 + (frame.getWidth() + spacing) * Math.cos(Math.toRadians(startAngle)) / 2;
-		// double dotY = dialCenter.getY() - dot.getHeight() / 2 - (frame.getHeight() + spacing) * Math.sin(Math.toRadians(startAngle)) / 2;
-		// add(dot, dotX, dotY);
-		// setLevel(0);
-		
-		// Draw the needle on the dial face
-		/*
-		needle = new GLine(dialCenter.getX(),
-						   dialCenter.getY(),
-						   dialCenter.getX() + dialRadius * needleLength * Math.cos(Math.toRadians(startAngle)),
-						   dialCenter.getY() - dialRadius * needleLength * Math.sin(Math.toRadians(startAngle)));
-		add(needle);
-		*/
 		
 		// Draw the indicator arc
 		indicator = new GArc(frame.getWidth(), frame.getHeight(), startAngle, 0.0);
@@ -175,10 +160,6 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 	{
 		if(level < 0 || level > numDivisions) return;
 		this.level = level;
-		// TODO: Redraw the needle
-		// double newAngle = startAngle + (level * sweepAngle) / numDivisions;
-		// double newX = dialCenter.getX() + dialRadius * needleLength * Math.cos(Math.toRadians(newAngle));
-		// double newY = dialCenter.getY() - dialRadius * needleLength * Math.sin(Math.toRadians(newAngle));
 		indicator.setSweepAngle((level * sweepAngle) / numDivisions);
 		return;
 	}
