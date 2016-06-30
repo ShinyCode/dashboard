@@ -99,6 +99,8 @@ public final class DialReadout extends Readout
 		// Calculate where the dial should go
 		// TODO: Account for possibility of asymmetrical dimensions
 		GRectangle bounds = dial.getBounds();
+		double xDisp = (width - bounds.getWidth()) / 2; // Displacement from left edge of base
+		double yDisp = (height - bounds.getHeight()) / 2; // Displacement from top edge of base
 		add(dial, spacing - (bounds.getX() - dial.getX()), spacing - (bounds.getY() - dial.getY()));
 		
 		setLevel(0);
