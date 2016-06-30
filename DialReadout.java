@@ -64,7 +64,10 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 		{
 			if(numDivisions == 0)
 			{
-				// TODO: Determine what happens in continuous mode
+				// In continuous mode, the number of divisions is set to the circumference
+				// of the arc, so roughly one pixel per increment.
+				// We don't know how big the arc will be exactly though, so we need to defer until
+				// the constructor
 				
 			}
 			return new DialReadout(width, height, spacing, baseColor, color, accentColor, numDivisions, minValue, maxValue, startAngle, sweepAngle);
