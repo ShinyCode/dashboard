@@ -105,6 +105,7 @@ public final class DialReadout extends Readout
 		add(dial, xDisp - (bounds.getX() - dial.getX()), yDisp - (bounds.getY() - dial.getY()));
 		
 		// Draw the dot to mark the start of the dial
+		/*
 		GRectangle frame = dial.getFrameRectangle();
 		dialCenter = new GPoint(frame.getX() + frame.getWidth() / 2, frame.getY() + frame.getHeight() / 2);
 		GOval dot = new GOval(spacing / 2, spacing / 2);
@@ -114,6 +115,7 @@ public final class DialReadout extends Readout
 		double dotY = dialCenter.getY() - dot.getHeight() / 2 - (frame.getHeight() + spacing) * Math.sin(Math.toRadians(startAngle)) / 2;
 		add(dot, dotX, dotY);
 		setLevel(0);
+		*/
 	}
 	
 	public void increment()
