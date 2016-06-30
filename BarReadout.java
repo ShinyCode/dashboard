@@ -118,9 +118,17 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 		if(level < 0 || level > numDivisions) return;
 		if(bar == null) return;
 		this.level = level;
-		double newHeight = ((double) level) * back.getHeight() / numDivisions;
-		bar.setLocation(spacing, base.getHeight() - spacing - newHeight);
-		bar.setSize(bar.getWidth(), newHeight);
+		if(orientation == HORIZONTAL)
+		{
+			double newWidth = ((double) level) * back.getWidth() / numDivisions;
+			bar.setSize(bar.getHeight(), newWidth);
+		}
+		else // VERTICAL orientation
+		{
+			double newHeight = ((double) level) * back.getHeight() / numDivisions;
+			bar.setLocation(spacing, base.getHeight() - spacing - newHeight);
+			bar.setSize(bar.getWidth(), newHeight);
+		}
 		return;
 	}
 }
