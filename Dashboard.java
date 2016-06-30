@@ -151,7 +151,7 @@ public class Dashboard extends GraphicsProgram
 			.withBaseColor(Color.GREEN)
 			.withColor(Color.ORANGE)
 			.withStartAngle(0)
-			.withSweepAngle(360.0)
+			.withSweepAngle(359.9)
 			.build();
 		add(dr, aap.getX(), aap.getY() + aap.getHeight());
 		
