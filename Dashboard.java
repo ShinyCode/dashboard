@@ -119,12 +119,12 @@ public class Dashboard extends GraphicsProgram
 			.withButtonColor(BUTTON_COLOR_2)
 			.build();
 		sinc.setName("SINC");
-		lr = new BarReadout.Builder(sinc.getWidth(), sinc.getHeight(), 0)
+		lr = new BarReadout.Builder(sinc.getWidth(), sinc.getHeight(), 1000)
 			.withSpacing(BUTTON_SPACING)
 			.withBaseColor(BASE_COLOR)
 			.withColor(BUTTON_COLOR_1)
 			.withAccentColor(BUTTON_COLOR_2)
-			.withRange(0.0, 1000.0)
+			.withRange(0.0, 100.0)
 			.withOrientation(BarReadout.HORIZONTAL)
 			.build();
 		lr.update(25.0);
