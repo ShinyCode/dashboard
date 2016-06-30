@@ -7,7 +7,7 @@ public final class InstrReadoutControl extends ButtonGrid
 {
 	private TouchButton incButton, decButton, clsButton;
 	private ToggleButton frzButton;
-	private InstrReadout ir;
+	private BufferReadout ir;
 	
 	public static final class Builder extends ButtonGrid.Builder<Builder>
 	{
@@ -66,7 +66,7 @@ public final class InstrReadoutControl extends ButtonGrid
 		}
 	}
 	
-	public void addInstrReadout(InstrReadout ir)
+	public void addInstrReadout(BufferReadout ir)
 	{
 		this.ir = ir;
 	}

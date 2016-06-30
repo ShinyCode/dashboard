@@ -5,9 +5,9 @@ import java.util.List;
 
 import acm.graphics.*;
 
-public final class InstrReadout extends GCompound implements Incrementable, Updatable
+public final class BufferReadout extends GCompound implements Incrementable, Updatable
 {
-	public InstrReadout(double width, double height, double spacing, Color baseColor, Color backColor, Color barColor)
+	public BufferReadout(double width, double height, double spacing, Color baseColor, Color backColor, Color barColor)
 	{
 		messages = new ArrayList<String>();
 		display = new ArrayList<GLabel>();
