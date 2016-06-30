@@ -50,11 +50,13 @@ public final class DialReadout extends Readout
 		
 		public Builder withStartAngle(double startAngle)
 		{
+			this.startAngle = startAngle;
 			return this;
 		}
 		
 		public Builder withSweepAngle(double sweepAngle)
 		{
+			this.sweepAngle = sweepAngle;
 			return this;
 		}
 		
