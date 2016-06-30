@@ -72,11 +72,9 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 	
 	protected DialReadout(double width, double height, double spacing, Color baseColor, Color color, Color accentColor, int numDivisions, double minValue, double maxValue, double startAngle, double sweepAngle)
 	{
-		this.spacing = spacing;
 		this.numDivisions = numDivisions;
 		this.minValue = minValue;
 		this.maxValue = maxValue;
-		this.startAngle = startAngle;
 		this.sweepAngle = sweepAngle;
 		
 		base = new GRect(width, height);
@@ -97,7 +95,6 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 		double xScaleFactor = (width - 2 * spacing) / dial.getWidth();
 		double scaleFactor = Math.min(xScaleFactor, yScaleFactor);
 		dial.setFrameRectangle(dial.getX(), dial.getY(), dialDiameter * scaleFactor, dialDiameter * scaleFactor);
-		dialRadius = dialDiameter * scaleFactor / 2.0;
 		
 		// Calculate where the dial should go.
 		// In the final step, we have to subtract a bias since dial.getX() gets the x-coordinate of the 
@@ -109,7 +106,6 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 		
 		// Draw the dot to mark the start of the dial
 		GRectangle frame = dial.getFrameRectangle();
-		dialCenter = new GPoint(frame.getX() + frame.getWidth() / 2, frame.getY() + frame.getHeight() / 2);
 		
 		// Draw the indicator arc
 		indicator = new GArc(frame.getWidth(), frame.getHeight(), startAngle, 0.0);
