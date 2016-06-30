@@ -11,9 +11,9 @@ public abstract class NumberReadout extends Readout implements Incrementable, Nu
 	
 	public static abstract class Builder extends Readout.Builder<Builder>
 	{	
-		private int numDivisions = 0;
-		private double minValue = 0.0;
-		private double maxValue = 100.0;
+		protected int numDivisions = 0;
+		protected double minValue = 0.0;
+		protected double maxValue = 100.0;
 
 		// If numDivisions is 0, operate in "continuous" mode.
 		// Here, we set numDivisions to the bar height, but since we don't know
