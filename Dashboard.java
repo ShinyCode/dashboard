@@ -148,7 +148,7 @@ public class Dashboard extends GraphicsProgram
 		
 		DialReadout dr = new DialReadout.Builder(mpwr.getWidth(), mpwr.getHeight(), 100)
 			.withSpacing(BUTTON_SPACING)
-			.withBaseColor(BASE_COLOR)
+			.withBaseColor(Color.GREEN)
 			.withColor(Color.ORANGE)
 			.withStartAngle(0)
 			.withSweepAngle(360)
