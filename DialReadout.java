@@ -1,9 +1,6 @@
 import java.awt.Color;
 
 import acm.graphics.GArc;
-import acm.graphics.GLine;
-import acm.graphics.GOval;
-import acm.graphics.GPoint;
 import acm.graphics.GRect;
 import acm.graphics.GRectangle;
 
@@ -19,8 +16,6 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 	private double minValue;
 	private double maxValue;
 	private double sweepAngle;
-	
-	private static final double needleLength = 0.75; // As fraction of dial radius
 	
 	public static final class Builder extends Readout.Builder<Builder>
 	{	
