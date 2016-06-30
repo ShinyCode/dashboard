@@ -96,6 +96,7 @@ public final class DialReadout extends Readout
 		double scaleFactor = Math.min(xScaleFactor, yScaleFactor);
 		dial.setFrameRectangle(dial.getX(), dial.getY(), dialDiameter * scaleFactor, dialDiameter * scaleFactor);
 		
+		// Calculate where the dial should go
 		add(dial, 0, 0);
 		
 		setLevel(0);
