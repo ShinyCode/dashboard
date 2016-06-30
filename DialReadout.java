@@ -62,21 +62,17 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 		
 		public DialReadout build()
 		{
-			if(numDivisions == 0)
-			{
-				// In continuous mode, the number of divisions is set to the circumference
-				// of the arc, so roughly one pixel per increment.
-				// We don't know how big the arc will be exactly though, so we need to defer until
-				// the constructor
-				
-			}
+			// In continuous mode, the number of divisions is set to the circumference
+			// of the arc, so roughly one pixel per increment.
+			// We don't know how big the arc will be exactly though, so we need to defer until
+			// the constructor
 			return new DialReadout(width, height, spacing, baseColor, color, accentColor, numDivisions, minValue, maxValue, startAngle, sweepAngle);
 		}		
 	}
 	
 	protected DialReadout(double width, double height, double spacing, Color baseColor, Color color, Color accentColor, int numDivisions, double minValue, double maxValue, double startAngle, double sweepAngle)
 	{
-		this.numDivisions = numDivisions;
+		// We defer setting numDivisions until after resizing the arc
 		this.minValue = minValue;
 		this.maxValue = maxValue;
 		this.sweepAngle = sweepAngle;
