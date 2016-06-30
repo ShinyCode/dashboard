@@ -38,5 +38,8 @@ public abstract class NumberReadout extends Readout implements Incrementable, Nu
 	{
 		if(level < 0 || level > numDivisions) return;
 		this.level = level;
+		redrawAtLevel(level);
 	}
+	
+	public abstract void redrawAtLevel(int level);
 }
