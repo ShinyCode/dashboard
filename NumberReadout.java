@@ -32,17 +32,6 @@ public abstract class NumberReadout extends Readout implements Incrementable, Nu
 			this.maxValue = maxValue;
 			return this;
 		}
-		
-		public Builder withOrientation(int orientation)
-		{
-			if(orientation == VERTICAL || orientation == HORIZONTAL) this.orientation = orientation;
-			return this;
-		}
-		
-		public BarReadout build()
-		{
-			return new BarReadout(width, height, spacing, baseColor, color, accentColor, numDivisions, minValue, maxValue, orientation);
-		}		
 	}
 	
 	public void increment()
