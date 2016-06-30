@@ -1,5 +1,6 @@
 import java.awt.Color;
 
+import acm.graphics.GArc;
 import acm.graphics.GRect;
 
 
@@ -81,6 +82,9 @@ public final class DialReadout extends Readout
 		add(base, 0, 0);
 		
 		// TODO: Draw the rest of the components
+		dial = new GArc(width - 2 * spacing, height - 2 * spacing, startAngle, sweepAngle);
+		dial.setFilled(true);
+		dial.setFillColor(color);
 		
 		setLevel(0);
 	}
