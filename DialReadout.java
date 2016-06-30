@@ -118,7 +118,11 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 		add(centerCover, frame.getX() + frame.getWidth() / 4, frame.getY() + frame.getHeight() / 4);
 		
 		// Set up divisions
-		
+		if(numDivisions == 0)
+		{
+			this.numDivisions = Math.PI * frame.getWidth() * sweepAngle / 360.0;
+		}
+		else this.numDivisions = numDivisions;
 	}
 	
 	public void increment()
