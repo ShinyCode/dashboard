@@ -22,7 +22,7 @@ public final class DialReadout extends Readout
 	
 	private GPoint dialCenter;
 	
-	private static final double MAX_ANGLE = 360.0;
+	private static final double MAX_ANGLE = 360.01;
 	
 	public static final class Builder extends Readout.Builder<Builder>
 	{	
