@@ -64,6 +64,10 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 	{
 		this.spacing = spacing;
 		this.orientation = orientation;
+		this.numDivisions = numDivisions;
+		this.minValue = minValue;
+		this.maxValue = maxValue;
+		
 		base = new GRect(width, height);
 		base.setFilled(true);
 		base.setFillColor(baseColor);
@@ -74,8 +78,6 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 		back.setFillColor(color);
 		add(back, spacing, spacing);
 		
-		this.numDivisions = numDivisions;
-		
 		if(orientation == HORIZONTAL) bar = new GRect(0, back.getHeight());
 		else bar = new GRect(back.getWidth(), 0);
 		bar.setFilled(true);
@@ -83,8 +85,6 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 		if(orientation == HORIZONTAL) add(bar, spacing, spacing);
 		else add(bar, spacing, height - spacing);
 		
-		this.minValue = minValue;
-		this.maxValue = maxValue;
 		setLevel(0);
 	}
 	
