@@ -2,6 +2,7 @@ import java.awt.Color;
 
 import acm.graphics.GArc;
 import acm.graphics.GRect;
+import acm.graphics.GRectangle;
 
 
 public final class DialReadout extends Readout
@@ -83,14 +84,19 @@ public final class DialReadout extends Readout
 		
 		// TODO: Draw the rest of the components
 		// For the dial, first create the dial but don't display it.
-		dial = new GArc(width - 2 * spacing, height - 2 * spacing, startAngle, sweepAngle);
-		System.out.println((width - 2 * spacing) + " " + (height - 2 * spacing));
+		double dialDiameter = Math.min(width - 2 * spacing, height - 2 * spacing);
+		dial = new GArc(dialDiameter, dialDiameter, startAngle, sweepAngle);
 		dial.setFilled(true);
 		dial.setFillColor(color);
 		
 		// Get the bounding box, and use that to scale/reposition the dial to fit snugly in
 		// the base
-
+		GRectangle bounds = dial.getBounds();
+		double yScaleFactor = (height - 2 * spacing) / bounds.getHeight();
+		double xScaleFactor = (width - 2 * spacing) / bounds.getWidth();
+		double scaleFactor = Math.min(xScaleFactor, yScaleFactor);
+		dial.setFrameRectangle(dial.getX(), dial.getY(), dial.getWidth() * scaleFactor, dial.getHeight() * scaleFactor);
+		
 		add(dial, spacing, spacing);
 		
 		setLevel(0);
