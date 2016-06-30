@@ -117,7 +117,8 @@ public final class DialReadout extends Readout
 		setLevel(0);
 		*/
 		
-		//
+		// Draw the needle on the dial face
+		
 	}
 	
 	public void increment()
