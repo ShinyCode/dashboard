@@ -104,10 +104,8 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 		double yDisp = (height - bounds.getHeight()) / 2; // Displacement from top edge of base
 		add(dial, xDisp - (bounds.getX() - dial.getX()), yDisp - (bounds.getY() - dial.getY()));
 		
-		// Draw the dot to mark the start of the dial
-		GRectangle frame = dial.getFrameRectangle();
-		
 		// Draw the indicator arc
+		GRectangle frame = dial.getFrameRectangle();
 		indicator = new GArc(frame.getWidth(), frame.getHeight(), startAngle, 0.0);
 		indicator.setFilled(true);
 		indicator.setFillColor(accentColor);
