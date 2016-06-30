@@ -64,6 +64,7 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 			if(orientation == HORIZONTAL) this.numDivisions = (int)(width - 2 * spacing);
 			else this.numDivisions = (int)(height - 2 * spacing); // 1 division per pixel in bar
 		}
+		else this.numDivisions = numDivisions;
 		this.minValue = minValue;
 		this.maxValue = maxValue;
 		
