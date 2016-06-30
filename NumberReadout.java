@@ -1,3 +1,5 @@
+import BarReadout.Builder;
+
 
 
 public abstract class NumberReadout extends Readout implements Incrementable, NumberUpdatable
@@ -6,6 +8,43 @@ public abstract class NumberReadout extends Readout implements Incrementable, Nu
 	protected int numDivisions;
 	protected double minValue;
 	protected double maxValue;
+	
+	public abstract static class Builder extends Readout.Builder<Builder>
+	{	
+		private int numDivisions = 0;
+		private double minValue = 0.0;
+		private double maxValue = 100.0;
+		private int orientation = VERTICAL;
+
+		// If numDivisions is 0, operate in "continuous" mode.
+		// Here, we set numDivisions to the bar height, but since we don't know
+		// the spacing until we build(), we defer exact calculation until then.
+		public Builder(double width, double height, int numDivisions)
+		{
+			super(width, height);
+			if(numDivisions < 0) throw new IllegalArgumentException();
+			this.numDivisions = numDivisions;
+		}
+		
+		public Builder withRange(double minValue, double maxValue)
+		{
+			if(minValue >= maxValue) throw new IllegalArgumentException();
+			this.minValue = minValue;
+			this.maxValue = maxValue;
+			return this;
+		}
+		
+		public Builder withOrientation(int orientation)
+		{
+			if(orientation == VERTICAL || orientation == HORIZONTAL) this.orientation = orientation;
+			return this;
+		}
+		
+		public BarReadout build()
+		{
+			return new BarReadout(width, height, spacing, baseColor, color, accentColor, numDivisions, minValue, maxValue, orientation);
+		}		
+	}
 	
 	public void increment()
 	{
