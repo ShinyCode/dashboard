@@ -150,7 +150,7 @@ public class Dashboard extends GraphicsProgram
 			.withSpacing(BUTTON_SPACING)
 			.withBaseColor(Color.GREEN)
 			.withColor(Color.ORANGE)
-			.withStartAngle(90)
+			.withStartAngle(60)
 			.withSweepAngle(90)
 			.build();
 		/*
