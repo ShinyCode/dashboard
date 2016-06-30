@@ -156,7 +156,7 @@ public class Dashboard extends GraphicsProgram
 		GRectangle bounds = dr.getBounds();
 		GRect r = new GRect(bounds.getWidth(), bounds.getHeight());
 		r.setColor(Color.WHITE);
-		add(r, bounds.getX(), bounds.getY());
+		add(r, aap.getX(), aap.getY() + aap.getHeight());
 		add(dr, aap.getX(), aap.getY() + aap.getHeight());
 		
 		// Add a background
