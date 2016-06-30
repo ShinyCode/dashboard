@@ -91,11 +91,10 @@ public final class DialReadout extends Readout
 		
 		// Get the bounding box, and use that to scale/reposition the dial to fit snugly in
 		// the base
-		GRectangle bounds = dial.getBounds();
-		double yScaleFactor = (height - 2 * spacing) / bounds.getHeight();
-		double xScaleFactor = (width - 2 * spacing) / bounds.getWidth();
+		double yScaleFactor = (height - 2 * spacing) / dial.getHeight();
+		double xScaleFactor = (width - 2 * spacing) / dial.getWidth();
 		double scaleFactor = Math.min(xScaleFactor, yScaleFactor);
-		dial.setFrameRectangle(dial.getX(), dial.getY(), dial.getWidth() * scaleFactor, dial.getHeight() * scaleFactor);
+		dial.setFrameRectangle(dial.getX(), dial.getY(), dialDiameter * scaleFactor, dialDiameter * scaleFactor);
 		
 		add(dial, spacing, spacing);
 		
