@@ -101,7 +101,7 @@ public final class DialReadout extends Readout
 		GRectangle bounds = dial.getBounds();
 		double xDisp = (width - bounds.getWidth()) / 2; // Displacement from left edge of base
 		double yDisp = (height - bounds.getHeight()) / 2; // Displacement from top edge of base
-		add(dial, spacing - (bounds.getX() - dial.getX()), spacing - (bounds.getY() - dial.getY()));
+		add(dial, xDisp - (bounds.getX() - dial.getX()), yDisp - (bounds.getY() - dial.getY()));
 		
 		setLevel(0);
 	}
