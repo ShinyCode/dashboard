@@ -105,6 +105,7 @@ public final class DialReadout extends Readout
 		add(dial, xDisp - (bounds.getX() - dial.getX()), yDisp - (bounds.getY() - dial.getY()));
 		
 		// Draw the dot to mark the start of the dial
+		
 		setLevel(0);
 	}
 	
