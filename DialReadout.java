@@ -15,6 +15,8 @@ public final class DialReadout extends Readout
 	private double startAngle;
 	private double sweepAngle;
 	
+	private static final double MAX_ANGLE = 360.0;
+	
 	public static final class Builder extends Readout.Builder<Builder>
 	{	
 		private int numDivisions = 0;
@@ -43,13 +45,13 @@ public final class DialReadout extends Readout
 		
 		public Builder withStartAngle(double startAngle)
 		{
-			this.startAngle = startAngle;
+			this.startAngle = startAngle % MAX_ANGLE;
 			return this;
 		}
 		
 		public Builder withSweepAngle(double sweepAngle)
 		{
-			this.sweepAngle = sweepAngle;
+			this.sweepAngle = sweepAngle % MAX_ANGLE;
 			return this;
 		}
 		
