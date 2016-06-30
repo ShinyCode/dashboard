@@ -176,7 +176,7 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 		if(level < 0 || level > numDivisions) return;
 		this.level = level;
 		// TODO: Redraw the needle
-		double newAngle = startAngle + (level * sweepAngle) / numDivisions;
+		// double newAngle = startAngle + (level * sweepAngle) / numDivisions;
 		// double newX = dialCenter.getX() + dialRadius * needleLength * Math.cos(Math.toRadians(newAngle));
 		// double newY = dialCenter.getY() - dialRadius * needleLength * Math.sin(Math.toRadians(newAngle));
 		indicator.setSweepAngle((level * sweepAngle) / numDivisions);
