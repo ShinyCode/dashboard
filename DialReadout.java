@@ -55,7 +55,6 @@ public final class DialReadout extends Readout
 	protected DialReadout(double width, double height, double spacing, Color baseColor, Color color, Color accentColor, int numDivisions, double minValue, double maxValue, double startAngle, double sweepAngle)
 	{
 		this.spacing = spacing;
-		this.orientation = orientation;
 		this.numDivisions = numDivisions;
 		this.minValue = minValue;
 		this.maxValue = maxValue;
@@ -65,17 +64,7 @@ public final class DialReadout extends Readout
 		base.setFillColor(baseColor);
 		add(base, 0, 0);
 		
-		back = new GRect(width - 2 * spacing, height - 2 * spacing);
-		back.setFilled(true);
-		back.setFillColor(color);
-		add(back, spacing, spacing);
-		
-		if(orientation == HORIZONTAL) bar = new GRect(0, back.getHeight());
-		else bar = new GRect(back.getWidth(), 0);
-		bar.setFilled(true);
-		bar.setFillColor(accentColor);
-		if(orientation == HORIZONTAL) add(bar, spacing, spacing);
-		else add(bar, spacing, height - spacing);
+		// TODO: Draw the rest of the components
 		
 		setLevel(0);
 	}
