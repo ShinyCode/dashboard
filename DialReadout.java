@@ -96,8 +96,9 @@ public final class DialReadout extends Readout
 		double scaleFactor = Math.min(xScaleFactor, yScaleFactor);
 		dial.setFrameRectangle(dial.getX(), dial.getY(), dialDiameter * scaleFactor, dialDiameter * scaleFactor);
 		
-		// Calculate where the dial should go
-		// TODO: Account for possibility of asymmetrical dimensions
+		// Calculate where the dial should go.
+		// In the final step, we have to subtract a bias since dial.getX() gets the x-coordinate of the 
+		// frame rectangle, not the bounding box
 		GRectangle bounds = dial.getBounds();
 		double xDisp = (width - bounds.getWidth()) / 2; // Displacement from left edge of base
 		double yDisp = (height - bounds.getHeight()) / 2; // Displacement from top edge of base
