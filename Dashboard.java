@@ -151,7 +151,7 @@ public class Dashboard extends GraphicsProgram
 			.withBaseColor(Color.GREEN)
 			.withColor(Color.ORANGE)
 			.withStartAngle(0)
-			.withSweepAngle(270)
+			.withSweepAngle(90)
 			.build();
 		/*
 		GRectangle bounds = dr.getBounds();
