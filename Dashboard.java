@@ -146,7 +146,7 @@ public class Dashboard extends GraphicsProgram
 		cr.update(Color.RED);
 		*/
 		
-		DialReadout dr = new DialReadout.Builder(mpwr.getWidth(), mpwr.getWidth(), 100)
+		DialReadout dr = new DialReadout.Builder(2 * mpwr.getWidth(), mpwr.getWidth(), 100)
 			.withSpacing(BUTTON_SPACING)
 			.withBaseColor(BASE_COLOR)
 			.withColor(BUTTON_COLOR_1)
