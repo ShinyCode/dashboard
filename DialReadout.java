@@ -1,6 +1,7 @@
 import java.awt.Color;
 
 import acm.graphics.GArc;
+import acm.graphics.GOval;
 import acm.graphics.GPoint;
 import acm.graphics.GRect;
 import acm.graphics.GRectangle;
@@ -110,6 +111,9 @@ public final class DialReadout extends Readout
 		// Draw the dot to mark the start of the dial
 		GRectangle frame = dial.getFrameRectangle();
 		dialCenter = new GPoint(frame.getX() + frame.getWidth() / 2, frame.getY() + frame.getHeight() / 2);
+		GOval dot = new GOval(spacing / 2, spacing / 2);
+		dot.setFilled(true);
+		dot.setFillColor(color);
 		setLevel(0);
 	}
 	
