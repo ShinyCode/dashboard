@@ -160,6 +160,7 @@ public class Dashboard extends GraphicsProgram
 		add(r, aap.getX(), aap.getY() + aap.getHeight());
 		*/
 		add(dr, aap.getX(), aap.getY() + aap.getHeight());
+		dr.setLevel(90);
 		
 		// Add a background
 		GRect background = new GRect(addr.getX() + addr.getWidth() + 2 * COMPONENT_SPACING - pwr.getX(),
