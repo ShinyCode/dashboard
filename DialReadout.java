@@ -95,7 +95,7 @@ public final class DialReadout extends Readout
 		double yScaleFactor = (height - 2 * spacing) / bounds.getHeight();
 		double xScaleFactor = (width - 2 * spacing) / bounds.getWidth();
 		double scaleFactor = Math.min(xScaleFactor, yScaleFactor);
-		dial.setFrameRectangle(dial.getX(), dial.getY(), dial.getWidth() * scaleFactor, dial.getHeight() * scaleFactor);
+		//dial.setFrameRectangle(dial.getX(), dial.getY(), dial.getWidth() * scaleFactor, dial.getHeight() * scaleFactor);
 		
 		add(dial, spacing, spacing);
 		
