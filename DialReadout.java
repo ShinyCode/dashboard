@@ -82,11 +82,15 @@ public final class DialReadout extends Readout
 		add(base, 0, 0);
 		
 		// TODO: Draw the rest of the components
+		// For the dial, first create the dial but don't display it.
 		dial = new GArc(width - 2 * spacing, height - 2 * spacing, startAngle, sweepAngle);
 		System.out.println((width - 2 * spacing) + " " + (height - 2 * spacing));
 		dial.setFilled(true);
 		dial.setFillColor(color);
-		dial.setFrameRectangle(0, 0, width - 2 * spacing, height - 2 * spacing);
+		
+		// Get the bounding box, and use that to scale/reposition the dial to fit snugly in
+		// the base
+
 		add(dial, spacing, spacing);
 		
 		setLevel(0);
