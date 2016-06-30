@@ -98,6 +98,9 @@ public final class DialReadout extends Readout
 		
 		// Calculate where the dial should go
 		GRectangle bounds = dial.getBounds();
+		GRect r = new GRect(bounds.getWidth(), bounds.getHeight());
+		r.setColor(Color.WHITE);
+		add(r, bounds.getX(), bounds.getY());
 		add(dial, 0, 0);
 		
 		setLevel(0);
