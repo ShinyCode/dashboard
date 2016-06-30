@@ -1,6 +1,5 @@
 import java.awt.Color;
 
-import BarReadout.Builder;
 import acm.graphics.GRect;
 
 
@@ -39,6 +38,18 @@ public final class DialReadout extends Readout
 			if(minValue >= maxValue) throw new IllegalArgumentException();
 			this.minValue = minValue;
 			this.maxValue = maxValue;
+			return this;
+		}
+		
+		public Builder withStartAngle(double startAngle)
+		{
+			this.startAngle = startAngle;
+			return this;
+		}
+		
+		public Builder withSweepAngle(double sweepAngle)
+		{
+			this.sweepAngle = sweepAngle;
 			return this;
 		}
 		
