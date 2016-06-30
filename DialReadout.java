@@ -116,6 +116,9 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 		centerCover.setFilled(true);
 		centerCover.setFillColor(color);
 		add(centerCover, frame.getX() + frame.getWidth() / 4, frame.getY() + frame.getHeight() / 4);
+		
+		// Set up divisions
+		
 	}
 	
 	public void increment()
