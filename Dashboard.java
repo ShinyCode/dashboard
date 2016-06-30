@@ -125,6 +125,7 @@ public class Dashboard extends GraphicsProgram
 			.withColor(BUTTON_COLOR_1)
 			.withAccentColor(BUTTON_COLOR_2)
 			.withRange(0.0, 50.0)
+			.withOrientation(BarReadout.VERTICAL)
 			.build();
 		lr.update(25.0);
 		sinc.setIncrementable(lr);
