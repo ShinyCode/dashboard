@@ -130,6 +130,5 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 			bar.setLocation(spacing, base.getHeight() - spacing - newHeight);
 			bar.setSize(bar.getWidth(), newHeight);
 		}
-		return;
 	}
 }
