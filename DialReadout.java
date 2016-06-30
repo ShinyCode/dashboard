@@ -101,7 +101,7 @@ public final class DialReadout extends Readout
 		GRect r = new GRect(bounds.getWidth(), bounds.getHeight());
 		r.setColor(Color.WHITE);
 		add(r, bounds.getX(), bounds.getY());
-		add(dial, 0, 0);
+		add(dial, spacing - (bounds.getX() - dial.getX()), spacing - (bounds.getY() - dial.getY()));
 		
 		setLevel(0);
 	}
