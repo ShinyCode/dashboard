@@ -130,6 +130,12 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 						   dialCenter.getY() - dialRadius * needleLength * Math.sin(Math.toRadians(startAngle)));
 		add(needle);
 		*/
+		
+		// Draw the middle arc
+		GArc centerCover = new GArc(frame.getWidth() / 2, frame.getHeight() / 2, startAngle, sweepAngle);
+		centerCover.setFilled(true);
+		centerCover.setFillColor(color);
+		add(centerCover, frame.getX() + frame.getWidth() / 4, frame.getY() + frame.getHeight() / 4);
 	}
 	
 	public void increment()
