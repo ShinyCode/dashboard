@@ -14,6 +14,7 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 	private int numDivisions;
 	private GRect base;
 	private GArc dial;
+	private GArc indicator;
 
 	private double spacing;
 	private double minValue;
@@ -23,7 +24,6 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 	private double dialRadius;
 	
 	private GPoint dialCenter;
-	private GLine needle;
 	
 	private static final double needleLength = 0.75; // As fraction of dial radius
 	
@@ -136,6 +136,8 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 		centerCover.setFilled(true);
 		centerCover.setFillColor(color);
 		add(centerCover, frame.getX() + frame.getWidth() / 4, frame.getY() + frame.getHeight() / 4);
+		
+		// Draw the indicator arc
 	}
 	
 	public void increment()
