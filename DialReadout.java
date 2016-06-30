@@ -1,6 +1,7 @@
 import java.awt.Color;
 
 import acm.graphics.GArc;
+import acm.graphics.GPoint;
 import acm.graphics.GRect;
 import acm.graphics.GRectangle;
 
@@ -17,6 +18,8 @@ public final class DialReadout extends Readout
 	private double maxValue;
 	private double startAngle;
 	private double sweepAngle;
+	
+	private GPoint dialCenter;
 	
 	private static final double MAX_ANGLE = 360.0;
 	
@@ -105,7 +108,8 @@ public final class DialReadout extends Readout
 		add(dial, xDisp - (bounds.getX() - dial.getX()), yDisp - (bounds.getY() - dial.getY()));
 		
 		// Draw the dot to mark the start of the dial
-		
+		GRectangle frame = dial.getFrameRectangle();
+		dialCenter = new GPoint(frame.getX() + frame.getWidth() / 2, frame.getY() + frame.getHeight() / 2);
 		setLevel(0);
 	}
 	
