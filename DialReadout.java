@@ -131,13 +131,17 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 		add(needle);
 		*/
 		
+		// Draw the indicator arc
+		indicator = new GArc(frame.getWidth(), frame.getHeight(), startAngle, 0.0);
+		indicator.setFilled(true);
+		indicator.setFillColor(accentColor);
+		add(indicator, frame.getX(), frame.getY());
+		
 		// Draw the middle arc
 		GArc centerCover = new GArc(frame.getWidth() / 2, frame.getHeight() / 2, startAngle, sweepAngle);
 		centerCover.setFilled(true);
 		centerCover.setFillColor(color);
 		add(centerCover, frame.getX() + frame.getWidth() / 4, frame.getY() + frame.getHeight() / 4);
-		
-		// Draw the indicator arc
 	}
 	
 	public void increment()
@@ -173,9 +177,9 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 		this.level = level;
 		// TODO: Redraw the needle
 		double newAngle = startAngle + (level * sweepAngle) / numDivisions;
-		double newX = dialCenter.getX() + dialRadius * needleLength * Math.cos(Math.toRadians(newAngle));
-		double newY = dialCenter.getY() - dialRadius * needleLength * Math.sin(Math.toRadians(newAngle));
-		needle.setEndPoint(newX, newY);		           
+		// double newX = dialCenter.getX() + dialRadius * needleLength * Math.cos(Math.toRadians(newAngle));
+		// double newY = dialCenter.getY() - dialRadius * needleLength * Math.sin(Math.toRadians(newAngle));
+		indicator.setSweepAngle((level * sweepAngle) / numDivisions);
 		return;
 	}
 }
