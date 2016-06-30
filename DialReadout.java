@@ -165,7 +165,7 @@ public final class DialReadout extends Readout
 		double newAngle = startAngle + (level * sweepAngle) / numDivisions;
 		double newX = dialCenter.getX() + dialRadius * needleLength * Math.cos(Math.toRadians(newAngle));
 		double newY = dialCenter.getY() - dialRadius * needleLength * Math.sin(Math.toRadians(newAngle));
-				           
+		needle.setEndPoint(newX, newY);		           
 		return;
 	}
 }
