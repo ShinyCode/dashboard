@@ -27,12 +27,12 @@ public abstract class NumberReadout extends Readout implements Incrementable, Nu
 			this.numDivisions = numDivisions;
 		}
 		
-		public Builder withRange(double minValue, double maxValue)
+		public T withRange(double minValue, double maxValue)
 		{
 			if(minValue >= maxValue) throw new IllegalArgumentException();
 			this.minValue = minValue;
 			this.maxValue = maxValue;
-			return this;
+			return (T)this;
 		}
 	}
 	
