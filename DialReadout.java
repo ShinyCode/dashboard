@@ -71,6 +71,8 @@ public final class DialReadout extends Readout
 		this.numDivisions = numDivisions;
 		this.minValue = minValue;
 		this.maxValue = maxValue;
+		this.startAngle = startAngle;
+		this.sweepAngle = sweepAngle;
 		
 		base = new GRect(width, height);
 		base.setFilled(true);
