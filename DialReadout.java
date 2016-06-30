@@ -161,7 +161,11 @@ public final class DialReadout extends Readout
 	{
 		if(level < 0 || level > numDivisions) return;
 		this.level = level;
-		// TODO: Redraw the disc
+		// TODO: Redraw the needle
+		needle = new GLine(dialCenter.getX(),
+				   dialCenter.getY(),
+				   dialCenter.getX() + dialRadius * needleLength * Math.cos(Math.toRadians(startAngle)),
+				   dialCenter.getY() - dialRadius * needleLength * Math.sin(Math.toRadians(startAngle)));
 		return;
 	}
 }
