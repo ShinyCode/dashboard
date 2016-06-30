@@ -13,12 +13,17 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 	private double spacing;
 	private double minValue;
 	private double maxValue;
+	private int orientation;
+	
+	public static final int VERTICAL = 0;
+	public static final int HORIZONTAL = 1;
 	
 	public static final class Builder extends Readout.Builder<Builder>
 	{	
 		private int numDivisions = 0;
 		private double minValue = 0.0;
 		private double maxValue = 100.0;
+		private int orientation = VERTICAL;
 
 		// If numDivisions is 0, operate in "continuous" mode.
 		// Here, we set numDivisions to the bar height, but since we don't know
@@ -38,16 +43,27 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 			return this;
 		}
 		
+		public Builder withOrientation(int orientation)
+		{
+			if(orientation == VERTICAL || orientation == HORIZONTAL) this.orientation = orientation;
+			return this;
+		}
+		
 		public BarReadout build()
 		{
-			if(numDivisions == 0) numDivisions = (int)(height - 2 * spacing); // 1 division per pixel in bar
-			return new BarReadout(width, height, spacing, baseColor, color, accentColor, numDivisions, minValue, maxValue);
+			if(numDivisions == 0)
+			{
+				if(orientation == HORIZONTAL) numDivisions = (int)(width - 2 * spacing);
+				else numDivisions = (int)(height - 2 * spacing); // 1 division per pixel in bar
+			}
+			return new BarReadout(width, height, spacing, baseColor, color, accentColor, numDivisions, minValue, maxValue, orientation);
 		}		
 	}
 	
-	protected BarReadout(double width, double height, double spacing, Color baseColor, Color color, Color accentColor, int numDivisions, double minValue, double maxValue)
+	protected BarReadout(double width, double height, double spacing, Color baseColor, Color color, Color accentColor, int numDivisions, double minValue, double maxValue, int orientation)
 	{
 		this.spacing = spacing;
+		this.orientation = orientation;
 		base = new GRect(width, height);
 		base.setFilled(true);
 		base.setFillColor(baseColor);
