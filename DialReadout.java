@@ -104,8 +104,7 @@ public final class DialReadout extends Readout
 		double yDisp = (height - bounds.getHeight()) / 2; // Displacement from top edge of base
 		add(dial, xDisp - (bounds.getX() - dial.getX()), yDisp - (bounds.getY() - dial.getY()));
 		
-		// Draw the zero dot and the dial
-		
+		// Draw the dot to mark the start of the dial
 		setLevel(0);
 	}
 	
