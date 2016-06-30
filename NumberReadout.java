@@ -1,5 +1,6 @@
 
 
-public abstract class NumberReadout extends Readout {
+public abstract class NumberReadout extends Readout implements Incrementable, NumberUpdatable
+{
 
 }
