@@ -120,7 +120,7 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 		// Set up divisions
 		if(numDivisions == 0)
 		{
-			this.numDivisions = Math.PI * frame.getWidth() * sweepAngle / 360.0;
+			this.numDivisions = (int)(Math.PI * frame.getWidth() * sweepAngle / 360.0);
 		}
 		else this.numDivisions = numDivisions;
 	}
