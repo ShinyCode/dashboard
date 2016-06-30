@@ -77,7 +77,6 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 		base.setFillColor(baseColor);
 		add(base, 0, 0);
 		
-		// TODO: Draw the rest of the components
 		// For the dial, first create the dial but don't display it.
 		double dialDiameter = Math.min(width - 2 * spacing, height - 2 * spacing);
 		dial = new GArc(dialDiameter, dialDiameter, startAngle, sweepAngle);
