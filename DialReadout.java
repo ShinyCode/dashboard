@@ -85,6 +85,7 @@ public final class DialReadout extends Readout
 		dial = new GArc(width - 2 * spacing, height - 2 * spacing, startAngle, sweepAngle);
 		dial.setFilled(true);
 		dial.setFillColor(color);
+		add(dial, spacing, spacing);
 		
 		setLevel(0);
 	}
