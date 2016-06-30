@@ -51,11 +51,7 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 		
 		public BarReadout build()
 		{
-			if(numDivisions == 0)
-			{
-				if(orientation == HORIZONTAL) numDivisions = (int)(width - 2 * spacing);
-				else numDivisions = (int)(height - 2 * spacing); // 1 division per pixel in bar
-			}
+			
 			return new BarReadout(width, height, spacing, baseColor, color, accentColor, numDivisions, minValue, maxValue, orientation);
 		}		
 	}
@@ -64,7 +60,11 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 	{
 		this.spacing = spacing;
 		this.orientation = orientation;
-		this.numDivisions = numDivisions;
+		if(numDivisions == 0)
+		{
+			if(orientation == HORIZONTAL) this.numDivisions = (int)(width - 2 * spacing);
+			else this.numDivisions = (int)(height - 2 * spacing); // 1 division per pixel in bar
+		}
 		this.minValue = minValue;
 		this.maxValue = maxValue;
 		
