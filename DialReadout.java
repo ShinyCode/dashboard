@@ -115,7 +115,7 @@ public final class DialReadout extends Readout
 		dot.setFilled(true);
 		dot.setFillColor(color);
 		double dotX = dialCenter.getX() - dot.getWidth() + (frame.getWidth() + spacing) * Math.cos(Math.toRadians(startAngle)) / 2;
-		double dotY = dialCenter.getY() - dot.getHeight() + (frame.getHeight() + spacing) * Math.sin(Math.toRadians(startAngle)) / 2;
+		double dotY = dialCenter.getY() - dot.getHeight() - (frame.getHeight() + spacing) * Math.sin(Math.toRadians(startAngle)) / 2;
 		add(dot, dotX, dotY);
 		setLevel(0);
 	}
