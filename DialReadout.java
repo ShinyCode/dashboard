@@ -162,7 +162,7 @@ public final class DialReadout extends Readout
 		if(level < 0 || level > numDivisions) return;
 		this.level = level;
 		// TODO: Redraw the needle
-		double newAngle = (level * 360.0) / numDivisions;
+		double newAngle = (level * sweepAngle) / numDivisions;
 		double newX = dialCenter.getX() + dialRadius * needleLength * Math.cos(Math.toRadians(startAngle));
 		double newY = dialCenter.getY() - dialRadius * needleLength * Math.sin(Math.toRadians(startAngle));
 				           
