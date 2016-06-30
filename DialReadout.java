@@ -22,8 +22,6 @@ public final class DialReadout extends Readout
 	
 	private GPoint dialCenter;
 	
-	private static final double MAX_ANGLE = 360.01;
-	
 	public static final class Builder extends Readout.Builder<Builder>
 	{	
 		private int numDivisions = 0;
@@ -52,13 +50,11 @@ public final class DialReadout extends Readout
 		
 		public Builder withStartAngle(double startAngle)
 		{
-			this.startAngle = startAngle % MAX_ANGLE;
 			return this;
 		}
 		
 		public Builder withSweepAngle(double sweepAngle)
 		{
-			this.sweepAngle = sweepAngle % MAX_ANGLE;
 			return this;
 		}
 		
