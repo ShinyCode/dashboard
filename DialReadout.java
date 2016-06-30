@@ -8,6 +8,7 @@ public final class DialReadout extends Readout
 	private int level;
 	private int numDivisions;
 	private GRect base;
+	private GArc dial;
 
 	private double spacing;
 	private double minValue;
