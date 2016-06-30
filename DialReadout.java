@@ -151,6 +151,5 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 		if(level < 0 || level > numDivisions) return;
 		this.level = level;
 		indicator.setSweepAngle((level * sweepAngle) / numDivisions);
-		return;
 	}
 }
