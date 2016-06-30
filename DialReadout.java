@@ -86,7 +86,7 @@ public final class DialReadout extends Readout
 		System.out.println((width - 2 * spacing) + " " + (height - 2 * spacing));
 		dial.setFilled(true);
 		dial.setFillColor(color);
-		dial.setFrameRectangle(0, 0, 0, 0);
+		dial.setFrameRectangle(0, 0, width, height);
 		add(dial, spacing, spacing);
 		
 		setLevel(0);
