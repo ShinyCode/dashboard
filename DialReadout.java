@@ -65,6 +65,7 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 			if(numDivisions == 0)
 			{
 				// TODO: Determine what happens in continuous mode
+				
 			}
 			return new DialReadout(width, height, spacing, baseColor, color, accentColor, numDivisions, minValue, maxValue, startAngle, sweepAngle);
 		}		
