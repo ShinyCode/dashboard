@@ -123,7 +123,7 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 		if(orientation == HORIZONTAL)
 		{
 			double newWidth = ((double) level) * back.getWidth() / numDivisions;
-			bar.setSize(bar.getHeight(), newWidth);
+			bar.setSize(newWidth, bar.getHeight());
 		}
 		else // VERTICAL orientation
 		{
