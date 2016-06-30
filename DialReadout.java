@@ -16,14 +16,9 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 	private GArc dial;
 	private GArc indicator;
 
-	private double spacing;
 	private double minValue;
 	private double maxValue;
-	private double startAngle;
 	private double sweepAngle;
-	private double dialRadius;
-	
-	private GPoint dialCenter;
 	
 	private static final double needleLength = 0.75; // As fraction of dial radius
 	
