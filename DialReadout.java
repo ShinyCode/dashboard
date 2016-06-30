@@ -83,6 +83,7 @@ public final class DialReadout extends Readout
 		
 		// TODO: Draw the rest of the components
 		dial = new GArc(width - 2 * spacing, height - 2 * spacing, startAngle, sweepAngle);
+		System.out.println((width - 2 * spacing) + " " + (height - 2 * spacing));
 		dial.setFilled(true);
 		dial.setFillColor(color);
 		add(dial, spacing, spacing);
