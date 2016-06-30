@@ -8,7 +8,7 @@ import acm.graphics.GRect;
 import acm.graphics.GRectangle;
 
 
-public final class DialReadout extends Readout
+public final class DialReadout extends Readout implements Incrementable, NumberUpdatable
 {
 	private int level;
 	private int numDivisions;
