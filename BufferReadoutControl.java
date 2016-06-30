@@ -3,7 +3,7 @@ import java.awt.Color;
 import acm.graphics.GObject;
 
 
-public final class InstrReadoutControl extends ButtonGrid
+public final class BufferReadoutControl extends ButtonGrid
 {
 	private TouchButton incButton, decButton, clsButton;
 	private ToggleButton frzButton;
@@ -24,13 +24,13 @@ public final class InstrReadoutControl extends ButtonGrid
 			return this;
 		}
 		
-		public InstrReadoutControl build()
+		public BufferReadoutControl build()
 		{
-			return new InstrReadoutControl(width, height, spacing, baseColor, buttonColor);
+			return new BufferReadoutControl(width, height, spacing, baseColor, buttonColor);
 		}		
 	}
 	
-	public InstrReadoutControl(double width, double height, double spacing, Color baseColor, Color buttonColor)
+	public BufferReadoutControl(double width, double height, double spacing, Color baseColor, Color buttonColor)
 	{
 		super(width, height, 4, 1, spacing, baseColor);
 		clsButton = new TouchButton(width, height, buttonColor, "CLS");

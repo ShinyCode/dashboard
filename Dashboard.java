@@ -77,21 +77,21 @@ public class Dashboard extends GraphicsProgram
 		addBorder(addr, BUTTON_COLOR_2);
 		
 		// Set up readout controls
-		spdCtrl = new InstrReadoutControl.Builder(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING)
+		spdCtrl = new BufferReadoutControl.Builder(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING)
 			.withSpacing(BUTTON_SPACING)
 			.withBaseColor(BASE_COLOR)
 			.withButtonColor(BUTTON_COLOR_1)
 			.build();
 		add(spdCtrl, spd.getX(), spd.getY() + spd.getHeight() + COMPONENT_SPACING);
 		spdCtrl.setName("SPD_CTRL");
-		rotCtrl = new InstrReadoutControl.Builder(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING)
+		rotCtrl = new BufferReadoutControl.Builder(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING)
 			.withSpacing(BUTTON_SPACING)
 			.withBaseColor(BASE_COLOR)
 			.withButtonColor(BUTTON_COLOR_1)
 			.build();
 		add(rotCtrl, rot.getX(), rot.getY() + rot.getHeight() + COMPONENT_SPACING);
 		rotCtrl.setName("ROT_CTRL");
-		addrCtrl = new InstrReadoutControl.Builder(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING)
+		addrCtrl = new BufferReadoutControl.Builder(readoutWidth, 4 * READOUT_BUTTON_HEIGHT + 5 * BUTTON_SPACING)
 			.withSpacing(BUTTON_SPACING)
 			.withBaseColor(BASE_COLOR)
 			.withButtonColor(BUTTON_COLOR_1)
@@ -211,9 +211,9 @@ public class Dashboard extends GraphicsProgram
 	private BufferReadout spd;
 	private BufferReadout rot;
 	private BufferReadout addr;
-	private InstrReadoutControl spdCtrl;
-	private InstrReadoutControl rotCtrl;
-	private InstrReadoutControl addrCtrl;
+	private BufferReadoutControl spdCtrl;
+	private BufferReadoutControl rotCtrl;
+	private BufferReadoutControl addrCtrl;
 	private Processor prc;
 	
 	private RandomAddressSensor sensAdd;
