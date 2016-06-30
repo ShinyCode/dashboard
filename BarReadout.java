@@ -51,7 +51,6 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 		
 		public BarReadout build()
 		{
-			
 			return new BarReadout(width, height, spacing, baseColor, color, accentColor, numDivisions, minValue, maxValue, orientation);
 		}		
 	}
