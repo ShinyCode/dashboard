@@ -146,6 +146,14 @@ public class Dashboard extends GraphicsProgram
 		cr.update(Color.RED);
 		*/
 		
+		DialReadout dr = new DialReadout.Builder(mpwr.getWidth(), mpwr.getHeight(), 100)
+			.withSpacing(BUTTON_SPACING)
+			.withBaseColor(BASE_COLOR)
+			.withColor(Color.ORANGE)
+			.withStartAngle(0)
+			.withSweepAngle(360)
+			.build();
+		
 		// Add a background
 		GRect background = new GRect(addr.getX() + addr.getWidth() + 2 * COMPONENT_SPACING - pwr.getX(),
 				addrCtrl.getY() + addrCtrl.getHeight() + 2 * COMPONENT_SPACING - addr.getY());
