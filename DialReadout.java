@@ -123,11 +123,13 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 		// setLevel(0);
 		
 		// Draw the needle on the dial face
+		/*
 		needle = new GLine(dialCenter.getX(),
 						   dialCenter.getY(),
 						   dialCenter.getX() + dialRadius * needleLength * Math.cos(Math.toRadians(startAngle)),
 						   dialCenter.getY() - dialRadius * needleLength * Math.sin(Math.toRadians(startAngle)));
 		add(needle);
+		*/
 	}
 	
 	public void increment()
