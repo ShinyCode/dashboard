@@ -118,7 +118,6 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 	public void setLevel(int level)
 	{
 		if(level < 0 || level > numDivisions) return;
-		if(bar == null) return;
 		this.level = level;
 		if(orientation == HORIZONTAL)
 		{
