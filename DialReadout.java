@@ -97,6 +97,7 @@ public final class DialReadout extends Readout
 		dial.setFrameRectangle(dial.getX(), dial.getY(), dialDiameter * scaleFactor, dialDiameter * scaleFactor);
 		
 		// Calculate where the dial should go
+		GRectangle bounds = dial.getBounds();
 		add(dial, 0, 0);
 		
 		setLevel(0);
