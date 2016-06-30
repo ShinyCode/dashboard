@@ -1,6 +1,7 @@
 import java.awt.Color;
 
 import acm.graphics.GArc;
+import acm.graphics.GLine;
 import acm.graphics.GOval;
 import acm.graphics.GPoint;
 import acm.graphics.GRect;
@@ -19,8 +20,12 @@ public final class DialReadout extends Readout
 	private double maxValue;
 	private double startAngle;
 	private double sweepAngle;
+	private double dialRadius;
 	
 	private GPoint dialCenter;
+	private GLine needle;
+	
+	private static final double needleLength = 0.75; // As fraction of dial radius
 	
 	public static final class Builder extends Readout.Builder<Builder>
 	{	
@@ -120,7 +125,7 @@ public final class DialReadout extends Readout
 		*/
 		
 		// Draw the needle on the dial face
-		
+		needle = new GLine(dialCenter.getX(), dialCenter.getY(), dialCenter.getX() + Math.cos(Math.toRadians(startAngle)))
 	}
 	
 	public void increment()
