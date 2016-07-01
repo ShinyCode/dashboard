@@ -5,7 +5,7 @@ public abstract class NumberReadout extends Readout implements Incrementable, Nu
 	protected double minValue;
 	protected double maxValue;
 	
-	public static abstract class Builder<T extends Builder<T>> extends Readout.Builder<Builder>
+	public static abstract class Builder<T extends Builder> extends Readout.Builder<T>
 	{	
 		protected int numDivisions = 0;
 		protected double minValue = 0.0;
