@@ -64,5 +64,5 @@ public abstract class NumberReadout extends Readout implements Incrementable, Nu
 		redrawAtLevel(level);
 	}
 	
-	public abstract void redrawAtLevel(int level);
+	private abstract void redrawAtLevel(int level);
 }
