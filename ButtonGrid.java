@@ -16,7 +16,7 @@ public abstract class ButtonGrid extends MouseWidget
 	private double spacing;
 	
 	@SuppressWarnings("rawtypes")
-	public static abstract class Builder<T extends Builder>
+	protected static abstract class Builder<T extends Builder>
 	{
 		protected final double width;
 		protected final double height;
