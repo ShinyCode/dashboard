@@ -151,6 +151,7 @@ public class Dashboard extends GraphicsProgram
 			.withBaseColor(BASE_COLOR)
 			.withColor(BUTTON_COLOR_1)
 			.withAccentColor(BUTTON_COLOR_2)
+			.withRange(0.0, 100.0)
 			.withStartAngle(0)
 			.withSweepAngle(180.0)
 			.build();
