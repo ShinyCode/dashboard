@@ -6,7 +6,7 @@ import acm.graphics.GCompound;
 public abstract class Readout extends GCompound
 {
 	@SuppressWarnings("rawtypes")
-	public static abstract class Builder<T extends Builder>
+	protected static abstract class Builder<T extends Builder>
 	{
 		protected final double width;
 		protected final double height;
