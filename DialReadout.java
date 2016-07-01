@@ -252,10 +252,8 @@ public final class DialReadout extends NumberReadout
 		else this.numDivisions = numDivisions;
 	}
 	
-	public void setLevel(int level)
+	public void redrawAtLevel(int level)
 	{
-		if(level < 0 || level > numDivisions) return;
-		this.level = level;
 		indicator.setSweepAngle((level * sweepAngle) / numDivisions);
 	}
 }
