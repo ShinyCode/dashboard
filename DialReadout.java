@@ -173,17 +173,7 @@ public final class DialReadout extends NumberReadout
 		// the spacing until we build(), we defer exact calculation until then.
 		public Builder(double width, double height, int numDivisions)
 		{
-			super(width, height);
-			if(numDivisions < 0) throw new IllegalArgumentException();
-			this.numDivisions = numDivisions;
-		}
-		
-		public Builder withRange(double minValue, double maxValue)
-		{
-			if(minValue >= maxValue) throw new IllegalArgumentException();
-			this.minValue = minValue;
-			this.maxValue = maxValue;
-			return this;
+			super(width, height, numDivisions);
 		}
 		
 		public Builder withStartAngle(double startAngle)
