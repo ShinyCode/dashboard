@@ -157,21 +157,14 @@ public final class DialReadout extends Readout implements Incrementable, NumberU
 
 public final class DialReadout extends NumberReadout
 {
-	private int level;
-	private int numDivisions;
 	private GRect base;
 	private GArc dial;
 	private GArc indicator;
 
-	private double minValue;
-	private double maxValue;
 	private double sweepAngle;
 	
-	public static final class Builder extends Readout.Builder<Builder>
+	public static final class Builder extends NumberReadout.Builder<Builder>
 	{	
-		private int numDivisions = 0;
-		private double minValue = 0.0;
-		private double maxValue = 100.0;
 		private double startAngle = 0;
 		private double sweepAngle = 360.0; // Angles measured in degrees
 
