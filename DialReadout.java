@@ -165,6 +165,8 @@ public final class DialReadout extends NumberReadout
 	
 	public static final class Builder extends NumberReadout.Builder<Builder>
 	{	
+		private double minValue = 0.0;
+		private double maxValue = 360.0;
 		private double startAngle = 0;
 		private double sweepAngle = 360.0; // Angles measured in degrees
 
