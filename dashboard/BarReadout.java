@@ -1,26 +1,22 @@
+package dashboard;
 import java.awt.Color;
 
 import acm.graphics.*;
 
 
-public final class BarReadout extends Readout implements Incrementable, NumberUpdatable
+public final class BarReadout extends LevelReadout
 {
-	private int level;
-	private int numDivisions;
 	private GRect base;
 	private GRect back;
 	private GRect bar;
 	private double spacing;
-	private double minValue;
-	private double maxValue;
 	private int orientation;
 	
 	public static final int VERTICAL = 0;
 	public static final int HORIZONTAL = 1;
 	
-	public static final class Builder extends Readout.Builder<Builder>
+	public static final class Builder extends LevelReadout.Builder<Builder>
 	{	
-		private int numDivisions = 0;
 		private double minValue = 0.0;
 		private double maxValue = 100.0;
 		private int orientation = VERTICAL;
@@ -30,17 +26,7 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 		// the spacing until we build(), we defer exact calculation until then.
 		public Builder(double width, double height, int numDivisions)
 		{
-			super(width, height);
-			if(numDivisions < 0) throw new IllegalArgumentException();
-			this.numDivisions = numDivisions;
-		}
-		
-		public Builder withRange(double minValue, double maxValue)
-		{
-			if(minValue >= maxValue) throw new IllegalArgumentException();
-			this.minValue = minValue;
-			this.maxValue = maxValue;
-			return this;
+			super(width, height, numDivisions);
 		}
 		
 		public Builder withOrientation(int orientation)
@@ -88,37 +74,8 @@ public final class BarReadout extends Readout implements Incrementable, NumberUp
 		setLevel(0);
 	}
 	
-	public void increment()
+	public void redrawAtLevel(int level)
 	{
-		setLevel(level + 1);
-	}
-	
-	public void decrement()
-	{
-		setLevel(level - 1);
-	}
-	
-	public void update(double value)
-	{
-		if(value > maxValue)
-		{
-			setLevel(numDivisions);
-			return;
-		}
-		if(value < minValue)
-		{
-			setLevel(0);
-			return;
-		}
-		double range = maxValue - minValue;
-		// TODO: Check if want to make long
-		setLevel((int)Math.round((value - minValue) * numDivisions / range));
-	}
-	
-	public void setLevel(int level)
-	{
-		if(level < 0 || level > numDivisions) return;
-		this.level = level;
 		if(orientation == HORIZONTAL)
 		{
 			double newWidth = ((double) level) * back.getWidth() / numDivisions;

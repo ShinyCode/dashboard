@@ -1,3 +1,4 @@
+package dashboard;
 
 import java.awt.Color;
 import java.util.HashMap;
@@ -5,9 +6,9 @@ import java.util.Map;
 
 import acm.graphics.*;
 
-public abstract class ButtonGroup extends MouseWidget
+public abstract class WidgetGroup extends MouseWidget
 {
-	private Map<String, Button> buttons;
+	private Map<String, GCompound> compounds;
 	private GRect base;
 	
 	protected abstract static class Builder<T extends Builder>
@@ -29,30 +30,33 @@ public abstract class ButtonGroup extends MouseWidget
 			return (T)this;
 		}
 		
-		public abstract ButtonGroup build();
+		// First of all, width should be minWidth, height should be minHeight.
+		// Also, need to add withSpacing for the border
+		
+		public abstract WidgetGroup build();
 	}
 	
-	protected ButtonGroup(double width, double height, Color baseColor)
+	protected WidgetGroup(double width, double height, Color baseColor)
 	{
-		buttons = new HashMap<String, Button>();
+		compounds = new HashMap<String, GCompound>();
 		base = new GRect(width, height);
 		base.setFilled(true);
 		base.setFillColor(baseColor);
 		add(base);
 	}
 	
-	protected boolean addButton(Button gb, double x, double y)
+	protected boolean addWidget(String key, GCompound cmp, double x, double y)
 	{
-		if(buttons.containsKey(gb.getInstr())) return false;
-		buttons.put(gb.getInstr(), gb);
-		add(gb, x, y);
+		if(compounds.containsKey(key)) return false;
+		compounds.put(key, cmp);
+		add(cmp, x, y);
 		return true;
 	}
 	
-	protected Button getButton(String instr)
+	protected GCompound getWidget(String key)
 	{
-		if(!buttons.containsKey(instr.toUpperCase())) return null;
-		return buttons.get(instr);
+		if(!compounds.containsKey(key)) return null;
+		return compounds.get(key);
 	}
 	
 	

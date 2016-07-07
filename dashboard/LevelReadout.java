@@ -1,4 +1,5 @@
-public abstract class NumberReadout extends Readout implements Incrementable, NumberUpdatable
+package dashboard;
+public abstract class LevelReadout extends Readout implements Incrementable, NumberUpdatable, LevelUpdatable
 {
 	protected int level;
 	protected int numDivisions;
@@ -62,6 +63,11 @@ public abstract class NumberReadout extends Readout implements Incrementable, Nu
 		if(level < 0 || level > numDivisions) return;
 		this.level = level;
 		redrawAtLevel(level);
+	}
+	
+	public int getNumDivisions()
+	{
+		return numDivisions;
 	}
 	
 	protected abstract void redrawAtLevel(int level);

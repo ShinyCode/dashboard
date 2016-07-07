@@ -1,6 +1,6 @@
+package dashboard;
 
-public interface Updatable
+public interface StringUpdatable
 {
 	public void update(String msg);
-	public void update(int data);
 }

@@ -1,15 +1,31 @@
+package dashboard;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 
-public class RandomAddressSensor extends Sensor
+public class AddressGenerator extends Generator
 {
-	public RandomAddressSensor(int updateDelay)
+	public AddressGenerator(int updateDelay)
 	{
 		super(updateDelay);
+		stringUpdatables = new HashMap<String, StringUpdatable>();
 		r = new Random();
 	}
 	
-	public String getReading()
+	public void addStringUpdatable(String key, StringUpdatable su)
+	{
+		if(stringUpdatables.containsKey(key)) return;
+		stringUpdatables.put(key, su);
+	}
+	
+	public void removeStringUpdatable(String key)
+	{
+		if(!stringUpdatables.containsKey(key)) return;
+		stringUpdatables.remove(key);
+	}
+	
+	private String generateRandomAddress()
 	{
 		String address = PREFIX;
 		for(int i = 0; i < NUM_DIGITS; ++i)
@@ -19,7 +35,17 @@ public class RandomAddressSensor extends Sensor
 		return address;
 	}
 	
+	public void generate()
+	{
+		String randomAddress = generateRandomAddress();
+		for(String key : stringUpdatables.keySet())
+		{
+			stringUpdatables.get(key).update(randomAddress);
+		}
+	}
+	
 	private static final String PREFIX = "0x";
 	private static final int NUM_DIGITS = 8;
 	private Random r;
+	private Map<String, StringUpdatable> stringUpdatables;
 }

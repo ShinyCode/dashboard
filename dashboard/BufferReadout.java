@@ -1,3 +1,4 @@
+package dashboard;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -5,12 +6,48 @@ import java.util.List;
 
 import acm.graphics.*;
 
-public final class BufferReadout extends GCompound implements Incrementable, Updatable
+public final class BufferReadout extends Readout implements Incrementable, StringUpdatable
 {
-	public BufferReadout(double width, double height, double spacing, Color baseColor, Color backColor, Color barColor)
+	private List<String> messages;
+	private List<GLabel> display;
+	private GRect base, back, bar;
+	private double charHeight;
+	private double charWidth;
+	private int maxLines;
+	private int maxLineWidth;
+	private static final int LINE_SPACING = 2;
+	private boolean frozen = false;
+	private int currIndex = 0;
+	private String font;
+	
+	private static final int BUFFER_SIZE = 128;
+	
+	public static final class Builder extends Readout.Builder<Builder>
+	{	
+		private String font = "Consolas-*-*";
+		
+		public Builder(double width, double height)
+		{
+			super(width, height);
+		}
+		
+		public Builder withFont(String font)
+		{
+			this.font = font;
+			return this;
+		}
+		
+		public BufferReadout build()
+		{
+			return new BufferReadout(width, height, spacing, baseColor, color, accentColor, font);
+		}
+	}
+	
+	protected BufferReadout(double width, double height, double spacing, Color baseColor, Color color, Color accentColor, String font)
 	{
 		messages = new ArrayList<String>();
 		display = new ArrayList<GLabel>();
+		this.font = font;
 		
 		base = new GRect(width, height);
 		base.setFilled(true);
@@ -19,7 +56,7 @@ public final class BufferReadout extends GCompound implements Incrementable, Upd
 		
 		back = new GRect(width - 2 * spacing, height - 2 * spacing);
 		back.setFilled(true);
-		back.setFillColor(backColor);
+		back.setFillColor(color);
 		add(back, spacing, spacing);
 		
 		testResolution();
@@ -28,7 +65,7 @@ public final class BufferReadout extends GCompound implements Incrementable, Upd
 		
 		bar = new GRect(width - 2 * spacing, charHeight + 2 * LINE_SPACING);
 		bar.setFilled(true);
-		bar.setFillColor(barColor);
+		bar.setFillColor(accentColor);
 		add(bar, spacing, spacing);
 		
 		// Set up the display and set all chars to 0
@@ -76,32 +113,6 @@ public final class BufferReadout extends GCompound implements Incrementable, Upd
 		}
 	}
 	
-	public void update(int data)
-	{
-		int numDigits = maxLineWidth - 2;
-		if(numDigits < 1) return;
-		String dispString = "";
-		if(data < 0) dispString += "-";
-		else dispString += "+";
-		String dataString = Integer.toString(Math.abs(data));
-		int numSpaces = maxLineWidth - 2 - dataString.length();
-		if(numSpaces < 0) // Need to truncate
-		{
-			dispString += "*"; // Indicate that the value is inaccurate
-			dispString += dataString.substring(dataString.length() - (maxLineWidth - 2));
-		}
-		else
-		{
-			dispString += " ";
-			for(int i = 0; i < numSpaces; ++i)
-			{
-				dispString += " ";
-			}
-			dispString += dataString;
-		}
-		update(dispString);
-	}
-	
 	private void refresh()
 	{
 		int numPrinted = 0;
@@ -118,13 +129,12 @@ public final class BufferReadout extends GCompound implements Incrementable, Upd
 				++numPrinted;
 			}
 		}
-		
 	}
 	
 	private void testResolution()
 	{
 		GLabel testLabel = new GLabel("W");
-		testLabel.setFont("Consolas-*-*");
+		testLabel.setFont(font);
 		charWidth = testLabel.getWidth();
 		testLabel.setLabel("W");
 		charHeight = testLabel.getHeight();
@@ -137,21 +147,9 @@ public final class BufferReadout extends GCompound implements Incrementable, Upd
 		for(int i = 0; i < maxLines; ++i)
 		{
 			GLabel line = new GLabel(testString);
-			line.setFont("Consolas-*-*");
+			line.setFont(font);
 			display.add(line);
 			add(line, back.getX() + LINE_SPACING, charHeight + back.getY() + LINE_SPACING + i * (LINE_SPACING + charHeight));
 		}
 	}
-	
-	private List<String> messages;
-	private List<GLabel> display;
-	private GRect base, back, bar;
-	private double charHeight;
-	private double charWidth;
-	private int maxLines;
-	private int maxLineWidth;
-	private static final int LINE_SPACING = 2;
-	private boolean frozen = false;
-	private int currIndex = 0;
-	private static final int BUFFER_SIZE = 100;
 }

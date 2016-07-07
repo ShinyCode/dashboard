@@ -1,3 +1,4 @@
+package dashboard;
 
 import acm.graphics.*;
 
@@ -46,7 +47,86 @@ public abstract class Button extends MouseWidget
 		setInstr(label.getLabel());
 	}
 	
+	public void setOnAction(Runnable onAction)
+	{
+		this.onAction = onAction;
+	}
+	
+	public void setOffAction(Runnable offAction)
+	{
+		this.offAction = offAction;
+	}
+	
+	protected void runOnAction()
+	{
+		if(thread != null && thread.isAlive()) thread.interrupt();
+		if(onAction == null) return;
+		thread = new Thread(onAction);
+		thread.start();
+	}
+	
+	protected void runOffAction()
+	{
+		if(thread != null && thread.isAlive()) thread.interrupt();
+		if(offAction == null) return;
+		thread = new Thread(offAction);
+		thread.start();
+	}
+	
+	protected void repeatOnAction(int interval)
+	{
+		if(thread != null && thread.isAlive()) thread.interrupt();
+		if(onAction == null) return;
+		thread = new Thread(new Runnable()
+		{
+			public void run()
+			{
+				try
+				{
+					while(true)
+					{
+						onAction.run();
+						Thread.sleep(interval);
+					}
+				}
+				catch(InterruptedException ie)
+				{
+					return;
+				}
+			}
+		});
+		thread.start();
+	}
+	
+	protected void repeatOffAction(int interval)
+	{
+		if(thread != null && thread.isAlive()) thread.interrupt();
+		if(offAction == null) return;
+		thread = new Thread(new Runnable()
+		{
+			public void run()
+			{
+				try
+				{
+					while(true)
+					{
+						offAction.run();
+						Thread.sleep(interval);
+					}
+				}
+				catch(InterruptedException ie)
+				{
+					return;
+				}
+			}
+		});
+		thread.start();
+	}
+	
 	protected GRect rect;
 	protected GLabel label;
 	protected Color baseColor;
+	private Runnable onAction;
+	private Runnable offAction;
+	private Thread thread;
 }

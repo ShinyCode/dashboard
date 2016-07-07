@@ -1,15 +1,21 @@
+package dashboard;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import acm.graphics.*;
-
-public abstract class Sensor
+public abstract class Generator
 {
-	public Sensor(int updateDelay)
+	private boolean active = false;
+	private Thread thr;
+	private int interval;
+	
+	private static final int DEFAULT_INTERVAL = 500;
+	
+	public Generator()
 	{
-		readouts = new ArrayList<Updatable>();
-		this.updateDelay = updateDelay;
+		this(DEFAULT_INTERVAL);
+	}
+	
+	public Generator(int interval)
+	{
+		this.interval = interval;
 	}
 	
 	public void setActive(boolean flag)
@@ -26,14 +32,10 @@ public abstract class Sensor
 		}
 	}
 	
-	public void addReadout(Updatable r)
+	public void setInterval(int interval)
 	{
-		readouts.add(r);
-	}
-	
-	public void removeReadout(Updatable r)
-	{
-		readouts.remove(r);
+		if(interval < 0) throw new IllegalArgumentException();
+		this.interval = interval;
 	}
 	
 	private void turnOn()
@@ -46,8 +48,8 @@ public abstract class Sensor
 				{	
 					try
 					{
-						updateReadouts(getReading());
-						Thread.sleep(updateDelay);
+						generate();
+						Thread.sleep(interval);
 					}
 					catch(InterruptedException e)
 					{
@@ -65,18 +67,5 @@ public abstract class Sensor
 		thr.interrupt();
 	}
 	
-	private void updateReadouts(String msg)
-	{
-		for(Updatable r : readouts)
-		{
-			r.update(msg);
-		}
-	}
-	
-	public abstract String getReading();
-	
-	protected List<Updatable> readouts;
-	private boolean active = false;
-	private Thread thr;
-	private int updateDelay;
+	public abstract void generate();
 }

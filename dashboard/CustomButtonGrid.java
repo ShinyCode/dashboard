@@ -1,3 +1,4 @@
+package dashboard;
 import java.awt.Color;
 
 

@@ -1,3 +1,4 @@
+package dashboard;
 
 import acm.graphics.*;
 
@@ -27,6 +28,7 @@ public abstract class MouseWidget extends GCompound
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
 		String cmd = null;
+		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
 		onMousePressed(o);
 		if(cmd == null) return null;
@@ -48,6 +50,7 @@ public abstract class MouseWidget extends GCompound
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
 		String cmd = null;
+		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseReleased(e);
 		onMouseReleased(o);
 		if(cmd == null) return null;
@@ -69,6 +72,7 @@ public abstract class MouseWidget extends GCompound
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
 		String cmd = null;
+		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseExited(e);
 		onMouseExited(o);
 		if(cmd == null) return null;
@@ -90,6 +94,7 @@ public abstract class MouseWidget extends GCompound
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
 		String cmd = null;
+		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseClicked(e);
 		onMouseClicked(o);
 		if(cmd == null) return null;
@@ -111,6 +116,7 @@ public abstract class MouseWidget extends GCompound
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
 		String cmd = null;
+		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseEntered(e);
 		onMouseEntered(o);
 		if(cmd == null) return null;
@@ -132,6 +138,7 @@ public abstract class MouseWidget extends GCompound
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
 		String cmd = null;
+		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseDragged(e);
 		onMouseDragged(o);
 		if(cmd == null) return null;
@@ -153,6 +160,7 @@ public abstract class MouseWidget extends GCompound
 	{
 		GObject o = getElementAt(e.getX(), e.getY());
 		String cmd = null;
+		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
 		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseMoved(e);
 		onMouseMoved(o);
 		if(cmd == null) return null;
