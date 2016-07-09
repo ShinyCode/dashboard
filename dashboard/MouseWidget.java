@@ -9,10 +9,15 @@ import java.awt.event.*;
  * mouse input.
  * 
  * @author Mark Sabini
- *
+ * 
  */
 public abstract class MouseWidget extends GCompound
 {	
+	/**
+	 * The name of the widget that will be displayed in subsequent call hierarchies
+	 */
+	private String name = "";
+	
 	/**
 	 * Called by the client to simulate the mouse being pressed, and returns
 	 * a string representing the end action being executed and the associated
@@ -279,9 +284,4 @@ public abstract class MouseWidget extends GCompound
 	{
 		// Do nothing
 	}
-	
-	/**
-	 * the name of the widget that will be displayed in subsequent call hierarchies
-	 */
-	private String name = "";
 }
