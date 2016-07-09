@@ -37,6 +37,7 @@ public final class ColorReadout extends Readout implements ColorUpdatable
 	
 	public void update(Color newColor)
 	{
+		if(isFrozen()) return;
 		colorDisplay.setFillColor(newColor);
 	}
 }

@@ -110,6 +110,7 @@ public final class MinimapReadout extends Readout implements LocationUpdatable
 	
 	public void update(GPoint position, GPoint bearing)
 	{
+		if(isFrozen()) return;
 		clearDisplay();
 		if(position == null || bearing == null) return;
 		for(String key : pins.keySet())

@@ -16,7 +16,6 @@ public final class BufferReadout extends Readout implements Incrementable, Strin
 	private int maxLines;
 	private int maxLineWidth;
 	private static final int LINE_SPACING = 2;
-	private boolean frozen = false;
 	private int currIndex = 0;
 	private String font;
 	
@@ -89,10 +88,7 @@ public final class BufferReadout extends Readout implements Incrementable, Strin
 		refresh();
 	}
 	
-	public void setFrozen(boolean flag)
-	{
-		frozen = flag;
-	}
+	
 	
 	public void clear()
 	{
@@ -103,7 +99,7 @@ public final class BufferReadout extends Readout implements Incrementable, Strin
 	
 	public void update(String msg)
 	{
-		if(frozen) return;
+		if(isFrozen()) return;
 		if(messages.size() == BUFFER_SIZE) messages.remove(0);
 		if(msg.length() > maxLineWidth) messages.add(msg.substring(0, maxLineWidth));
 		else messages.add(msg);

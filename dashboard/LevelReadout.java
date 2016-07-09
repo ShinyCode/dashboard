@@ -43,6 +43,7 @@ public abstract class LevelReadout extends Readout implements Incrementable, Num
 	
 	public void update(double value)
 	{
+		if(isFrozen()) return;
 		if(value > maxValue)
 		{
 			setLevel(numDivisions);

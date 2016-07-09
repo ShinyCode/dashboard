@@ -6,6 +6,8 @@ import acm.graphics.GCompound;
 
 public abstract class Readout extends GCompound
 {
+	private boolean frozen = false;
+	
 	@SuppressWarnings("rawtypes")
 	protected static abstract class Builder<T extends Builder>
 	{
@@ -48,5 +50,15 @@ public abstract class Readout extends GCompound
 		}
 		
 		public abstract Readout build();			
+	}
+	
+	public void setFrozen(boolean flag)
+	{
+		frozen = flag;
+	}
+	
+	public boolean isFrozen()
+	{
+		return frozen;
 	}
 }

@@ -78,6 +78,7 @@ public final class ImageReadout extends Readout implements ImageUpdatable
 	
 	public void update(GImage image)
 	{
+		if(isFrozen()) return;
 		if(!on || image == null) return;
 		// Else, update the image.
 		offScreen.setVisible(true);

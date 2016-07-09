@@ -93,6 +93,7 @@ public final class CompassReadout extends Readout implements LocationUpdatable
 	
 	public void update(GPoint position, GPoint bearing) // Need BOTH the direction and the position!
 	{
+		if(isFrozen()) return;
 		if((position == null && bearing != null) || (position != null && bearing == null)) throw new IllegalStateException();
 		if(goal == null)
 		{
