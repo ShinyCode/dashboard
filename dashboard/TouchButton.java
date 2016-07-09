@@ -9,6 +9,7 @@ public class TouchButton extends Button
 		super(width, height, baseColor, instr);
 	}
 	
+	@Override
 	public String mousePressed(MouseEvent e)
 	{
 		rect.setColor(baseColor.brighter());
@@ -16,6 +17,7 @@ public class TouchButton extends Button
 		return getInstr() + ".SET_ACTIVE_TRUE";
 	}
 	
+	@Override
 	public String mouseReleased(MouseEvent e)
 	{
 		rect.setColor(baseColor);

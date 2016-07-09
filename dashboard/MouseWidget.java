@@ -281,8 +281,7 @@ public abstract class MouseWidget extends GCompound
 	}
 	
 	/**
-	 * the name of the that will be displayed
-	 * in subsequent call hierarchies
+	 * the name of the widget that will be displayed in subsequent call hierarchies
 	 */
 	private String name = "";
 }

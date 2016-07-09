@@ -76,6 +76,7 @@ public final class ImageReadout extends Readout implements ImageUpdatable
 		setOn(true);
 	}
 	
+	@Override
 	public void update(GImage image)
 	{
 		if(isFrozen()) return;

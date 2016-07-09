@@ -75,6 +75,4 @@ public abstract class Group extends MouseWidget
 		if(!compounds.containsKey(key)) return null;
 		return compounds.get(key);
 	}
-	
-	
 }

@@ -74,6 +74,7 @@ public final class BarReadout extends LevelReadout
 		setLevel(0);
 	}
 	
+	@Override
 	public void redrawAtLevel(int level)
 	{
 		if(orientation == HORIZONTAL)

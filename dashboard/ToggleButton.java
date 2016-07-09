@@ -9,6 +9,7 @@ public class ToggleButton extends Button
 		super(width, height, baseColor, instr);
 	}
 	
+	@Override
 	public String mousePressed(MouseEvent e)
 	{
 		if(on)
@@ -27,6 +28,7 @@ public class ToggleButton extends Button
 		}
 	}
 	
+	@Override
 	public String mouseReleased(MouseEvent e)
 	{
 		return null;

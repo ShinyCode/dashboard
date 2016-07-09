@@ -29,11 +29,13 @@ public final class CustomGroup extends Group
 		super(width, height, baseColor, spacing);
 	}
 	
+	@Override
 	public boolean addWidget(String key, GCompound cmp, double x, double y)
 	{
 		return super.addWidget(key, cmp, x, y);
 	}
 	
+	@Override
 	public GCompound getWidget(String key)
 	{
 		return super.getWidget(key);

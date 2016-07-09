@@ -44,6 +44,7 @@ public final class BufferReadoutControl extends ButtonGrid
 		addButton(decButton, 3, 0);
 	}
 	
+	@Override
 	public void onMousePressed(GObject o)
 	{
 		if(ir != null)

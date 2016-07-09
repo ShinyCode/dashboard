@@ -76,19 +76,19 @@ public final class BufferReadout extends Readout implements Incrementable, Strin
 		update("DISP:" + maxLines + "X" + maxLineWidth);
 	}
 	
+	@Override
 	public void increment()
 	{
 		if(currIndex < messages.size() - 1) ++currIndex;
 		refresh();
 	}
 	
+	@Override
 	public void decrement()
 	{
 		if(currIndex > 0) --currIndex;
 		refresh();
 	}
-	
-	
 	
 	public void clear()
 	{
@@ -97,6 +97,7 @@ public final class BufferReadout extends Readout implements Incrementable, Strin
 		refresh();
 	}
 	
+	@Override
 	public void update(String msg)
 	{
 		if(isFrozen()) return;

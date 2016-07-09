@@ -57,6 +57,7 @@ public final class MainArrowPad extends ButtonGrid
 		auxArrowPads = new ArrayList<AuxArrowPad>();
 	}
 	
+	@Override
 	public void onMousePressed(GObject o)
 	{
 		if(mimButton.isOn() && o != mimButton && o instanceof Button)
@@ -68,6 +69,7 @@ public final class MainArrowPad extends ButtonGrid
 		}
 	}
 	
+	@Override
 	public void onMouseReleased(GObject o)
 	{
 		if(mimButton.isOn() && o != mimButton && o instanceof Button)

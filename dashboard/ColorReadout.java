@@ -35,6 +35,7 @@ public final class ColorReadout extends Readout implements ColorUpdatable
 		add(colorDisplay, spacing, spacing);
 	}
 	
+	@Override
 	public void update(Color newColor)
 	{
 		if(isFrozen()) return;

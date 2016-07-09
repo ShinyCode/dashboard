@@ -11,7 +11,7 @@ public final class MultiIncrementer extends ButtonGrid
 	private int index = 0;
 	private TouchButton incButton;
 	private TouchButton decButton;
-	private ToggleButton selButton;
+	private TouchButton selButton;
 	private List<Incrementable> incrementables;
 	
 	public static final class Builder extends ButtonGrid.Builder<Builder>
@@ -39,29 +39,33 @@ public final class MultiIncrementer extends ButtonGrid
 	{
 		super(width, height, 3, 1, spacing, baseColor);
 		incButton = new TouchButton(width, height, buttonColor, "INC");
+		incButton.setOnAction(new Runnable()
+		{
+			public void run()
+			{
+				if(!incrementables.isEmpty()) incrementables.get(index).increment();
+			}
+		});
 		addButton(incButton, 0, 0);
 		decButton = new TouchButton(width, height, buttonColor, "DEC");
+		decButton.setOnAction(new Runnable()
+		{
+			public void run()
+			{
+				if(!incrementables.isEmpty()) incrementables.get(index).decrement();
+			}
+		});
 		addButton(decButton, 1, 0);
-		selButton = new ToggleButton(width, height, buttonColor, "SEL");
+		selButton = new TouchButton(width, height, buttonColor, "SEL");
+		selButton.setOnAction(new Runnable()
+		{
+			public void run()
+			{
+				if(!incrementables.isEmpty()) index = (index + 1) % incrementables.size();
+			}
+		});
 		addButton(selButton, 2, 0);
 		incrementables = new ArrayList<Incrementable>();
-	}
-	
-	public void onMousePressed(GObject o)
-	{
-		if(!incrementables.isEmpty())
-		{
-			if(o == incButton)
-			{
-				if(selButton.isOn()) index = (index + 1) % incrementables.size();
-				else incrementables.get(index).increment();
-			}
-			else if(o == decButton)
-			{
-				if(selButton.isOn()) index = (index - 1 + incrementables.size()) % incrementables.size();
-				else incrementables.get(index).decrement();
-			}
-		}
 	}
 	
 	public void addIncrementable(Incrementable inc)

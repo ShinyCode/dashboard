@@ -104,6 +104,7 @@ public final class DialReadout extends LevelReadout
 		else this.numDivisions = numDivisions;
 	}
 	
+	@Override
 	protected void redrawAtLevel(int level)
 	{
 		indicator.setSweepAngle((level * sweepAngle) / numDivisions);

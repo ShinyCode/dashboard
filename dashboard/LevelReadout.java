@@ -31,16 +31,19 @@ public abstract class LevelReadout extends Readout implements Incrementable, Num
 		}
 	}
 	
+	@Override
 	public void increment()
 	{
 		setLevel(level + 1);
 	}
 	
+	@Override
 	public void decrement()
 	{
 		setLevel(level - 1);
 	}
 	
+	@Override
 	public void update(double value)
 	{
 		if(isFrozen()) return;
@@ -59,6 +62,7 @@ public abstract class LevelReadout extends Readout implements Incrementable, Num
 		setLevel((int)Math.round((value - minValue) * numDivisions / range));
 	}
 	
+	@Override
 	public void setLevel(int level)
 	{
 		if(level < 0 || level > numDivisions) return;
@@ -66,6 +70,7 @@ public abstract class LevelReadout extends Readout implements Incrementable, Num
 		redrawAtLevel(level);
 	}
 	
+	@Override
 	public int getNumDivisions()
 	{
 		return numDivisions;

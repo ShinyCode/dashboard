@@ -13,6 +13,7 @@ public class HoldButton extends Button
 		interval = DEFAULT_INTERVAL;
 	}
 	
+	@Override
 	public String mousePressed(MouseEvent e)
 	{
 		rect.setColor(baseColor.brighter());
@@ -21,6 +22,7 @@ public class HoldButton extends Button
 	}
 	
 	// NOTE: Only the onAction is repeated. This is so we can have the cleanup code called only once.
+	@Override
 	public String mouseReleased(MouseEvent e)
 	{
 		rect.setColor(baseColor);

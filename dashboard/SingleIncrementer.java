@@ -35,21 +35,23 @@ public final class SingleIncrementer extends ButtonGrid
 	{
 		super(width, height, 2, 1, spacing, baseColor);
 		incButton = new TouchButton(width, height, buttonColor, "INC");
+		incButton.setOnAction(new Runnable()
+		{
+			public void run()
+			{
+				inc.increment();
+			}
+		});
 		addButton(incButton, 0, 0);
 		decButton = new TouchButton(width, height, buttonColor, "DEC");
+		decButton.setOnAction(new Runnable()
+		{
+			public void run()
+			{
+				inc.decrement();
+			}
+		});
 		addButton(decButton, 1, 0);
-	}
-	
-	public void onMousePressed(GObject o)
-	{
-		if(o == incButton)
-		{
-			if(inc != null) inc.increment();
-		}
-		else if(o == decButton)
-		{
-			if(inc != null) inc.decrement();
-		}
 	}
 	
 	public void setIncrementable(Incrementable inc)
