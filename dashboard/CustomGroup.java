@@ -4,24 +4,29 @@ import java.awt.Color;
 import acm.graphics.GCompound;
 
 
-public final class CustomWidgetGroup extends WidgetGroup
+public final class CustomGroup extends Group
 {
-	public static final class Builder extends WidgetGroup.Builder<Builder>
+	public static final class Builder extends Group.Builder<Builder>
 	{
-		public Builder(double width, double height)
+		public Builder()
 		{
-			super(width, height);
+			super(0.0, 0.0);
 		}
 		
-		public CustomWidgetGroup build()
+		public Builder(double minWidth, double minHeight)
 		{
-			return new CustomWidgetGroup(width, height, baseColor);
+			super(minWidth, minHeight);
+		}
+		
+		public CustomGroup build()
+		{
+			return new CustomGroup(minWidth, minHeight, baseColor, spacing);
 		}		
 	}
 	
-	protected CustomWidgetGroup(double width, double height, Color baseColor)
+	protected CustomGroup(double width, double height, Color baseColor, double spacing)
 	{
-		super(width, height, baseColor);
+		super(width, height, baseColor, spacing);
 	}
 	
 	public boolean addWidget(String key, GCompound cmp, double x, double y)

@@ -92,7 +92,6 @@ public final class BufferReadout extends Readout implements Incrementable, Strin
 	public void setFrozen(boolean flag)
 	{
 		frozen = flag;
-		if(!frozen) refresh();
 	}
 	
 	public void clear()
@@ -104,13 +103,11 @@ public final class BufferReadout extends Readout implements Incrementable, Strin
 	
 	public void update(String msg)
 	{
-		if(!frozen)
-		{
-			if(messages.size() == BUFFER_SIZE) messages.remove(0);
-			if(msg.length() > maxLineWidth) messages.add(msg.substring(0, maxLineWidth));
-			else messages.add(msg);
-			increment();
-		}
+		if(frozen) return;
+		if(messages.size() == BUFFER_SIZE) messages.remove(0);
+		if(msg.length() > maxLineWidth) messages.add(msg.substring(0, maxLineWidth));
+		else messages.add(msg);
+		increment();
 	}
 	
 	private void refresh()

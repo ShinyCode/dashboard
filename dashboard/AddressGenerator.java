@@ -30,17 +30,18 @@ public class AddressGenerator extends Generator
 		String address = PREFIX;
 		for(int i = 0; i < NUM_DIGITS; ++i)
 		{
-			address += r.nextInt(10);
+			int chosen = r.nextInt(16);
+			if(chosen < 10) address += chosen;
+			else address += (char)('A' + (chosen - 10));
 		}
 		return address;
 	}
 	
 	public void generate()
 	{
-		String randomAddress = generateRandomAddress();
 		for(String key : stringUpdatables.keySet())
 		{
-			stringUpdatables.get(key).update(randomAddress);
+			stringUpdatables.get(key).update(generateRandomAddress());
 		}
 	}
 	
