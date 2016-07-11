@@ -104,9 +104,9 @@ public class Dashboard extends GraphicsProgram
 		addBorder(addrCtrl, COLOR);
 		
 		// Connect readouts to readout controls
-		spdCtrl.addInstrReadout(spd);
-		rotCtrl.addInstrReadout(rot);
-		addrCtrl.addInstrReadout(addr);
+		spdCtrl.addBufferReadout(spd);
+		rotCtrl.addBufferReadout(rot);
+		addrCtrl.addBufferReadout(addr);
 		
 		// Set up sensors
 		sensAdd = new AddressGenerator(UPDATE_SPEED);
