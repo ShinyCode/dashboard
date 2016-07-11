@@ -78,6 +78,7 @@ public final class MultiIncrementer extends ButtonGrid
 		
 		/**
 		 * Creates a new MultiIncrementer with the Builder's parameters.
+		 * 
 		 * @return a new MultiIncrementer with the Builder's parameters
 		 */
 		public MultiIncrementer build()
@@ -131,6 +132,7 @@ public final class MultiIncrementer extends ButtonGrid
 	/**
 	 * Adds the specified Incrementable to the list of Incrementables controlled by the MultiIncrementer.
 	 * If the Incrementable passed in is null, no action is taken.
+	 * 
 	 * @param inc an Incrementable to be controlled by the MultiIncrementer
 	 */
 	public void addIncrementable(Incrementable inc)

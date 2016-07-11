@@ -78,6 +78,7 @@ public final class BufferReadoutControl extends ButtonGrid
 		
 		/**
 		 * Creates a new BufferReadoutControl with the Builder's parameters.
+		 * 
 		 * @return a new BufferReadoutControl with the Builder's parameters
 		 */
 		public BufferReadoutControl build()
@@ -145,6 +146,7 @@ public final class BufferReadoutControl extends ButtonGrid
 	
 	/**
 	 * Sets the BufferReadout controlled by the BufferReadoutControl to the specified BufferReadout.
+	 * 
 	 * @param br the BufferReadout to be controlled
 	 */
 	public void addBufferReadout(BufferReadout br)

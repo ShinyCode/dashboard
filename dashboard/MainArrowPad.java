@@ -77,6 +77,7 @@ public final class MainArrowPad extends ButtonGrid
 		
 		/**
 		 * Creates a new MainArrowPad with the Builder's parameters.
+		 * 
 		 * @return a new MainArrowPad with the Builder's parameters
 		 */
 		public MainArrowPad build()
@@ -153,6 +154,7 @@ public final class MainArrowPad extends ButtonGrid
 	/**
 	 * Adds the specified AuxArrowPad to the list of AuxArrowPads controlled by the MainArrowPad.
 	 * If the AuxArrowPad passed in is null, no action is taken.
+	 * 
 	 * @param aap an AuxArrowPad to be controlled by the MainArrowPad
 	 */
 	public void addAuxArrowPad(AuxArrowPad aap)

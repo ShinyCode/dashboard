@@ -65,6 +65,7 @@ public final class SingleIncrementer extends ButtonGrid
 		
 		/**
 		 * Creates a new SingleIncrementer with the Builder's parameters.
+		 * 
 		 * @return a new SingleIncrementer with the Builder's parameters
 		 */
 		public SingleIncrementer build()
@@ -107,6 +108,7 @@ public final class SingleIncrementer extends ButtonGrid
 	
 	/**
 	 * Sets the Incrementable controlled by the SingleIncrementer to the specified Incrementable.
+	 * 
 	 * @param inc the Incrementable to be controlled
 	 */
 	public void setIncrementable(Incrementable inc)

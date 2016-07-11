@@ -57,6 +57,7 @@ public final class AuxArrowPad extends ButtonGrid
 		
 		/**
 		 * Creates a new AuxArrowPad with the Builder's parameters.
+		 * 
 		 * @return a new AuxArrowPad with the Builder's parameters
 		 */
 		public AuxArrowPad build()
