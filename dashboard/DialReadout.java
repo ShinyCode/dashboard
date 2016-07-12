@@ -5,51 +5,126 @@ import acm.graphics.GArc;
 import acm.graphics.GRect;
 import acm.graphics.GRectangle;
 
+/**
+ * Implements a Readout representing a dial whose angle scales linearly with input values.
+ * 
+ * @author Mark Sabini
+ *
+ */
 public final class DialReadout extends LevelReadout
 {
+	/**
+	 * The colored base of the DialReadout
+	 */
 	private GRect base;
+	
+	/**
+	 * The dial face of the DialReadout
+	 */
 	private GArc dial;
+	
+	/**
+	 * The indicator which fills the dial according to the level of the DialReadout
+	 */
 	private GArc indicator;
 
+	/**
+	 * The angle across which the dial face sweeps
+	 */
 	private double sweepAngle;
 	
+	/**
+	 * Builder for the DialReadout class.
+	 * 
+	 * @author Mark Sabini
+	 *
+	 */
 	public static final class Builder extends LevelReadout.Builder<Builder>
 	{	
-		private double minValue = 0.0;
-		private double maxValue = 360.0;
-		private double startAngle = 0;
-		private double sweepAngle = 360.0; // Angles measured in degrees
+		/**
+		 * The angle from which the dial face starts, measured in degrees, counterclockwise
+		 * from the positive x-axis. The startAngle is set to 0.0 by default.
+		 */
+		private double startAngle = 0.0;
+		
+		/**
+		 * The angle across which the dial face sweeps, measured in degrees, counterclockwise
+		 * from the positive x-axis. The sweepAngle is set to 360.0 by default.
+		 */
+		private double sweepAngle = 360.0;
 
-		// If numDivisions is 0, operate in "continuous" mode.
-		// Here, we set numDivisions to the bar height, but since we don't know
-		// the spacing until we build(), we defer exact calculation until then.
+		/**
+		 * Creates a Builder specifying a DialReadout with the given dimensions and number of divisions.
+		 * If the number of divisions is set to 0, the DialReadout will operate in continuous mode, setting
+		 * numDivisions to the number of pixels in the length of the outer edge of the dial face.
+		 * 
+		 * @param width the width of the Dialeadout
+		 * @param height the height of the DialReadout
+		 * @param numDivisions the total number of levels into which the DialReadout should be divided
+		 */
 		public Builder(double width, double height, int numDivisions)
 		{
 			super(width, height, numDivisions);
 		}
 		
+		/**
+		 * Specifies the start angle of the DialReadout's dial face. The angle measured in degrees,
+		 * counterclockwise from the positive x-axis
+		 * 
+		 * @param startAngle the start angle of the DialReadout's dial face
+		 * @return the current Builder
+		 */
 		public Builder withStartAngle(double startAngle)
 		{
 			this.startAngle = startAngle;
 			return this;
 		}
 		
+		/**
+		 * Specifies the sweep angle of the DialReadout's dial face. The angle measured in degrees,
+		 * counterclockwise from the positive x-axis
+		 * 
+		 * @param sweepAngle the sweep angle of the DialReadout's dial face
+		 * @return the current Builder
+		 */
 		public Builder withSweepAngle(double sweepAngle)
 		{
 			this.sweepAngle = sweepAngle;
 			return this;
 		}
 		
+		/**
+		 * Creates a new DialReadout with the Builder's parameters.
+		 * 
+		 * @return a new DialReadout with the Builder's parameters
+		 */
 		public DialReadout build()
 		{
-			// In continuous mode, the number of divisions is set to the circumference
-			// of the arc, so roughly one pixel per increment.
-			// We don't know how big the arc will be exactly though, so we need to defer until
-			// the constructor
+			/*
+			 * In continuous mode, the number of divisions is set to the circumference
+			 * of the arc, so roughly one pixel per increment. We don't know how big the
+			 * arc will be exactly though, so we need to defer until the constructor
+			 */
 			return new DialReadout(width, height, spacing, baseColor, color, accentColor, numDivisions, minValue, maxValue, startAngle, sweepAngle);
 		}		
 	}
 	
+	/**
+	 * Creates a DialReadout with the specified dimensions, spacing, base color, color, accent color, number of divisions,
+	 * minimum and maximum value, start angle, and sweep angle.
+	 * 
+	 * @param width the width of the DialReadout
+	 * @param height the height of the DialReadout
+	 * @param spacing the spacing of the DialReadout
+	 * @param baseColor the base color of the DialReadout
+	 * @param color the color of the DialReadout's dial face
+	 * @param accentColor the color of the DialReadout's indicator
+	 * @param numDivisions the number of levels into which the DialReadout is divided
+	 * @param minValue the real value to which the lowest level corresponds
+	 * @param maxValue the real value to which the highest level corresponds
+	 * @param startAngle the start angle of the DialReadout
+	 * @param sweepAngle the sweep angle of the DialReadout
+	 */
 	protected DialReadout(double width, double height, double spacing, Color baseColor, Color color, Color accentColor, int numDivisions, double minValue, double maxValue, double startAngle, double sweepAngle)
 	{
 		// We defer setting numDivisions until after resizing the arc

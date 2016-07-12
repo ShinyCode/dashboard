@@ -7,40 +7,117 @@ import acm.graphics.GPoint;
 import acm.graphics.GPolygon;
 import acm.graphics.GRect;
 
+
+/**
+ * Implements a Readout that represents a compass which always points in the direction of a
+ * user-specified goal.
+ * 
+ * @author Mark Sabini
+ *
+ */
 public final class CompassReadout extends Readout implements LocationUpdatable
 {
+	/**
+	 * The colored base of the CompassReadout
+	 */
 	private GRect base;
+	
+	/**
+	 * The circular face of the CompassReadout
+	 */
 	private GOval face;
+	
+	/**
+	 * The triangular needle of the CompassReadout
+	 */
 	private GPolygon needle;
+	
+	/**
+	 * The circle that will appear in the center of the CompassReadout when no goal is set
+	 */
 	private GOval center;
+	
+	/**
+	 * The color of the CompassReadout's needle and center
+	 */
 	private Color accentColor;
+	
+	/**
+	 * The current goal towards which the CompassReadout's needle should point
+	 */
 	private GPoint goal;
+	
+	/**
+	 * The position of the most recent update
+	 */
 	private GPoint position;
+	
+	/**
+	 * The bearing of the most recent upate
+	 */
 	private GPoint bearing;
 	
-	private static final double NEEDLE_SIZE = 0.25; // Ratio of needle base to face diameter
+	/**
+	 * The ratio of the width of the needle's base to the CompassReadout's face diameter
+	 */
+	private static final double NEEDLE_BASE_RATIO = 0.25;
 	
+	/**
+	 * Builder for the CompassReadout class.
+	 * 
+	 * @author Mark Sabini
+	 *
+	 */
 	public static final class Builder extends Readout.Builder<Builder>
 	{	
+		/**
+		 * The initial position of the CompassReadout
+		 */
 		private GPoint position = null;
+		
+		/**
+		 * The initial bearing of the CompassReadout
+		 */
 		private GPoint bearing = null;
+		
+		/**
+		 * The goal towards which the CompassReadout's needle should point
+		 */
 		private GPoint goal = null;
 		
-		// The CompassReadout needs to be fed the location of the ship when it is created.
-		// If location is null, then the CompassReadout will throw an IllegalStateException
+		/**
+		 * Creates a Builder specifying a CompassReadout with the given dimensions.
+		 * 
+		 * @param width the width of the CompassReadout
+		 * @param height the height of the CompassReadout
+		 */
 		public Builder(double width, double height)
 		{
 			super(width, height);
 		}
 		
-		// The user can set an initial goal. It is okay if the goal is null,
-		// since that "clears" the CompassReadout
+		/**
+		 * Specifies the goal of the CompassReadout. The goal is allowed to be null,
+		 * as that will "clear" the CompassReadout.
+		 * 
+		 * @param goal the goal towards which the CompassReadout's needle should point
+		 * @return the current Builder
+		 */
 		public Builder withGoal(GPoint goal)
 		{
 			this.goal = goal;
 			return this;
 		}
 		
+		/**
+		 * Specifies the initial position and bearing from which the CompassReadout
+		 * should orient itself and its needle. The position and bearing must be
+		 * either both null or both non-null.
+		 * 
+		 * @param position the initial position of the CompassReadout
+		 * @param bearing the initial bearing of the CompassReadout
+		 * @return
+		 */
 		public Builder withLocation(GPoint position, GPoint bearing)
 		{
 			if((position == null && bearing != null) || (position != null && bearing == null)) throw new IllegalStateException();
@@ -49,12 +126,31 @@ public final class CompassReadout extends Readout implements LocationUpdatable
 			return this;
 		}
 		
+		/**
+		 * Creates a new CompassReadout with the Builder's parameters.
+		 * 
+		 * @return a new CompassReadout with the Builder's parameters
+		 */
 		public CompassReadout build()
 		{
 			return new CompassReadout(width, height, spacing, baseColor, color, accentColor, position, bearing, goal);
 		}
 	}
 	
+	/**
+	 * Creates a CompassReadout with the specified dimensions, spacing, base color, color, accent color, 
+	 * position, bearing, and goal.
+	 * 
+	 * @param width the width of the CompassReadout
+	 * @param height the width of the CompassReadout
+	 * @param spacing the spacing of the CompassReadout
+	 * @param baseColor the base color of the CompassReadout
+	 * @param color the color of the CompassReadout's face
+	 * @param accentColor the color of the CompassReadout's needle and center
+	 * @param position the initial position of the CompassReadout
+	 * @param bearing the initial bearing of the CompassReadout
+	 * @param goal the initial goal of the CompassReadout
+	 */
 	protected CompassReadout(double width, double height, double spacing, Color baseColor, Color color, Color accentColor, GPoint position, GPoint bearing, GPoint goal)
 	{
 		this.accentColor = accentColor;
@@ -74,7 +170,7 @@ public final class CompassReadout extends Readout implements LocationUpdatable
 		add(face, (width - faceDiameter) / 2.0, (height - faceDiameter) / 2.0);
 		
 		// Initialize the center, but only draw it if goal is null.
-		double centerDiameter = faceDiameter * NEEDLE_SIZE;
+		double centerDiameter = faceDiameter * NEEDLE_BASE_RATIO;
 		center = new GOval(centerDiameter, centerDiameter);
 		center.setFilled(true);
 		center.setFillColor(accentColor);
@@ -91,8 +187,12 @@ public final class CompassReadout extends Readout implements LocationUpdatable
 		else center.setVisible(true);
 	}
 	
+	/**
+	 * Updates the CompassReadout with the new position and bearing. The position and
+	 * the bearing must be either both null or both non-null.
+	 */
 	@Override
-	public void update(GPoint position, GPoint bearing) // Need BOTH the direction and the position!
+	public void update(GPoint position, GPoint bearing)
 	{
 		if(isFrozen()) return;
 		if((position == null && bearing != null) || (position != null && bearing == null)) throw new IllegalStateException();
@@ -118,12 +218,20 @@ public final class CompassReadout extends Readout implements LocationUpdatable
 		}
 	}
 	
+	/**
+	 * Updates the CompassReadout's goal and immediately redraws the needle.
+	 * 
+	 * @param goal the new goal for the CompassReadout
+	 */
 	public void updateGoal(GPoint goal)
 	{
 		this.goal = goal;
 		update(position, bearing);
 	}
 	
+	/**
+	 * Clears and resets the CompassReadout's goal, position, and bearing.
+	 */
 	public void clear()
 	{
 		goal = null;
@@ -133,12 +241,16 @@ public final class CompassReadout extends Readout implements LocationUpdatable
 		center.setVisible(true);
 	}
 	
-	// Blindly creates the needle. Need to manually add and remove the generated needle.
-	// Angle measured ccw from vertical
-	// TODO: Make this more efficient.
+	/**
+	 * Blindly creates the needle and draws it at the specified angle, measured
+	 * counter-clockwise from the vertical. The generated needle needs to be manually
+	 * added and removed.
+	 * 
+	 * @param angle the angle at which to draw the needle, measured counter-clockwise from the vertical
+	 */
 	private void initNeedle(double angle)
 	{
-		double needleBase = face.getWidth() * NEEDLE_SIZE;
+		double needleBase = face.getWidth() * NEEDLE_BASE_RATIO;
 		needle = new GPolygon();
 		needle.addVertex(-needleBase / 2.0, needleBase / 2.0);
 		needle.addVertex(needleBase / 2.0, needleBase / 2.0);
@@ -148,20 +260,18 @@ public final class CompassReadout extends Readout implements LocationUpdatable
 		needle.rotate(angle);
 	}
 	
+	/**
+	 * Calculates and returns the angle at which the needle should be drawn in {@link #initNeedle(double) initNeedle}.
+	 * 
+	 * @return the angle at which the needle should be drawn
+	 */
 	private double calculateAngle()
 	{
-		double dispX = goal.getX() - position.getX();
-		double dispY = goal.getY() - position.getY();
-		double dotProd = bearing.getX() * dispX + bearing.getY() * dispY;
-		double angleCos = dotProd / (norm(bearing.getX(), bearing.getY()) * norm(dispX, dispY));
+		GPoint disp = GPointMath.diff(goal, position);
+		double angleCos = GPointMath.dot(bearing, disp) / (GPointMath.norm(bearing) * GPointMath.norm(disp));
 		if(angleCos == -1.0) return 180.0; // Edge case. TODO: improve for fp arithmetic.
 		double unsignedAngle = Math.acos(angleCos);
-		double sign = Math.signum(bearing.getX() * dispY - bearing.getY() * dispX);
+		double sign = Math.signum(GPointMath.cross(bearing, disp));
 		return sign * Math.toDegrees(unsignedAngle);
-	}
-	
-	private double norm(double x, double y)
-	{
-		return Math.sqrt(x * x + y * y);
 	}
 }

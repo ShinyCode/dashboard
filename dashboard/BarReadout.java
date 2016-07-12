@@ -3,44 +3,115 @@ import java.awt.Color;
 
 import acm.graphics.*;
 
-
+/**
+ * Implements a Readout representing a bar whose length scales linearly with input values.
+ * 
+ * @author Mark Sabini
+ *
+ */
 public final class BarReadout extends LevelReadout
 {
+	/**
+	 * The colored base of the BarReadout
+	 */
 	private GRect base;
+	
+	/**
+	 * The background behind the BarReadout's bar
+	 */
 	private GRect back;
+	
+	/**
+	 * The bar of the BarReadout
+	 */
 	private GRect bar;
+	
+	/**
+	 * The spacing of the BarReadout
+	 */
 	private double spacing;
+	
+	/**
+	 * The orientation of the BarReadout
+	 */
 	private int orientation;
 	
+	/**
+	 * Used to specify a vertical orientation for the BarReadout, which grows from bottom to top
+	 */
 	public static final int VERTICAL = 0;
+	
+	/**
+	 * Use to specify a horizontal orientation for the BarReadout, which grows from left to right
+	 */
 	public static final int HORIZONTAL = 1;
 	
+	/**
+	 * Builder for the BarReadout class.
+	 * 
+	 * @author Mark Sabini
+	 *
+	 */
 	public static final class Builder extends LevelReadout.Builder<Builder>
 	{	
-		private double minValue = 0.0;
-		private double maxValue = 100.0;
+		/**
+		 * The orientation of the BarReadout, set to vertical by default
+		 */
 		private int orientation = VERTICAL;
 
-		// If numDivisions is 0, operate in "continuous" mode.
-		// Here, we set numDivisions to the bar height, but since we don't know
-		// the spacing until we build(), we defer exact calculation until then.
+		/**
+		 * Creates a Builder specifying a BarReadout with the given dimensions and number of divisions.
+		 * If the number of divisions is set to 0, the BarReadout will operate in continuous mode, setting
+		 * numDivisions to the number of pixels in the maximum length of the bar.
+		 * 
+		 * @param width the width of the BarReadout
+		 * @param height the height of the BarReadout
+		 * @param numDivisions the total number of levels into which the BarReadout should be divided
+		 */
 		public Builder(double width, double height, int numDivisions)
 		{
 			super(width, height, numDivisions);
 		}
 		
+		/**
+		 * Specifies the orientation of the BarReadout, which must be either {@link BarReadout#VERTICAL BarReadout.VERTICAL}
+		 * or {@link BarReadout#HORIZONTAL BarReadout.HORIZONTAL}.
+		 * 
+		 * @param orientation the orientation of the BarReadout
+		 * @return the current Builder
+		 */
 		public Builder withOrientation(int orientation)
 		{
 			if(orientation == VERTICAL || orientation == HORIZONTAL) this.orientation = orientation;
 			return this;
 		}
 		
+		/**
+		 * Creates a new BarReadout with the Builder's parameters.
+		 * 
+		 * @return a new BarReadout with the Builder's parameters
+		 */
 		public BarReadout build()
 		{
 			return new BarReadout(width, height, spacing, baseColor, color, accentColor, numDivisions, minValue, maxValue, orientation);
 		}		
 	}
 	
+	/**
+	 * Creates a BarReadout with the specified dimensions, spacing, base color, color, accent color, number of divisions,
+	 * minimum and maximum value, and orientation.
+	 * 
+	 * @param width the width of the BarReadout
+	 * @param height the height of the BarReadout
+	 * @param spacing the spacing of the BarReadout
+	 * @param baseColor the base color of the BarReadout
+	 * @param color the color of the BarReadout's bar's background
+	 * @param accentColor the color of the BarReadout's bar
+	 * @param numDivisions the number of levels into which the BarReadout is divided
+	 * @param minValue the real value to which the lowest level corresponds
+	 * @param maxValue the real value to which the highest level corresponds
+	 * @param orientation the orientation of the BarReadout
+	 */
 	protected BarReadout(double width, double height, double spacing, Color baseColor, Color color, Color accentColor, int numDivisions, double minValue, double maxValue, int orientation)
 	{
 		this.spacing = spacing;
