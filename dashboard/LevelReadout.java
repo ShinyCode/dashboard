@@ -65,6 +65,7 @@ public abstract class LevelReadout extends Readout implements Incrementable, Num
 		 * @param width the width of the LevelReadout
 		 * @param height the height of the LevelReadout
 		 * @param numDivisions the total number of levels into which the LevelReadout should be divided
+		 * @throws IllegalArgumentException if the number of divisions is negative
 		 */
 		public Builder(double width, double height, int numDivisions)
 		{
@@ -80,7 +81,8 @@ public abstract class LevelReadout extends Readout implements Incrementable, Num
 		 * 
 		 * @param minValue the real value to which the lowest level corresponds
 		 * @param maxValue the real value to which the highest level corresponds
-		 * @return
+		 * @throws IllegalArgumentException if the maximum value is not greater than the minimum value
+		 * @return the current Builder
 		 */
 		@SuppressWarnings("unchecked")
 		public T withRange(double minValue, double maxValue)

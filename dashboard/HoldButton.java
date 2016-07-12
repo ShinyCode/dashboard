@@ -67,7 +67,9 @@ public class HoldButton extends Button
 	
 	/**
 	 * Sets the time in milliseconds between executions of onAction to the specified interval
+	 * 
 	 * @param interval the number of milliseconds between executions of onAction
+	 * @throws IllegalArgumentException if the position and bearing are not both null or both non-null
 	 */
 	public void setInterval(int interval)
 	{

@@ -121,6 +121,7 @@ public final class BufferReadout extends Readout implements Incrementable, Strin
 		 * 
 		 * @return a new BufferReadout with the Builder's parameters
 		 */
+		@Override
 		public BufferReadout build()
 		{
 			return new BufferReadout(width, height, spacing, baseColor, color, accentColor, font);

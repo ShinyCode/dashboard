@@ -81,6 +81,7 @@ public final class MultiIncrementer extends ButtonGrid
 		 * 
 		 * @return a new MultiIncrementer with the Builder's parameters
 		 */
+		@Override
 		public MultiIncrementer build()
 		{
 			return new MultiIncrementer(width, height, spacing, baseColor, buttonColor);

@@ -45,6 +45,7 @@ public final class ColorReadout extends Readout implements ColorUpdatable
 		 * 
 		 * @return a new ColorReadout with the Builder's parameters
 		 */
+		@Override
 		public ColorReadout build()
 		{
 			return new ColorReadout(width, height, spacing, baseColor, color); // accentColor not used

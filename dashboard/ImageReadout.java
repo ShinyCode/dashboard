@@ -86,6 +86,7 @@ public final class ImageReadout extends Readout implements ImageUpdatable
 		 * 
 		 * @return a new ImageReadout with the Builder's parameters
 		 */
+		@Override
 		public ImageReadout build()
 		{
 			return new ImageReadout(width, height, spacing, baseColor, color, accentColor, offColor);

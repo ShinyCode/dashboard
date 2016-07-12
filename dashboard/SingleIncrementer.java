@@ -68,6 +68,7 @@ public final class SingleIncrementer extends ButtonGrid
 		 * 
 		 * @return a new SingleIncrementer with the Builder's parameters
 		 */
+		@Override
 		public SingleIncrementer build()
 		{
 			return new SingleIncrementer(width, height, spacing, baseColor, buttonColor);

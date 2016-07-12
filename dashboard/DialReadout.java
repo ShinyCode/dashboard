@@ -98,6 +98,7 @@ public final class DialReadout extends LevelReadout
 		 * 
 		 * @return a new DialReadout with the Builder's parameters
 		 */
+		@Override
 		public DialReadout build()
 		{
 			/*

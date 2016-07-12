@@ -43,6 +43,7 @@ public final class CustomGroup extends Group
 		/**
 		 * Creates a new CustomGroup with the Builder's parameters.
 		 */
+		@Override
 		public CustomGroup build()
 		{
 			return new CustomGroup(minWidth, minHeight, spacing, baseColor);

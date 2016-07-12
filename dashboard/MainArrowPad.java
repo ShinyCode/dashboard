@@ -80,6 +80,7 @@ public final class MainArrowPad extends ButtonGrid
 		 * 
 		 * @return a new MainArrowPad with the Builder's parameters
 		 */
+		@Override
 		public MainArrowPad build()
 		{
 			return new MainArrowPad(width, height, spacing, baseColor, buttonColor);

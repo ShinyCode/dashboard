@@ -33,6 +33,7 @@ public final class CustomButtonGrid extends ButtonGrid
 		 * Creates a new CustomButtonGrid with the Builder's parameters.
 		 * @return a new CustomButtonGrid with the Builder's parameters
 		 */
+		@Override
 		public CustomButtonGrid build()
 		{
 			return new CustomButtonGrid(width, height, numRows, numCols, spacing, baseColor);

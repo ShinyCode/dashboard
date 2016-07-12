@@ -81,6 +81,7 @@ public final class BufferReadoutControl extends ButtonGrid
 		 * 
 		 * @return a new BufferReadoutControl with the Builder's parameters
 		 */
+		@Override
 		public BufferReadoutControl build()
 		{
 			return new BufferReadoutControl(width, height, spacing, baseColor, buttonColor);

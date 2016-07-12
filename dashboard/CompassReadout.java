@@ -116,6 +116,7 @@ public final class CompassReadout extends Readout implements LocationUpdatable
 		 * 
 		 * @param position the initial position of the CompassReadout
 		 * @param bearing the initial bearing of the CompassReadout
+		 * @throws IllegalStateException if the position and bearing are not both null or both non-null
 		 * @return
 		 */
 		public Builder withLocation(GPoint position, GPoint bearing)
@@ -131,6 +132,7 @@ public final class CompassReadout extends Readout implements LocationUpdatable
 		 * 
 		 * @return a new CompassReadout with the Builder's parameters
 		 */
+		@Override
 		public CompassReadout build()
 		{
 			return new CompassReadout(width, height, spacing, baseColor, color, accentColor, position, bearing, goal);
@@ -190,6 +192,7 @@ public final class CompassReadout extends Readout implements LocationUpdatable
 	/**
 	 * Updates the CompassReadout with the new position and bearing. The position and
 	 * the bearing must be either both null or both non-null.
+	 * @throws IllegalStateException if the position and bearing are not both null or both non-null
 	 */
 	@Override
 	public void update(GPoint position, GPoint bearing)

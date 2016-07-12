@@ -91,6 +91,7 @@ public final class BarReadout extends LevelReadout
 		 * 
 		 * @return a new BarReadout with the Builder's parameters
 		 */
+		@Override
 		public BarReadout build()
 		{
 			return new BarReadout(width, height, spacing, baseColor, color, accentColor, numDivisions, minValue, maxValue, orientation);

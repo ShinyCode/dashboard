@@ -84,6 +84,7 @@ public final class MinimapReadout extends Readout implements LocationUpdatable
 		 * the distance in real units that the radius of the face should represent
 		 * 
 		 * @param viewRadius the view radius of the MinimapReadout
+		 * @throws IllegalArgumentException if the view radius is negative
 		 * @return the current Builder
 		 */
 		public Builder withViewRadius(double viewRadius)
@@ -98,6 +99,7 @@ public final class MinimapReadout extends Readout implements LocationUpdatable
 		 * 
 		 * @return a new MinimapReadout with the Builder's parameters
 		 */
+		@Override
 		public MinimapReadout build()
 		{
 			return new MinimapReadout(width, height, spacing, baseColor, color, accentColor, viewRadius);
@@ -247,6 +249,7 @@ public final class MinimapReadout extends Readout implements LocationUpdatable
 	 * The new view radius must be a nonnegative double.
 	 * 
 	 * @param viewRadius the new view radius of the MinimapReadout
+	 * @throws IllegalArgumentException if the view radius is negative
 	 */
 	public void setViewRadius(double viewRadius)
 	{

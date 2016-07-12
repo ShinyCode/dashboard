@@ -60,6 +60,7 @@ public final class AuxArrowPad extends ButtonGrid
 		 * 
 		 * @return a new AuxArrowPad with the Builder's parameters
 		 */
+		@Override
 		public AuxArrowPad build()
 		{
 			return new AuxArrowPad(width, height, spacing, baseColor, buttonColor);

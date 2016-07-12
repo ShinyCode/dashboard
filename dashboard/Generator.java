@@ -71,6 +71,7 @@ public abstract class Generator
 	 * Sets the time interval used by the Generator.
 	 * 
 	 * @param interval the time interval between updates, measured in milliseconds
+	 * @throws IllegalArgumentException if the interval is negative
 	 */
 	public void setInterval(int interval)
 	{
