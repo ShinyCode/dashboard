@@ -2,7 +2,7 @@ package dashboard;
 
 /**
  * Provides the base functionality for a data generator that creates data and transmits it
- * at regular intervals to a {@link Readout}. This can be used to animate Readouts for a
+ * at regular intervals to a {@link Readout Readout}. This can be used to animate Readouts for a
  * cosmetic effect.
  * 
  * @author Mark Sabini

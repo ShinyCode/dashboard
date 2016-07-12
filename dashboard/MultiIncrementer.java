@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Implements a controller for multiple {@link Incrementable}s.
+ * Implements a controller for multiple {@link Incrementable Incrementables}.
  * The functions of the constituent buttons are:
  * <p>INC - increment the currently-selected Incrementable one level
  * <p>DEC - decrement the currently-selected Incrementable one level

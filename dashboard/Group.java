@@ -113,10 +113,10 @@ public abstract class Group extends MouseWidget
 	 * 
 	 * @param minWidth the Group's minimum width
 	 * @param minHeight the Group's minimum height
-	 * @param baseColor the Group's base color
 	 * @param spacing the Group's spacing
+	 * @param baseColor the Group's base color
 	 */
-	protected Group(double minWidth, double minHeight, Color baseColor, double spacing)
+	protected Group(double minWidth, double minHeight, double spacing, Color baseColor)
 	{
 		this.spacing = spacing;
 		compounds = new HashMap<String, GCompound>();
@@ -157,7 +157,7 @@ public abstract class Group extends MouseWidget
 	/**
 	 * Returns the widget bound to the specified key.
 	 * 
-	 * @param key the key that was bound to the widget in {@link addWidget}
+	 * @param key the key that was bound to the widget in {@link #addWidget(String, GCompound, double, double) addWidget}
 	 * @return the widget if it was found. If the widget could not be located, the function returns null.
 	 */
 	protected GCompound getWidget(String key)

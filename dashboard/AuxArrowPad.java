@@ -90,7 +90,7 @@ public final class AuxArrowPad extends ButtonGrid
 	
 	/**
 	 * Sets the state of a button in the AuxArrowPad. This is used by other widgets such as the 
-	 * {@link MainArrowPad} to control the AuxArrowPad.
+	 * {@link MainArrowPad MainArrowPad} to control the AuxArrowPad.
 	 * 
 	 * @param instr the label/instruction of the button to control
 	 * @param turnOn true if the button should be pressed, false if the button should be released

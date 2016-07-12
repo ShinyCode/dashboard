@@ -32,7 +32,7 @@ public class ToggleButton extends Button
 	/**
 	 * Toggles the ToggleButton's state in response to the button being pressed.
 	 * 
-	 * @param e a {@link MouseEvent} that represents the associated mouse action
+	 * @param e a {@link MouseEvent MouseEvent} that represents the associated mouse action
 	 * @return the end action being executed and the associated call hierarchy
 	 */
 	@Override
@@ -57,7 +57,7 @@ public class ToggleButton extends Button
 	/**
 	 * Returns null to prevent a call hierarchy from being created for the event.
 	 * 
-	 * @param e a {@link MouseEvent} that represents the associated mouse action
+	 * @param e a {@link MouseEvent MouseEvent} that represents the associated mouse action
 	 * @return a null String
 	 */
 	@Override

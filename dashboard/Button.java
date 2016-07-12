@@ -6,7 +6,7 @@ import java.awt.Color;
 
 /**
  * Provides the base functionality for a rectangular button with which the user can interact.
- * The exact behavior of the button depends on both the specific subclass and the {@link Runnable}s
+ * The exact behavior of the button depends on both the specific subclass and the {@link Runnable Runnables}
  * provided by the user.
  * 
  * @author Mark Sabini
@@ -109,7 +109,7 @@ public abstract class Button extends MouseWidget
 	}
 	
 	/**
-	 * Resizes the Button to the specified dimensions. This is used in adaptive widgets like {@link ButtonGrid} to 
+	 * Resizes the Button to the specified dimensions. This is used in adaptive widgets like {@link ButtonGrid ButtonGrid} to 
 	 * automatically resize the constituent buttons.
 	 * 
 	 * @param width the Button's new width

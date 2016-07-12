@@ -36,10 +36,10 @@ public class HoldButton extends Button
 	}
 	
 	/**
-	 * Repeatedly executes onAction with the frequency set by {@link setInterval} until
+	 * Repeatedly executes onAction with the frequency set by {@link #setInterval(int) setInterval} until
 	 * the button is released.
 	 * 
-	 * @param e a {@link MouseEvent} that represents the associated mouse action
+	 * @param e a {@link MouseEvent MouseEvent} that represents the associated mouse action
 	 * @return the end action being executed and the associated call hierarchy
 	 */
 	@Override
@@ -54,7 +54,7 @@ public class HoldButton extends Button
 	 * Executes offAction exactly once. For this button, offAction can serve as a cleanup
 	 * function that is run after the button is released.
 	 * 
-	 * @param e a {@link MouseEvent} that represents the associated mouse action
+	 * @param e a {@link MouseEvent MouseEvent} that represents the associated mouse action
 	 * @return the end action being executed and the associated call hierarchy
 	 */
 	@Override

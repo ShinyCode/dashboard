@@ -6,7 +6,7 @@ import java.util.List;
 import acm.graphics.GRect;
 
 /**
- * Provides the base functionality for a grid of {@link Button}s. As the number of rows and columns
+ * Provides the base functionality for a grid of {@link Button Buttons}. As the number of rows and columns
  * are specified by the user, the ButtonGrid automatically resizes its constituent Buttons accordingly.
  * 
  * @author Mark Sabini

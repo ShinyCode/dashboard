@@ -27,7 +27,7 @@ public class TouchButton extends Button
 	/**
 	 * Executes onAction exactly once.
 	 * 
-	 * @param e a {@link MouseEvent} that represents the associated mouse action
+	 * @param e a {@link MouseEvent MouseEvent} that represents the associated mouse action
 	 * @return the end action being executed and the associated call hierarchy
 	 */
 	@Override
@@ -41,7 +41,7 @@ public class TouchButton extends Button
 	/**
 	 * Executes offAction exactly once.
 	 * 
-	 * @param e a {@link MouseEvent} that represents the associated mouse action
+	 * @param e a {@link MouseEvent MouseEvent} that represents the associated mouse action
 	 * @return the end action being executed and the associated call hierarchy
 	 */
 	@Override

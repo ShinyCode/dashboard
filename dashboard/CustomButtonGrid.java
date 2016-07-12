@@ -2,8 +2,8 @@ package dashboard;
 import java.awt.Color;
 
 /**
- * Implements a custom grid of {@link Button}s that can be constructed at runtime. Pre-fabricated button grid widgets
- * should subclass {@link ButtonGrid} instead of CustomButtonGrid.
+ * Implements a custom grid of {@link Button Buttons} that can be constructed at runtime. Pre-fabricated button grid widgets
+ * should subclass {@link ButtonGrid ButtonGrid} instead of CustomButtonGrid.
  * 
  * @author Mark Sabini
  *

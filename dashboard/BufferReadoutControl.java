@@ -3,7 +3,7 @@ import java.awt.Color;
 
 
 /**
- * Implements a controller for the {@link BufferReadout} class.
+ * Implements a controller for the {@link BufferReadout BufferReadout} class.
  * The functions of the constituent buttons are:
  * <p>CLS - clear the BufferReadout
  * <p>FRZ - freeze the BufferReadout, preventing updates from occurring

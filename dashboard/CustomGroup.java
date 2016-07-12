@@ -5,7 +5,7 @@ import acm.graphics.GCompound;
 
 /**
  * Implements a custom group of widgets that can be constructed at runtime. Pre-fabricated widget groups
- * should subclass {@link Group} instead of CustomGroup.
+ * should subclass {@link Group Group} instead of CustomGroup.
  * 
  * @author Mark Sabini
  *
@@ -45,7 +45,7 @@ public final class CustomGroup extends Group
 		 */
 		public CustomGroup build()
 		{
-			return new CustomGroup(minWidth, minHeight, baseColor, spacing);
+			return new CustomGroup(minWidth, minHeight, spacing, baseColor);
 		}		
 	}
 	
@@ -54,12 +54,12 @@ public final class CustomGroup extends Group
 	 * 
 	 * @param minWidth the CustomGroup's minimum width
 	 * @param minHeight the CustomGroup's minimum height
-	 * @param baseColor the CustomGroup's base color
 	 * @param spacing the CustomGroup's spacing
+	 * @param baseColor the CustomGroup's base color
 	 */
-	protected CustomGroup(double minWidth, double minHeight, Color baseColor, double spacing)
+	protected CustomGroup(double minWidth, double minHeight, double spacing, Color baseColor)
 	{
-		super(minWidth, minHeight, baseColor, spacing);
+		super(minWidth, minHeight, spacing, baseColor);
 	}
 	
 	/**

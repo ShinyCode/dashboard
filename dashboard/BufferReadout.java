@@ -7,7 +7,7 @@ import java.util.List;
 import acm.graphics.*;
 
 /**
- * Implements a Readout that represents a scrollable graphical buffer of text. The {@link BufferReadoutControl}
+ * Implements a Readout that represents a scrollable graphical buffer of text. The {@link BufferReadoutControl BufferReadoutControl}
  * is specially designed to control the BufferReadout, although custom controllers can also be created.
  * 
  * @author Mark Sabini

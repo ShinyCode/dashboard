@@ -2,7 +2,7 @@ package dashboard;
 import java.awt.Color;
 
 /**
- * Implements a controller for a single {@link Incrementable}.
+ * Implements a controller for a single {@link Incrementable Incrementable}.
  * The functions of the constituent buttons are:
  * <p>INC - increment the Incrementable one level
  * <p>DEC - decrement the Incrementable one level

@@ -7,7 +7,7 @@ import acm.graphics.GObject;
 
 /**
  * Implements a main arrow pad for controlling a vehicle. The main arrow pad can transmit and copy
- * its button presses to multiple {@link AuxArrowPad}s.
+ * its button presses to multiple {@link AuxArrowPad AuxArrowPads}.
  * The functions of the constituent buttons are:
  * <p>MIM - if active, transmits and copies button presses to the controlled AuxArrowPads
  * <p>FWD - move the vehicle forwards [cosmetic]
