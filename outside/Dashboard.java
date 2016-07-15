@@ -4,8 +4,8 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 
 import acm.graphics.*;
+import acm.io.IOConsole;
 import acm.program.*;
-
 import dashboard.*;
 
 // Todo:

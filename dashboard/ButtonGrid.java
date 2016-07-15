@@ -1,7 +1,5 @@
 package dashboard;
 import java.awt.Color;
-import java.util.ArrayList;
-import java.util.List;
 
 import acm.graphics.GRect;
 
@@ -15,9 +13,9 @@ import acm.graphics.GRect;
 public abstract class ButtonGrid extends MouseWidget
 {
 	/**
-	 * A list storing all the buttons contained in the ButtonGrid
+	 * An array storing all the buttons contained in the ButtonGrid
 	 */
-	private List<Button> buttons;
+	private Button[] buttons;
 	
 	/**
 	 * The ButtonGrid's colored base
@@ -163,7 +161,7 @@ public abstract class ButtonGrid extends MouseWidget
 	 */
 	protected ButtonGrid(double width, double height, int numRows, int numCols, double spacing, Color baseColor)
 	{
-		buttons = new ArrayList<Button>(numRows * numCols);
+		buttons = new Button[numRows * numCols];
 		this.numRows = numRows;
 		this.numCols = numCols;
 		this.spacing = spacing;
@@ -205,6 +203,7 @@ public abstract class ButtonGrid extends MouseWidget
 		if(rowSpan <= 0 || colSpan <= 0 || rowSpan > numRows - row || colSpan > numCols - col) return false; //Invalid row/column Span
 		gb.resize(colSpan * buttonWidth + (colSpan - 1) * spacing, rowSpan * buttonHeight + (rowSpan - 1) * spacing);
 		add(gb, col * buttonWidth + (col + 1) * spacing, row * buttonHeight + (row + 1) * spacing);
+		buttons[getIndex(row, col)] = gb;
 		return true;
 	}
 	
@@ -218,7 +217,7 @@ public abstract class ButtonGrid extends MouseWidget
 	protected Button getButton(int row, int col)
 	{
 		if(row < 0 || col < 0 || row >= numRows || col >= numCols) return null;
-		return buttons.get(getIndex(row, col));
+		return buttons[getIndex(row, col)];
 	}
 	
 	/**
@@ -230,6 +229,6 @@ public abstract class ButtonGrid extends MouseWidget
 	 */
 	private int getIndex(int row, int col)
 	{
-		return row * numRows + col;
+		return row * numCols + col;
 	}
 }
