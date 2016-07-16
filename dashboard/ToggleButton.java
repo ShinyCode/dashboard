@@ -75,4 +75,27 @@ public class ToggleButton extends Button
 	{
 		return on;
 	}
+	
+	/**
+	 * Sets whether the ToggleButton is currently on. If one attempts to turn on
+	 * an already-on ToggleButton or turn off an already-off ToggleButton,
+	 * no action is taken.
+	 * 
+	 * @param on whether the ToggleButton should be on.
+	 */
+	public void setOn(boolean on)
+	{
+		if(this.on == on) return;
+		this.on = on;
+		if(on)
+		{
+			rect.setColor(baseColor.brighter());
+			runOnAction();
+		}
+		else
+		{
+			rect.setColor(baseColor);
+			runOffAction();
+		}
+	}
 }

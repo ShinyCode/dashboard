@@ -11,16 +11,54 @@ import acm.graphics.GPoint;
 import acm.graphics.GRect;
 import acm.program.*;
 
-public class DashboardProgram extends GraphicsProgram
+/**
+ * Implements a subclass of GraphicsProgram with specialized methods for drawing dashboards.
+ * 
+ * @author Mark Sabini
+ *
+ */
+public abstract class DashboardProgram extends GraphicsProgram
 {
+	/**
+	 * The map from keys (Strings) to the widgets (GObjects) that make up the dashboard
+	 */
 	private Map<String, GObject> widgets;
+	
+	/**
+	 * The map from keys (Strings) to the bounding boxes (GRects) of the dashboard's widgets
+	 */
 	private Map<String, GRect> sizes;
+	
+	/**
+	 * The map from keys (Strings) to command outputs (StringUpdatables), which will print out
+	 * command hierarchies in real time
+	 */
 	private Map<String, StringUpdatable> commandOutputs;
+	
+	/**
+	 * A GCompound containing all the bounding boxes of the dashboard's widgets. Used for calculating
+	 * the dashboard's left x, top y, total width, and total height
+	 */
 	private GCompound union;
+	
+	/**
+	 * The background (colored base) of the dashboard
+	 */
 	private GRect background;
+	
+	/**
+	 * The dashboard's leftmost x coordinate, cached to prevent unnecessary recalculation
+	 */
 	private double x;
+	
+	/**
+	 * The dashboard's topmost y coordinate, cached to prevent unnecessary recalculation
+	 */
 	private double y;
 	
+	/**
+	 * Creates a DashboardProgram and initializes/allocates all of its fields
+	 */
 	protected DashboardProgram()
 	{
 		super();
@@ -31,6 +69,13 @@ public class DashboardProgram extends GraphicsProgram
 		calculateXY();
 	}
 	
+	/**
+	 * Adds the specified widget to the DashboardProgram's widget roster and draws it
+	 * on the canvas
+	 * 
+	 * @param key a handle that refers to the widget
+	 * @param widget the widget to be added
+	 */
 	public final void addWidget(String key, GObject widget)
 	{
 		if(widgets.containsKey(key)) return;
@@ -42,6 +87,15 @@ public class DashboardProgram extends GraphicsProgram
 		checkXY(widget);
 	}
 	
+	/**
+	 * Adds the specified widget to the DashboardProgram's widget roster and draws it
+	 * on the canvas at the specified (x, y) coordinates
+	 * 
+	 * @param key a handle that refers to the widget
+	 * @param widget the widget to be added
+	 * @param x the x-coordinate of the widget
+	 * @param y the y-coordinate of the widget
+	 */
 	public final void addWidget(String key, GObject widget, double x, double y)
 	{
 		if(widgets.containsKey(key)) return;
@@ -53,6 +107,14 @@ public class DashboardProgram extends GraphicsProgram
 		checkXY(widget);
 	}
 	
+	/**
+	 * Adds the specified widget to the DashboardProgram's widget roster and draws it
+	 * on the canvas at the specified point
+	 * 
+	 * @param key a handle that refers to the widget
+	 * @param widget the widget to be added
+	 * @param pt a point corresponding to the widget's location
+	 */
 	public final void addWidget(String key, GObject widget, GPoint pt)
 	{
 		if(widgets.containsKey(key)) return;
@@ -64,6 +126,13 @@ public class DashboardProgram extends GraphicsProgram
 		checkXY(widget);
 	}
 	
+	/**
+	 * Removes the widget associated with the specified key from the DashboardProgram's
+	 * widget roster and the canvas. If the widget could not be located, no action is
+	 * taken.
+	 * 
+	 * @param key the key that is bound to the widget
+	 */
 	public final void removeWidget(String key)
 	{
 		if(!widgets.containsKey(key)) return;
@@ -75,22 +144,47 @@ public class DashboardProgram extends GraphicsProgram
 		calculateXY();
 	}
 	
+	/**
+	 * Returns the widget associated with the specified key. If the widget could not be
+	 * located, null is returned.
+	 * 
+	 * @param key the key that is bound to the widget
+	 * @return the widget associated with the specified key
+	 */
 	public final GObject getWidget(String key)
 	{
 		if(!widgets.containsKey(key)) return null;
 		return widgets.get(key);
 	}
 	
+	/**
+	 * Returns the width of the bounding box surrounding all widgets on screen. The widgets
+	 * must have been added using addWidget (as opposed to add) in order for them to
+	 * contribute to the total widget width.
+	 * 
+	 * @return the width of the bounding box surrounding all widgets on screen
+	 */
 	public final double getTotalWidgetWidth()
 	{
 		return union.getWidth();
 	}
 	
+	/**
+	 * Returns the height of the bounding box surrounding all widgets on screen. The widgets
+	 * must have been added using addWidget (as opposed to add) in order for them to
+	 * contribute to the total widget height.
+	 * 
+	 * @return the height of the bounding box surrounding all widgets on screen
+	 */
 	public final double getTotalWidgetHeight()
 	{
 		return union.getHeight();
 	}
 	
+	/**
+	 * Handles the mousePressed event, transmits the MouseEvent to any underlying
+	 * subwidgets, and updates all command outputs with the command hierarchy.
+	 */
 	@Override
 	public void mousePressed(MouseEvent e)
 	{
@@ -101,6 +195,10 @@ public class DashboardProgram extends GraphicsProgram
 		if(cmd != null) updateAllCommandOutputs(cmd);
 	}
 	
+	/**
+	 * Handles the mouseReleased event, transmits the MouseEvent to any underlying
+	 * subwidgets, and updates all command outputs with the command hierarchy.
+	 */
 	@Override
 	public void mouseReleased(MouseEvent e)
 	{
@@ -111,25 +209,47 @@ public class DashboardProgram extends GraphicsProgram
 		if(cmd != null) updateAllCommandOutputs(cmd);
 	}
 	
-	protected void addBorder(GObject o, Color c, double borderWidth)
+	/**
+	 * Draws a border of the specified color and width around the specified widget (GObject)
+	 * 
+	 * @param widget the widget around which to draw the border
+	 * @param color the color of the border
+	 * @param borderWidth the width of the border
+	 */
+	protected void addBorder(GObject widget, Color color, double borderWidth)
 	{
-		GRect background = new GRect(o.getWidth() + 2 * borderWidth, o.getHeight() + 2 * borderWidth);
+		GRect background = new GRect(widget.getWidth() + 2 * borderWidth, widget.getHeight() + 2 * borderWidth);
 		background.setFilled(true);
-		background.setFillColor(c);
-		add(background, o.getX() - borderWidth, o.getY() - borderWidth);
-		o.sendToFront();
+		background.setFillColor(color);
+		add(background, widget.getX() - borderWidth, widget.getY() - borderWidth);
+		widget.sendToFront();
 	}
 	
+	/**
+	 * Returns the left x-coordinate of the bounding box surrounding all widgets on screen.
+	 * 
+	 * @return the left x-coordinate of the bounding box surrounding all widgets on screen
+	 */
 	public double getWidgetLeftX()
 	{
 		return x;
 	}
 	
+	/**
+	 * Returns the top y-coordinate of the bounding box surrounding all widgets on screen.
+	 * 
+	 * @return the top y-coordinate of the bounding box surrounding all widgets on screen
+	 */
 	public double getWidgetTopY()
 	{
 		return y;
 	}
 	
+	/**
+	 * Updates all command outputs with the specified command.
+	 * 
+	 * @param cmd the command to print to all command outputs
+	 */
 	private void updateAllCommandOutputs(String cmd)
 	{
 		for(String key : commandOutputs.keySet())
@@ -138,56 +258,83 @@ public class DashboardProgram extends GraphicsProgram
 		}
 	}
 	
+	/**
+	 * Manually calculates the coordinates of the bounding box surrounding all widgets
+	 * on screen by examining every single widget.
+	 */
 	private void calculateXY()
 	{
 		if(widgets.isEmpty())
 		{
-			x = 0;
-			y = 0;
+			x = Double.POSITIVE_INFINITY;
+			y = Double.POSITIVE_INFINITY;
 			return;
 		}
-		double minX = Double.POSITIVE_INFINITY;
-		double minY = Double.POSITIVE_INFINITY;
 		for(String key : widgets.keySet())
 		{
 			GObject obj = widgets.get(key);
-			if(obj.getX() < minX) minX = obj.getX();
-			if(obj.getY() < minY) minY = obj.getY();
+			if(obj.getX() < x) x = obj.getX();
+			if(obj.getY() < y) y = obj.getY();
 		}
-		x = minX;
-		y = minY;
 	}
 	
+	/**
+	 * Updates the coordinates of the bounding box surrounding all widgets after
+	 * the addition of a single widget.
+	 * 
+	 * @param obj the widget that was added
+	 */
 	private void checkXY(GObject obj)
 	{
 		if(obj.getX() < x) x = obj.getX();
 		if(obj.getY() < y) y = obj.getY();
 	}
 	
-	public final void addCommandOutput(String key, StringUpdatable su)
+	/**
+	 * Designates a StringUpdatable as a command output, which will print out command hierarchies
+	 * in real time.
+	 * 
+	 * @param key a handle that refers to the command output
+	 * @param commandOutput the command output to add
+	 */
+	public final void addCommandOutput(String key, StringUpdatable commandOutput)
 	{
 		if(commandOutputs.containsKey(key)) return;
-		commandOutputs.put(key, su);
+		commandOutputs.put(key, commandOutput);
 	}
 	
+	/**
+	 * Frees and stops a StringUpdatable from receiving command hierarchies.
+	 * 
+	 * @param key the key that is bound to the widget
+	 */
 	public final void removeCommandOutput(String key)
 	{
 		if(!commandOutputs.containsKey(key)) return;
 		commandOutputs.remove(key);
 	}
 	
+	/**
+	 * Draws a background behind the entire dashboard based on the bounding box
+	 * surrounding all widgets on screen. This method should be called after all
+	 * widgets have been added, as the background does not automatically resize.
+	 * 
+	 * @param spacing the amount of space between each edge of the bounding box and the background
+	 * @param baseColor the color of the background
+	 */
 	public final void addBackground(double spacing, Color baseColor)
 	{
 		if(background != null) remove(background);
 		background = new GRect(union.getWidth() + 2 * spacing, union.getHeight() + 2 * spacing);
-		System.out.println(background.getWidth() + " " + background.getHeight());
 		background.setFilled(true);
 		background.setFillColor(baseColor);
-		System.out.println(getWidgetLeftX() + " " + getWidgetTopY());
 		add(background, getWidgetLeftX() - spacing, getWidgetTopY() - spacing);
 		background.sendToBack();
 	}
 	
+	/**
+	 * Removes the background (if any) from behind the dashboard.
+	 */
 	public final void removeBackground()
 	{
 		if(background == null) return;

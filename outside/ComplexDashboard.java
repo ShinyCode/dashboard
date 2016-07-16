@@ -2,10 +2,9 @@ package outside;
 
 import java.awt.Color;
 
-import acm.graphics.GRect;
 import dashboard.*;
 
-public class Dashboard2 extends DashboardProgram
+public class ComplexDashboard extends DashboardProgram
 {	
 	private static final double BUTTON_HEIGHT = 40.0;
 	private static final double BUTTON_WIDTH = 80.0;
@@ -67,12 +66,14 @@ public class Dashboard2 extends DashboardProgram
 	{
 		ToggleButton mpwrButton = new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, ACCENT_COLOR, "MPWR");
 		ToggleButton cpwrButton = new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, COLOR, "CPWR");
+		cpwrButton.setOn(true);
 		ToggleButton cfrzButton = new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, COLOR, "CFRZ");
 		mpwr = new CustomButtonGrid.Builder(2 * BUTTON_SPACING + BUTTON_WIDTH, 4 * BUTTON_SPACING + 3 * BUTTON_HEIGHT)
 			.withRowsCols(3, 1)
 			.withBaseColor(BASE_COLOR)
 			.withSpacing(BUTTON_SPACING)
 			.build();
+		mpwr.setName("MPWR");
 		mpwr.addButton(mpwrButton, 0, 0);
 		mpwr.addButton(cpwrButton, 1, 0);
 		mpwr.addButton(cfrzButton, 2, 0);
@@ -124,6 +125,7 @@ public class Dashboard2 extends DashboardProgram
 			.withSpacing(BUTTON_SPACING)
 			.withBaseColor(BASE_COLOR)
 			.build();
+		chat.setName("CHAT");
 		chat.addButton(chatClsButton, 0, 0);
 		chat.addButton(chatFrzButton, 1, 0);
 		chat.addButton(chatIncButton, 0, 1);
@@ -135,10 +137,11 @@ public class Dashboard2 extends DashboardProgram
 	private void initEPWR()
 	{
 		epwr = new CustomButtonGrid.Builder(BUTTON_WIDTH + 2 * BUTTON_SPACING, BUTTON_HEIGHT + 2 * BUTTON_SPACING)
-		.withRowsCols(1, 1)
-		.withSpacing(BUTTON_SPACING)
-		.withBaseColor(BASE_COLOR)
-		.build();
+			.withRowsCols(1, 1)
+			.withSpacing(BUTTON_SPACING)
+			.withBaseColor(BASE_COLOR)
+			.build();
+		epwr.setName("EPWR");
 		ToggleButton epwrButton = new ToggleButton(0, 0, ACCENT_COLOR, "EPWR");
 		epwr.addButton(epwrButton, 0, 0);
 		addWidget("EPWR", epwr, chat.getX(), chat.getY() + chat.getHeight() + COMPONENT_SPACING);
@@ -153,6 +156,7 @@ public class Dashboard2 extends DashboardProgram
 			.withBaseColor(BASE_COLOR)
 			.withSpacing(BUTTON_SPACING)
 			.build();
+		dat.setName("DAT");
 		for(int i = 0; i < datumNames.length; ++i)
 		{
 			BufferReadout bfr = new BufferReadout.Builder(DATUM_READOUT_WIDTH, DATUM_READOUT_HEIGHT)
@@ -173,6 +177,7 @@ public class Dashboard2 extends DashboardProgram
 			.withBaseColor(BASE_COLOR)
 			.withSpacing(BUTTON_SPACING)
 			.build();
+		vit.setName("VIT");
 		for(int i = 0; i < vitalNames.length; ++i)
 		{
 			DialReadout dr = new DialReadout.Builder(DATUM_READOUT_WIDTH, DATUM_READOUT_HEIGHT, NUM_DIVISIONS)
@@ -191,10 +196,11 @@ public class Dashboard2 extends DashboardProgram
 	private void initAAP()
 	{
 		aap = new AuxArrowPad.Builder(vit.getWidth(), 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING)
-		.withBaseColor(BASE_COLOR)
-		.withButtonColor(COLOR)
-		.withSpacing(BUTTON_SPACING)
-		.build();
+			.withBaseColor(BASE_COLOR)
+			.withButtonColor(COLOR)
+			.withSpacing(BUTTON_SPACING)
+			.build();
+		aap.setName("AAP");
 		addWidget("AAP", aap, vit.getX(), vit.getY() + vit.getHeight() + COMPONENT_SPACING);
 		addBorder(aap, COLOR, BORDER_WIDTH);
 	}
@@ -216,7 +222,9 @@ public class Dashboard2 extends DashboardProgram
 		BarReadout engbr1 = engbrBuilder.build();
 		BarReadout engbr2 = engbrBuilder.build();
 		SingleIncrementer engsinc1 = engsincBuilder.build();
+		engsinc1.setName("ENGSINC1");
 		SingleIncrementer engsinc2 = engsincBuilder.build();
+		engsinc2.setName("ENGSINC2");
 		engsinc1.setIncrementable(engbr1);
 		engsinc2.setIncrementable(engbr2);
 		
@@ -224,7 +232,9 @@ public class Dashboard2 extends DashboardProgram
 			.withBaseColor(BASE_COLOR)
 			.withSpacing(0);
 		engcwg1 = engcwgBuilder.build();
+		engcwg1.setName("ENGCWG1");
 		engcwg2 = engcwgBuilder.build();
+		engcwg2.setName("ENGCWG2");
 		engcwg1.addWidget("ENGBR1", engbr1, 0, 0);
 		engcwg1.addWidget("ENGSINC1", engsinc1, 0, engbr1.getHeight() - BUTTON_SPACING);
 		engcwg2.addWidget("ENGBR2", engbr2, 0, 0);
@@ -243,6 +253,7 @@ public class Dashboard2 extends DashboardProgram
 			.withButtonColor(ACCENT_COLOR)
 			.withSpacing(BUTTON_SPACING)
 			.build();
+		freqminc.setName("FREQMINC");
 		double freqBarHeight = freqButtonWidth;
 		double freqBarWidth = dat.getX() + dat.getWidth() - vit.getX() - vit.getWidth() - COMPONENT_SPACING - BUTTON_SPACING - freqminc.getWidth();
 		BarReadout.Builder freqbrBuilder = new BarReadout.Builder(freqBarWidth + 2 * BUTTON_SPACING, freqBarHeight + 2 * BUTTON_SPACING, NUM_DIVISIONS)
@@ -255,6 +266,7 @@ public class Dashboard2 extends DashboardProgram
 			.withBaseColor(BASE_COLOR)
 			.withSpacing(0)
 			.build();
+		freqcwg.setName("FREQCWG");
 		for(int i = 0; i < 3; ++i)
 		{
 			BarReadout freqbr = freqbrBuilder.build();
@@ -393,6 +405,7 @@ public class Dashboard2 extends DashboardProgram
 			.withBaseColor(BASE_COLOR)
 			.withSpacing(BUTTON_SPACING)
 			.build();
+		reset.setName("RESET");
 		TouchButton resetButton = new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, ACCENT_COLOR, "RST");
 		ToggleButton commButton = new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, COLOR, "COMM");
 		reset.addButton(commButton, 0, 0);
