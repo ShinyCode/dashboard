@@ -1,10 +1,12 @@
-package dashboard;
+package dashboard.program;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import java.util.Map;
 
+import dashboard.control.MouseWidget;
+import dashboard.readout.StringUpdatable;
 import acm.graphics.GCompound;
 import acm.graphics.GObject;
 import acm.graphics.GPoint;

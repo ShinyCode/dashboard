@@ -1,4 +1,6 @@
-package dashboard;
+package dashboard.generator;
+
+import dashboard.readout.Readout;
 
 /**
  * Provides the base functionality for a data generator that creates data and transmits it

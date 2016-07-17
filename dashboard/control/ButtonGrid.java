@@ -1,4 +1,4 @@
-package dashboard;
+package dashboard.control;
 import java.awt.Color;
 
 import acm.graphics.GRect;

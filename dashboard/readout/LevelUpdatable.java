@@ -1,4 +1,4 @@
-package dashboard;
+package dashboard.readout;
 
 /**
  * Defines the functionality of a class that can be set to various discretized levels.

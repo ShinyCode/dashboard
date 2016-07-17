@@ -1,5 +1,7 @@
-package dashboard;
+package dashboard.control;
 import java.awt.Color;
+
+import dashboard.readout.BufferReadout;
 
 
 /**

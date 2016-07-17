@@ -1,44 +1,186 @@
-package outside;
+package examples;
 
 import java.awt.Color;
 
-import dashboard.*;
+import dashboard.control.AuxArrowPad;
+import dashboard.control.Button;
+import dashboard.control.CustomButtonGrid;
+import dashboard.control.CustomGroup;
+import dashboard.control.MultiIncrementer;
+import dashboard.control.SingleIncrementer;
+import dashboard.control.ToggleButton;
+import dashboard.control.TouchButton;
+import dashboard.program.DashboardProgram;
+import dashboard.readout.BarReadout;
+import dashboard.readout.BufferReadout;
+import dashboard.readout.ColorReadout;
+import dashboard.readout.CompassReadout;
+import dashboard.readout.DialReadout;
+import dashboard.readout.ImageReadout;
+import dashboard.readout.MinimapReadout;
 
+/**
+ * Implements a complex dashboard design as an example illustrating
+ * more complex features of the library. See {@link SimpleDashboard SimpleDashboard}
+ * for a simpler design.
+ * 
+ * @author Mark Sabini
+ *
+ */
 public class ComplexDashboard extends DashboardProgram
 {	
+	/**
+	 * The height of a dashboard button
+	 */
 	private static final double BUTTON_HEIGHT = 40.0;
+	
+	/**
+	 * The width of a dashboard button
+	 */
 	private static final double BUTTON_WIDTH = 80.0;
+	
+	/**
+	 * The spacing to use for widgets
+	 */
 	private static final double BUTTON_SPACING = 10.0;
+	
+	/**
+	 * The spacing in between separate widget groups
+	 */
 	private static final double COMPONENT_SPACING = 10.0;
+	
+	/**
+	 * The primary color of the dashboard
+	 */
 	private static final Color BASE_COLOR = Color.BLACK;
+	
+	/**
+	 * The secondary color of the dashboard
+	 */
 	private static final Color COLOR = Color.RED.darker();
+	
+	/**
+	 * The accent color of the dashboard
+	 */
 	private static final Color ACCENT_COLOR = Color.ORANGE;
+	
+	/**
+	 * The number of divisions to use for each LevelReadout
+	 */
 	private static final int NUM_DIVISIONS = 100;
+	
+	/**
+	 * The width of the bordering surrounding each component
+	 */
 	private static final double BORDER_WIDTH = 2.0;
+	
+	/**
+	 * The width of a member of the DAT (datum) CustomGroup
+	 */
 	private static final double DATUM_READOUT_WIDTH = 100.0;
+	
+	/**
+	 * The height of a member of the DAT (datum) CustomGroup
+	 */
 	private static final double DATUM_READOUT_HEIGHT = 60.0;
+	
+	/**
+	 * The height of a Button in the ENGCWG (engine) CustomGroup
+	 */
 	private static final double ENGINE_BUTTON_HEIGHT = 25.0;
+	
+	/**
+	 * The width of a Button in the CHAT (chat) CustomGroup
+	 */
 	private static final double CHAT_BUTTON_WIDTH = 2.0 * BUTTON_WIDTH / 3.0;
+	
+	/**
+	 * The height of a Button in the CHAT (chat) CustomGroup
+	 */
 	private static final double CHAT_BUTTON_HEIGHT = BUTTON_HEIGHT;
 	
+	/**
+	 * The main power switch
+	 */
 	private CustomButtonGrid mpwr;
+	
+	/**
+	 * The communications conference screen
+	 */
 	private ImageReadout cir;
+	
+	/**
+	 * The chat/console log
+	 */
 	private CustomButtonGrid chat;
+	
+	/**
+	 * The engine ignition switch
+	 */
 	private CustomButtonGrid epwr;
+	
+	/**
+	 * The datum information readout panel
+	 */
 	private CustomGroup dat;
+	
+	/**
+	 * The vitals information readout panel
+	 */
 	private CustomGroup vit;
+	
+	/**
+	 * The direction arrow pad control
+	 */
 	private AuxArrowPad aap;
+	
+	/**
+	 * The main engine thrust controller
+	 */
 	private CustomGroup engcwg1;
+	
+	/**
+	 * The vertical engine thrust controller
+	 */
 	private CustomGroup engcwg2;
+	
+	/**
+	 * The communications frequency control panel
+	 */
 	private CustomGroup freqcwg;
+	
+	/**
+	 * An array of lights encoding engine status information
+	 */
 	private CustomGroup engcrcwg;
+	
+	/**
+	 * An array of lights encoding communications/system information
+	 */
 	private CustomGroup chatcrcwg;
+	
+	/**
+	 * The minimap readout
+	 */
 	private MinimapReadout mmr;
+	
+	/**
+	 * The emergency operations panel
+	 */
 	private CustomButtonGrid reset;
+	
+	/**
+	 * The compass readout
+	 */
 	private CompassReadout cmpr;
 	
+	/**
+	 * Draws and starts the dashboard.
+	 */
 	public void init()
 	{
+		setSize(1200, 500);
+		
 		initMPWR();
 		initCIR();
 		bindActionsCPWR();
@@ -59,9 +201,11 @@ public class ComplexDashboard extends DashboardProgram
 		addBackground(COMPONENT_SPACING, BASE_COLOR);
 		
 		addMouseListeners();
-		setSize(1200, 500);
 	}
 	
+	/**
+	 * Initializes the main power switch.
+	 */
 	private void initMPWR()
 	{
 		ToggleButton mpwrButton = new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, ACCENT_COLOR, "MPWR");
@@ -81,6 +225,9 @@ public class ComplexDashboard extends DashboardProgram
 		addBorder(mpwr, COLOR, BORDER_WIDTH);
 	}
 	
+	/**
+	 * Initializes the communications conference screen.
+	 */
 	private void initCIR()
 	{
 		double cirSide = 1.3 * mpwr.getHeight();
@@ -95,6 +242,9 @@ public class ComplexDashboard extends DashboardProgram
 		addBorder(cir, COLOR, BORDER_WIDTH);
 	}
 	
+	/**
+	 * Associates a power button with the communications conference screen.
+	 */
 	private void bindActionsCPWR()
 	{
 		Button cpwrButton = mpwr.getButton(1, 0);
@@ -114,6 +264,9 @@ public class ComplexDashboard extends DashboardProgram
 		});
 	}
 	
+	/**
+	 * Initializes the chat/console log.
+	 */
 	private void initCHAT()
 	{
 		TouchButton chatClsButton = new TouchButton(CHAT_BUTTON_WIDTH, CHAT_BUTTON_HEIGHT, COLOR, "CLS");
@@ -134,6 +287,9 @@ public class ComplexDashboard extends DashboardProgram
 		addBorder(chat, COLOR, BORDER_WIDTH);
 	}
 	
+	/**
+	 * Initializes the engine ignition switch.
+	 */
 	private void initEPWR()
 	{
 		epwr = new CustomButtonGrid.Builder(BUTTON_WIDTH + 2 * BUTTON_SPACING, BUTTON_HEIGHT + 2 * BUTTON_SPACING)
@@ -148,6 +304,9 @@ public class ComplexDashboard extends DashboardProgram
 		addBorder(epwr, ACCENT_COLOR, BORDER_WIDTH);
 	}
 	
+	/**
+	 * Initializes the datum information readout panel.
+	 */
 	private void initDAT()
 	{
 		String datumNames[] = {"XPOS", "YPOS", "BRX", "BRY", "ALT"};
@@ -170,6 +329,9 @@ public class ComplexDashboard extends DashboardProgram
 		addBorder(dat, COLOR, BORDER_WIDTH);
 	}
 	
+	/**
+	 * Initializes the vitals information readout panel.
+	 */
 	private void initVIT()
 	{
 		String vitalNames[] = {"SPD", "THR", "FUEL"};
@@ -193,6 +355,9 @@ public class ComplexDashboard extends DashboardProgram
 		addBorder(vit, COLOR, BORDER_WIDTH);
 	}
 	
+	/**
+	 * Initializes the direction arrow pad control.
+	 */
 	private void initAAP()
 	{
 		aap = new AuxArrowPad.Builder(vit.getWidth(), 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING)
@@ -205,6 +370,9 @@ public class ComplexDashboard extends DashboardProgram
 		addBorder(aap, COLOR, BORDER_WIDTH);
 	}
 	
+	/**
+	 * Initializes the main and auxiliary engine thrust controllers.
+	 */
 	private void initENGCWG()
 	{
 		double remainHeight = aap.getY() + aap.getHeight() - epwr.getY() - epwr.getHeight();
@@ -245,6 +413,9 @@ public class ComplexDashboard extends DashboardProgram
 		addBorder(engcwg2, COLOR, BORDER_WIDTH);
 	}
 	
+	/**
+	 * Initializes the communications frequency control panel.
+	 */
 	private void initFREQCWG()
 	{
 		double freqButtonWidth = engcwg1.getWidget("ENGBR1").getWidth() - 2 * BUTTON_SPACING;
@@ -278,6 +449,9 @@ public class ComplexDashboard extends DashboardProgram
 		addBorder(freqcwg, COLOR, BORDER_WIDTH);
 	}
 	
+	/**
+	 * Initializes the engine status information array.
+	 */
 	private void initENGCRCWG()
 	{
 		double engcrWidth = (freqcwg.getWidth() - 3.5 * BUTTON_SPACING) / 6.0;
@@ -302,6 +476,9 @@ public class ComplexDashboard extends DashboardProgram
 		addBorder(engcrcwg, COLOR, BORDER_WIDTH);
 	}
 	
+	/**
+	 * Initializes the communications/system status information array.
+	 */
 	private void initCHATCRCWG()
 	{
 		double totalWidth = dat.getX() + dat.getWidth() - epwr.getX();
@@ -336,6 +513,9 @@ public class ComplexDashboard extends DashboardProgram
 		addBorder(chatbfr, COLOR, BORDER_WIDTH);
 	}
 	
+	/**
+	 * Associates chat controls with the chat/console log.
+	 */
 	private void bindActionsCHAT()
 	{
 		BufferReadout chatbfr = (BufferReadout)getWidget("CHATBFR");
@@ -380,6 +560,9 @@ public class ComplexDashboard extends DashboardProgram
 		});
 	}
 	
+	/**
+	 * Initializes the minimap readout.
+	 */
 	private void initMMR()
 	{
 		double totalHeight = getTotalWidgetHeight();
@@ -397,6 +580,9 @@ public class ComplexDashboard extends DashboardProgram
 		addBorder(mmr, COLOR, BORDER_WIDTH);
 	}
 	
+	/**
+	 * Initializes the emergency operations panel.
+	 */
 	private void initRESET()
 	{
 		double totalHeight = getTotalWidgetHeight();
@@ -414,6 +600,9 @@ public class ComplexDashboard extends DashboardProgram
 		addBorder(reset, ACCENT_COLOR, BORDER_WIDTH);
 	}
 	
+	/**
+	 * Initializes the compass readout.
+	 */
 	private void initCMPR()
 	{
 		double totalHeight = getTotalWidgetHeight();

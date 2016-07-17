@@ -1,9 +1,10 @@
-package dashboard;
+package dashboard.readout;
 
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
+import dashboard.control.BufferReadoutControl;
 import acm.graphics.*;
 
 /**

@@ -1,35 +1,158 @@
-package outside;
+package examples;
 
 import java.awt.Color;
 
-import dashboard.*;
+import dashboard.control.AuxArrowPad;
+import dashboard.control.BufferReadoutControl;
+import dashboard.control.CustomButtonGrid;
+import dashboard.control.SingleIncrementer;
+import dashboard.control.ToggleButton;
+import dashboard.generator.AddressGenerator;
+import dashboard.program.DashboardProgram;
+import dashboard.readout.BarReadout;
+import dashboard.readout.BufferReadout;
 
+/**
+ * Implements a simple dashboard design as an example illustrating basic
+ * features of the library. See {@link ComplexDashboard ComplexDashboard} for a
+ * more complex design.
+ * 
+ * @author Mark Sabini
+ *
+ */
 public class SimpleDashboard extends DashboardProgram
 {
+	/**
+	 * The height of a dashboard button
+	 */
 	private static final double BUTTON_HEIGHT = 40;
+	
+	/**
+	 * The width of a dashboard button
+	 */
 	private static final double BUTTON_WIDTH = 80;
+	
+	/**
+	 * The spacing to use for widgets
+	 */
 	private static final double BUTTON_SPACING = 10;
+	
+	/**
+	 * The spacing in between separate widget groups
+	 */
 	private static final double COMPONENT_SPACING = 10;
+	
+	/**
+	 * The primary color of the dashboard
+	 */
 	private static final Color BASE_COLOR = Color.BLACK;
+	
+	/**
+	 * The secondary color of the dashboard
+	 */
 	private static final Color COLOR = Color.RED.darker();
+	
+	/**
+	 * The accent color of the dashboard
+	 */
 	private static final Color ACCENT_COLOR = Color.ORANGE;
+	
+	/**
+	 * The height of a button in a readout control
+	 */
 	private static final double READOUT_BUTTON_HEIGHT = BUTTON_HEIGHT / 2.0;
+	
+	/**
+	 * The number of milliseconds between generator updates
+	 */
 	private static final int UPDATE_SPEED = 500;
+	
+	/**
+	 * The width of the bordering surrounding each component
+	 */
 	private static final double BORDER_WIDTH = 2;
 	
+	/**
+	 * The main power switch
+	 */
 	private CustomButtonGrid pwr;
+	
+	/**
+	 * The auxiliary communications panel
+	 */
 	private CustomButtonGrid aux;
+	
+	/**
+	 * Engine thrust control
+	 */
 	private SingleIncrementer sinc;
+	
+	/**
+	 * Engine thrust readout
+	 */
 	private BarReadout br;
+	
+	/**
+	 * Directional arrow pad control
+	 */
 	private AuxArrowPad aap;
+	
+	/**
+	 * Speed readout
+	 */
 	private BufferReadout spd;
+	
+	/**
+	 * Rotation readout
+	 */
 	private BufferReadout rot;
+	
+	/**
+	 * Communications/instruction readout
+	 */
 	private BufferReadout addr;
+	
+	/**
+	 * Control for the speed readout
+	 */
 	private BufferReadoutControl spdCtrl;
+	
+	/**
+	 * Control for the rotation readout
+	 */
 	private BufferReadoutControl rotCtrl;
+	
+	/**
+	 * Control for the communications/instruction readout
+	 */
 	private BufferReadoutControl addrCtrl;
+	
+	/**
+	 * Address generator for the communications readout
+	 */
 	private AddressGenerator genAdd;
 	
+	/**
+	 * Draws and starts the dashboard.
+	 */
+	public void init()
+	{
+		initPWR();
+		initAUX();
+		initAAP();
+		initReadouts();
+		initReadoutControls();
+		bindReadoutControls();
+		initPWRControl();
+		initGenerators();
+
+		addBackground(COMPONENT_SPACING, BASE_COLOR);
+		addMouseListeners();
+	}
+	
+	/**
+	 * Initializes the main power switch.
+	 */
 	private void initPWR()
 	{
 		pwr = new CustomButtonGrid.Builder(1 * BUTTON_WIDTH + 2 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING)
@@ -44,6 +167,9 @@ public class SimpleDashboard extends DashboardProgram
 		addBorder(pwr, ACCENT_COLOR, BORDER_WIDTH);
 	}
 	
+	/**
+	 * Initializes the auxiliary communications panel.
+	 */
 	private void initAUX()
 	{
 		aux = new CustomButtonGrid.Builder(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 1 * BUTTON_HEIGHT + 2 * BUTTON_SPACING)
@@ -62,6 +188,9 @@ public class SimpleDashboard extends DashboardProgram
 		addBorder(aux, COLOR, BORDER_WIDTH);
 	}
 	
+	/**
+	 * Initializes the direction control.
+	 */
 	private void initAAP()
 	{
 		aap = new AuxArrowPad.Builder(3 * BUTTON_WIDTH + 4 * BUTTON_SPACING, 2 * BUTTON_HEIGHT + 3 * BUTTON_SPACING)
@@ -74,6 +203,9 @@ public class SimpleDashboard extends DashboardProgram
 		addBorder(aap, COLOR, BORDER_WIDTH);	
 	}
 	
+	/**
+	 * Initializes the speed, rotation, and communications readouts.
+	 */
 	private void initReadouts()
 	{
 		double readoutWidth = BUTTON_WIDTH + 2 * BUTTON_SPACING;
@@ -94,6 +226,9 @@ public class SimpleDashboard extends DashboardProgram
 		addBorder(addr, ACCENT_COLOR, BORDER_WIDTH);
 	}
 	
+	/**
+	 * Initializes the controls for the speed, rotation, and communications readouts.
+	 */
 	private void initReadoutControls()
 	{
 		double readoutWidth = BUTTON_WIDTH + 2 * BUTTON_SPACING;
@@ -123,6 +258,9 @@ public class SimpleDashboard extends DashboardProgram
 		addBorder(addrCtrl, COLOR, BORDER_WIDTH);
 	}
 	
+	/**
+	 * Associates the readout controls with their specific readouts.
+	 */
 	private void bindReadoutControls()
 	{
 		spdCtrl.addBufferReadout(spd);
@@ -130,6 +268,9 @@ public class SimpleDashboard extends DashboardProgram
 		addrCtrl.addBufferReadout(addr);
 	}
 	
+	/**
+	 * Initializes the engine thrust readout and control.
+	 */
 	private void initPWRControl()
 	{
 		sinc = new SingleIncrementer.Builder(BUTTON_WIDTH / 2.0 + BUTTON_SPACING - BORDER_WIDTH, spdCtrl.getY() + spdCtrl.getHeight() - aap.getY())
@@ -154,27 +295,16 @@ public class SimpleDashboard extends DashboardProgram
 		addBorder(br, COLOR, BORDER_WIDTH);
 	}
 	
+	/**
+	 * Initializes and starts the address generator that updates the
+	 * communications readout.
+	 */
 	private void initGenerators()
 	{
 		genAdd = new AddressGenerator(UPDATE_SPEED);
 		genAdd.addStringUpdatable("addr", addr);
 		genAdd.addStringUpdatable("rot", rot);
 		genAdd.setActive(true);
-	}
-	
-	public void init()
-	{
-		initPWR();
-		initAUX();
-		initAAP();
-		initReadouts();
-		initReadoutControls();
-		bindReadoutControls();
-		initPWRControl();
-		initGenerators();
-
-		addBackground(COMPONENT_SPACING, BASE_COLOR);
-		addMouseListeners();
 	}
 
 }

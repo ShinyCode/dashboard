@@ -1,4 +1,5 @@
-package dashboard;
+package dashboard.readout;
+
 
 /**
  * Provides the base functionality for a Readout that has discretized levels. A LevelReadout

@@ -1,4 +1,4 @@
-package dashboard;
+package dashboard.control;
 
 import acm.graphics.*;
 

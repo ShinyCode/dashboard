@@ -1,7 +1,8 @@
-package dashboard;
+package dashboard.readout;
 
 import java.awt.Color;
 
+import dashboard.util.GPointMath;
 import acm.graphics.GOval;
 import acm.graphics.GPoint;
 import acm.graphics.GPolygon;
@@ -117,7 +118,7 @@ public final class CompassReadout extends Readout implements LocationUpdatable
 		 * @param position the initial position of the CompassReadout
 		 * @param bearing the initial bearing of the CompassReadout
 		 * @throws IllegalStateException if the position and bearing are not both null or both non-null
-		 * @return
+		 * @return the current Builder
 		 */
 		public Builder withLocation(GPoint position, GPoint bearing)
 		{

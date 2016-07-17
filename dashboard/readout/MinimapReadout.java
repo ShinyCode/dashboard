@@ -1,9 +1,10 @@
-package dashboard;
+package dashboard.readout;
 
 import java.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
 
+import dashboard.util.GPointMath;
 import acm.graphics.GCompound;
 import acm.graphics.GLine;
 import acm.graphics.GOval;

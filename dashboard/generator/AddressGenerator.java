@@ -1,7 +1,9 @@
-package dashboard;
+package dashboard.generator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+
+import dashboard.readout.StringUpdatable;
 
 /**
  * Implements a Generator that generates random memory addresses in hexadecimal. Intended to be used

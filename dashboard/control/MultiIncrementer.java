@@ -1,7 +1,9 @@
-package dashboard;
+package dashboard.control;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
+
+import dashboard.readout.Incrementable;
 
 /**
  * Implements a controller for multiple {@link Incrementable Incrementables}.
