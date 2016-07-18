@@ -13,7 +13,7 @@ import acm.graphics.GArc;
 import acm.graphics.GRect;
 
 /**
- * Implements a Readout representing a minimap with pins to mark various locations. The minimap scale
+ * Implements a Readout that represents a minimap with pins to mark various locations. The minimap scale
  * can be varied during runtime using the method {@link #setViewRadius(double) setViewRadius}.
  * 
  * @author Mark Sabini

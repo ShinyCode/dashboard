@@ -4,7 +4,7 @@ import java.awt.Color;
 import acm.graphics.GRect;
 
 /**
- * Implements a Readout representing an LED status light.
+ * Implements a Readout that represents an LED status light.
  * 
  * @author Mark Sabini
  *

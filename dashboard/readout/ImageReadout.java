@@ -7,7 +7,7 @@ import acm.graphics.GLine;
 import acm.graphics.GRect;
 
 /**
- * Implements a Readout representing a video screen. Currently, the ImageReadout will
+ * Implements a Readout that represents a video screen. Currently, the ImageReadout will
  * resize a GImage to match its own dimensions, so the aspect ratio may not be preserved.
  * 
  * @author Mark Sabini

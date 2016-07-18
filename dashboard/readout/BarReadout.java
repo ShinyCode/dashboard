@@ -4,7 +4,7 @@ import java.awt.Color;
 import acm.graphics.*;
 
 /**
- * Implements a Readout representing a bar whose length scales linearly with input values.
+ * Implements a Readout that represents a bar whose length scales linearly with input values.
  * 
  * @author Mark Sabini
  *

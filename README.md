@@ -118,3 +118,76 @@ addrGen.setActive(true);
 
 <div id='id-widgets'/>
 ## Widget Gallery
+
+### Button-based Controls
+These controls are normally used within Group-based and ButtonGrid-based controls, but can be used by themselves. 
+Each Button-based control has an onAction and an offAction. When these Runnables are invoked depends on the exact control.
+
+#### TouchButton
+A Button that executes its onAction exactly once when pressed, and its offAction exactly once when released.
+
+#### HoldButton
+A Button that if held, repeatedly executes its onAction until it is released.
+
+#### ToggleButton
+A Button that behaves like a switch or flip-flop.
+
+### Group-based Controls
+These controls allow for absolute positioning of constituent widgets.
+
+#### CustomGroup
+A custom group of widgets that can be constructed at runtime.
+
+### ButtonGrid-based Controls
+These controls are built from various Buttons, which makes them both easy to design and use.
+
+#### MainArrowPad
+A main arrow pad for controlling a vehicle. The main arrow pad can transmit and copy its button presses to multiple {@link AuxArrowPad AuxArrowPads}.
+
+#### AuxArrowPad
+An auxiliary arrow pad for controlling a vehicle, which can be controlled by a MainArrowPad.
+
+#### BufferReadoutControl
+A controller for the BufferReadout class.
+
+#### SingleIncrementer
+A controller for a single Incrementable.
+
+#### MultiIncrementer
+A controller for multiple Incrementables.
+
+#### CustomButtonGrid
+A custom grid of Buttons that can be constructed at runtime.
+
+### Readouts
+In contrast to Controls, Readouts have no mouse functionality. Rather, they are used for displaying various types of data.
+The exact type of data accepted by a Readout depends on the exact Updatable interface it implements.
+
+#### BarReadout
+Represents a bar whose length scales linearly with input values.
+
+#### BufferReadout
+Represents a scrollable graphical buffer of text.
+
+#### ColorReadout
+Represents an LED status light.
+
+#### CompassReadout
+Represents a compass which always points in the direction of a user-specified goal.
+
+#### DialReadout
+Represents a dial whose angle scales linearly with input values.
+
+#### ImageReadout
+Represents a video screen.
+
+#### MinimapReadout
+Represents a minimap with pins to mark various locations.
+
+### Generators
+Generators generate data for the sole cosmetic purpose of animating Readouts. Being undrawn, they work behind-the-scenes
+to make a dashboard seem "busier".
+
+#### AddressGenerator
+Generates random memory addresses in hexadecimal.
+

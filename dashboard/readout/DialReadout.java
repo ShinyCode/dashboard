@@ -6,7 +6,7 @@ import acm.graphics.GRect;
 import acm.graphics.GRectangle;
 
 /**
- * Implements a Readout representing a dial whose angle scales linearly with input values.
+ * Implements a Readout that represents a dial whose angle scales linearly with input values.
  * 
  * @author Mark Sabini
  *
