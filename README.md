@@ -9,11 +9,11 @@
 - [Widget Gallery](#id-widgets)
 
 <div id='id-motivation'/>
-# Motivation
+## Motivation
 
 
 <div id='id-skills'/>
-# Skills/Concepts Exercised
+## Skills/Concepts Exercised
 While **dashboard** originally started as a side project for fun, it also became a learning experience in library design and some of Java's more advanced features. Some of the skills/concepts exercised were:
 
 1. Designing effective inheritance hierarchies
@@ -23,7 +23,7 @@ While **dashboard** originally started as a side project for fun, it also became
 5. Basic multithreading
 
 <div id='id-features'/>
-# Features
+## Features
 At its core, **dashboard** provides the DashboardProgram class (which simplifies dashboard design) and three main types of dashboard components (Controls, Readouts, and Generators).
 
 * The DashboardProgram class extends ACM's GraphicsProgram by adding methods to:
@@ -35,8 +35,8 @@ At its core, **dashboard** provides the DashboardProgram class (which simplifies
 * Generators are undrawn components that generate data for the sole cosmetic purpose of updating Readouts. An example is the AddressGenerator.
 
 <div id='id-usage'/>
-# Usage
-## Using a Builder
+## Usage
+### Using a Builder
 ```java
 ImageReadout ir = new ImageReadout.Builder(WIDTH, HEIGHT)
 	.withBaseColor(BASE_COLOR)
@@ -46,7 +46,7 @@ ImageReadout ir = new ImageReadout.Builder(WIDTH, HEIGHT)
 	.withOffColor(Color.BLACK)
 	.build();
 ```
-## Creating identical widgets
+### Creating identical widgets
 To reduce code redundancy, the Builder can be reused to create widgets with identical specifications:
 ```java
 SingleIncrementer.Builder builder = new SingleIncrementer.Builder(WIDTH, HEIGHT)
@@ -57,7 +57,7 @@ SingleIncrementer first = builder.build();
 SingleIncrementer second = builder.build();
 ```
 
-## Forming a CustomGroup
+### Forming a CustomGroup
 A CustomGroup groups widgets together to simplify positioning them. Adding objects to a CustomGroup requires that an associated key be given:
 ```java
 CustomGroup group = new CustomGroup()
@@ -68,7 +68,7 @@ group.addWidget("START", new TouchButton(WIDTH, HEIGHT, Color.GREEN, "START"), 0
 group.addWidget("STOP", new TouchButton(WIDTH, HEIGHT, Color.RED, "STOP"), 0, HEIGHT);
 ```
 
-## Setting custom callbacks for Buttons
+### Setting custom callbacks for Buttons
 The setOnAction and setOffAction methods accept Runnables. How and when these Runnables will be invoked depends on the specific type of Button:
 ```java
 ToggleButton switch = new ToggleButton(WIDTH, HEIGHT, Color.BLUE, "SWITCH");
@@ -90,7 +90,7 @@ switch.setOffAction(new Runnable()
 });
 ```
 
-## Forming a CustomButtonGrid
+### Forming a CustomButtonGrid
 The CustomButtonGrid arranges its Buttons in a grid, resizing them to the necessary size. So, the Buttons can be created with zero width and height:
 ```java
 TouchButton topLeft = new TouchButton(0, 0, Color.RED, "TOPLEFT");
@@ -108,7 +108,7 @@ array.addButton(bottomLeft, 0, 1);
 array.addButton(bottomRight, 1, 1);
 ```
 
-## Using a Generator
+### Using a Generator
 Once a Generator has been created, it needs to be linked to a specific readout, and then started:
 ```java
 AddressGenerator addrGen = new AddressGenerator(UPDATE_SPEED);
@@ -117,77 +117,77 @@ addrGen.setActive(true);
 ```
 
 <div id='id-widgets'/>
-# Widget Gallery
+## Widget Gallery
 
-## Button-based Controls
+### Button-based Controls
 These controls are normally used within Group-based and ButtonGrid-based controls, but can be used by themselves. 
 Each Button-based control has an onAction and an offAction. When these Runnables are invoked depends on the exact control.
 
-### TouchButton
+#### TouchButton
 A Button that executes its onAction exactly once when pressed, and its offAction exactly once when released.
 
-### HoldButton
+#### HoldButton
 A Button that if held, repeatedly executes its onAction until it is released.
 
-### ToggleButton
+#### ToggleButton
 A Button that behaves like a switch or flip-flop.
 
-## Group-based Controls
+### Group-based Controls
 These controls allow for absolute positioning of constituent widgets.
 
-### CustomGroup
+#### CustomGroup
 A custom group of widgets that can be constructed at runtime.
 
-## ButtonGrid-based Controls
+### ButtonGrid-based Controls
 These controls are built from various Buttons, which makes them both easy to design and use.
 
-### MainArrowPad
+#### MainArrowPad
 A main arrow pad for controlling a vehicle. The main arrow pad can transmit and copy its button presses to multiple {@link AuxArrowPad AuxArrowPads}.
 
-### AuxArrowPad
+#### AuxArrowPad
 An auxiliary arrow pad for controlling a vehicle, which can be controlled by a MainArrowPad.
 
-### BufferReadoutControl
+#### BufferReadoutControl
 A controller for the BufferReadout class.
 
-### SingleIncrementer
+#### SingleIncrementer
 A controller for a single Incrementable.
 
-### MultiIncrementer
+#### MultiIncrementer
 A controller for multiple Incrementables.
 
-### CustomButtonGrid
+#### CustomButtonGrid
 A custom grid of Buttons that can be constructed at runtime.
 
-## Readouts
+### Readouts
 In contrast to Controls, Readouts have no mouse functionality. Rather, they are used for displaying various types of data.
 The exact type of data accepted by a Readout depends on the exact Updatable interface it implements.
 
-### BarReadout
+#### BarReadout
 Represents a bar whose length scales linearly with input values.
 
-### BufferReadout
+#### BufferReadout
 Represents a scrollable graphical buffer of text.
 
-### ColorReadout
+#### ColorReadout
 Represents an LED status light.
 
-### CompassReadout
+#### CompassReadout
 Represents a compass which always points in the direction of a user-specified goal.
 
-### DialReadout
+#### DialReadout
 Represents a dial whose angle scales linearly with input values.
 
-### ImageReadout
+#### ImageReadout
 Represents a video screen.
 
-### MinimapReadout
+#### MinimapReadout
 Represents a minimap with pins to mark various locations.
 
-## Generators
+### Generators
 Generators generate data for the sole cosmetic purpose of animating Readouts. Being undrawn, they work behind-the-scenes
 to make a dashboard seem "busier".
 
-### AddressGenerator
+#### AddressGenerator
 Generates random memory addresses in hexadecimal.
 
