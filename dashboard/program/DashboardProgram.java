@@ -5,7 +5,7 @@ import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import java.util.Map;
 
-import dashboard.control.MouseWidget;
+import dashboard.control.Control;
 import dashboard.readout.StringUpdatable;
 import acm.graphics.GCompound;
 import acm.graphics.GObject;
@@ -193,7 +193,7 @@ public abstract class DashboardProgram extends GraphicsProgram
 		String cmd = null;
 		GObject o = getElementAt(e.getX(), e.getY());
 		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
-		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
+		if(o instanceof Control) cmd = ((Control) o).mousePressed(e);
 		if(cmd != null) updateAllCommandOutputs(cmd);
 	}
 	
@@ -207,7 +207,7 @@ public abstract class DashboardProgram extends GraphicsProgram
 		String cmd = null;
 		GObject o = getElementAt(e.getX(), e.getY());
 		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
-		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseReleased(e);
+		if(o instanceof Control) cmd = ((Control) o).mouseReleased(e);
 		if(cmd != null) updateAllCommandOutputs(cmd);
 	}
 	

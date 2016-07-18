@@ -12,7 +12,7 @@ import java.awt.Color;
  * @author Mark Sabini
  *
  */
-public abstract class Button extends MouseWidget
+public abstract class Button extends Control
 {
 
 	/**

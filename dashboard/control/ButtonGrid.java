@@ -10,7 +10,7 @@ import acm.graphics.GRect;
  * @author Mark Sabini
  *
  */
-public abstract class ButtonGrid extends MouseWidget
+public abstract class ButtonGrid extends Control
 {
 	/**
 	 * An array storing all the buttons contained in the ButtonGrid

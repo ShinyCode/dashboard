@@ -14,7 +14,7 @@ import acm.graphics.*;
  * @author Mark Sabini
  *
  */
-public abstract class Group extends MouseWidget
+public abstract class Group extends Control
 {
 	/**
 	 * Maps keys to their respective widgets (GCompounds)

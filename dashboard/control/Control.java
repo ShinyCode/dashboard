@@ -11,7 +11,7 @@ import java.awt.event.*;
  * @author Mark Sabini
  * 
  */
-public abstract class MouseWidget extends GCompound
+public abstract class Control extends GCompound
 {	
 	/**
 	 * The name of the widget that will be displayed in subsequent call hierarchies
@@ -24,7 +24,7 @@ public abstract class MouseWidget extends GCompound
 	 * call hierarchy.
 	 * <p>
 	 * This method serves as a wrapper for {@link #onMousePressed(GObject) onMousePressed}, which
-	 * is overridden by subclasses of {@link MouseWidget MouseWidget} as an action callback.
+	 * is overridden by subclasses of {@link Control Control} as an action callback.
 	 * 
 	 * @param e a {@link MouseEvent MouseEvent} that represents the associated mouse action
 	 * @return the end action being executed and the associated call hierarchy
@@ -34,7 +34,7 @@ public abstract class MouseWidget extends GCompound
 		GObject o = getElementAt(e.getX(), e.getY());
 		String cmd = null;
 		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
-		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mousePressed(e);
+		if(o instanceof Control) cmd = ((Control) o).mousePressed(e);
 		onMousePressed(o);
 		if(cmd == null) return null;
 		return name + "." + cmd;
@@ -46,7 +46,7 @@ public abstract class MouseWidget extends GCompound
 	 * call hierarchy.
 	 * <p>
 	 * This method serves as a wrapper for {@link #onMouseReleased(GObject) onMouseReleased}, which
-	 * is overridden by subclasses of {@link MouseWidget MouseWidget} as an action callback.
+	 * is overridden by subclasses of {@link Control Control} as an action callback.
 	 * 
 	 * @param e a {@link MouseEvent MouseEvent} that represents the associated mouse action
 	 * @return the end action being executed and the associated call hierarchy
@@ -56,7 +56,7 @@ public abstract class MouseWidget extends GCompound
 		GObject o = getElementAt(e.getX(), e.getY());
 		String cmd = null;
 		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
-		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseReleased(e);
+		if(o instanceof Control) cmd = ((Control) o).mouseReleased(e);
 		onMouseReleased(o);
 		if(cmd == null) return null;
 		return name + "." + cmd;
@@ -68,7 +68,7 @@ public abstract class MouseWidget extends GCompound
 	 * call hierarchy.
 	 * <p>
 	 * This method serves as a wrapper for {@link #onMouseExited(GObject) onMouseExited}, which
-	 * is overridden by subclasses of {@link MouseWidget MouseWidget} as an action callback.
+	 * is overridden by subclasses of {@link Control Control} as an action callback.
 	 * 
 	 * @param e a {@link MouseEvent MouseEvent} that represents the associated mouse action
 	 * @return the end action being executed and the associated call hierarchy
@@ -78,7 +78,7 @@ public abstract class MouseWidget extends GCompound
 		GObject o = getElementAt(e.getX(), e.getY());
 		String cmd = null;
 		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
-		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseExited(e);
+		if(o instanceof Control) cmd = ((Control) o).mouseExited(e);
 		onMouseExited(o);
 		if(cmd == null) return null;
 		return name + "." + cmd;
@@ -90,7 +90,7 @@ public abstract class MouseWidget extends GCompound
 	 * call hierarchy.
 	 * <p>
 	 * This method serves as a wrapper for {@link #onMouseClicked(GObject) onMouseClicked}, which
-	 * is overridden by subclasses of {@link MouseWidget MouseWidget} as an action callback.
+	 * is overridden by subclasses of {@link Control Control} as an action callback.
 	 * 
 	 * @param e a {@link MouseEvent MouseEvent} that represents the associated mouse action
 	 * @return the end action being executed and the associated call hierarchy
@@ -100,7 +100,7 @@ public abstract class MouseWidget extends GCompound
 		GObject o = getElementAt(e.getX(), e.getY());
 		String cmd = null;
 		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
-		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseClicked(e);
+		if(o instanceof Control) cmd = ((Control) o).mouseClicked(e);
 		onMouseClicked(o);
 		if(cmd == null) return null;
 		return name + "." + cmd;
@@ -112,7 +112,7 @@ public abstract class MouseWidget extends GCompound
 	 * call hierarchy.
 	 * <p>
 	 * This method serves as a wrapper for {@link #onMouseEntered(GObject) onMouseEntered}, which
-	 * is overridden by subclasses of {@link MouseWidget MouseWidget} as an action callback.
+	 * is overridden by subclasses of {@link Control Control} as an action callback.
 	 * 
 	 * @param e a {@link MouseEvent MouseEvent} that represents the associated mouse action
 	 * @return the end action being executed and the associated call hierarchy
@@ -122,7 +122,7 @@ public abstract class MouseWidget extends GCompound
 		GObject o = getElementAt(e.getX(), e.getY());
 		String cmd = null;
 		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
-		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseEntered(e);
+		if(o instanceof Control) cmd = ((Control) o).mouseEntered(e);
 		onMouseEntered(o);
 		if(cmd == null) return null;
 		return name + "." + cmd;
@@ -134,7 +134,7 @@ public abstract class MouseWidget extends GCompound
 	 * call hierarchy.
 	 * <p>
 	 * This method serves as a wrapper for {@link #onMouseDragged(GObject) onMouseDragged}, which
-	 * is overridden by subclasses of {@link MouseWidget MouseWidget} as an action callback.
+	 * is overridden by subclasses of {@link Control Control} as an action callback.
 	 * 
 	 * @param e a {@link MouseEvent MouseEvent} that represents the associated mouse action
 	 * @return the end action being executed and the associated call hierarchy
@@ -144,7 +144,7 @@ public abstract class MouseWidget extends GCompound
 		GObject o = getElementAt(e.getX(), e.getY());
 		String cmd = null;
 		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
-		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseDragged(e);
+		if(o instanceof Control) cmd = ((Control) o).mouseDragged(e);
 		onMouseDragged(o);
 		if(cmd == null) return null;
 		return name + "." + cmd;
@@ -156,7 +156,7 @@ public abstract class MouseWidget extends GCompound
 	 * call hierarchy.
 	 * <p>
 	 * This method serves as a wrapper for {@link #onMouseMoved(GObject) onMouseMoved}, which
-	 * is overridden by subclasses of {@link MouseWidget MouseWidget} as an action callback.
+	 * is overridden by subclasses of {@link Control Control} as an action callback.
 	 * 
 	 * @param e a {@link MouseEvent MouseEvent} that represents the associated mouse action
 	 * @return the end action being executed and the associated call hierarchy
@@ -166,17 +166,17 @@ public abstract class MouseWidget extends GCompound
 		GObject o = getElementAt(e.getX(), e.getY());
 		String cmd = null;
 		if(o != null) e.translatePoint(-(int)o.getX(), -(int)o.getY());
-		if(o instanceof MouseWidget) cmd = ((MouseWidget) o).mouseMoved(e);
+		if(o instanceof Control) cmd = ((Control) o).mouseMoved(e);
 		onMouseMoved(o);
 		if(cmd == null) return null;
 		return name + "." + cmd;
 	}
 	
 	/**
-	 * Sets the name of the {@link MouseWidget MouseWidget} that will be displayed
+	 * Sets the name of the {@link Control Control} that will be displayed
 	 * in subsequent call hierarchies.
 	 * 
-	 * @param name a label for the MouseWidget
+	 * @param name a label for the Control
 	 */
 	public void setName(String name)
 	{
@@ -184,10 +184,10 @@ public abstract class MouseWidget extends GCompound
 	}
 	
 	/**
-	 * Gets the name of the {@link MouseWidget MouseWidget} that will be displayed
+	 * Gets the name of the {@link Control Control} that will be displayed
 	 * in subsequent call hierarchies.
 	 * 
-	 * @return the name of the MouseWidget
+	 * @return the name of the Control
 	 */
 	public String getName()
 	{
@@ -195,12 +195,12 @@ public abstract class MouseWidget extends GCompound
 	}
 	
 	/**
-	 * Called by {@link #mousePressed(MouseEvent) mousePressed} to execute code specific to this {@link MouseWidget MouseWidget}.
-	 * The client should override this function to implement a callback for the specific MouseWidget.
+	 * Called by {@link #mousePressed(MouseEvent) mousePressed} to execute code specific to this {@link Control Control}.
+	 * The client should override this function to implement a callback for the specific Control.
 	 * As the method exists within a wrapper function, the client should not explicitly call
 	 * subwidgets' versions of mousePressed.
 	 * 
-	 * @param o the exact element within the MouseWidget that the client interacted with
+	 * @param o the exact element within the Control that the client interacted with
 	 */
 	public void onMousePressed(GObject o)
 	{
@@ -208,12 +208,12 @@ public abstract class MouseWidget extends GCompound
 	}
 	
 	/**
-	 * Called by {@link #mouseReleased(MouseEvent) mouseReleased} to execute code specific to this {@link MouseWidget MouseWidget}.
-	 * The client should override this function to implement a callback for the specific MouseWidget.
+	 * Called by {@link #mouseReleased(MouseEvent) mouseReleased} to execute code specific to this {@link Control Control}.
+	 * The client should override this function to implement a callback for the specific Control.
 	 * As the method exists within a wrapper function, the client should not explicitly call
 	 * subwidgets' versions of mouseReleased.
 	 * 
-	 * @param o the exact element within the MouseWidget that the client interacted with
+	 * @param o the exact element within the Control that the client interacted with
 	 */
 	public void onMouseReleased(GObject o)
 	{
@@ -221,12 +221,12 @@ public abstract class MouseWidget extends GCompound
 	}
 	
 	/**
-	 * Called by {@link #mouseExited(MouseEvent) mouseExited} to execute code specific to this {@link MouseWidget MouseWidget}.
-	 * The client should override this function to implement a callback for the specific MouseWidget.
+	 * Called by {@link #mouseExited(MouseEvent) mouseExited} to execute code specific to this {@link Control Control}.
+	 * The client should override this function to implement a callback for the specific Control.
 	 * As the method exists within a wrapper function, the client should not explicitly call
 	 * subwidgets' versions of mouseExited.
 	 * 
-	 * @param o the exact element within the MouseWidget that the client interacted with
+	 * @param o the exact element within the Control that the client interacted with
 	 */
 	public void onMouseExited(GObject o)
 	{
@@ -234,12 +234,12 @@ public abstract class MouseWidget extends GCompound
 	}
 	
 	/**
-	 * Called by {@link #mouseClicked(MouseEvent) mouseClicked} to execute code specific to this {@link MouseWidget MouseWidget}.
-	 * The client should override this function to implement a callback for the specific MouseWidget.
+	 * Called by {@link #mouseClicked(MouseEvent) mouseClicked} to execute code specific to this {@link Control Control}.
+	 * The client should override this function to implement a callback for the specific Control.
 	 * As the method exists within a wrapper function, the client should not explicitly call
 	 * subwidgets' versions of mouseClicked.
 	 * 
-	 * @param o the exact element within the MouseWidget that the client interacted with
+	 * @param o the exact element within the Control that the client interacted with
 	 */
 	public void onMouseClicked(GObject o)
 	{
@@ -247,12 +247,12 @@ public abstract class MouseWidget extends GCompound
 	}
 	
 	/**
-	 * Called by {@link #mouseEntered(MouseEvent) mouseEntered} to execute code specific to this {@link MouseWidget MouseWidget}.
-	 * The client should override this function to implement a callback for the specific MouseWidget.
+	 * Called by {@link #mouseEntered(MouseEvent) mouseEntered} to execute code specific to this {@link Control Control}.
+	 * The client should override this function to implement a callback for the specific Control.
 	 * As the method exists within a wrapper function, the client should not explicitly call
 	 * subwidgets' versions of mouseEntered.
 	 * 
-	 * @param o the exact element within the MouseWidget that the client interacted with
+	 * @param o the exact element within the Control that the client interacted with
 	 */
 	public void onMouseEntered(GObject o)
 	{
@@ -260,12 +260,12 @@ public abstract class MouseWidget extends GCompound
 	}
 	
 	/**
-	 * Called by {@link #mouseDragged(MouseEvent) mouseDragged} to execute code specific to this {@link MouseWidget MouseWidget}.
-	 * The client should override this function to implement a callback for the specific MouseWidget.
+	 * Called by {@link #mouseDragged(MouseEvent) mouseDragged} to execute code specific to this {@link Control Control}.
+	 * The client should override this function to implement a callback for the specific Control.
 	 * As the method exists within a wrapper function, the client should not explicitly call
 	 * subwidgets' versions of mouseDragged.
 	 * 
-	 * @param o the exact element within the MouseWidget that the client interacted with
+	 * @param o the exact element within the Control that the client interacted with
 	 */
 	public void onMouseDragged(GObject o)
 	{
@@ -273,12 +273,12 @@ public abstract class MouseWidget extends GCompound
 	}
 	
 	/**
-	 * Called by {@link #mouseMoved(MouseEvent) mouseMoved} to execute code specific to this {@link MouseWidget MouseWidget}.
-	 * The client should override this function to implement a callback for the specific MouseWidget.
+	 * Called by {@link #mouseMoved(MouseEvent) mouseMoved} to execute code specific to this {@link Control Control}.
+	 * The client should override this function to implement a callback for the specific Control.
 	 * As the method exists within a wrapper function, the client should not explicitly call
 	 * subwidgets' versions of mouseMoved.
 	 * 
-	 * @param o the exact element within the MouseWidget that the client interacted with
+	 * @param o the exact element within the Control that the client interacted with
 	 */
 	public void onMouseMoved(GObject o)
 	{
