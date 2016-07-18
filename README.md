@@ -1,9 +1,17 @@
 # dashboard
 **dashboard** is a widget library designed to emulate the look and feel of complex control panels found in planes and starships. Built on top of the ACM Java libraries, **dashboard** provides the dozens of pre-built widgets and components, as well as a [DashboardProgram](dashboard/program/DashboardProgram.java) class which simplifies dashboard design.
 
+## Table of Contents
+- [Motivation](#id-motivation)
+- [Skills/Concepts Exercised](#id-skills)
+- [Features](#id-features)
+- [Usage](#id-usage)
+- [Widget Gallery](#id-widgets)
+
+<div id='id-motivation'/>
 ## Motivation
 
-
+<div id='id-skills'/>
 ## Skills/Concepts Exercised
 While **dashboard** originally started as a side project for fun, it also became a learning experience in library design and some of Java's more advanced features. Some of the skills/concepts exercised were:
 
@@ -13,6 +21,7 @@ While **dashboard** originally started as a side project for fun, it also became
 4. Java generics
 5. Basic multithreading
 
+<div id='id-features'/>
 ## Features
 At its core, **dashboard** provides the DashboardProgram class (which simplifies dashboard design) and three main types of dashboard components (Controls, Readouts, and Generators).
 
@@ -24,6 +33,7 @@ At its core, **dashboard** provides the DashboardProgram class (which simplifies
 * Readouts are dashboard components that display data. Examples include DialReadout, ImageReadout, and CompassReadout.
 * Generators are undrawn components that generate data for the sole cosmetic purpose of updating Readouts. An example is the AddressGenerator.
 
+<div id='id-usage'/>
 ## Usage
 ### Using a Builder
 ```java
@@ -105,4 +115,5 @@ addrGen.addStringUpdatable("BUFFERREADOUT", bufferReadout); // The BufferReadout
 addrGen.setActive(true);
 ```
 
+<div id='id-widgets'/>
 ## Widget Gallery
