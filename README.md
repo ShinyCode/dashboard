@@ -24,4 +24,15 @@ At its core, **dashboard** provides the DashboardProgram class (which simplifies
 * Readouts are dashboard components that display data. Examples include DialReadout, ImageReadout, and CompassReadout.
 * Generators are undrawn components that generate data for the sole cosmetic purpose of updating Readouts. An example is the AddressGenerator.
 
-## General Usage
+## Usage
+### Using a Builder
+
+### Creating identical widgets
+
+### Forming a CustomGroup
+
+### Setting custom callbacks for Buttons
+
+### Forming a CustomButtonGrid
+
+### Using a Generator
