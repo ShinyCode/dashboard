@@ -26,13 +26,83 @@ At its core, **dashboard** provides the DashboardProgram class (which simplifies
 
 ## Usage
 ### Using a Builder
-
+```java
+ImageReadout ir = new ImageReadout.Builder(WIDTH, HEIGHT)
+	.withBaseColor(BASE_COLOR)
+	.withColor(COLOR)
+	.withAccentColor(ACCENT_COLOR)
+	.withSpacing(BUTTON_SPACING)
+	.withOffColor(Color.BLACK)
+	.build();
+```
 ### Creating identical widgets
+To reduce code redundancy, the Builder can be reused to create widgets with identical specifications:
+```java
+SingleIncrementer.Builder builder = new SingleIncrementer.Builder(WIDTH, HEIGHT)
+	.withBaseColor(BASE_COLOR)
+	.withButtonColor(ACCENT_COLOR)
+	.withSpacing(BUTTON_SPACING);
+SingleIncrementer first = builder.build();
+SingleIncrementer second = builder.build();
+```
 
 ### Forming a CustomGroup
+A CustomGroup groups widgets together to simplify positioning them. Adding objects to a CustomGroup requires that an associated key be given:
+```java
+CustomGroup group = new CustomGroup()
+  .withBaseColor(BASE_COLOR)
+  .withSpacing(0)
+  .build();
+group.addWidget("START", new TouchButton(WIDTH, HEIGHT, Color.GREEN, "START"), 0, 0);
+group.addWidget("STOP", new TouchButton(WIDTH, HEIGHT, Color.RED, "STOP"), 0, HEIGHT);
+```
 
 ### Setting custom callbacks for Buttons
+The setOnAction and setOffAction methods accept Runnables. How and when these Runnables will be invoked depends on the specific type of Button:
+```java
+ToggleButton switch = new ToggleButton(WIDTH, HEIGHT, Color.BLUE, "SWITCH");
+switch.setOnAction(new Runnable()
+{
+  @Override
+  public void run()
+  {
+    System.out.println("I've been switched on.");
+  }
+});
+switch.setOffAction(new Runnable()
+{
+  @Override
+  public void run()
+  {
+    System.out.println("I've been switched off.");
+  }
+});
+```
 
 ### Forming a CustomButtonGrid
+The CustomButtonGrid arranges its Buttons in a grid, resizing them to the necessary size. So, the Buttons can be created with zero width and height:
+```java
+TouchButton topLeft = new TouchButton(0, 0, Color.RED, "TOPLEFT");
+TouchButton topRight = new TouchButton(0, 0, Color.BLUE, "TOPRIGHT");
+TouchButton bottomLeft = new TouchButton(0, 0, Color.GREEN, "BOTLEFT");
+TouchButton bottomRight = new TouchButton(0, 0, Color.YELLOW, "BOTRIGHT");
+CustomButtonGrid array = new CustomButtonGrid.Builder(WIDTH, HEIGHT)
+  .withRowsCols(2, 2)
+  .withSpacing(SPACING)
+  .withBaseColor(BASE_COLOR)
+  .build();
+array.addButton(topLeft, 0, 0);
+array.addButton(topRight, 1, 0);
+array.addButton(bottomLeft, 0, 1);
+array.addButton(bottomRight, 1, 1);
+```
 
 ### Using a Generator
+Once a Generator has been created, it needs to be linked to a specific readout, and then started:
+```java
+AddressGenerator addrGen = new AddressGenerator(UPDATE_SPEED);
+addrGen.addStringUpdatable("BUFFERREADOUT", bufferReadout); // The BufferReadout class implements StringUpdatable
+addrGen.setActive(true);
+```
+
+## Widget Gallery
