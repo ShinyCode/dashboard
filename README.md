@@ -366,3 +366,6 @@ to make a dashboard seem "busier".
 #### AddressGenerator
 Generates random memory addresses in hexadecimal.
 
+#### ColorGenerator
+Generates random RGB or HSB colors.
+

@@ -302,8 +302,8 @@ public class SimpleDashboard extends DashboardProgram
 	private void initGenerators()
 	{
 		genAdd = new AddressGenerator(UPDATE_SPEED);
-		genAdd.addStringUpdatable("addr", addr);
-		genAdd.addStringUpdatable("rot", rot);
+		genAdd.addReadout("addr", addr);
+		genAdd.addReadout("rot", rot);
 		genAdd.setActive(true);
 	}
 

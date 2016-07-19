@@ -650,7 +650,7 @@ public class ComplexDashboard extends DashboardProgram
 			for(int j = 0; j < 6; ++j)
 			{
 				ColorReadout engcr = (ColorReadout)engcrcwg.getWidget("ENGCR" + i + j);
-				engcolorgen.addColorUpdatable("ENGCR" + i + j, engcr);
+				engcolorgen.addReadout("ENGCR" + i + j, engcr);
 			}
 		}
 	}

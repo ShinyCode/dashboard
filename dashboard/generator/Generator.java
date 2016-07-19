@@ -1,5 +1,8 @@
 package dashboard.generator;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import dashboard.readout.Readout;
 
 /**
@@ -28,6 +31,11 @@ public abstract class Generator
 	private int interval;
 	
 	/**
+	 * Maps keys to their associated Readouts
+	 */
+	protected Map<String, Readout> readouts;
+	
+	/**
 	 * The default time interval between updates, if none is specified by the user
 	 */
 	private static final int DEFAULT_INTERVAL = 500;
@@ -48,6 +56,7 @@ public abstract class Generator
 	public Generator(int interval)
 	{
 		this.interval = interval;
+		readouts = new HashMap<String, Readout>();
 	}
 	
 	/**
@@ -115,6 +124,30 @@ public abstract class Generator
 	private void turnOff()
 	{
 		thr.interrupt();
+	}
+	
+	/**
+	 * Sets the specified Readout to be updated by the Generator, and binds it to the 
+	 * given key.
+	 * 
+	 * @param key a handle that refers to the Readout
+	 * @param readout the Readout to be updated
+	 */
+	public void addReadout(String key, Readout readout)
+	{
+		if(readouts.containsKey(key)) return;
+		readouts.put(key, readout);
+	}
+	
+	/**
+	 * Removes the Readout bound to the specific key. If the Readout could not be located,
+	 * no action is taken.
+	 * @param key the key that was bound to the Readout in {@link #addReadout(String, Readout) addReadout}
+	 */
+	public void removeReadout(String key)
+	{
+		if(!readouts.containsKey(key)) return;
+		readouts.remove(key);
 	}
 	
 	/**

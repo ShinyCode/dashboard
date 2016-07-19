@@ -1,8 +1,8 @@
 package dashboard.generator;
-import java.util.HashMap;
-import java.util.Map;
+
 import java.util.Random;
 
+import dashboard.readout.Readout;
 import dashboard.readout.StringUpdatable;
 
 /**
@@ -30,11 +30,6 @@ public final class AddressGenerator extends Generator
 	private Random r;
 	
 	/**
-	 * Maps keys to their associated StringUpdatables
-	 */
-	private Map<String, StringUpdatable> stringUpdatables;
-	
-	/**
 	 * Creates an AddressGenerator with the specified timing interval.
 	 * 
 	 * @param interval the time interval between updates, measured in milliseconds
@@ -42,32 +37,7 @@ public final class AddressGenerator extends Generator
 	public AddressGenerator(int interval)
 	{
 		super(interval);
-		stringUpdatables = new HashMap<String, StringUpdatable>();
 		r = new Random();
-	}
-	
-	/**
-	 * Sets the specified StringUpdatable to be updated by the AddressGenerator, and binds it to the 
-	 * given key.
-	 * 
-	 * @param key a handle that refers to the StringUpdatable
-	 * @param su the StringUpdatable to be updated
-	 */
-	public void addStringUpdatable(String key, StringUpdatable su)
-	{
-		if(stringUpdatables.containsKey(key)) return;
-		stringUpdatables.put(key, su);
-	}
-	
-	/**
-	 * Removes the StringUpdatable bound to the specific key. If the StringUpdatable could not be located,
-	 * no action is taken.
-	 * @param key the key that was bound to the StringUpdatable in {@link #addStringUpdatable(String, StringUpdatable) addStringUpdatable}
-	 */
-	public void removeStringUpdatable(String key)
-	{
-		if(!stringUpdatables.containsKey(key)) return;
-		stringUpdatables.remove(key);
 	}
 	
 	/**
@@ -93,9 +63,10 @@ public final class AddressGenerator extends Generator
 	@Override
 	public void generate()
 	{
-		for(String key : stringUpdatables.keySet())
+		for(String key : readouts.keySet())
 		{
-			stringUpdatables.get(key).update(generateRandomAddress());
+			Readout readout = readouts.get(key);
+			if(readout instanceof StringUpdatable) ((StringUpdatable)readout).update(generateRandomAddress());
 		}
 	}
 }
