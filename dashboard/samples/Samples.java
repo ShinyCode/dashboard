@@ -16,7 +16,7 @@ public class Samples extends DashboardProgram
 	private static final double BUTTON_SPACING = 10.0;
 	private static final double COMPONENT_SPACING = 10.0;
 	private static final Color BASE_COLOR = Color.BLACK;
-	private static final Color COLOR = Color.RED.darker();
+	private static final Color COLOR = new Color(8, 37, 183);
 	private static final Color ACCENT_COLOR = Color.ORANGE;
 	private static final int NUM_DIVISIONS = 100;
 	private static final double WIDTH = 0.0;
@@ -118,7 +118,7 @@ public class Samples extends DashboardProgram
 			.withOrientation(BarReadout.HORIZONTAL)
 			.withRange(0.0, 200.0)
 			.build();
-		addWidget("BRH", barReadoutHoriz, barReadout.getX() + barReadout.getWidth() + COMPONENT_SPACING, barReadout.getY());
+		addWidget("BRH", barReadoutHoriz, barReadout.getX() + barReadout.getWidth() + COMPONENT_SPACING, barReadout.getY() + barReadout.getHeight() / 2.0 - barReadoutHoriz.getHeight() / 2.0);
 		barReadoutHoriz.update(132.0);
 		
 		BufferReadout bufferReadout = new BufferReadout.Builder(BUFFER_READOUT_WIDTH, BUFFER_READOUT_HEIGHT)
@@ -134,7 +134,7 @@ public class Samples extends DashboardProgram
 		ColorReadout.Builder colorReadoutBuilder = new ColorReadout.Builder(COLOR_READOUT_WIDTH, COLOR_READOUT_HEIGHT)
 			.withBaseColor(BASE_COLOR)
 			.withSpacing(READOUT_SPACING);
-		Color[] colors = {Color.RED.darker(), Color.GREEN.darker(), Color.BLUE.darker()};
+		Color[] colors = {Color.RED, Color.GREEN, Color.BLUE};
 		for(int i = 0; i < colors.length; ++i)
 		{
 			ColorReadout colorReadout = colorReadoutBuilder.build();
@@ -185,7 +185,7 @@ public class Samples extends DashboardProgram
 			.withViewRadius(10.0)
 			.build();
 		addWidget("MMR", minimapReadout, imageReadout.getX(), imageReadout.getY() + imageReadout.getHeight() + COMPONENT_SPACING);
-		minimapReadout.addPin("NORTHEAST", new GPoint(5.0, 5.0), Color.BLUE);
+		minimapReadout.addPin("NORTHEAST", new GPoint(5.0, 5.0), Color.RED);
 		minimapReadout.addPin("SOUTH", new GPoint(0.0, -4.0), Color.GREEN);
 		minimapReadout.addPin("WEST", new GPoint(-7.0, 0.0), Color.PINK);
 		minimapReadout.update(new GPoint(0, 0), new GPoint(0, 1));
