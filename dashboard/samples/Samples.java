@@ -175,7 +175,7 @@ public class Samples extends DashboardProgram
 			.withOffColor(Color.BLACK)
 			.build();
 		addWidget("IR", imageReadout, compassReadout.getX() + compassReadout.getWidth() + COMPONENT_SPACING, compassReadout.getY());
-		imageReadout.update(new GImage("res/testimage.gif"));
+		//imageReadout.update(new GImage("res/testimage.gif"));
 		
 		MinimapReadout minimapReadout = new MinimapReadout.Builder(MINIMAP_READOUT_WIDTH, MINIMAP_READOUT_HEIGHT)
 			.withBaseColor(BASE_COLOR)
