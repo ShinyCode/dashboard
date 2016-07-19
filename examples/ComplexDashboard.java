@@ -10,6 +10,7 @@ import dashboard.control.MultiIncrementer;
 import dashboard.control.SingleIncrementer;
 import dashboard.control.ToggleButton;
 import dashboard.control.TouchButton;
+import dashboard.generator.ColorGenerator;
 import dashboard.program.DashboardProgram;
 import dashboard.readout.BarReadout;
 import dashboard.readout.BufferReadout;
@@ -100,6 +101,16 @@ public class ComplexDashboard extends DashboardProgram
 	private static final double CHAT_BUTTON_HEIGHT = BUTTON_HEIGHT;
 	
 	/**
+	 * Slower update interval for Generators
+	 */
+	private static final int SLOW_UPDATE_INTERVAL = 1000;
+	
+	/**
+	 * Faster update interval for Generators
+	 */
+	private static final int FAST_UPDATE_INTERVAL = 50;
+	
+	/**
 	 * The main power switch
 	 */
 	private CustomButtonGrid mpwr;
@@ -115,7 +126,7 @@ public class ComplexDashboard extends DashboardProgram
 	private CustomButtonGrid chat;
 	
 	/**
-	 * The engine ignition switch
+	 * The engine power switch
 	 */
 	private CustomButtonGrid epwr;
 	
@@ -175,6 +186,11 @@ public class ComplexDashboard extends DashboardProgram
 	private CompassReadout cmpr;
 	
 	/**
+	 * The color generator for the engine panel
+	 */
+	private ColorGenerator engcolorgen;
+	
+	/**
 	 * Draws and starts the dashboard.
 	 */
 	public void init()
@@ -197,6 +213,11 @@ public class ComplexDashboard extends DashboardProgram
 		initMMR();
 		initRESET();
 		initCMPR();
+		
+		initENGCOLORGEN();
+		
+		bindActionsMPWR();
+		bindActionsEPWR();
 		
 		addBackground(COMPONENT_SPACING, BASE_COLOR);
 		
@@ -288,7 +309,7 @@ public class ComplexDashboard extends DashboardProgram
 	}
 	
 	/**
-	 * Initializes the engine ignition switch.
+	 * Initializes the engine power switch.
 	 */
 	private void initEPWR()
 	{
@@ -616,5 +637,53 @@ public class ComplexDashboard extends DashboardProgram
 		cmpr = cmprBuilder.build();
 		addWidget("CMPR1", cmpr, mpwr.getX(), mpwr.getY() + mpwr.getHeight() + COMPONENT_SPACING);
 		addBorder(cmpr, COLOR, BORDER_WIDTH);
+	}
+	
+	/**
+	 * Initializes the ColorGenerator for the engine panel
+	 */
+	private void initENGCOLORGEN()
+	{
+		engcolorgen = new ColorGenerator(SLOW_UPDATE_INTERVAL);
+		for(int i = 0; i < 2; ++i)
+		{
+			for(int j = 0; j < 6; ++j)
+			{
+				ColorReadout engcr = (ColorReadout)engcrcwg.getWidget("ENGCR" + i + j);
+				engcolorgen.addColorUpdatable("ENGCR" + i + j, engcr);
+			}
+		}
+	}
+	
+	/**
+	 * Links the main power switch with all the generators in the main panel
+	 */
+	private void bindActionsMPWR()
+	{
+		
+	}
+	
+	/**
+	 * Links the engine power switch with all the generators in the engine panel
+	 */
+	private void bindActionsEPWR()
+	{
+		ToggleButton epwrButton = (ToggleButton)epwr.getButton(0, 0);
+		epwrButton.setOnAction(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				engcolorgen.setActive(true);
+			}
+		});
+		epwrButton.setOffAction(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				engcolorgen.setActive(false);
+			}
+		});
 	}
 }
