@@ -142,7 +142,7 @@ A custom group of widgets that can be constructed at runtime.
 These controls are built from various Buttons, which makes them both easy to design and use.
 
 #### MainArrowPad
-A main arrow pad for controlling a vehicle. The main arrow pad can transmit and copy its button presses to multiple {@link AuxArrowPad AuxArrowPads}.
+A main arrow pad for controlling a vehicle. The main arrow pad can transmit and copy its button presses to multiple AuxArrowPads.
 
 #### AuxArrowPad
 An auxiliary arrow pad for controlling a vehicle, which can be controlled by a MainArrowPad.

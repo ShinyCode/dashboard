@@ -39,7 +39,7 @@ public abstract class LevelReadout extends Readout implements Incrementable, Num
 	 * @param <T> dummy parameter to enable the subclasses to return their exact type
 	 */
 	@SuppressWarnings("rawtypes")
-	protected static abstract class Builder<T extends Builder> extends Readout.Builder<T>
+	public static abstract class Builder<T extends Builder> extends Readout.Builder<T>
 	{	
 		/**
 		 * The total number of levels into which the LevelReadout is divided, set to 0 by default.

@@ -55,7 +55,7 @@ public abstract class ButtonGrid extends Control
 	 * @param <T> dummy parameter to enable the subclasses to return their exact type
 	 */
 	@SuppressWarnings("rawtypes")
-	protected static abstract class Builder<T extends Builder>
+	public static abstract class Builder<T extends Builder>
 	{
 		/**
 		 * The width of the ButtonGrid

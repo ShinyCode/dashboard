@@ -39,7 +39,7 @@ public abstract class Group extends Control
 	 * @param <T> dummy parameter to enable the subclasses to return their exact type
 	 */
 	@SuppressWarnings("rawtypes")
-	protected abstract static class Builder<T extends Builder>
+	public abstract static class Builder<T extends Builder>
 	{
 		/**
 		 * The spacing to use for the Group, set to 0.0 by default
