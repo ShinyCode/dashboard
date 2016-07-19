@@ -2,25 +2,9 @@
 **dashboard** is a widget library designed to emulate the look and feel of complex control panels found in planes and starships. Built on top of the ACM Java libraries, **dashboard** provides the dozens of pre-built widgets and components, as well as a [DashboardProgram](dashboard/program/DashboardProgram.java) class which simplifies dashboard design.
 
 ## Table of Contents
-- [Motivation](#id-motivation)
-- [Skills/Concepts Exercised](#id-skills)
 - [Features](#id-features)
 - [Usage](#id-usage)
 - [Widget Gallery](#id-widgets)
-
-<div id='id-motivation'/>
-## Motivation
-
-
-<div id='id-skills'/>
-## Skills/Concepts Exercised
-While **dashboard** originally started as a side project for fun, it also became a learning experience in library design and some of Java's more advanced features. Some of the skills/concepts exercised were:
-
-1. Designing effective inheritance hierarchies
-2. Builder pattern
-3. Javadoc comments
-4. Java generics
-5. Basic multithreading
 
 <div id='id-features'/>
 ## Features
@@ -61,9 +45,9 @@ SingleIncrementer second = builder.build();
 A CustomGroup groups widgets together to simplify positioning them. Adding objects to a CustomGroup requires that an associated key be given:
 ```java
 CustomGroup group = new CustomGroup()
-  .withBaseColor(BASE_COLOR)
-  .withSpacing(0)
-  .build();
+	.withBaseColor(BASE_COLOR)
+	.withSpacing(0)
+	.build();
 group.addWidget("START", new TouchButton(WIDTH, HEIGHT, Color.GREEN, "START"), 0, 0);
 group.addWidget("STOP", new TouchButton(WIDTH, HEIGHT, Color.RED, "STOP"), 0, HEIGHT);
 ```
@@ -74,19 +58,19 @@ The setOnAction and setOffAction methods accept Runnables. How and when these Ru
 ToggleButton switch = new ToggleButton(WIDTH, HEIGHT, Color.BLUE, "SWITCH");
 switch.setOnAction(new Runnable()
 {
-  @Override
-  public void run()
-  {
-    System.out.println("I've been switched on.");
-  }
+	@Override
+	public void run()
+	{
+		System.out.println("I've been switched on.");
+  	}
 });
 switch.setOffAction(new Runnable()
 {
-  @Override
-  public void run()
-  {
-    System.out.println("I've been switched off.");
-  }
+  	@Override
+  	public void run()
+  	{
+    	System.out.println("I've been switched off.");
+  	}
 });
 ```
 
@@ -98,10 +82,10 @@ TouchButton topRight = new TouchButton(0, 0, Color.BLUE, "TOPRIGHT");
 TouchButton bottomLeft = new TouchButton(0, 0, Color.GREEN, "BOTLEFT");
 TouchButton bottomRight = new TouchButton(0, 0, Color.YELLOW, "BOTRIGHT");
 CustomButtonGrid array = new CustomButtonGrid.Builder(WIDTH, HEIGHT)
-  .withRowsCols(2, 2)
-  .withSpacing(SPACING)
-  .withBaseColor(BASE_COLOR)
-  .build();
+  	.withRowsCols(2, 2)
+  	.withSpacing(SPACING)
+  	.withBaseColor(BASE_COLOR)
+  	.build();
 array.addButton(topLeft, 0, 0);
 array.addButton(topRight, 1, 0);
 array.addButton(bottomLeft, 0, 1);
@@ -125,7 +109,9 @@ Each Button-based control has an onAction and an offAction. When these Runnables
 
 #### TouchButton
 A Button that executes its onAction exactly once when pressed, and its offAction exactly once when released.
-![TouchButton](res/TouchButton.png "TouchButton")
+
+![TouchButton](res/TouchButton.PNG "TouchButton")
+
 ```java
 TouchButton touchButton = new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED.darker(), "TOUCH");
 addWidget("TOUCH", touchButton, X, Y);
@@ -133,7 +119,9 @@ addWidget("TOUCH", touchButton, X, Y);
 
 #### HoldButton
 A Button that if held, repeatedly executes its onAction until it is released.
-![HoldButton](res/HoldButton.png "HoldButton")
+
+![HoldButton](res/HoldButton.PNG "HoldButton")
+
 ```java
 HoldButton holdButton = new HoldButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.GREEN.darker(), "HOLD");
 addWidget("HOLD", holdButton, X, Y);
@@ -141,7 +129,9 @@ addWidget("HOLD", holdButton, X, Y);
 
 #### ToggleButton
 A Button that behaves like a switch or flip-flop.
-![ToggleButton](res/ToggleButton.png "ToggleButton")
+
+![ToggleButton](res/ToggleButton.PNG "ToggleButton")
+
 ```java
 ToggleButton toggleButton = new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.BLUE.darker(), "TOGGLE");
 addWidget("TOGGLE", toggleButton, X, Y);
@@ -158,62 +148,72 @@ These controls are built from various Buttons, which makes them both easy to des
 
 #### MainArrowPad
 A main arrow pad for controlling a vehicle. The main arrow pad can transmit and copy its button presses to multiple AuxArrowPads.
-![MainArrowPad](res/MainArrowPad.png "MainArrowPad")
+
+![MainArrowPad](res/MainArrowPad.PNG "MainArrowPad")
+
 ```java
 MainArrowPad mainArrowPad = new MainArrowPad.Builder(CONTROL_WIDTH, CONTROL_HEIGHT)
-  .withBaseColor(BASE_COLOR)
-  .withButtonColor(BUTTON_COLOR)
-  .withSpacing(BUTTON_SPACING)
-  .build();
+  	.withBaseColor(BASE_COLOR)
+  	.withButtonColor(BUTTON_COLOR)
+  	.withSpacing(BUTTON_SPACING)
+  	.build();
 addWidget("MAP", mainArrowPad, X, Y);
 ```
 
 #### AuxArrowPad
 An auxiliary arrow pad for controlling a vehicle, which can be controlled by a MainArrowPad.
-![AuxArrowPad](res/AuxArrowPad.png "AuxArrowPad")
+
+![AuxArrowPad](res/AuxArrowPad.PNG "AuxArrowPad")
+
 ```java
 AuxArrowPad auxArrowPad = new AuxArrowPad.Builder(CONTROL_WIDTH, CONTROL_HEIGHT)
-  .withBaseColor(BASE_COLOR)
-  .withButtonColor(BUTTON_COLOR)
-  .withSpacing(BUTTON_SPACING)
-  .build();
+  	.withBaseColor(BASE_COLOR)
+  	.withButtonColor(BUTTON_COLOR)
+  	.withSpacing(BUTTON_SPACING)
+  	.build();
 addWidget("AAP", auxArrowPad, X, Y);
 ```
 
 #### BufferReadoutControl
 A controller for the BufferReadout class.
-![BufferReadoutControl](res/BufferReadoutControl.png "BufferReadoutControl")
+
+![BufferReadoutControl](res/BufferReadoutControl.PNG "BufferReadoutControl")
+
 ```java
 BufferReadoutControl bufferReadoutControl = new BufferReadoutControl.Builder(CONTROL_WIDTH, CONTROL_HEIGHT)
-  .withBaseColor(BASE_COLOR)
-  .withButtonColor(BUTTON_COLOR)
-  .withSpacing(BUTTON_SPACING)
-  .build();
+  	.withBaseColor(BASE_COLOR)
+  	.withButtonColor(BUTTON_COLOR)
+  	.withSpacing(BUTTON_SPACING)
+  	.build();
 addWidget("BRC", bufferReadoutControl, X, Y);
 ```
 
 
 #### SingleIncrementer
 A controller for a single Incrementable.
-![SingleIncrementer](res/SingleIncrementer.png "SingleIncrementer")
+
+![SingleIncrementer](res/SingleIncrementer.PNG "SingleIncrementer")
+
 ```java
 SingleIncrementer singleInc = new SingleIncrementer.Builder(CONTROL_WIDTH, CONTROL_HEIGHT)
-  .withBaseColor(BASE_COLOR)
-  .withButtonColor(BUTTON_COLOR)
-  .withSpacing(BUTTON_SPACING)
-  .build();
+  	.withBaseColor(BASE_COLOR)
+  	.withButtonColor(BUTTON_COLOR)
+  	.withSpacing(BUTTON_SPACING)
+  	.build();
 addWidget("SINC", singleInc, X, Y);
 ```
 
 #### MultiIncrementer
 A controller for multiple Incrementables.
-![MultiIncrementer](res/MultiIncrementer.png "MultiIncrementer")
+
+![MultiIncrementer](res/MultiIncrementer.PNG "MultiIncrementer")
+
 ```java
 MultiIncrementer multiInc = new MultiIncrementer.Builder(CONTROL_WIDTH, CONTROL_HEIGHT)
-  .withBaseColor(BASE_COLOR)
-  .withButtonColor(BUTTON_COLOR)
-  .withSpacing(BUTTON_SPACING)
-  .build();
+  	.withBaseColor(BASE_COLOR)
+  	.withButtonColor(BUTTON_COLOR)
+  	.withSpacing(BUTTON_SPACING)
+  	.build();
 addWidget("MINC", multiInc, X, Y);
 ```
 
@@ -226,63 +226,71 @@ The exact type of data accepted by a Readout depends on the exact Updatable inte
 
 #### BarReadout
 Represents a bar whose length scales linearly with input values.
-![BarReadout](res/BarReadout.png "BarReadout")
+
+![BarReadout](res/BarReadout.PNG "BarReadout")
+
 ```java
 BarReadout barReadout = new BarReadout.Builder(READOUT_WIDTH, READOUT_HEIGHT, NUM_DIVISIONS)
-  .withBaseColor(BASE_COLOR)
-  .withColor(COLOR)
-  .withAccentColor(ACCENT_COLOR)
-  .withSpacing(READOUT_SPACING)
-  .withOrientation(BarReadout.VERTICAL) // Use BarReadout.HORIZONTAL for other orientation
-  .withRange(0.0, 200.0)
-  .build();
+  	.withBaseColor(BASE_COLOR)
+  	.withColor(COLOR)
+  	.withAccentColor(ACCENT_COLOR)
+  	.withSpacing(READOUT_SPACING)
+  	.withOrientation(BarReadout.VERTICAL) // Use BarReadout.HORIZONTAL for other orientation
+  	.withRange(0.0, 200.0)
+  	.build();
 addWidget("BR", barReadout, X, Y);
 barReadout.update(132.0);
 ```
 
 #### BufferReadout
 Represents a scrollable graphical buffer of text.
-![BufferReadout](res/BufferReadout.png "BufferReadout")
+
+![BufferReadout](res/BufferReadout.PNG "BufferReadout")
+
 ```java
 BufferReadout bufferReadout = new BufferReadout.Builder(READOUT_WIDTH, READOUT_HEIGHT)
-  .withBaseColor(BASE_COLOR)
-  .withColor(COLOR)
-  .withAccentColor(ACCENT_COLOR)
-  .withSpacing(READOUT_SPACING)
-  .withFont("Consolas-*-*")
-  .build();
+  	.withBaseColor(BASE_COLOR)
+  	.withColor(COLOR)
+  	.withAccentColor(ACCENT_COLOR)
+ 	.withSpacing(READOUT_SPACING)
+  	.withFont("Consolas-*-*")
+  	.build();
 addWidget("BFR", bufferReadout, X, Y);
 bufferReadout.update("This is a BufferReadout, great for storing text!");
 ```
 
 #### ColorReadout
 Represents an LED status light.
-![ColorReadout](res/ColorReadout.png "ColorReadout")
+
+![ColorReadout](res/ColorReadout.PNG "ColorReadout")
+
 ```java
 ColorReadout.Builder colorReadoutBuilder = new ColorReadout.Builder(READOUT_WIDTH, READOUT_HEIGHT)
-  .withBaseColor(BASE_COLOR)
-  .withSpacing(READOUT_SPACING);
+  	.withBaseColor(BASE_COLOR)
+  	.withSpacing(READOUT_SPACING);
 Color[] colors = {Color.RED, Color.GREEN, Color.BLUE};
 for(int i = 0; i < colors.length; ++i)
 {
-  ColorReadout colorReadout = colorReadoutBuilder.build();
-  addWidget("CR" + i, colorReadout, X + i * (READOUT_WIDTH + COMPONENT_SPACING), Y);
-  colorReadout.update(colors[i]);
+  	ColorReadout colorReadout = colorReadoutBuilder.build();
+  	addWidget("CR" + i, colorReadout, X + i * (READOUT_WIDTH + COMPONENT_SPACING), Y);
+  	colorReadout.update(colors[i]);
 }
 ```
 
 #### CompassReadout
 Represents a compass which always points in the direction of a user-specified goal.
-![CompassReadout](res/CompassReadout.png "CompassReadout")
+
+![CompassReadout](res/CompassReadout.PNG "CompassReadout")
+
 ```java
 CompassReadout compassReadout = new CompassReadout.Builder(READOUT_WIDTH, READOUT_HEIGHT)
-  .withBaseColor(BASE_COLOR)
-  .withColor(COLOR)
-  .withAccentColor(ACCENT_COLOR)
-  .withSpacing(READOUT_SPACING)
-  .withLocation(null, null)
-  .withGoal(null)
-  .build();
+  	.withBaseColor(BASE_COLOR)
+  	.withColor(COLOR)
+  	.withAccentColor(ACCENT_COLOR)
+  	.withSpacing(READOUT_SPACING)
+  	.withLocation(null, null)
+  	.withGoal(null)
+  	.build();
 addWidget("CMPR", compassReadout, X, Y);
 ```
 Goals are specified by using ACM's GPoints, and the locations require two GPoints - one for the position, and one for the rotation.
@@ -294,47 +302,53 @@ compassReadout.update(new GPoint(0, 0), new GPoint(1, 0));
 
 #### DialReadout
 Represents a dial whose angle scales linearly with input values.
-![DialReadout](res/DialReadout.png "DialReadout")
+
+![DialReadout](res/DialReadout.PNG "DialReadout")
+
 ```java
 DialReadout dialReadout = new DialReadout.Builder(READOUT_WIDTH, READOUT_HEIGHT, NUM_DIVISIONS)
-  .withBaseColor(BASE_COLOR)
-  .withColor(COLOR)
-  .withAccentColor(ACCENT_COLOR)
-  .withSpacing(READOUT_SPACING)
-  .withStartAngle(0.0)
-  .withSweepAngle(180.0)
-  .withRange(0.0, 200.0)
-  .build();
+  	.withBaseColor(BASE_COLOR)
+  	.withColor(COLOR)
+  	.withAccentColor(ACCENT_COLOR)
+  	.withSpacing(READOUT_SPACING)
+  	.withStartAngle(0.0)
+  	.withSweepAngle(180.0)
+  	.withRange(0.0, 200.0)
+  	.build();
 addWidget("DR", dialReadout, X, Y);
 dialReadout.update(150.0);
 ```
 
 #### ImageReadout
 Represents a video screen.
-![ImageReadout](res/ImageReadout.png "ImageReadout")
+
+![ImageReadout](res/ImageReadout.PNG "ImageReadout")
+
 ```java
 ImageReadout imageReadout = new ImageReadout.Builder(READOUT_WIDTH, READOUT_HEIGHT)
-  .withBaseColor(BASE_COLOR)
-  .withColor(COLOR)
-  .withAccentColor(ACCENT_COLOR)
-  .withSpacing(READOUT_SPACING)
-  .withOffColor(Color.BLACK)
-  .build();
+  	.withBaseColor(BASE_COLOR)
+  	.withColor(COLOR)
+  	.withAccentColor(ACCENT_COLOR)
+  	.withSpacing(READOUT_SPACING)
+  	.withOffColor(Color.BLACK)
+  	.build();
 addWidget("IR", imageReadout, X, Y);
 imageReadout.update(new GImage("imagename.ext"));
 ```
 
 #### MinimapReadout
 Represents a minimap with pins to mark various locations.
-![MinimapReadout](res/MinimapReadout.png "MinimapReadout")
+
+![MinimapReadout](res/MinimapReadout.PNG "MinimapReadout")
+
 ```java
 MinimapReadout minimapReadout = new MinimapReadout.Builder(READOUT_WIDTH, READOUT_HEIGHT)
-  .withBaseColor(BASE_COLOR)
-  .withColor(COLOR)
-  .withAccentColor(ACCENT_COLOR)
-  .withSpacing(READOUT_SPACING)
-  .withViewRadius(10.0)
-  .build();
+  	.withBaseColor(BASE_COLOR)
+  	.withColor(COLOR)
+  	.withAccentColor(ACCENT_COLOR)
+  	.withSpacing(READOUT_SPACING)
+  	.withViewRadius(10.0)
+  	.build();
 addWidget("MMR", minimapReadout, X, Y);
 ```
 Pins require a name, position, and color. Updating the location requires two GPoints - one for the position, and one for the rotation.
