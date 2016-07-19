@@ -10,6 +10,7 @@ import dashboard.control.MultiIncrementer;
 import dashboard.control.SingleIncrementer;
 import dashboard.control.ToggleButton;
 import dashboard.control.TouchButton;
+import dashboard.generator.BufferGenerator;
 import dashboard.generator.ColorGenerator;
 import dashboard.program.DashboardProgram;
 import dashboard.readout.BarReadout;
@@ -19,6 +20,7 @@ import dashboard.readout.CompassReadout;
 import dashboard.readout.DialReadout;
 import dashboard.readout.ImageReadout;
 import dashboard.readout.MinimapReadout;
+import dashboard.readout.Readout;
 
 /**
  * Implements a complex dashboard design as an example illustrating
@@ -191,6 +193,11 @@ public class ComplexDashboard extends DashboardProgram
 	private ColorGenerator engcolorgen;
 	
 	/**
+	 * The buffer generator for the chat log
+	 */
+	private BufferGenerator buffergen;
+	
+	/**
 	 * Draws and starts the dashboard.
 	 */
 	public void init()
@@ -215,9 +222,11 @@ public class ComplexDashboard extends DashboardProgram
 		initCMPR();
 		
 		initENGCOLORGEN();
+		initBUFFERGEN();
 		
 		bindActionsMPWR();
 		bindActionsEPWR();
+		bindActionsCOMM();
 		
 		addBackground(COMPONENT_SPACING, BASE_COLOR);
 		
@@ -656,6 +665,16 @@ public class ComplexDashboard extends DashboardProgram
 	}
 	
 	/**
+	 * Initializes the BufferGenerator for the chat log
+	 */
+	private void initBUFFERGEN()
+	{
+		buffergen = new BufferGenerator(SLOW_UPDATE_INTERVAL);
+		buffergen.addReadout("CHATBFR", (Readout)getWidget("CHATBFR"));
+		buffergen.setSource("transmissions/transmission0.txt");
+	}
+	
+	/**
 	 * Links the main power switch with all the generators in the main panel
 	 */
 	private void bindActionsMPWR()
@@ -683,6 +702,39 @@ public class ComplexDashboard extends DashboardProgram
 			public void run()
 			{
 				engcolorgen.setActive(false);
+			}
+		});
+	}
+	
+	/**
+	 * Links the communications button with the chat log
+	 */
+	private void bindActionsCOMM()
+	{
+		Button commButton = reset.getButton(0, 0);
+		commButton.setOnAction(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				buffergen.setActive(true);
+			}
+		});
+		commButton.setOffAction(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				buffergen.setActive(false);
+			}
+		});
+		Button resetButton = reset.getButton(1, 0);
+		resetButton.setOnAction(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				buffergen.reset();
 			}
 		});
 	}

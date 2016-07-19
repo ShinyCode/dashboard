@@ -1,0 +1,8 @@
+Pilot, routine fleet status update:
+Enemy ships detected in Quadrant 0.14A,
+at distance 72.5 parsecs. Be vigilant
+and arm all ionizing weapons, but do
+not fire unless explicitly ordered. We've
+got enough enemies, and it'd be good to
+not add to that number.
+Over and out.
