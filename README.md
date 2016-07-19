@@ -125,6 +125,7 @@ Each Button-based control has an onAction and an offAction. When these Runnables
 
 #### TouchButton
 A Button that executes its onAction exactly once when pressed, and its offAction exactly once when released.
+![TouchButton](res/TouchButton.png "TouchButton")
 ```java
 TouchButton touchButton = new TouchButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.RED.darker(), "TOUCH");
 addWidget("TOUCH", touchButton, X, Y);
@@ -132,6 +133,7 @@ addWidget("TOUCH", touchButton, X, Y);
 
 #### HoldButton
 A Button that if held, repeatedly executes its onAction until it is released.
+![HoldButton](res/HoldButton.png "HoldButton")
 ```java
 HoldButton holdButton = new HoldButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.GREEN.darker(), "HOLD");
 addWidget("HOLD", holdButton, X, Y);
@@ -139,6 +141,7 @@ addWidget("HOLD", holdButton, X, Y);
 
 #### ToggleButton
 A Button that behaves like a switch or flip-flop.
+![ToggleButton](res/ToggleButton.png "ToggleButton")
 ```java
 ToggleButton toggleButton = new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.BLUE.darker(), "TOGGLE");
 addWidget("TOGGLE", toggleButton, X, Y);
@@ -155,6 +158,7 @@ These controls are built from various Buttons, which makes them both easy to des
 
 #### MainArrowPad
 A main arrow pad for controlling a vehicle. The main arrow pad can transmit and copy its button presses to multiple AuxArrowPads.
+![MainArrowPad](res/MainArrowPad.png "MainArrowPad")
 ```java
 MainArrowPad mainArrowPad = new MainArrowPad.Builder(CONTROL_WIDTH, CONTROL_HEIGHT)
   .withBaseColor(BASE_COLOR)
@@ -166,6 +170,7 @@ addWidget("MAP", mainArrowPad, X, Y);
 
 #### AuxArrowPad
 An auxiliary arrow pad for controlling a vehicle, which can be controlled by a MainArrowPad.
+![AuxArrowPad](res/AuxArrowPad.png "AuxArrowPad")
 ```java
 AuxArrowPad auxArrowPad = new AuxArrowPad.Builder(CONTROL_WIDTH, CONTROL_HEIGHT)
   .withBaseColor(BASE_COLOR)
@@ -177,6 +182,7 @@ addWidget("AAP", auxArrowPad, X, Y);
 
 #### BufferReadoutControl
 A controller for the BufferReadout class.
+![BufferReadoutControl](res/BufferReadoutControl.png "BufferReadoutControl")
 ```java
 BufferReadoutControl bufferReadoutControl = new BufferReadoutControl.Builder(CONTROL_WIDTH, CONTROL_HEIGHT)
   .withBaseColor(BASE_COLOR)
@@ -189,6 +195,7 @@ addWidget("BRC", bufferReadoutControl, X, Y);
 
 #### SingleIncrementer
 A controller for a single Incrementable.
+![SingleIncrementer](res/SingleIncrementer.png "SingleIncrementer")
 ```java
 SingleIncrementer singleInc = new SingleIncrementer.Builder(CONTROL_WIDTH, CONTROL_HEIGHT)
   .withBaseColor(BASE_COLOR)
@@ -200,6 +207,7 @@ addWidget("SINC", singleInc, X, Y);
 
 #### MultiIncrementer
 A controller for multiple Incrementables.
+![MultiIncrementer](res/MultiIncrementer.png "MultiIncrementer")
 ```java
 MultiIncrementer multiInc = new MultiIncrementer.Builder(CONTROL_WIDTH, CONTROL_HEIGHT)
   .withBaseColor(BASE_COLOR)
@@ -218,6 +226,7 @@ The exact type of data accepted by a Readout depends on the exact Updatable inte
 
 #### BarReadout
 Represents a bar whose length scales linearly with input values.
+![BarReadout](res/BarReadout.png "BarReadout")
 ```java
 BarReadout barReadout = new BarReadout.Builder(READOUT_WIDTH, READOUT_HEIGHT, NUM_DIVISIONS)
   .withBaseColor(BASE_COLOR)
@@ -233,6 +242,7 @@ barReadout.update(132.0);
 
 #### BufferReadout
 Represents a scrollable graphical buffer of text.
+![BufferReadout](res/BufferReadout.png "BufferReadout")
 ```java
 BufferReadout bufferReadout = new BufferReadout.Builder(READOUT_WIDTH, READOUT_HEIGHT)
   .withBaseColor(BASE_COLOR)
@@ -244,8 +254,10 @@ BufferReadout bufferReadout = new BufferReadout.Builder(READOUT_WIDTH, READOUT_H
 addWidget("BFR", bufferReadout, X, Y);
 bufferReadout.update("This is a BufferReadout, great for storing text!");
 ```
+
 #### ColorReadout
 Represents an LED status light.
+![ColorReadout](res/ColorReadout.png "ColorReadout")
 ```java
 ColorReadout.Builder colorReadoutBuilder = new ColorReadout.Builder(READOUT_WIDTH, READOUT_HEIGHT)
   .withBaseColor(BASE_COLOR)
@@ -261,6 +273,7 @@ for(int i = 0; i < colors.length; ++i)
 
 #### CompassReadout
 Represents a compass which always points in the direction of a user-specified goal.
+![CompassReadout](res/CompassReadout.png "CompassReadout")
 ```java
 CompassReadout compassReadout = new CompassReadout.Builder(READOUT_WIDTH, READOUT_HEIGHT)
   .withBaseColor(BASE_COLOR)
@@ -281,6 +294,7 @@ compassReadout.update(new GPoint(0, 0), new GPoint(1, 0));
 
 #### DialReadout
 Represents a dial whose angle scales linearly with input values.
+![DialReadout](res/DialReadout.png "DialReadout")
 ```java
 DialReadout dialReadout = new DialReadout.Builder(READOUT_WIDTH, READOUT_HEIGHT, NUM_DIVISIONS)
   .withBaseColor(BASE_COLOR)
@@ -297,6 +311,7 @@ dialReadout.update(150.0);
 
 #### ImageReadout
 Represents a video screen.
+![ImageReadout](res/ImageReadout.png "ImageReadout")
 ```java
 ImageReadout imageReadout = new ImageReadout.Builder(READOUT_WIDTH, READOUT_HEIGHT)
   .withBaseColor(BASE_COLOR)
@@ -311,6 +326,7 @@ imageReadout.update(new GImage("imagename.ext"));
 
 #### MinimapReadout
 Represents a minimap with pins to mark various locations.
+![MinimapReadout](res/MinimapReadout.png "MinimapReadout")
 ```java
 MinimapReadout minimapReadout = new MinimapReadout.Builder(READOUT_WIDTH, READOUT_HEIGHT)
   .withBaseColor(BASE_COLOR)

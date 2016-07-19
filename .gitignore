@@ -62,3 +62,5 @@
 /BufferReadoutControl.class
 /NumberReadout.class
 /NumberReadout$Builder.class
+/dashboard/samples
+/res/testimage.gif
