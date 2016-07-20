@@ -35,7 +35,7 @@ public class TouchButton extends Button
 	{
 		rect.setColor(baseColor.brighter());
 		runOnAction();
-		return getInstr() + ".SET_ACTIVE_TRUE";
+		return getInstr() + ".ON";
 	}
 	
 	/**
@@ -49,6 +49,6 @@ public class TouchButton extends Button
 	{
 		rect.setColor(baseColor);
 		runOffAction();
-		return getInstr() + ".SET_ACTIVE_FALSE";
+		return getInstr() + ".OFF";
 	}
 }

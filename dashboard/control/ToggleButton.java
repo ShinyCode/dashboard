@@ -43,14 +43,14 @@ public class ToggleButton extends Button
 			on = false;
 			rect.setColor(baseColor);
 			runOffAction();
-			return getInstr() + ".SET_ACTIVE_FALSE";
+			return getInstr() + ".OFF";
 		}
 		else
 		{
 			on = true;
 			rect.setColor(baseColor.brighter());
 			runOnAction();
-			return getInstr() + ".SET_ACTIVE_TRUE";
+			return getInstr() + ".ON";
 		}
 	}
 	

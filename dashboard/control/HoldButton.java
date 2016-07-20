@@ -47,7 +47,7 @@ public class HoldButton extends Button
 	{
 		rect.setColor(baseColor.brighter());
 		repeatOnAction(interval);
-		return getInstr() + ".SET_ACTIVE_TRUE";
+		return getInstr() + ".ON";
 	}
 	
 	/**
@@ -62,7 +62,7 @@ public class HoldButton extends Button
 	{
 		rect.setColor(baseColor);
 		runOffAction();
-		return getInstr() + ".SET_ACTIVE_FALSE";
+		return getInstr() + ".OFF";
 	}
 	
 	/**

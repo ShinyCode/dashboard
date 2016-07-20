@@ -24,6 +24,7 @@ import dashboard.readout.ImageReadout;
 import dashboard.readout.LevelReadout;
 import dashboard.readout.MinimapReadout;
 import dashboard.readout.Readout;
+import dashboard.readout.StringUpdatable;
 
 /**
  * Implements a complex dashboard design as an example illustrating
@@ -63,7 +64,7 @@ public class ComplexDashboard extends DashboardProgram
 	/**
 	 * The secondary color of the dashboard
 	 */
-	private static final Color COLOR = Color.RED.darker();
+	private static final Color COLOR = new Color(8, 100, 183);
 	
 	/**
 	 * The accent color of the dashboard
@@ -223,8 +224,7 @@ public class ComplexDashboard extends DashboardProgram
 		setSize(1200, 500);
 		
 		initMPWR();
-		initCIR();
-		bindActionsCPWR();
+		initCIR();	
 		initCHAT();
 		initEPWR();
 		initDAT();
@@ -234,7 +234,6 @@ public class ComplexDashboard extends DashboardProgram
 		initFREQCWG();
 		initENGCRCWG();
 		initCHATCRCWG();
-		bindActionsCHAT();
 		initMMR();
 		initRESET();
 		initCMPR();
@@ -243,12 +242,13 @@ public class ComplexDashboard extends DashboardProgram
 		initBUFFERGEN();
 		initDATUMGEN();
 		
+		bindActionsCPWR();
+		bindActionsCHAT();
 		bindActionsMPWR();
-		bindActionsEPWR();
 		bindActionsCOMM();
 		
+		addCommandOutput("CMD", (StringUpdatable)dat.getWidget("CMD"));
 		addBackground(COMPONENT_SPACING, BASE_COLOR);
-		
 		addMouseListeners();
 	}
 	
@@ -358,7 +358,7 @@ public class ComplexDashboard extends DashboardProgram
 	 */
 	private void initDAT()
 	{
-		String datumNames[] = {"XPOS", "YPOS", "BRX", "BRY", "ALT"};
+		String datumNames[] = {"XPOS", "YPOS", "BRX", "BRY", "CMD"};
 
 		dat = new CustomGroup.Builder()
 			.withBaseColor(BASE_COLOR)
@@ -559,7 +559,6 @@ public class ComplexDashboard extends DashboardProgram
 			.withSpacing(BUTTON_SPACING)
 			.build();
 		addWidget("CHATBFR", chatbfr, chat.getX() + chat.getWidth() + COMPONENT_SPACING, chat.getY());
-		addCommandOutput("CHATBFR", chatbfr);
 		addBorder(chatbfr, COLOR, BORDER_WIDTH);
 	}
 	
@@ -738,14 +737,6 @@ public class ComplexDashboard extends DashboardProgram
 				engcolorgen.setActive(false);
 			}
 		});
-	}
-	
-	/**
-	 * Links the engine power switch with all the generators in the engine panel
-	 */
-	private void bindActionsEPWR()
-	{
-		
 	}
 	
 	/**
