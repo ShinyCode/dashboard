@@ -363,9 +363,21 @@ minimapReadout.update(new GPoint(0, 0), new GPoint(0, 1));
 Generators generate data for the sole cosmetic purpose of animating Readouts. Being undrawn, they work behind-the-scenes
 to make a dashboard seem "busier".
 
+#### DatumGenerator
+Implements a simple physics engine to simulate a ship's position and motion.
+```java
+
+```
+
+#### BufferGenerator
+Reads text from a file and simulates data transmissions.
+
 #### AddressGenerator
 Generates random memory addresses in hexadecimal.
 
 #### ColorGenerator
 Generates random RGB or HSB colors.
+
+
+
 

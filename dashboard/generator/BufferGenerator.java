@@ -10,7 +10,7 @@ import dashboard.readout.Readout;
 import dashboard.readout.StringUpdatable;
 
 /**
- * Implements a Generator that reads texts from a file and simulates transmissions.
+ * Implements a Generator that reads text from a file and simulates data transmissions.
  * Intended to be used with {@link StringUpdatable StringUpdatables}.
  * 
  * @author Mark Sabini

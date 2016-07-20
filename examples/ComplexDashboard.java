@@ -221,8 +221,9 @@ public class ComplexDashboard extends DashboardProgram
 	 */
 	public void init()
 	{
-		setSize(1200, 500);
+		setSize(1040, 500);
 		
+		// Draw all the visual components on screen
 		initMPWR();
 		initCIR();	
 		initCHAT();
@@ -238,10 +239,12 @@ public class ComplexDashboard extends DashboardProgram
 		initRESET();
 		initCMPR();
 		
+		// Create and initialize all the generators being used
 		initENGCOLORGEN();
 		initBUFFERGEN();
 		initDATUMGEN();
 		
+		// Bind together Controls, Readouts, and Generators
 		bindActionsCPWR();
 		bindActionsCHAT();
 		bindActionsMPWR();
@@ -289,28 +292,6 @@ public class ComplexDashboard extends DashboardProgram
 			.build();
 		addWidget("CIR", cir, mpwr.getX() + mpwr.getWidth() + COMPONENT_SPACING, mpwr.getY());
 		addBorder(cir, COLOR, BORDER_WIDTH);
-	}
-	
-	/**
-	 * Associates a power button with the communications conference screen.
-	 */
-	private void bindActionsCPWR()
-	{
-		Button cpwrButton = mpwr.getButton(1, 0);
-		cpwrButton.setOnAction(new Runnable()
-		{
-			public void run()
-			{
-				cir.setOn(true);
-			}
-		});
-		cpwrButton.setOffAction(new Runnable()
-		{
-			public void run()
-			{
-				cir.setOn(false);
-			}
-		});
 	}
 	
 	/**
@@ -563,53 +544,6 @@ public class ComplexDashboard extends DashboardProgram
 	}
 	
 	/**
-	 * Associates chat controls with the chat/console log.
-	 */
-	private void bindActionsCHAT()
-	{
-		BufferReadout chatbfr = (BufferReadout)getWidget("CHATBFR");
-		Button chatClsButton = chat.getButton(0, 0);
-		chatClsButton.setOnAction(new Runnable()
-		{
-			public void run()
-			{
-				chatbfr.clear();
-			}
-		});
-		Button chatFrzButton = chat.getButton(1, 0);
-		chatFrzButton.setOnAction(new Runnable()
-		{
-			public void run()
-			{
-				chatbfr.setFrozen(true);
-			}
-		});
-		chatFrzButton.setOffAction(new Runnable()
-		{
-			public void run()
-			{
-				chatbfr.setFrozen(false);
-			}
-		});
-		Button chatIncButton = chat.getButton(0, 1);
-		chatIncButton.setOnAction(new Runnable()
-		{
-			public void run()
-			{
-				chatbfr.increment();
-			}
-		});
-		Button chatDecButton = chat.getButton(1, 1);
-		chatDecButton.setOnAction(new Runnable()
-		{
-			public void run()
-			{
-				chatbfr.decrement();
-			}
-		});
-	}
-	
-	/**
 	 * Initializes the minimap readout.
 	 */
 	private void initMMR()
@@ -706,13 +640,82 @@ public class ComplexDashboard extends DashboardProgram
 		datumgen.addReadout("MMR", mmr);
 		datumgen.addReadout("CMPR", cmpr);
 		datumgen.setActive(true);
-		datumgen.bindController(aap);
+		datumgen.setController(aap);
 		datumgen.setMainThrustSource((LevelReadout)engcwg1.getWidget("ENGBR1"));
 		datumgen.setRotThrustSource((LevelReadout)engcwg2.getWidget("ENGBR2"));
 		datumgen.setPositionReadouts((BufferReadout)dat.getWidget("XPOS"), (BufferReadout)dat.getWidget("YPOS"));
 		datumgen.setBearingReadouts((BufferReadout)dat.getWidget("BRX"), (BufferReadout)dat.getWidget("BRY"));
 		datumgen.setSpeedReadouts((LevelReadout)vit.getWidget("SPD"), (LevelReadout)vit.getWidget("ROTSPD"));
 		datumgen.setIgnitionSwitch((ToggleButton)epwr.getButton(0, 0));
+	}
+	
+	/**
+	 * Associates a power button with the communications conference screen.
+	 */
+	private void bindActionsCPWR()
+	{
+		Button cpwrButton = mpwr.getButton(1, 0);
+		cpwrButton.setOnAction(new Runnable()
+		{
+			public void run()
+			{
+				cir.setOn(true);
+			}
+		});
+		cpwrButton.setOffAction(new Runnable()
+		{
+			public void run()
+			{
+				cir.setOn(false);
+			}
+		});
+	}
+	
+	/**
+	 * Associates chat controls with the chat/console log.
+	 */
+	private void bindActionsCHAT()
+	{
+		BufferReadout chatbfr = (BufferReadout)getWidget("CHATBFR");
+		Button chatClsButton = chat.getButton(0, 0);
+		chatClsButton.setOnAction(new Runnable()
+		{
+			public void run()
+			{
+				chatbfr.clear();
+			}
+		});
+		Button chatFrzButton = chat.getButton(1, 0);
+		chatFrzButton.setOnAction(new Runnable()
+		{
+			public void run()
+			{
+				chatbfr.setFrozen(true);
+			}
+		});
+		chatFrzButton.setOffAction(new Runnable()
+		{
+			public void run()
+			{
+				chatbfr.setFrozen(false);
+			}
+		});
+		Button chatIncButton = chat.getButton(0, 1);
+		chatIncButton.setOnAction(new Runnable()
+		{
+			public void run()
+			{
+				chatbfr.increment();
+			}
+		});
+		Button chatDecButton = chat.getButton(1, 1);
+		chatDecButton.setOnAction(new Runnable()
+		{
+			public void run()
+			{
+				chatbfr.decrement();
+			}
+		});
 	}
 	
 	/**
