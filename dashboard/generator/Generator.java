@@ -98,6 +98,7 @@ public abstract class Generator
 	{
 		thr = new Thread(new Runnable()
 		{
+			@Override
 			public void run()
 			{
 				while(!Thread.interrupted())

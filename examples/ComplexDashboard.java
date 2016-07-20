@@ -21,6 +21,7 @@ import dashboard.readout.ColorReadout;
 import dashboard.readout.CompassReadout;
 import dashboard.readout.DialReadout;
 import dashboard.readout.ImageReadout;
+import dashboard.readout.LevelReadout;
 import dashboard.readout.MinimapReadout;
 import dashboard.readout.Readout;
 
@@ -73,6 +74,11 @@ public class ComplexDashboard extends DashboardProgram
 	 * The number of divisions to use for each LevelReadout
 	 */
 	private static final int NUM_DIVISIONS = 100;
+	
+	/**
+	 * The number of divisions to use for the engine thrust readouts
+	 */
+	private static final int NUM_ENG_DIVISIONS = 10;
 	
 	/**
 	 * The width of the bordering surrounding each component
@@ -377,7 +383,7 @@ public class ComplexDashboard extends DashboardProgram
 	 */
 	private void initVIT()
 	{
-		String vitalNames[] = {"SPD", "THR", "FUEL"};
+		String vitalNames[] = {"SPD", "ROTSPD", "FUEL"};
 		vit = new CustomGroup.Builder()
 			.withBaseColor(BASE_COLOR)
 			.withSpacing(BUTTON_SPACING)
@@ -391,6 +397,7 @@ public class ComplexDashboard extends DashboardProgram
 				.withAccentColor(ACCENT_COLOR)
 				.withStartAngle(0.0)
 				.withSweepAngle(180.0)
+				.withRange(0.0, 10.0)
 				.build();
 			vit.addWidget(vitalNames[i], dr, (BUTTON_SPACING + DATUM_READOUT_WIDTH) * i + BUTTON_SPACING, BUTTON_SPACING);
 		}
@@ -421,7 +428,7 @@ public class ComplexDashboard extends DashboardProgram
 		double remainHeight = aap.getY() + aap.getHeight() - epwr.getY() - epwr.getHeight();
 		double engineReadoutHeight = remainHeight - 2 * ENGINE_BUTTON_HEIGHT - 2 * BUTTON_SPACING - COMPONENT_SPACING;
 		double engineReadoutWidth = epwr.getWidth() / 2.0 - 1.5 * BORDER_WIDTH;
-		BarReadout.Builder engbrBuilder = new BarReadout.Builder(engineReadoutWidth, engineReadoutHeight, NUM_DIVISIONS)
+		BarReadout.Builder engbrBuilder = new BarReadout.Builder(engineReadoutWidth, engineReadoutHeight, NUM_ENG_DIVISIONS)
 			.withBaseColor(BASE_COLOR)
 			.withColor(COLOR)
 			.withAccentColor(ACCENT_COLOR)
@@ -430,8 +437,8 @@ public class ComplexDashboard extends DashboardProgram
 			.withBaseColor(BASE_COLOR)
 			.withButtonColor(ACCENT_COLOR)
 			.withSpacing(BUTTON_SPACING);
-		BarReadout engbr1 = engbrBuilder.build();
-		BarReadout engbr2 = engbrBuilder.build();
+		BarReadout engbr1 = engbrBuilder.withRange(0.0, 300.0).build();
+		BarReadout engbr2 = engbrBuilder.withRange(0.0, 200.0).build();
 		SingleIncrementer engsinc1 = engsincBuilder.build();
 		engsinc1.setName("ENGSINC1");
 		SingleIncrementer engsinc2 = engsincBuilder.build();
@@ -696,10 +703,16 @@ public class ComplexDashboard extends DashboardProgram
 	 */
 	private void initDATUMGEN()
 	{
-		datumgen = new DatumGenerator();
+		datumgen = new DatumGenerator(FAST_UPDATE_INTERVAL);
 		datumgen.addReadout("MMR", mmr);
 		datumgen.addReadout("CMPR", cmpr);
 		datumgen.setActive(true);
+		datumgen.bindController(aap);
+		datumgen.setMainThrustSource((LevelReadout)engcwg1.getWidget("ENGBR1"));
+		datumgen.setRotThrustSource((LevelReadout)engcwg2.getWidget("ENGBR2"));
+		datumgen.setPositionReadouts((BufferReadout)dat.getWidget("XPOS"), (BufferReadout)dat.getWidget("YPOS"));
+		datumgen.setBearingReadouts((BufferReadout)dat.getWidget("BRX"), (BufferReadout)dat.getWidget("BRY"));
+		datumgen.setSpeedReadouts((LevelReadout)vit.getWidget("SPD"), (LevelReadout)vit.getWidget("ROTSPD"));
 	}
 	
 	/**
