@@ -100,8 +100,8 @@ array.addButton(bottomRight, 1, 1);
 ### Using a Generator
 Once a Generator has been created, it needs to be linked to a specific readout, and then started:
 ```java
-AddressGenerator addrGen = new AddressGenerator(UPDATE_SPEED);
-addrGen.addStringUpdatable("BUFFERREADOUT", bufferReadout); // The BufferReadout class implements StringUpdatable
+AddressGenerator addrGen = new AddressGenerator(UPDATE_INTERVAL);
+addrGen.addReadout("BFR", bufferReadout);
 addrGen.setActive(true);
 ```
 
@@ -374,19 +374,56 @@ Generators generate data for the sole cosmetic purpose of animating Readouts. Be
 to make a dashboard seem "busier".
 
 #### DatumGenerator
-Implements a simple physics engine to simulate a ship's position and motion.
+Implements a simple physics engine to simulate a ship's position and motion. An ignition switch
+and controller are necessary for the DatumGenerator to work, as without them, the ship cannot be neither
+started nor controlled. While not required, one can control the exact engine thrust level by using a
+LevelReadout.
 ```java
+DatumGenerator datumGen = new DatumGenerator(UPDATE_INTERVAL);
+datumGen.setIgnitionSwitch(toggleButton);
+datumGen.setController(auxArrowPad);
+datumGen.setMainThrustSource(levelReadout);
+datumGen.setRotThrustSource(levelReadout);
+datumGen.setActive(true);
+```
 
+The DatumGenerator is used to update LocationUpdatable Readouts:
+```java
+datumGen.addReadout("MMR", minimapReadout);
+datumGen.addReadout("CMPR", compassReadout);
+```
+
+However, the DatumGenerator can also output position, bearing, speed, and rotational speed:
+```java
+datumGen.setPositionReadouts(xBufferReadout, yBufferReadout);
+datumGen.setBearingReadouts(xBufferReadout, yBufferReadout);
+datumGen.setSpeedReadouts(speedLevelReadout, rotSpeedLevelReadout);
 ```
 
 #### BufferGenerator
-Reads text from a file and simulates data transmissions.
+Reads text from a file and simulates data transmissions. Messages can be reset and replayed.
+```java
+BufferGenerator bufferGen = new BufferGenerator(UPDATE_INTERVAL);
+bufferGen.addReadout("BFR", bufferReadout);
+bufferGen.setSource("filename.ext");
+bufferGen.setActive(true);
+```
 
 #### AddressGenerator
 Generates random memory addresses in hexadecimal.
+```java
+AddressGenerator addrGen = new AddressGenerator(UPDATE_INTERVAL);
+addrGen.addReadout("BFR", bufferReadout);
+addrGen.setActive(true);
+```
 
 #### ColorGenerator
 Generates random RGB or HSB colors.
+```java
+ColorGenerator colorGen = new ColorGenerator(UPDATE_INTERVAL);
+colorGen.addReadout("CR", colorReadout);
+colorGen.setActive(true);
+```
 
 
 

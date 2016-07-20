@@ -204,17 +204,17 @@ public class ComplexDashboard extends DashboardProgram
 	/**
 	 * The color generator for the engine panel
 	 */
-	private ColorGenerator engcolorgen;
+	private ColorGenerator engcolorGen;
 	
 	/**
 	 * The buffer generator for the chat log
 	 */
-	private BufferGenerator buffergen;
+	private BufferGenerator bufferGen;
 	
 	/**
 	 * The datum generator to calculate location
 	 */
-	private DatumGenerator datumgen;
+	private DatumGenerator datumGen;
 	
 	/**
 	 * Draws and starts the dashboard.
@@ -610,13 +610,13 @@ public class ComplexDashboard extends DashboardProgram
 	 */
 	private void initENGCOLORGEN()
 	{
-		engcolorgen = new ColorGenerator(SLOW_UPDATE_INTERVAL);
+		engcolorGen = new ColorGenerator(SLOW_UPDATE_INTERVAL);
 		for(int i = 0; i < 2; ++i)
 		{
 			for(int j = 0; j < 6; ++j)
 			{
 				ColorReadout engcr = (ColorReadout)engcrcwg.getWidget("ENGCR" + i + j);
-				engcolorgen.addReadout("ENGCR" + i + j, engcr);
+				engcolorGen.addReadout("ENGCR" + i + j, engcr);
 			}
 		}
 	}
@@ -626,9 +626,9 @@ public class ComplexDashboard extends DashboardProgram
 	 */
 	private void initBUFFERGEN()
 	{
-		buffergen = new BufferGenerator(CHAT_UPDATE_INTERVAL);
-		buffergen.addReadout("CHATBFR", (Readout)getWidget("CHATBFR"));
-		buffergen.setSource("transmissions/transmission0.txt");
+		bufferGen = new BufferGenerator(CHAT_UPDATE_INTERVAL);
+		bufferGen.addReadout("CHATBFR", (Readout)getWidget("CHATBFR"));
+		bufferGen.setSource("transmissions/transmission0.txt");
 	}
 	
 	/**
@@ -636,17 +636,17 @@ public class ComplexDashboard extends DashboardProgram
 	 */
 	private void initDATUMGEN()
 	{
-		datumgen = new DatumGenerator(FAST_UPDATE_INTERVAL);
-		datumgen.addReadout("MMR", mmr);
-		datumgen.addReadout("CMPR", cmpr);
-		datumgen.setActive(true);
-		datumgen.setController(aap);
-		datumgen.setMainThrustSource((LevelReadout)engcwg1.getWidget("ENGBR1"));
-		datumgen.setRotThrustSource((LevelReadout)engcwg2.getWidget("ENGBR2"));
-		datumgen.setPositionReadouts((BufferReadout)dat.getWidget("XPOS"), (BufferReadout)dat.getWidget("YPOS"));
-		datumgen.setBearingReadouts((BufferReadout)dat.getWidget("BRX"), (BufferReadout)dat.getWidget("BRY"));
-		datumgen.setSpeedReadouts((LevelReadout)vit.getWidget("SPD"), (LevelReadout)vit.getWidget("ROTSPD"));
-		datumgen.setIgnitionSwitch((ToggleButton)epwr.getButton(0, 0));
+		datumGen = new DatumGenerator(FAST_UPDATE_INTERVAL);
+		datumGen.addReadout("MMR", mmr);
+		datumGen.addReadout("CMPR", cmpr);
+		datumGen.setActive(true);
+		datumGen.setController(aap);
+		datumGen.setMainThrustSource((LevelReadout)engcwg1.getWidget("ENGBR1"));
+		datumGen.setRotThrustSource((LevelReadout)engcwg2.getWidget("ENGBR2"));
+		datumGen.setPositionReadouts((BufferReadout)dat.getWidget("XPOS"), (BufferReadout)dat.getWidget("YPOS"));
+		datumGen.setBearingReadouts((BufferReadout)dat.getWidget("BRX"), (BufferReadout)dat.getWidget("BRY"));
+		datumGen.setSpeedReadouts((LevelReadout)vit.getWidget("SPD"), (LevelReadout)vit.getWidget("ROTSPD"));
+		datumGen.setIgnitionSwitch((ToggleButton)epwr.getButton(0, 0));
 	}
 	
 	/**
@@ -729,7 +729,7 @@ public class ComplexDashboard extends DashboardProgram
 			@Override
 			public void run()
 			{
-				engcolorgen.setActive(true);
+				engcolorGen.setActive(true);
 			}
 		});
 		mpwrButton.setOffAction(new Runnable()
@@ -737,7 +737,7 @@ public class ComplexDashboard extends DashboardProgram
 			@Override
 			public void run()
 			{
-				engcolorgen.setActive(false);
+				engcolorGen.setActive(false);
 			}
 		});
 	}
@@ -753,7 +753,7 @@ public class ComplexDashboard extends DashboardProgram
 			@Override
 			public void run()
 			{
-				buffergen.setActive(true);
+				bufferGen.setActive(true);
 			}
 		});
 		commButton.setOffAction(new Runnable()
@@ -761,7 +761,7 @@ public class ComplexDashboard extends DashboardProgram
 			@Override
 			public void run()
 			{
-				buffergen.setActive(false);
+				bufferGen.setActive(false);
 			}
 		});
 		Button resetButton = reset.getButton(1, 0);
@@ -770,7 +770,7 @@ public class ComplexDashboard extends DashboardProgram
 			@Override
 			public void run()
 			{
-				buffergen.reset();
+				bufferGen.reset();
 			}
 		});
 	}
