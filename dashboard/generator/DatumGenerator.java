@@ -11,17 +11,22 @@ import acm.graphics.GPoint;
 public class DatumGenerator extends Generator
 {
 	private static final int UPDATE_INTERVAL = 20; // milliseconds between time steps
-	private static final double RESISTANCE_COEFF = 1.0;
+	private static final double RESISTANCE_COEFF = 12;
 	private static final double MASS = 100.0; // mass of ship
 	private static final GPoint REL_BEARING = new GPoint(0, 1);
+	private static final double MAX_TURN_ANGLE = Math.PI / 6;
 	
 	private GPoint relThrust;
-	private GPoint thrust;
+	private GPoint tanThrust;
+	private GPoint centrThrust;
 	private GPoint pos;
 	private GPoint vel;
 	private GPoint acc;
 	private GPoint bearing;
 	private GPoint resistance;
+	private double angVel;
+	private double angAcc;
+	private double angResistance;
 	
 	public DatumGenerator()
 	{
@@ -35,8 +40,11 @@ public class DatumGenerator extends Generator
 		bearing = new GPoint(0, 1); // Initially facing north
 		vel = new GPoint(0, 0);
 		acc = new GPoint(0, 0);
-		thrust = new GPoint(0, 0);
+		tanThrust = new GPoint(0, 0);
+		centrThrust = new GPoint(0, 0);
 		relThrust = new GPoint(0, 0);
+		angVel = 0.0;
+		angAcc = 0.0;
 				
 	}
 	
@@ -51,7 +59,8 @@ public class DatumGenerator extends Generator
 	public void recalcThrust()
 	{
 		double angleOffset = GPointMath.angleBetween(REL_BEARING, bearing);
-		thrust = GPointMath.rot(relThrust, angleOffset);
+		tanThrust = GPointMath.rot(new GPoint(0.0, relThrust.getY()), angleOffset);
+		centrThrust = GPointMath.rot(new GPoint(relThrust.getX(), 0.0), angleOffset);
 	}
 	
 	public GPoint getAcc()
@@ -64,32 +73,17 @@ public class DatumGenerator extends Generator
 		return vel;
 	}
 	
-	private void calcResistance()
-	{
-		resistance = GPointMath.scale(vel, -RESISTANCE_COEFF);
-	}
-	
-	private void updateAcc()
-	{
-		acc = GPointMath.scale(GPointMath.sum(thrust, resistance), 1.0 / MASS);
-	}
-	
-	private void updateVel()
-	{
-		vel = GPointMath.sum(vel, GPointMath.scale(getAcc(), UPDATE_INTERVAL / 1000.0));
-	}
-	
-	private void updatePos()
-	{
-		pos = GPointMath.sum(pos, GPointMath.scale(getVel(), UPDATE_INTERVAL / 1000.0));
-	}
-	
 	private void recalcState()
 	{
-		calcResistance();
-		updateAcc();
-		updateVel();
-		updatePos();
+		resistance = GPointMath.scale(vel, -RESISTANCE_COEFF * GPointMath.norm(vel));
+		acc = GPointMath.scale(GPointMath.sum(tanThrust, resistance), 1.0 / MASS);
+		vel = GPointMath.sum(vel, GPointMath.scale(getAcc(), UPDATE_INTERVAL / 1000.0));
+		pos = GPointMath.sum(pos, GPointMath.scale(getVel(), UPDATE_INTERVAL / 1000.0));
+		
+		angResistance = -RESISTANCE_COEFF * angVel * angVel;
+		angAcc = relThrust.getX() + angResistance;
+		angVel += angAcc * UPDATE_INTERVAL / 1000.0;
+		bearing = GPointMath.rot(bearing, angVel / 100.0);
 	}
 	
 	@Override
@@ -97,7 +91,6 @@ public class DatumGenerator extends Generator
 	{
 		recalcThrust();
 		recalcState();
-		System.out.println(pos);
 		for(String key : readouts.keySet())
 		{
 			Readout readout = readouts.get(key);

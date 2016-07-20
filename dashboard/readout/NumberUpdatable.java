@@ -15,4 +15,11 @@ public interface NumberUpdatable
 	 * @param value the raw value, interpreted by the implementing class
 	 */
 	public void update(double value);
+	
+	/**
+	 * Returns the value displayed by the class.
+	 * 
+	 * @return the value displayed by the class
+	 */
+	public double getValue();
 }

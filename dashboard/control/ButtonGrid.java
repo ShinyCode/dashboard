@@ -214,7 +214,7 @@ public abstract class ButtonGrid extends Control
 	 * @param col the column of the button to return
 	 * @return the button if it exists. If the button does not exist, the function returns null.
 	 */
-	protected Button getButton(int row, int col)
+	public Button getButton(int row, int col)
 	{
 		if(row < 0 || col < 0 || row >= numRows || col >= numCols) return null;
 		return buttons[getIndex(row, col)];

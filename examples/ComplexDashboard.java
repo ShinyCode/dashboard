@@ -699,7 +699,6 @@ public class ComplexDashboard extends DashboardProgram
 		datumgen = new DatumGenerator();
 		datumgen.addReadout("MMR", mmr);
 		datumgen.addReadout("CMPR", cmpr);
-		datumgen.setEngineThrust(new GPoint(1000, 1000));
 		datumgen.setActive(true);
 	}
 	

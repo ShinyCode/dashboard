@@ -157,6 +157,18 @@ public abstract class LevelReadout extends Readout implements Incrementable, Num
 		return numDivisions;
 	}
 	
+	@Override
+	public int getLevel()
+	{
+		return level;
+	}
+	
+	@Override
+	public double getValue()
+	{
+		return ((double)level / numDivisions) * (maxValue - minValue) + minValue;
+	}
+	
 	/**
 	 * Draws the LevelReadout at the specified level, which is guaranteed to be
 	 * at least 0 and at most the number of divisions.

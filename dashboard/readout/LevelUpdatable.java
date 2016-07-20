@@ -14,6 +14,13 @@ public interface LevelUpdatable {
 	public void setLevel(int level); // The internal discretized level
 	
 	/**
+	 * Returns the level at which the class is set.
+	 * 
+	 * @return the level at which the class is set
+	 */
+	public int getLevel();
+	
+	/**
 	 * Returns the number of divisions, i.e. the total number of levels that the class has.
 	 * @return the total number of levels that the class has
 	 */
