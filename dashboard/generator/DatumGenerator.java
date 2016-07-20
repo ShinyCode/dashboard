@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import dashboard.control.AuxArrowPad;
 import dashboard.control.Button;
+import dashboard.control.ToggleButton;
 import dashboard.readout.BufferReadout;
 import dashboard.readout.ColorUpdatable;
 import dashboard.readout.LevelReadout;
@@ -43,6 +44,8 @@ public class DatumGenerator extends Generator
 	
 	private LevelReadout speedReadout;
 	private LevelReadout rotSpeedReadout;
+	
+	private ToggleButton ignitionSwitch;
 	
 	public DatumGenerator(int interval)
 	{
@@ -127,12 +130,18 @@ public class DatumGenerator extends Generator
 	
 	public void bindController(AuxArrowPad controller)
 	{
-		Button fwdButton = controller.getButton(0, 1);
+		ToggleButton fwdButton = (ToggleButton)controller.getButton(0, 1);
+		ToggleButton revButton = (ToggleButton)controller.getButton(1, 1);
+		ToggleButton leftButton = (ToggleButton)controller.getButton(1, 0);
+		ToggleButton rightButton = (ToggleButton)controller.getButton(1, 2);
+		
 		fwdButton.setOnAction(new Runnable()
 		{
 			@Override
 			public void run()
 			{
+				if(revButton.isOn()) revButton.setOn(false);
+				if(!ignitionSwitch.isOn()) return;
 				if(mainThrustSource == null) setEngineThrust(new GPoint(relThrust.getX(), DEFAULT_MAIN_THRUST));
 				else setEngineThrust(new GPoint(relThrust.getX(), mainThrustSource.getValue()));
 			}
@@ -142,15 +151,18 @@ public class DatumGenerator extends Generator
 			@Override
 			public void run()
 			{
+				if(!ignitionSwitch.isOn()) return;
 				setEngineThrust(new GPoint(relThrust.getX(), 0.0));
 			}
 		});
-		Button revButton = controller.getButton(1, 1);
+		
 		revButton.setOnAction(new Runnable()
 		{
 			@Override
 			public void run()
 			{
+				if(fwdButton.isOn()) fwdButton.setOn(false);
+				if(!ignitionSwitch.isOn()) return;
 				if(mainThrustSource == null) setEngineThrust(new GPoint(relThrust.getX(), -DEFAULT_MAIN_THRUST));
 				else setEngineThrust(new GPoint(relThrust.getX(), -mainThrustSource.getValue()));
 			}
@@ -160,15 +172,18 @@ public class DatumGenerator extends Generator
 			@Override
 			public void run()
 			{
+				if(!ignitionSwitch.isOn()) return;
 				setEngineThrust(new GPoint(relThrust.getX(), 0.0));
 			}
 		});
-		Button leftButton = controller.getButton(1, 0);
+		
 		leftButton.setOnAction(new Runnable()
 		{
 			@Override
 			public void run()
 			{
+				if(rightButton.isOn()) rightButton.setOn(false);
+				if(!ignitionSwitch.isOn()) return;
 				if(rotThrustSource == null) setEngineThrust(new GPoint(DEFAULT_ROT_THRUST, relThrust.getY()));
 				else setEngineThrust(new GPoint(rotThrustSource.getValue(), relThrust.getY()));
 			}
@@ -178,15 +193,18 @@ public class DatumGenerator extends Generator
 			@Override
 			public void run()
 			{
+				if(!ignitionSwitch.isOn()) return;
 				setEngineThrust(new GPoint(0.0, relThrust.getY()));
 			}
 		});
-		Button rightButton = controller.getButton(1, 2);
+		
 		rightButton.setOnAction(new Runnable()
 		{
 			@Override
 			public void run()
 			{
+				if(leftButton.isOn()) leftButton.setOn(false);
+				if(!ignitionSwitch.isOn()) return;
 				if(rotThrustSource == null) setEngineThrust(new GPoint(-DEFAULT_ROT_THRUST, relThrust.getY()));
 				else setEngineThrust(new GPoint(-rotThrustSource.getValue(), relThrust.getY()));
 			}
@@ -196,6 +214,7 @@ public class DatumGenerator extends Generator
 			@Override
 			public void run()
 			{
+				if(!ignitionSwitch.isOn()) return;
 				setEngineThrust(new GPoint(0.0, relThrust.getY()));
 			}
 		});
@@ -227,6 +246,19 @@ public class DatumGenerator extends Generator
 	{
 		this.speedReadout = speedReadout;
 		this.rotSpeedReadout = rotSpeedReadout;
+	}
+	
+	public void setIgnitionSwitch(ToggleButton ignitionSwitch)
+	{
+		this.ignitionSwitch = ignitionSwitch;
+		ignitionSwitch.setOffAction(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				setEngineThrust(new GPoint(0.0, 0.0));
+			}
+		});
 	}
 	
 	@Override

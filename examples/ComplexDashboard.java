@@ -713,6 +713,7 @@ public class ComplexDashboard extends DashboardProgram
 		datumgen.setPositionReadouts((BufferReadout)dat.getWidget("XPOS"), (BufferReadout)dat.getWidget("YPOS"));
 		datumgen.setBearingReadouts((BufferReadout)dat.getWidget("BRX"), (BufferReadout)dat.getWidget("BRY"));
 		datumgen.setSpeedReadouts((LevelReadout)vit.getWidget("SPD"), (LevelReadout)vit.getWidget("ROTSPD"));
+		datumgen.setIgnitionSwitch((ToggleButton)epwr.getButton(0, 0));
 	}
 	
 	/**
@@ -720,16 +721,8 @@ public class ComplexDashboard extends DashboardProgram
 	 */
 	private void bindActionsMPWR()
 	{
-		
-	}
-	
-	/**
-	 * Links the engine power switch with all the generators in the engine panel
-	 */
-	private void bindActionsEPWR()
-	{
-		ToggleButton epwrButton = (ToggleButton)epwr.getButton(0, 0);
-		epwrButton.setOnAction(new Runnable()
+		ToggleButton mpwrButton = (ToggleButton)mpwr.getButton(0, 0);
+		mpwrButton.setOnAction(new Runnable()
 		{
 			@Override
 			public void run()
@@ -737,7 +730,7 @@ public class ComplexDashboard extends DashboardProgram
 				engcolorgen.setActive(true);
 			}
 		});
-		epwrButton.setOffAction(new Runnable()
+		mpwrButton.setOffAction(new Runnable()
 		{
 			@Override
 			public void run()
@@ -745,6 +738,14 @@ public class ComplexDashboard extends DashboardProgram
 				engcolorgen.setActive(false);
 			}
 		});
+	}
+	
+	/**
+	 * Links the engine power switch with all the generators in the engine panel
+	 */
+	private void bindActionsEPWR()
+	{
+		
 	}
 	
 	/**

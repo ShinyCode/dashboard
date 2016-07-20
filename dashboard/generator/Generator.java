@@ -79,6 +79,16 @@ public abstract class Generator
 	}
 	
 	/**
+	 * Returns whether the generator is active.
+	 * 
+	 * @return whether the generator is active
+	 */
+	public boolean isActive()
+	{
+		return active;
+	}
+	
+	/**
 	 * Sets the time interval used by the Generator.
 	 * 
 	 * @param interval the time interval between updates, measured in milliseconds
