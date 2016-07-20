@@ -17,7 +17,7 @@ public final class AuxArrowPad extends ButtonGrid
 	/**
 	 * One of the cosmetic buttons used in the AuxArrowPad
 	 */
-	private TouchButton fwdButton, revButton, bnlButton, bnrButton;
+	private ToggleButton fwdButton, revButton, bnlButton, bnrButton;
 	
 	/**
 	 * Builder for the AuxArrowPad class.
@@ -79,13 +79,13 @@ public final class AuxArrowPad extends ButtonGrid
 	protected AuxArrowPad(double width, double height, double spacing, Color baseColor, Color buttonColor)
 	{
 		super(width, height, 2, 3, spacing, baseColor);
-		fwdButton = new TouchButton(width, height, buttonColor, "FWD");
+		fwdButton = new ToggleButton(width, height, buttonColor, "FWD");
 		addButton(fwdButton, 0, 1);
-		revButton = new TouchButton(width, height, buttonColor, "REV");
+		revButton = new ToggleButton(width, height, buttonColor, "REV");
 		addButton(revButton, 1, 1);
-		bnlButton = new TouchButton(width, height, buttonColor, "BNL");
+		bnlButton = new ToggleButton(width, height, buttonColor, "BNL");
 		addButton(bnlButton, 1, 0);
-		bnrButton = new TouchButton(width, height, buttonColor, "BNR");
+		bnrButton = new ToggleButton(width, height, buttonColor, "BNR");
 		addButton(bnrButton, 1, 2);
 	}
 	
