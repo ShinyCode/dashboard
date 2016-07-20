@@ -2,6 +2,7 @@ package examples;
 
 import java.awt.Color;
 
+import acm.graphics.GPoint;
 import dashboard.control.AuxArrowPad;
 import dashboard.control.Button;
 import dashboard.control.CustomButtonGrid;
@@ -12,6 +13,7 @@ import dashboard.control.ToggleButton;
 import dashboard.control.TouchButton;
 import dashboard.generator.BufferGenerator;
 import dashboard.generator.ColorGenerator;
+import dashboard.generator.DatumGenerator;
 import dashboard.program.DashboardProgram;
 import dashboard.readout.BarReadout;
 import dashboard.readout.BufferReadout;
@@ -101,6 +103,11 @@ public class ComplexDashboard extends DashboardProgram
 	 * The height of a Button in the CHAT (chat) CustomGroup
 	 */
 	private static final double CHAT_BUTTON_HEIGHT = BUTTON_HEIGHT;
+	
+	/**
+	 * Very slow update interval for chat logs
+	 */
+	private static final int CHAT_UPDATE_INTERVAL = 3000;
 	
 	/**
 	 * Slower update interval for Generators
@@ -198,6 +205,11 @@ public class ComplexDashboard extends DashboardProgram
 	private BufferGenerator buffergen;
 	
 	/**
+	 * The datum generator to calculate location
+	 */
+	private DatumGenerator datumgen;
+	
+	/**
 	 * Draws and starts the dashboard.
 	 */
 	public void init()
@@ -223,6 +235,7 @@ public class ComplexDashboard extends DashboardProgram
 		
 		initENGCOLORGEN();
 		initBUFFERGEN();
+		initDATUMGEN();
 		
 		bindActionsMPWR();
 		bindActionsEPWR();
@@ -607,6 +620,9 @@ public class ComplexDashboard extends DashboardProgram
 			.build();
 		double remainWidth = cir.getX() + cir.getWidth() - mpwr.getX();
 		addWidget("MMR", mmr, mpwr.getX() + remainWidth - mmr.getWidth(), cir.getY() + cir.getHeight() + COMPONENT_SPACING);
+		mmr.addPin("NORTHEAST", new GPoint(5.0, 5.0), Color.RED);
+		mmr.addPin("SOUTH", new GPoint(0.0, -4.0), Color.GREEN);
+		mmr.addPin("WEST", new GPoint(-7.0, 0.0), Color.PINK);
 		addBorder(mmr, COLOR, BORDER_WIDTH);
 	}
 	
@@ -645,6 +661,7 @@ public class ComplexDashboard extends DashboardProgram
 			.withSpacing(BUTTON_SPACING);
 		cmpr = cmprBuilder.build();
 		addWidget("CMPR1", cmpr, mpwr.getX(), mpwr.getY() + mpwr.getHeight() + COMPONENT_SPACING);
+		cmpr.updateGoal(new GPoint(0, 0));
 		addBorder(cmpr, COLOR, BORDER_WIDTH);
 	}
 	
@@ -669,9 +686,21 @@ public class ComplexDashboard extends DashboardProgram
 	 */
 	private void initBUFFERGEN()
 	{
-		buffergen = new BufferGenerator(SLOW_UPDATE_INTERVAL);
+		buffergen = new BufferGenerator(CHAT_UPDATE_INTERVAL);
 		buffergen.addReadout("CHATBFR", (Readout)getWidget("CHATBFR"));
 		buffergen.setSource("transmissions/transmission0.txt");
+	}
+	
+	/**
+	 * Initializes the DatumGenerator
+	 */
+	private void initDATUMGEN()
+	{
+		datumgen = new DatumGenerator();
+		datumgen.addReadout("MMR", mmr);
+		datumgen.addReadout("CMPR", cmpr);
+		datumgen.setEngineThrust(new GPoint(1000, 1000));
+		datumgen.setActive(true);
 	}
 	
 	/**
