@@ -5,6 +5,11 @@
 - [Features](#id-features)
 - [Usage](#id-usage)
 - [Widget Gallery](#id-widgets)
+  - [Button-based Controls](#id-button-controls)
+  - [Group-based Controls](#id-group-controls)
+  - [ButtonGrid-based Controls](#id-buttongrid-controls)
+  - [Readouts](#id-readouts)
+  - [Generators](#id-generators)
 
 <div id='id-features'/>
 ## Features
@@ -102,7 +107,9 @@ addrGen.setActive(true);
 
 <div id='id-widgets'/>
 ## Widget Gallery
+Below is a listing of all the Controls, Readouts, and Generators in **dashboard** as well as some code snippets detailing usage. Exact class and method descriptions can be found in the Javadoc.
 
+<div id='id-button-controls'/>
 ### Button-based Controls
 These controls are normally used within Group-based and ButtonGrid-based controls, but can be used by themselves. 
 Each Button-based control has an onAction and an offAction. When these Runnables are invoked depends on the exact control.
@@ -137,12 +144,14 @@ ToggleButton toggleButton = new ToggleButton(BUTTON_WIDTH, BUTTON_HEIGHT, Color.
 addWidget("TOGGLE", toggleButton, X, Y);
 ```
 
+<div id='id-group-controls'/>
 ### Group-based Controls
 These controls allow for absolute positioning of constituent widgets.
 
 #### CustomGroup
 A custom group of widgets that can be constructed at runtime.
 
+<div id='id-buttongrid-controls'/>
 ### ButtonGrid-based Controls
 These controls are built from various Buttons, which makes them both easy to design and use.
 
@@ -220,6 +229,7 @@ addWidget("MINC", multiInc, X, Y);
 #### CustomButtonGrid
 A custom grid of Buttons that can be constructed at runtime.
 
+<div id='id-readouts'/>
 ### Readouts
 In contrast to Controls, Readouts have no mouse functionality. Rather, they are used for displaying various types of data.
 The exact type of data accepted by a Readout depends on the exact Updatable interface it implements.
@@ -299,7 +309,6 @@ compassReadout.updateGoal(new GPoint(1, 1));
 compassReadout.update(new GPoint(0, 0), new GPoint(1, 0));
 ```
 
-
 #### DialReadout
 Represents a dial whose angle scales linearly with input values.
 
@@ -359,6 +368,7 @@ minimapReadout.addPin("WEST", new GPoint(-7.0, 0.0), Color.PINK);
 minimapReadout.update(new GPoint(0, 0), new GPoint(0, 1));
 ```
 
+<div id='id-generators'/>
 ### Generators
 Generators generate data for the sole cosmetic purpose of animating Readouts. Being undrawn, they work behind-the-scenes
 to make a dashboard seem "busier".
