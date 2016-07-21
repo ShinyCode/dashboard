@@ -12,6 +12,7 @@
   - [ButtonGrid-based Controls](#id-buttongrid-controls)
   - [Readouts](#id-readouts)
   - [Generators](#id-generators)
+- [Javadoc](#id-javadoc)
 
 <div id='id-features'/>
 ## Features
@@ -430,6 +431,8 @@ colorGen.addReadout("CR", colorReadout);
 colorGen.setActive(true);
 ```
 
-
+<div id='id-javadoc'/>
+## Javadoc
+The full documentation for the library can be found at this [Javadoc](https://shinycode.github.io/projects/dashboard/doc/index.html).
 
 
