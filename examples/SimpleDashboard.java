@@ -313,6 +313,16 @@ public class SimpleDashboard extends DashboardProgram
 		genAdd.addReadout("rot", rot);
 		genAdd.setActive(true);
 	}
+	
+	/**
+	 * main method to allow exporting as Runnable JAR
+	 * @param args command line arguments
+	 */
+	public static void main(String[] args)
+	{
+		SimpleDashboard sd = new SimpleDashboard();
+		sd.start();
+	}
 
 }
 

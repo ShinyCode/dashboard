@@ -62,7 +62,7 @@ public class BufferGenerator extends Generator
 		}
 		catch (FileNotFoundException e)
 		{
-			generate("Transmission error.");
+			generate("No transmissions in area.");
 		}
 	}
 	

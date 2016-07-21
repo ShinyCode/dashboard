@@ -774,4 +774,14 @@ public class ComplexDashboard extends DashboardProgram
 			}
 		});
 	}
+	
+	/**
+	 * main method to allow exporting as Runnable JAR
+	 * @param args command line arguments
+	 */
+	public static void main(String[] args)
+	{
+		ComplexDashboard cd = new ComplexDashboard();
+		cd.start();
+	}
 }
