@@ -50,12 +50,17 @@ public class SimpleDashboard extends DashboardProgram
 	/**
 	 * The secondary color of the dashboard
 	 */
-	private static final Color COLOR = Color.RED.darker();
+	private static final Color COLOR = new Color(8, 100, 183);
 	
 	/**
 	 * The accent color of the dashboard
 	 */
 	private static final Color ACCENT_COLOR = Color.ORANGE;
+	
+	/**
+	 * The number of divisions to use for each LevelReadout
+	 */
+	private static final int NUM_DIVISIONS = 10;
 	
 	/**
 	 * The height of a button in a readout control
@@ -137,15 +142,17 @@ public class SimpleDashboard extends DashboardProgram
 	 */
 	public void init()
 	{
+		setSize(760, 345);
+		
 		initPWR();
 		initAUX();
 		initAAP();
 		initReadouts();
 		initReadoutControls();
-		bindReadoutControls();
 		initPWRControl();
 		initGenerators();
-
+		bindReadoutControls();
+		
 		addBackground(COMPONENT_SPACING, BASE_COLOR);
 		addMouseListeners();
 	}
@@ -279,7 +286,7 @@ public class SimpleDashboard extends DashboardProgram
 			.withButtonColor(ACCENT_COLOR)
 			.build();
 		sinc.setName("SINC");
-		br = new BarReadout.Builder(sinc.getWidth(), sinc.getHeight(), 0)
+		br = new BarReadout.Builder(sinc.getWidth(), sinc.getHeight(), NUM_DIVISIONS)
 			.withSpacing(BUTTON_SPACING)
 			.withBaseColor(BASE_COLOR)
 			.withColor(COLOR)
