@@ -27,6 +27,8 @@ At its core, **dashboard** provides the DashboardProgram class (which simplifies
 
 <div id='id-usage'/>
 ## Usage
+The library makes extensive use of the Builder pattern. In general, the first two arguments passed to a Builder's constructor will be the width and height of the specified widgets. General library usage is shown below, while more specific information pertaining to individual widgets can be found either in the widget gallery or Javadoc.
+
 ### Using a Builder
 ```java
 ImageReadout ir = new ImageReadout.Builder(WIDTH, HEIGHT)
@@ -373,7 +375,8 @@ minimapReadout.update(new GPoint(0, 0), new GPoint(0, 1));
 <div id='id-generators'/>
 ### Generators
 Generators generate data for the sole cosmetic purpose of animating Readouts. Being undrawn, they work behind-the-scenes
-to make a dashboard seem "busier".
+to make a dashboard seem "busier". All Generator constructors take an update interval as their first argument, which specifies
+how often the Generator should run.
 
 #### DatumGenerator
 Implements a simple physics engine to simulate a ship's position and motion. An ignition switch
